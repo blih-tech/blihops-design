@@ -214,7 +214,8 @@ Invitation, completion, and reset URLs are tokenized and may not be reused after
 
 - The active primary and secondary destination is visually clear.
 - Loading preserves the application shell when possible.
-- Missing resources show a not-found state.
-- Unauthorized resources show access denied or redirect to the correct login.
+- An unresolved workspace ID shows Workspace Not Found with only Go Back.
+- An existing workspace unavailable to the signed-in account shows Access Denied with only Go Back.
+- Expired sessions redirect directly to Login; there is no standalone Session Expired screen.
 - Expired token links show a dedicated recovery action where one exists.
 - Empty lists explain the absence of data and offer a permitted next action.

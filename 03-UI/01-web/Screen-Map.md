@@ -1,13 +1,13 @@
 # Web UI Screen Map
 
-Design source: `web-ui.pen`
+Design source: `web.pen`
 
 ## Canvas Sections
 
 | Section | Content | Initial status |
 |---|---|---|
 | W00 | Foundations and reusable components | Complete |
-| W01 | Authentication and access | Next |
+| W01 | Authentication and access | Complete |
 | W02 | Invitations and profile completion | Planned |
 | W03 | Client Workspace shell and dashboard | Planned |
 | W04 | Talent discovery and interview request | Planned |
@@ -28,9 +28,10 @@ Design source: `web-ui.pen`
 | AUTH-05 | `/en/reset-password?token={token}` | Default |
 | AUTH-05 | `/en/reset-password?token={token}` | Validation errors |
 | AUTH-06 | `/en/reset-password?token={token}` | Invalid or expired token |
-| AUTH-12 | Protected route | Session expired dialog |
-| AUTH-13 | Attempted protected route | Access denied |
-| AUTH-14 | Attempted protected route | Resource unavailable |
+| AUTH-13 | `/en/workspaces/{workspaceId}` | Access denied |
+| AUTH-14 | `/en/workspaces/{workspaceId}` | Workspace not found |
+
+Expired sessions redirect directly to `/en/sign-in`; they do not use a dedicated screen.
 
 ## W02 — Invitations and Profile Completion
 

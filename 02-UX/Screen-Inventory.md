@@ -50,9 +50,10 @@ Entry points name the user-visible origin, not an implementation route.
 | AUTH-09 | Invalid or Expired Invitation | Full-Screen State | Client, Talent | Invalid, expired, replaced, or consumed invitation | Block activation and explain the available recovery path. | PRD 4.2, 4.4; Flows 4.2–4.3 |
 | AUTH-10 | Account Already Activated | Full-Screen State | Client, Talent | Consumed invitation for an active account | Direct the user to Login instead of repeating activation. | Flows 4.2–4.3 |
 | AUTH-11 | Account Menu | Popover | Admin, Client, Talent | Authenticated application header | Show identity, password action where applicable, and Log Out. | Navigation 7; Flow 4.6 |
-| AUTH-12 | Session Expired | Dialog | Admin, Client, Talent | Protected mutation or expired session | Explain session expiry and send the user to Login without falsely saving work. | PRD 14; Flow 4.7 |
-| AUTH-13 | Access Denied | Full-Screen State | Admin, Client, Talent | Unauthorized protected route | Prevent cross-role or cross-owner access without exposing private data. | PRD 3.2; Flow 4.7 |
-| AUTH-14 | Protected Resource Not Found | Full-Screen State | Admin, Client, Talent | Missing or inaccessible resource URL | Explain that the resource is unavailable and provide a safe return route. | Navigation 10; Flow 4.7 |
+| AUTH-13 | Access Denied | Full-Screen State | Admin, Client, Talent | An existing workspace is not available to the signed-in account | Show a neutral BlihOps state without workspace information and offer only Go Back. | PRD 3.2; Flow 4.7 |
+| AUTH-14 | Workspace Not Found | Full-Screen State | Admin, Client, Talent | The requested workspace ID does not resolve | Explain that the workspace could not be found without showing diagnostic information and offer only Go Back. | Navigation 10; Flow 4.7 |
+
+Session expiry is redirect behavior, not an inventory screen: redirect directly to Login and preserve the requested route when it remains valid.
 
 ---
 

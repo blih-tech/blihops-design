@@ -380,23 +380,24 @@ Each flow defines:
 
 ---
 
-## Flow 4.7 — Handle Unauthorized or Missing Resource
+## Flow 4.7 — Handle Unauthorized or Missing Workspace
 
 **Actor:** Admin, Client, or Talent  
-**Trigger:** The user opens a protected resource.  
-**Preconditions:** The route exists or was previously valid.
+**Trigger:** The user opens a workspace URL.  
+**Preconditions:** The route format is valid.
 
 ### Main Flow
 
-1. The system checks session, role, ownership, and resource state.
-2. An authorized user receives the resource.
-3. An unauthenticated user is redirected to Login.
-4. An authenticated but unauthorized user sees Access Denied.
-5. A missing resource shows Not Found.
+1. The system checks the session and requested workspace ID.
+2. An unauthenticated user or a user with an expired session is redirected directly to Login.
+3. An authorized user opens the workspace.
+4. If the workspace exists but is unavailable to the signed-in account, the user sees a neutral Access Denied state with only Go Back.
+5. If the workspace ID does not resolve, the user sees a neutral Workspace Not Found state with only Go Back.
 
 ### Alternatives and Errors
 
-- Archived resources follow role-specific behavior: Admin may view permitted archive detail; Client and Talent access is blocked.
+- Go Back returns to the previous safe BlihOps page. If no safe application history exists, the system uses the signed-in user’s valid entry route as an invisible fallback.
+- Neither state renders the destination workspace shell, name, ID, or private data.
 
 ### Postconditions
 
