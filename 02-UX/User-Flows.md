@@ -810,14 +810,15 @@ Each flow defines:
 
 1. The system validates the token before showing application context.
 2. The Talent enters final professional information.
-3. The Talent uploads or confirms a profile photo and resume.
-4. The Talent submits the form.
-5. The system validates fields and uploads.
-6. The system stores the submission on the Talent Application.
-7. The token is consumed.
-8. The application becomes `PROFILE_INFORMATION_SUBMITTED`.
-9. The Admin is notified.
-10. The Talent sees confirmation that BlihOps will review the information.
+3. The Talent uploads or confirms a profile photo.
+4. The Talent reviews the professional information and profile photo. The resume already submitted with the original Talent Application is not requested again.
+5. The Talent submits the form.
+6. The system validates fields and the photo upload.
+7. The system stores the submission on the Talent Application.
+8. The token is consumed.
+9. The application becomes `PROFILE_INFORMATION_SUBMITTED`.
+10. The Admin is notified.
+11. The Talent sees confirmation that BlihOps will review the information.
 
 ### Alternatives and Errors
 

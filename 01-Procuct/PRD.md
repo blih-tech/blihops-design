@@ -154,10 +154,11 @@ The form collects:
 - Years of experience
 - Portfolio
 - GitHub and LinkedIn
-- Resume
 - Availability
 - Earliest start date
 - Preferred engagement
+
+The resume submitted with the original Talent Application remains attached to the application and is not requested again during profile completion.
 
 The submitted information returns to the associated Talent Application for admin review.
 
@@ -807,7 +808,7 @@ Sensitive credentials are never displayed in full.
 ## 12. File Management
 
 - Talent Applications require a resume.
-- Profile completion may include a profile photo and replacement resume.
+- Profile completion may include a profile photo; it reuses the resume from the original Talent Application.
 - Talent Portal supports profile photo and resume replacement.
 - Managed content supports the image and video types required by each content model.
 - Files must pass configured type and size validation.

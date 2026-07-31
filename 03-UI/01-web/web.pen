@@ -4932,6 +4932,3124 @@
           }
         }
       ]
+    },
+    {
+      "type": "frame",
+      "id": "AltBw",
+      "x": 2880,
+      "y": 2780,
+      "name": "Component / Profile Completion Shell",
+      "reusable": true,
+      "clip": true,
+      "width": 1360,
+      "height": 900,
+      "fill": "$color-bg",
+      "layout": "none",
+      "children": [
+        {
+          "id": "FLghc",
+          "type": "ref",
+          "ref": "MFzpf",
+          "name": "Screen Annotation",
+          "x": 24,
+          "y": 24,
+          "width": 1312,
+          "height": 66
+        },
+        {
+          "type": "frame",
+          "id": "zsj6a",
+          "x": 24,
+          "y": 106,
+          "name": "Profile Completion Viewport",
+          "clip": true,
+          "width": 1312,
+          "height": 770,
+          "fill": "$color-surface",
+          "cornerRadius": 20,
+          "stroke": "$color-border",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "sIKkC",
+              "name": "Profile Completion Topbar",
+              "width": "fill_container",
+              "height": 64,
+              "stroke": "$color-border",
+              "strokeWidth": {
+                "bottom": 1
+              },
+              "padding": [
+                0,
+                24
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "SdNdX",
+                  "name": "BlihOps Brand",
+                  "gap": 14,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "G1VSbU",
+                      "name": "BlihOps Logo",
+                      "width": 116,
+                      "height": 32,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "../../../blihops-web/public/logo-blihops.png",
+                        "mode": "fit"
+                      }
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "pE9dR",
+                      "name": "Brand Divider",
+                      "fill": "$color-border",
+                      "width": 1,
+                      "height": 24
+                    },
+                    {
+                      "type": "text",
+                      "id": "KZazj",
+                      "name": "Form Title",
+                      "fill": "$color-text",
+                      "content": "Profile completion",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wqqVo",
+                  "name": "Secure Form Notice",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "O3YvB",
+                      "name": "Lock Icon",
+                      "width": 15,
+                      "height": 15,
+                      "icon": "lock-keyhole",
+                      "library": "lucide",
+                      "fill": "$color-text-muted"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FR1yg",
+                      "name": "Secure Form Label",
+                      "fill": "$color-text-muted",
+                      "content": "Secure form · No account required",
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "hYY1I",
+              "name": "Profile Completion Body",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "$color-bg",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "M3UISQ",
+                  "name": "Completion Progress Rail",
+                  "width": 268,
+                  "height": "fill_container",
+                  "fill": "$color-surface",
+                  "stroke": "$color-border",
+                  "strokeWidth": {
+                    "right": 1
+                  },
+                  "layout": "vertical",
+                  "padding": [
+                    36,
+                    28
+                  ],
+                  "justifyContent": "space_between",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "kUQjw",
+                      "name": "Completion Sidebar Main",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 18,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "AHnAY",
+                          "name": "Progress Eyebrow",
+                          "fill": "$color-primary",
+                          "content": "YOUR APPLICATION",
+                          "fontFamily": "$font-body",
+                          "fontSize": 11,
+                          "fontWeight": "700",
+                          "letterSpacing": 1.4
+                        },
+                        {
+                          "type": "text",
+                          "id": "WF5VA",
+                          "name": "Progress Title",
+                          "fill": "$color-text",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Complete your profile",
+                          "lineHeight": 1.08,
+                          "fontFamily": "$font-display",
+                          "fontSize": 24,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "wvD8F",
+                          "name": "Progress Description",
+                          "fill": "$color-text-muted",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Add the final details BlihOps needs to review your application.",
+                          "lineHeight": 1.45,
+                          "fontFamily": "$font-body",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "HgiYN",
+                          "name": "Completion Steps",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 18,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "ESQBv",
+                              "name": "Step 1 / Professional details",
+                              "width": "fill_container",
+                              "gap": 12,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "uI9BA",
+                                  "name": "Step 1 Indicator",
+                                  "width": 28,
+                                  "height": 28,
+                                  "fill": "$color-primary",
+                                  "cornerRadius": 14,
+                                  "stroke": "$color-primary",
+                                  "strokeWidth": 1,
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "leosi",
+                                      "name": "Step 1 Number",
+                                      "fill": "#FFFFFF",
+                                      "content": "1",
+                                      "fontFamily": "$font-body",
+                                      "fontSize": 12,
+                                      "fontWeight": "700"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "PRBsw",
+                                  "name": "Step 1 Label",
+                                  "fill": "$color-text",
+                                  "content": "Professional details",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "650"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "LtDtW",
+                              "name": "Step 2 / Profile photo",
+                              "width": "fill_container",
+                              "gap": 12,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "df9jp",
+                                  "name": "Step 2 Indicator",
+                                  "width": 28,
+                                  "height": 28,
+                                  "fill": "$color-surface-strong",
+                                  "cornerRadius": 14,
+                                  "stroke": "$color-border",
+                                  "strokeWidth": 1,
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "dBaAo",
+                                      "name": "Step 2 Number",
+                                      "fill": "$color-text-muted",
+                                      "content": "2",
+                                      "fontFamily": "$font-body",
+                                      "fontSize": 12,
+                                      "fontWeight": "700"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "p9iFr",
+                                  "name": "Step 2 Label",
+                                  "fill": "$color-text-muted",
+                                  "content": "Profile photo",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "drBDW",
+                              "name": "Step 3 / Review Information",
+                              "width": "fill_container",
+                              "gap": 12,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "ciKyH",
+                                  "name": "Step 3 Indicator",
+                                  "width": 28,
+                                  "height": 28,
+                                  "fill": "$color-surface-strong",
+                                  "cornerRadius": 14,
+                                  "stroke": "$color-border",
+                                  "strokeWidth": 1,
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "K1xk1J",
+                                      "name": "Step 3 Number",
+                                      "fill": "$color-text-muted",
+                                      "content": "3",
+                                      "fontFamily": "$font-body",
+                                      "fontSize": 12,
+                                      "fontWeight": "700"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "q4Ew7",
+                                  "name": "Step 3 Label",
+                                  "fill": "$color-text-muted",
+                                  "content": "Review information",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "aFzoH",
+                              "name": "Step 4 / Submitted",
+                              "width": "fill_container",
+                              "gap": 12,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "hlpe2",
+                                  "name": "Step 4 Indicator",
+                                  "width": 28,
+                                  "height": 28,
+                                  "fill": "$color-surface-strong",
+                                  "cornerRadius": 14,
+                                  "stroke": "$color-border",
+                                  "strokeWidth": 1,
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "ygmlJ",
+                                      "name": "Step 4 Number",
+                                      "fill": "$color-text-muted",
+                                      "content": "4",
+                                      "fontFamily": "$font-body",
+                                      "fontSize": 12,
+                                      "fontWeight": "700"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "NLrYU",
+                                  "name": "Step 4 Label",
+                                  "fill": "$color-text-muted",
+                                  "content": "Submitted",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ShrzC",
+                      "name": "Sidebar Context Notice",
+                      "width": "fill_container",
+                      "fill": "$color-primary-soft",
+                      "cornerRadius": 12,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 14,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "qi1J5",
+                          "name": "Sidebar Notice Title",
+                          "fill": "$color-primary-dark",
+                          "content": "What happens next?",
+                          "fontFamily": "$font-body",
+                          "fontSize": 12,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "M4leGR",
+                          "name": "Sidebar Notice Message",
+                          "fill": "$color-primary-dark",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Complete each stage, review your information, then submit it for BlihOps review.",
+                          "lineHeight": 1.45,
+                          "fontFamily": "$font-body",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "y83BY",
+                  "name": "Profile Completion Content Slot",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$color-bg",
+                  "layout": "vertical",
+                  "gap": 20,
+                  "padding": [
+                    34,
+                    44
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "gMhgg",
+                      "name": "Content Placeholder",
+                      "fill": "$color-text-muted",
+                      "content": "Profile completion screen content",
+                      "fontFamily": "$font-body",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "b8J1O",
+      "x": 3040,
+      "y": 3760,
+      "name": "W02 / AUTH-07 / Client Invitation / Default",
+      "clip": true,
+      "width": 1360,
+      "height": 900,
+      "layout": "none",
+      "children": [
+        {
+          "id": "wtNna",
+          "type": "ref",
+          "ref": "Iv1IH",
+          "name": "Client Invitation Shell",
+          "x": 0,
+          "y": 0,
+          "descendants": {
+            "hJkNS/YglCv": {
+              "content": "/en/accept-invitation/client?token={token}"
+            },
+            "hJkNS/Stw87": {
+              "content": "Default"
+            },
+            "hJkNS/oSDQV": {
+              "content": "AUTH-07"
+            },
+            "jqYLj": {
+              "type": "frame",
+              "id": "RVhct",
+              "name": "Client Invitation Content",
+              "width": 412,
+              "layout": "vertical",
+              "gap": 11,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "cZeZY",
+                  "name": "Client Invitation Eyebrow",
+                  "fill": "$color-primary-dark",
+                  "content": "CLIENT INVITATION",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 10,
+                  "fontWeight": "600",
+                  "letterSpacing": 1.1
+                },
+                {
+                  "type": "text",
+                  "id": "fkKX1",
+                  "name": "Client Invitation Title",
+                  "fill": "$color-text",
+                  "content": "Activate your workspace.",
+                  "fontFamily": "$font-display",
+                  "fontSize": 29,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "FMyVT",
+                  "name": "Client Invitation Description",
+                  "fill": "$color-text-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Create the Client account that will manage this workspace.",
+                  "lineHeight": 1.4,
+                  "fontFamily": "$font-body",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "kvPO8",
+                  "name": "Client Invitation Context",
+                  "width": "fill_container",
+                  "fill": "$color-primary-soft",
+                  "cornerRadius": 12,
+                  "gap": 12,
+                  "padding": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "goNIS",
+                      "name": "Company Mark",
+                      "width": 34,
+                      "height": 34,
+                      "fill": "$color-primary",
+                      "cornerRadius": 9,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "k4Kzj",
+                          "name": "Company Initial",
+                          "fill": "#FFFFFF",
+                          "content": "A",
+                          "fontFamily": "$font-body",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "alZr3",
+                      "name": "Company Invitation Details",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Yv6Cc",
+                          "name": "Invited Company",
+                          "fill": "$color-text",
+                          "content": "Acme Technologies",
+                          "fontFamily": "$font-body",
+                          "fontSize": 12,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "gLgIY",
+                          "name": "Invited Client Email",
+                          "fill": "$color-text-muted",
+                          "content": "sara@acme.example",
+                          "fontFamily": "$font-body",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "yfdrL",
+                  "type": "ref",
+                  "ref": "KBc1h",
+                  "name": "Create Password Field",
+                  "width": "fill_container",
+                  "descendants": {
+                    "wgMp2": {
+                      "content": "Create password"
+                    },
+                    "GyTF0": {
+                      "icon": "lock-keyhole"
+                    },
+                    "C7gXj": {
+                      "content": "At least 8 characters"
+                    },
+                    "scXxW": {
+                      "content": "Use a strong, unique password."
+                    }
+                  }
+                },
+                {
+                  "id": "PxnUR",
+                  "type": "ref",
+                  "ref": "KBc1h",
+                  "name": "Confirm Password Field",
+                  "width": "fill_container",
+                  "descendants": {
+                    "wgMp2": {
+                      "content": "Confirm password"
+                    },
+                    "GyTF0": {
+                      "icon": "lock-keyhole"
+                    },
+                    "C7gXj": {
+                      "content": "Re-enter your password"
+                    },
+                    "scXxW": {
+                      "content": " ",
+                      "fill": "#00000000"
+                    }
+                  }
+                },
+                {
+                  "id": "YmE80",
+                  "type": "ref",
+                  "ref": "FigAB",
+                  "name": "Activate Client Account Button",
+                  "width": "fill_container",
+                  "descendants": {
+                    "PJqVV": {
+                      "icon": "arrow-right"
+                    },
+                    "DNfF9": {
+                      "content": "Activate account"
+                    }
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "ZA8T8",
+                  "name": "Client Activation Outcome",
+                  "width": "fill_container",
+                  "gap": 7,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "K2hhD",
+                      "name": "Workspace Outcome Icon",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "building-2",
+                      "library": "lucide",
+                      "fill": "$color-success"
+                    },
+                    {
+                      "type": "text",
+                      "id": "RCogm",
+                      "name": "Workspace Outcome Text",
+                      "fill": "$color-text-muted",
+                      "content": "After activation, you’ll enter the Client Workspace.",
+                      "fontFamily": "$font-body",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "yLnHP",
+      "x": 4480,
+      "y": 3760,
+      "name": "W02 / AUTH-08 / Talent Invitation / Default",
+      "clip": true,
+      "width": 1360,
+      "height": 900,
+      "layout": "none",
+      "children": [
+        {
+          "id": "U4snix",
+          "type": "ref",
+          "ref": "Iv1IH",
+          "name": "Talent Invitation Shell",
+          "x": 0,
+          "y": 0,
+          "descendants": {
+            "hJkNS/YglCv": {
+              "content": "/en/accept-invitation/talent?token={token}"
+            },
+            "hJkNS/Stw87": {
+              "content": "Default"
+            },
+            "hJkNS/oSDQV": {
+              "content": "AUTH-08"
+            },
+            "jqYLj": {
+              "type": "frame",
+              "id": "zYEjb",
+              "name": "Talent Invitation Content",
+              "width": 412,
+              "layout": "vertical",
+              "gap": 11,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "QwKNV",
+                  "name": "Talent Invitation Eyebrow",
+                  "fill": "$color-primary-dark",
+                  "content": "TALENT INVITATION",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 10,
+                  "fontWeight": "600",
+                  "letterSpacing": 1.1
+                },
+                {
+                  "type": "text",
+                  "id": "V8Hsk6",
+                  "name": "Talent Invitation Title",
+                  "fill": "$color-text",
+                  "content": "Activate your talent account.",
+                  "fontFamily": "$font-display",
+                  "fontSize": 28,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "v2YbOg",
+                  "name": "Talent Invitation Description",
+                  "fill": "$color-text-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Set a password for the account linked to your existing BlihOps talent profile.",
+                  "lineHeight": 1.4,
+                  "fontFamily": "$font-body",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "V9Okj",
+                  "name": "Talent Invitation Context",
+                  "width": "fill_container",
+                  "fill": "$color-primary-soft",
+                  "cornerRadius": 12,
+                  "gap": 12,
+                  "padding": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "eSbSt",
+                      "name": "Talent Avatar",
+                      "width": 34,
+                      "height": 34,
+                      "fill": "$color-primary",
+                      "cornerRadius": 17,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ukqaH",
+                          "name": "Talent Initials",
+                          "fill": "#FFFFFF",
+                          "content": "JM",
+                          "fontFamily": "$font-body",
+                          "fontSize": 11,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "zcTCE",
+                      "name": "Talent Invitation Details",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "f3c82",
+                          "name": "Invited Talent Name",
+                          "fill": "$color-text",
+                          "content": "Jordan Mensah",
+                          "fontFamily": "$font-body",
+                          "fontSize": 12,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "d75aic",
+                          "name": "Invited Talent Email",
+                          "fill": "$color-text-muted",
+                          "content": "jordan@example.com",
+                          "fontFamily": "$font-body",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "NiO4I",
+                  "type": "ref",
+                  "ref": "KBc1h",
+                  "name": "Talent Create Password Field",
+                  "width": "fill_container",
+                  "descendants": {
+                    "wgMp2": {
+                      "content": "Create password"
+                    },
+                    "GyTF0": {
+                      "icon": "lock-keyhole"
+                    },
+                    "C7gXj": {
+                      "content": "At least 8 characters"
+                    },
+                    "scXxW": {
+                      "content": "Use a strong, unique password."
+                    }
+                  }
+                },
+                {
+                  "id": "Hjtn8",
+                  "type": "ref",
+                  "ref": "KBc1h",
+                  "name": "Talent Confirm Password Field",
+                  "width": "fill_container",
+                  "descendants": {
+                    "wgMp2": {
+                      "content": "Confirm password"
+                    },
+                    "GyTF0": {
+                      "icon": "lock-keyhole"
+                    },
+                    "C7gXj": {
+                      "content": "Re-enter your password"
+                    },
+                    "scXxW": {
+                      "content": " ",
+                      "fill": "#00000000"
+                    }
+                  }
+                },
+                {
+                  "id": "skDQf",
+                  "type": "ref",
+                  "ref": "FigAB",
+                  "name": "Activate Talent Account Button",
+                  "width": "fill_container",
+                  "descendants": {
+                    "PJqVV": {
+                      "icon": "arrow-right"
+                    },
+                    "DNfF9": {
+                      "content": "Activate account"
+                    }
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "FzEbT",
+                  "name": "Talent Activation Outcome",
+                  "width": "fill_container",
+                  "gap": 7,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "nsCKv",
+                      "name": "Profile Outcome Icon",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "user-round-check",
+                      "library": "lucide",
+                      "fill": "$color-success"
+                    },
+                    {
+                      "type": "text",
+                      "id": "wW1VW",
+                      "name": "Profile Outcome Text",
+                      "fill": "$color-text-muted",
+                      "content": "After activation, you’ll open Profile Management.",
+                      "fontFamily": "$font-body",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "AWcQe",
+      "x": 3040,
+      "y": 4740,
+      "name": "W02 / AUTH-09 / Invitation / Invalid or Expired",
+      "clip": true,
+      "width": 1360,
+      "height": 900,
+      "layout": "none",
+      "children": [
+        {
+          "id": "IO8Tk",
+          "type": "ref",
+          "ref": "Iv1IH",
+          "name": "Invalid Invitation Shell",
+          "x": 0,
+          "y": 0,
+          "descendants": {
+            "hJkNS/YglCv": {
+              "content": "/en/accept-invitation/{role}?token={token}"
+            },
+            "hJkNS/Stw87": {
+              "content": "Invalid or expired"
+            },
+            "hJkNS/oSDQV": {
+              "content": "AUTH-09"
+            },
+            "jqYLj": {
+              "type": "frame",
+              "id": "Dpiqg",
+              "name": "Invalid Invitation Content",
+              "width": 400,
+              "layout": "vertical",
+              "gap": 15,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "f4ttYn",
+                  "name": "Invalid Invitation Icon",
+                  "width": 44,
+                  "height": 44,
+                  "fill": "$color-warning-soft",
+                  "cornerRadius": 22,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "yGCM2",
+                      "name": "Invitation Warning Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "link-2-off",
+                      "library": "lucide",
+                      "fill": "$color-warning"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "R4Gqn",
+                  "name": "Invalid Invitation Eyebrow",
+                  "fill": "$color-warning",
+                  "content": "INVITATION UNAVAILABLE",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 10,
+                  "fontWeight": "600",
+                  "letterSpacing": 1.1
+                },
+                {
+                  "type": "text",
+                  "id": "U7if0r",
+                  "name": "Invalid Invitation Title",
+                  "fill": "$color-text",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "This invitation is no longer valid.",
+                  "lineHeight": 1.08,
+                  "fontFamily": "$font-display",
+                  "fontSize": 30,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "e7Mgk",
+                  "name": "Invalid Invitation Description",
+                  "fill": "$color-text-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "The link may have expired, been replaced, or already been used. BlihOps can verify the invitation and send a new one when appropriate.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "$font-body",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "id": "S5EQ6",
+                  "type": "ref",
+                  "ref": "U8NSM4",
+                  "name": "Invalid Invitation Alert",
+                  "width": "fill_container",
+                  "descendants": {
+                    "t2xxET": {
+                      "content": "Your account has not been changed"
+                    },
+                    "EDrmo": {
+                      "content": "For your security, passwords entered on an unavailable link are not retained.",
+                      "textGrowth": "fixed-width",
+                      "width": 344,
+                      "height": 13,
+                      "flipX": false,
+                      "flipY": false,
+                      "x": 0,
+                      "y": 17
+                    }
+                  }
+                },
+                {
+                  "id": "AcUak",
+                  "type": "ref",
+                  "ref": "FigAB",
+                  "name": "Contact BlihOps Button",
+                  "width": "fill_container",
+                  "descendants": {
+                    "PJqVV": {
+                      "icon": "messages-square"
+                    },
+                    "DNfF9": {
+                      "content": "Contact BlihOps"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "IUP9a",
+      "x": 4480,
+      "y": 4740,
+      "name": "W02 / AUTH-10 / Invitation / Account Already Activated",
+      "clip": true,
+      "width": 1360,
+      "height": 900,
+      "layout": "none",
+      "children": [
+        {
+          "id": "qq3zi",
+          "type": "ref",
+          "ref": "Iv1IH",
+          "name": "Activated Invitation Shell",
+          "x": 0,
+          "y": 0,
+          "descendants": {
+            "hJkNS/YglCv": {
+              "content": "/en/accept-invitation/{role}?token={token}"
+            },
+            "hJkNS/Stw87": {
+              "content": "Account already activated"
+            },
+            "hJkNS/oSDQV": {
+              "content": "AUTH-10"
+            },
+            "jqYLj": {
+              "type": "frame",
+              "id": "O9mNs",
+              "name": "Activated Invitation Content",
+              "width": 400,
+              "layout": "vertical",
+              "gap": 15,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "izOJu",
+                  "name": "Activated Account Icon",
+                  "width": 44,
+                  "height": 44,
+                  "fill": "$color-success-soft",
+                  "cornerRadius": 22,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "ThNAI",
+                      "name": "Activated Check Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "circle-check-big",
+                      "library": "lucide",
+                      "fill": "$color-success"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "bYO7Z",
+                  "name": "Activated Invitation Eyebrow",
+                  "fill": "$color-success",
+                  "content": "ACCOUNT READY",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 10,
+                  "fontWeight": "600",
+                  "letterSpacing": 1.1
+                },
+                {
+                  "type": "text",
+                  "id": "vaGnN",
+                  "name": "Activated Invitation Title",
+                  "fill": "$color-text",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Your account is already active.",
+                  "lineHeight": 1.08,
+                  "fontFamily": "$font-display",
+                  "fontSize": 30,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "XnY5U",
+                  "name": "Activated Invitation Description",
+                  "fill": "$color-text-muted",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "This invitation has already been completed. Sign in with the email address that received the invitation.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "$font-body",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "id": "cCjqi",
+                  "type": "ref",
+                  "ref": "S2kcx",
+                  "name": "Activated Invitation Alert",
+                  "width": "fill_container",
+                  "descendants": {
+                    "kdSNe": {
+                      "content": "No activation is needed"
+                    },
+                    "QubzG": {
+                      "content": "If you cannot sign in, use Forgot password from the sign-in page."
+                    }
+                  }
+                },
+                {
+                  "id": "cxyjP",
+                  "type": "ref",
+                  "ref": "FigAB",
+                  "name": "Go to Sign In Button",
+                  "width": "fill_container",
+                  "descendants": {
+                    "PJqVV": {
+                      "icon": "log-in"
+                    },
+                    "DNfF9": {
+                      "content": "Sign in"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "axW35",
+      "x": 3040,
+      "y": 5720,
+      "name": "W02 / COMPFORM-01 / Profile Completion / Default",
+      "clip": true,
+      "width": 1360,
+      "height": 900,
+      "layout": "none",
+      "children": [
+        {
+          "id": "jevYM",
+          "type": "ref",
+          "ref": "AltBw",
+          "name": "Profile Completion Default Shell",
+          "x": 0,
+          "y": 0,
+          "descendants": {
+            "FLghc/YglCv": {
+              "content": "/en/complete-profile?token={token}"
+            },
+            "FLghc/Stw87": {
+              "content": "Default"
+            },
+            "FLghc/oSDQV": {
+              "content": "COMPFORM-01"
+            },
+            "qi1J5": {
+              "content": "Next: profile photo",
+              "fill": "$color-primary-dark"
+            },
+            "M4leGR": {
+              "content": "Save these details, then add a profile photo before reviewing your submission.",
+              "fill": "$color-primary-dark"
+            },
+            "y83BY": {
+              "type": "frame",
+              "id": "i2BIM4",
+              "name": "Professional Details Content",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "$color-bg",
+              "layout": "vertical",
+              "padding": [
+                40,
+                40,
+                22,
+                40
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "okyW6",
+                  "name": "Professional Details Column",
+                  "width": 780,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "nmMqs",
+                      "name": "Professional Details Header",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "xQ8MI",
+                          "name": "Professional Details Eyebrow",
+                          "fill": "$color-primary-dark",
+                          "content": "STEP 1 OF 4 · PROFESSIONAL DETAILS",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 10,
+                          "fontWeight": "650",
+                          "letterSpacing": 1.1
+                        },
+                        {
+                          "type": "text",
+                          "id": "jEZhm",
+                          "name": "Professional Details Title",
+                          "fill": "$color-text",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Tell us how you work best.",
+                          "lineHeight": 1.08,
+                          "fontFamily": "$font-display",
+                          "fontSize": 27,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ekpTA",
+                          "name": "Professional Details Description",
+                          "fill": "$color-text-muted",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Add the final professional information BlihOps needs to review your application.",
+                          "lineHeight": 1.4,
+                          "fontFamily": "$font-body",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Q7g31z",
+                      "name": "Application Context",
+                      "width": "fill_container",
+                      "fill": "$color-primary-soft",
+                      "cornerRadius": 9,
+                      "gap": 9,
+                      "padding": [
+                        8,
+                        11
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "ba4sW",
+                          "name": "Application Context Icon",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "briefcase-business",
+                          "library": "lucide",
+                          "fill": "$color-primary"
+                        },
+                        {
+                          "type": "text",
+                          "id": "R2tNF",
+                          "name": "Application Context Label",
+                          "fill": "$color-primary-dark",
+                          "content": "Jordan Mensah · Product Designer · Application BLH-2048",
+                          "fontFamily": "$font-body",
+                          "fontSize": 10,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "g4aIrX",
+                      "name": "Professional Details Row One",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "id": "Nye0e",
+                          "type": "ref",
+                          "ref": "KBc1h",
+                          "name": "Professional Headline Field",
+                          "width": "fill_container",
+                          "descendants": {
+                            "wgMp2": {
+                              "content": "Professional headline"
+                            },
+                            "GyTF0": {
+                              "icon": "sparkles"
+                            },
+                            "C7gXj": {
+                              "content": "Senior Product Designer"
+                            },
+                            "scXxW": {
+                              "content": "Keep it concise and specific."
+                            }
+                          }
+                        },
+                        {
+                          "id": "Glv5B",
+                          "type": "ref",
+                          "ref": "KBc1h",
+                          "name": "Location Field",
+                          "width": "fill_container",
+                          "descendants": {
+                            "wgMp2": {
+                              "content": "Location"
+                            },
+                            "GyTF0": {
+                              "icon": "map-pin"
+                            },
+                            "C7gXj": {
+                              "content": "Nairobi, Kenya"
+                            },
+                            "scXxW": {
+                              "content": "City and country."
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "A6mKBC",
+                      "name": "Professional Details Row Two",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "id": "S6GKTP",
+                          "type": "ref",
+                          "ref": "KBc1h",
+                          "name": "Availability Field",
+                          "width": "fill_container",
+                          "descendants": {
+                            "wgMp2": {
+                              "content": "Availability"
+                            },
+                            "GyTF0": {
+                              "icon": "calendar-days"
+                            },
+                            "C7gXj": {
+                              "content": "Available in 2 weeks"
+                            },
+                            "scXxW": {
+                              "content": "Your earliest start date."
+                            }
+                          }
+                        },
+                        {
+                          "id": "z9AI3",
+                          "type": "ref",
+                          "ref": "KBc1h",
+                          "name": "Preferred Engagement Field",
+                          "width": "fill_container",
+                          "descendants": {
+                            "wgMp2": {
+                              "content": "Preferred engagement"
+                            },
+                            "GyTF0": {
+                              "icon": "clock-3"
+                            },
+                            "C7gXj": {
+                              "content": "Full-time or contract"
+                            },
+                            "scXxW": {
+                              "content": "Select the best fit."
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "UFrOT",
+                      "name": "Professional Summary Field",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 5,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "zmYDm",
+                          "name": "Professional Summary Label",
+                          "fill": "$color-text",
+                          "content": "Professional summary",
+                          "fontFamily": "$font-body",
+                          "fontSize": 11,
+                          "fontWeight": "650"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Ii4zf",
+                          "name": "Professional Summary Input",
+                          "width": "fill_container",
+                          "height": 64,
+                          "fill": "$color-surface",
+                          "cornerRadius": 9,
+                          "stroke": "$color-border",
+                          "strokeWidth": 1,
+                          "layout": "vertical",
+                          "padding": 11,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "A8Zg8L",
+                              "name": "Professional Summary Value",
+                              "fill": "$color-text",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "I design clear, scalable product experiences for teams building operational software.",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "y9db7Q",
+                      "name": "Professional Details Actions",
+                      "width": "fill_container",
+                      "padding": [
+                        6,
+                        0,
+                        0,
+                        0
+                      ],
+                      "justifyContent": "end",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "id": "wkyor",
+                          "type": "ref",
+                          "ref": "FigAB",
+                          "name": "Continue To Photo Button",
+                          "width": 210,
+                          "descendants": {
+                            "PJqVV": {
+                              "icon": "arrow-right"
+                            },
+                            "DNfF9": {
+                              "content": "Continue to photo"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "wwUuj",
+      "x": 4480,
+      "y": 5720,
+      "name": "W02 / COMPFORM-01 / Profile Completion / Validation Errors",
+      "clip": true,
+      "width": 1360,
+      "height": 900,
+      "layout": "none",
+      "children": [
+        {
+          "id": "xSlDC",
+          "type": "ref",
+          "ref": "AltBw",
+          "name": "Profile Completion Default Shell",
+          "x": 0,
+          "y": 0,
+          "descendants": {
+            "FLghc/YglCv": {
+              "content": "/en/complete-profile?token={token}"
+            },
+            "FLghc/Stw87": {
+              "content": "Validation errors"
+            },
+            "FLghc/oSDQV": {
+              "content": "COMPFORM-01"
+            },
+            "ShrzC": {
+              "fill": "$color-warning-soft"
+            },
+            "qi1J5": {
+              "content": "Check required details",
+              "fill": "$color-warning"
+            },
+            "M4leGR": {
+              "content": "Fix the highlighted fields. Your other valid information remains saved.",
+              "fill": "$color-text-muted"
+            },
+            "y83BY": {
+              "type": "frame",
+              "id": "nDbfP",
+              "name": "Professional Details Validation Content",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "$color-bg",
+              "layout": "vertical",
+              "padding": [
+                40,
+                40,
+                22,
+                40
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VGBLl",
+                  "name": "Professional Details Validation Column",
+                  "width": 780,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "uSjr5",
+                      "name": "Validation Header",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "bL9J2",
+                          "name": "Validation Eyebrow",
+                          "fill": "$color-danger",
+                          "content": "STEP 1 OF 4 · PROFESSIONAL DETAILS",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 10,
+                          "fontWeight": "650",
+                          "letterSpacing": 1.1
+                        },
+                        {
+                          "type": "text",
+                          "id": "aq8rM",
+                          "name": "Validation Title",
+                          "fill": "$color-text",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "A few details still need attention.",
+                          "lineHeight": 1.08,
+                          "fontFamily": "$font-display",
+                          "fontSize": 27,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "hfMZc",
+                          "name": "Validation Description",
+                          "fill": "$color-text-muted",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Your valid entries are retained. Resolve the highlighted fields, then continue.",
+                          "lineHeight": 1.4,
+                          "fontFamily": "$font-body",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "r8X7Nk",
+                      "name": "Validation Attention Strip",
+                      "width": "fill_container",
+                      "fill": "$color-warning-soft",
+                      "cornerRadius": 9,
+                      "gap": 9,
+                      "padding": [
+                        8,
+                        11
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "l0eDT",
+                          "name": "Validation Attention Icon",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "triangle-alert",
+                          "library": "lucide",
+                          "fill": "$color-warning"
+                        },
+                        {
+                          "type": "text",
+                          "id": "oLvVN",
+                          "name": "Validation Attention Text",
+                          "fill": "$color-text",
+                          "content": "Complete the required professional details below.",
+                          "fontFamily": "$font-body",
+                          "fontSize": 10,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "WFiyv",
+                      "name": "Validation Details Row One",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "id": "NZaGX",
+                          "type": "ref",
+                          "ref": "KBc1h",
+                          "name": "Headline Validation Field",
+                          "width": "fill_container",
+                          "descendants": {
+                            "wgMp2": {
+                              "content": "Professional headline"
+                            },
+                            "PfHqz": {
+                              "stroke": "$color-danger"
+                            },
+                            "GyTF0": {
+                              "icon": "sparkles"
+                            },
+                            "C7gXj": {
+                              "content": "Enter your professional headline",
+                              "fill": "$color-text-muted"
+                            },
+                            "scXxW": {
+                              "content": "Professional headline is required.",
+                              "fill": "$color-danger"
+                            }
+                          }
+                        },
+                        {
+                          "id": "vhXaY",
+                          "type": "ref",
+                          "ref": "KBc1h",
+                          "name": "Location Validation Field",
+                          "width": "fill_container",
+                          "descendants": {
+                            "wgMp2": {
+                              "content": "Location"
+                            },
+                            "GyTF0": {
+                              "icon": "map-pin"
+                            },
+                            "C7gXj": {
+                              "content": "Nairobi, Kenya"
+                            },
+                            "scXxW": {
+                              "content": "City and country."
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "EVsGC",
+                      "name": "Validation Details Row Two",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "id": "KKrDg",
+                          "type": "ref",
+                          "ref": "KBc1h",
+                          "name": "Availability Validation Field",
+                          "width": "fill_container",
+                          "descendants": {
+                            "wgMp2": {
+                              "content": "Availability"
+                            },
+                            "GyTF0": {
+                              "icon": "calendar-days"
+                            },
+                            "C7gXj": {
+                              "content": "Available in 2 weeks"
+                            },
+                            "scXxW": {
+                              "content": "Your earliest start date."
+                            }
+                          }
+                        },
+                        {
+                          "id": "JEMAz",
+                          "type": "ref",
+                          "ref": "KBc1h",
+                          "name": "Engagement Validation Field",
+                          "width": "fill_container",
+                          "descendants": {
+                            "wgMp2": {
+                              "content": "Preferred engagement"
+                            },
+                            "GyTF0": {
+                              "icon": "clock-3"
+                            },
+                            "C7gXj": {
+                              "content": "Full-time or contract"
+                            },
+                            "scXxW": {
+                              "content": "Select the best fit."
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ot0xf",
+                      "name": "Summary Validation Field",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 5,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "G9gFe",
+                          "name": "Summary Validation Label",
+                          "fill": "$color-text",
+                          "content": "Professional summary",
+                          "fontFamily": "$font-body",
+                          "fontSize": 11,
+                          "fontWeight": "650"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "juiBe",
+                          "name": "Summary Validation Input",
+                          "width": "fill_container",
+                          "height": 64,
+                          "fill": "$color-danger-soft",
+                          "cornerRadius": 9,
+                          "stroke": "$color-danger",
+                          "strokeWidth": 1,
+                          "layout": "vertical",
+                          "padding": 11,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "gdS2X",
+                              "name": "Summary Validation Value",
+                              "fill": "$color-text-muted",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Add a short summary of your experience and strengths.",
+                              "lineHeight": 1.35,
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "fJgL2",
+                      "name": "Validation Actions",
+                      "width": "fill_container",
+                      "padding": [
+                        6,
+                        0,
+                        0,
+                        0
+                      ],
+                      "justifyContent": "end",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "id": "s0wDeE",
+                          "type": "ref",
+                          "ref": "FigAB",
+                          "name": "Continue After Validation Button",
+                          "width": 210,
+                          "descendants": {
+                            "PJqVV": {
+                              "icon": "arrow-right"
+                            },
+                            "DNfF9": {
+                              "content": "Continue to photo"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "PoBEP",
+      "x": 3040,
+      "y": 6700,
+      "name": "W02 / COMPFORM-02 / Profile Completion / Photo Upload In Progress",
+      "clip": true,
+      "width": 1360,
+      "height": 900,
+      "layout": "none",
+      "children": [
+        {
+          "id": "E0G1c",
+          "type": "ref",
+          "ref": "AltBw",
+          "name": "Photo Upload Progress Shell",
+          "x": 0,
+          "y": 0,
+          "descendants": {
+            "FLghc/YglCv": {
+              "content": "/en/complete-profile?token={token}"
+            },
+            "FLghc/Stw87": {
+              "content": "Photo upload in progress"
+            },
+            "FLghc/oSDQV": {
+              "content": "COMPFORM-02"
+            },
+            "uI9BA": {
+              "fill": "$color-success",
+              "stroke": "$color-success"
+            },
+            "leosi": {
+              "content": "✓",
+              "fill": "#FFFFFF"
+            },
+            "PRBsw": {
+              "fill": "$color-text",
+              "fontWeight": "600"
+            },
+            "qi1J5": {
+              "content": "Photo upload in progress",
+              "fill": "$color-primary-dark"
+            },
+            "M4leGR": {
+              "content": "Keep this page open. When the upload finishes, you can review your information.",
+              "fill": "$color-primary-dark"
+            },
+            "y83BY": {
+              "type": "frame",
+              "id": "TwQ5d",
+              "name": "Photo Upload Progress Content",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "$color-bg",
+              "layout": "vertical",
+              "gap": 20,
+              "padding": [
+                34,
+                44
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "PCYHo",
+                  "name": "Photo Progress Heading",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 7,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "xzne9",
+                      "name": "Photo Progress Eyebrow",
+                      "fill": "$color-primary-dark",
+                      "content": "PROFILE PHOTO",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "650",
+                      "letterSpacing": 1.1
+                    },
+                    {
+                      "type": "text",
+                      "id": "T6nok",
+                      "name": "Photo Progress Title",
+                      "fill": "$color-text",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Uploading your profile photo…",
+                      "lineHeight": 1.08,
+                      "fontFamily": "$font-display",
+                      "fontSize": 29,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "dfoTj",
+                      "name": "Photo Progress Description",
+                      "fill": "$color-text-muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Keep this page open while the upload finishes. Your form details remain saved in this session.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "uuWRs",
+                  "name": "Photo Upload Progress Card",
+                  "width": "fill_container",
+                  "fill": "$color-surface",
+                  "cornerRadius": 14,
+                  "stroke": "$color-border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 18,
+                  "padding": 22,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "E6mOm",
+                      "name": "Photo File Header",
+                      "width": "fill_container",
+                      "gap": 14,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "ETb3U",
+                          "name": "Photo Preview Placeholder",
+                          "width": 58,
+                          "height": 58,
+                          "fill": "$color-primary-soft",
+                          "cornerRadius": 29,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "ny9NN",
+                              "name": "Photo Preview Icon",
+                              "width": 24,
+                              "height": 24,
+                              "icon": "user-round",
+                              "library": "lucide",
+                              "fill": "$color-primary"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "VDEUK",
+                          "name": "Photo File Details",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n3XeQ",
+                              "name": "Photo File Name",
+                              "fill": "$color-text",
+                              "content": "jordan-profile.jpg",
+                              "fontFamily": "$font-body",
+                              "fontSize": 13,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "swWXl",
+                              "name": "Photo File Meta",
+                              "fill": "$color-text-muted",
+                              "content": "2.8 MB · Secure upload",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "BL9ba",
+                          "name": "Photo Upload Percentage",
+                          "fill": "$color-primary-dark",
+                          "content": "68%",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 13,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "GWf8h",
+                      "name": "Photo Progress Track",
+                      "clip": true,
+                      "width": "fill_container",
+                      "height": 8,
+                      "fill": "$color-surface-strong",
+                      "cornerRadius": 4,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 4,
+                          "id": "l6FcQ",
+                          "x": 0,
+                          "y": 0,
+                          "name": "Photo Progress Value",
+                          "fill": "$color-primary",
+                          "width": 620,
+                          "height": 8
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RdSFI",
+                      "name": "Photo Upload Status Row",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "Mg0Gi",
+                          "name": "Photo Upload Spinner",
+                          "width": 15,
+                          "height": 15,
+                          "icon": "loader-circle",
+                          "library": "lucide",
+                          "fill": "$color-primary"
+                        },
+                        {
+                          "type": "text",
+                          "id": "mdqEb",
+                          "name": "Photo Upload Status Text",
+                          "fill": "$color-primary-dark",
+                          "content": "Uploading and checking image quality",
+                          "fontFamily": "$font-body",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Z8mTG",
+                  "name": "Completed Details Status",
+                  "width": "fill_container",
+                  "gap": 14,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "NM5Rs",
+                      "name": "Professional Details Complete",
+                      "width": "fill_container",
+                      "fill": "$color-success-soft",
+                      "cornerRadius": 11,
+                      "gap": 9,
+                      "padding": 13,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "Rqw2g",
+                          "name": "Details Complete Icon",
+                          "width": 16,
+                          "height": 16,
+                          "icon": "circle-check",
+                          "library": "lucide",
+                          "fill": "$color-success"
+                        },
+                        {
+                          "type": "text",
+                          "id": "EEwtO",
+                          "name": "Details Complete Text",
+                          "fill": "$color-text",
+                          "content": "Professional details saved",
+                          "fontFamily": "$font-body",
+                          "fontSize": 11,
+                          "fontWeight": "650"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Y63LzC",
+                  "name": "Photo Progress Action Row",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "pIf4x",
+                      "name": "Photo Progress Safety Note",
+                      "fill": "$color-text-muted",
+                      "content": "Your professional details stay saved while the photo uploads.",
+                      "fontFamily": "$font-body",
+                      "fontSize": 10,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "id": "qElvN",
+                      "type": "ref",
+                      "ref": "d2PZoa",
+                      "name": "Photo Upload Disabled Action",
+                      "width": 190,
+                      "opacity": 0.7,
+                      "descendants": {
+                        "EmVoX": {
+                          "icon": "loader-circle"
+                        },
+                        "CxZBG": {
+                          "content": "Uploading…"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "YwzDQ",
+      "x": 4480,
+      "y": 6700,
+      "name": "W02 / COMPFORM-03 / Profile Completion / Review Information",
+      "clip": true,
+      "width": 1360,
+      "height": 900,
+      "layout": "none",
+      "children": [
+        {
+          "id": "UTAlF",
+          "type": "ref",
+          "ref": "AltBw",
+          "name": "Review Information Shell",
+          "x": 0,
+          "y": 0,
+          "descendants": {
+            "FLghc/YglCv": {
+              "content": "/en/complete-profile?token={token}"
+            },
+            "FLghc/Stw87": {
+              "content": "Review information"
+            },
+            "FLghc/oSDQV": {
+              "content": "COMPFORM-03"
+            },
+            "uI9BA": {
+              "fill": "$color-success",
+              "stroke": "$color-success"
+            },
+            "leosi": {
+              "content": "✓",
+              "fill": "#FFFFFF"
+            },
+            "PRBsw": {
+              "fill": "$color-text",
+              "fontWeight": "600"
+            },
+            "df9jp": {
+              "fill": "$color-success",
+              "stroke": "$color-success"
+            },
+            "dBaAo": {
+              "content": "✓",
+              "fill": "#FFFFFF"
+            },
+            "p9iFr": {
+              "fill": "$color-text",
+              "fontWeight": "600"
+            },
+            "ciKyH": {
+              "fill": "$color-primary",
+              "stroke": "$color-primary"
+            },
+            "K1xk1J": {
+              "content": "3",
+              "fill": "#FFFFFF"
+            },
+            "q4Ew7": {
+              "fill": "$color-text",
+              "fontWeight": "650"
+            },
+            "qi1J5": {
+              "content": "Ready for review",
+              "fill": "$color-primary-dark"
+            },
+            "M4leGR": {
+              "content": "Confirm your professional details and photo. Submit only when everything looks right.",
+              "fill": "$color-primary-dark"
+            },
+            "y83BY": {
+              "type": "frame",
+              "id": "rIuTP",
+              "name": "Review Information Content",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "$color-bg",
+              "layout": "vertical",
+              "padding": [
+                40,
+                40,
+                22,
+                40
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "wIZ3x",
+                  "name": "Review Information Column",
+                  "width": 780,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "VVokl",
+                      "name": "Review Information Header",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "RFzwh",
+                          "name": "Review Information Eyebrow",
+                          "fill": "$color-primary-dark",
+                          "content": "STEP 3 OF 4 · REVIEW INFORMATION",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 10,
+                          "fontWeight": "650",
+                          "letterSpacing": 1.1
+                        },
+                        {
+                          "type": "text",
+                          "id": "rEPoL",
+                          "name": "Review Information Title",
+                          "fill": "$color-text",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Review before you submit.",
+                          "lineHeight": 1.08,
+                          "fontFamily": "$font-display",
+                          "fontSize": 27,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "D4fAO",
+                          "name": "Review Information Description",
+                          "fill": "$color-text-muted",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Check the information that will be attached to your Talent Application for BlihOps review.",
+                          "lineHeight": 1.4,
+                          "fontFamily": "$font-body",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Ehl90",
+                      "name": "Professional Details Review",
+                      "width": "fill_container",
+                      "fill": "$color-surface",
+                      "cornerRadius": 12,
+                      "stroke": "$color-border",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": 16,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "P1xPTh",
+                          "name": "Professional Details Review Header",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "njEn2",
+                              "name": "Professional Details Review Title",
+                              "fill": "$color-text",
+                              "content": "Professional details",
+                              "fontFamily": "$font-body",
+                              "fontSize": 12,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "fejTH",
+                              "name": "Edit Professional Details Action",
+                              "gap": 5,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "xN0iJ",
+                                  "name": "Edit Details Icon",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "pencil",
+                                  "library": "lucide",
+                                  "fill": "$color-primary"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "X3BuV",
+                                  "name": "Edit Details Label",
+                                  "fill": "$color-primary-dark",
+                                  "content": "Edit details",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 10,
+                                  "fontWeight": "650"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "XtxCo",
+                          "name": "Headline Review Row",
+                          "width": "fill_container",
+                          "stroke": "$color-border",
+                          "strokeWidth": {
+                            "bottom": 1
+                          },
+                          "padding": [
+                            7,
+                            0
+                          ],
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Mevo0",
+                              "name": "Headline Review Label",
+                              "fill": "$color-text-muted",
+                              "content": "Headline",
+                              "fontFamily": "$font-body",
+                              "fontSize": 10,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "lf9TM",
+                              "name": "Headline Review Value",
+                              "fill": "$color-text",
+                              "content": "Senior Product Designer",
+                              "fontFamily": "$font-body",
+                              "fontSize": 10,
+                              "fontWeight": "650"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "nSnE7",
+                          "name": "Location Review Row",
+                          "width": "fill_container",
+                          "stroke": "$color-border",
+                          "strokeWidth": {
+                            "bottom": 1
+                          },
+                          "padding": [
+                            7,
+                            0
+                          ],
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "oa282",
+                              "name": "Location Review Label",
+                              "fill": "$color-text-muted",
+                              "content": "Location",
+                              "fontFamily": "$font-body",
+                              "fontSize": 10,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "V8wOqu",
+                              "name": "Location Review Value",
+                              "fill": "$color-text",
+                              "content": "Nairobi, Kenya",
+                              "fontFamily": "$font-body",
+                              "fontSize": 10,
+                              "fontWeight": "650"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "elXvR",
+                          "name": "Availability Review Row",
+                          "width": "fill_container",
+                          "stroke": "$color-border",
+                          "strokeWidth": {
+                            "bottom": 1
+                          },
+                          "padding": [
+                            7,
+                            0
+                          ],
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "mmhNV",
+                              "name": "Availability Review Label",
+                              "fill": "$color-text-muted",
+                              "content": "Availability",
+                              "fontFamily": "$font-body",
+                              "fontSize": 10,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "BWCmY",
+                              "name": "Availability Review Value",
+                              "fill": "$color-text",
+                              "content": "Available in 2 weeks",
+                              "fontFamily": "$font-body",
+                              "fontSize": 10,
+                              "fontWeight": "650"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "oShUX",
+                          "name": "Engagement Review Row",
+                          "width": "fill_container",
+                          "stroke": "$color-border",
+                          "strokeWidth": {
+                            "bottom": 1
+                          },
+                          "padding": [
+                            7,
+                            0
+                          ],
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "NL5pW",
+                              "name": "Engagement Review Label",
+                              "fill": "$color-text-muted",
+                              "content": "Engagement",
+                              "fontFamily": "$font-body",
+                              "fontSize": 10,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "veG5w",
+                              "name": "Engagement Review Value",
+                              "fill": "$color-text",
+                              "content": "Full-time or contract",
+                              "fontFamily": "$font-body",
+                              "fontSize": 10,
+                              "fontWeight": "650"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "pgx01",
+                          "name": "Summary Review",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 5,
+                          "padding": [
+                            7,
+                            0
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "q4g8Oa",
+                              "name": "Summary Review Label",
+                              "fill": "$color-text-muted",
+                              "content": "Professional summary",
+                              "fontFamily": "$font-body",
+                              "fontSize": 10,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ErpCT",
+                              "name": "Summary Review Value",
+                              "fill": "$color-text",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "I design clear, scalable product experiences for teams building operational software.",
+                              "lineHeight": 1.4,
+                              "fontFamily": "$font-body",
+                              "fontSize": 10,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "jh3UP",
+                      "name": "Profile Photo Review",
+                      "width": "fill_container",
+                      "fill": "$color-surface",
+                      "cornerRadius": 12,
+                      "stroke": "$color-border",
+                      "strokeWidth": 1,
+                      "gap": 14,
+                      "padding": 14,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "MmGVI",
+                          "name": "Profile Photo Preview",
+                          "width": 48,
+                          "height": 48,
+                          "fill": "$color-primary-soft",
+                          "cornerRadius": 24,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "AEwdH",
+                              "name": "Profile Photo Preview Icon",
+                              "width": 20,
+                              "height": 20,
+                              "icon": "user-round",
+                              "library": "lucide",
+                              "fill": "$color-primary"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "LFTsP",
+                          "name": "Profile Photo Review Details",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "N3eQRO",
+                              "name": "Profile Photo Review Title",
+                              "fill": "$color-text",
+                              "content": "Profile photo",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "XhaLE",
+                              "name": "Profile Photo Review Status",
+                              "fill": "$color-success",
+                              "content": "jordan-profile.jpg · Upload complete",
+                              "fontFamily": "$font-body",
+                              "fontSize": 10,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Hiobu",
+                          "name": "Edit Profile Photo Action",
+                          "gap": 5,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "NIPgM",
+                              "name": "Edit Photo Icon",
+                              "width": 13,
+                              "height": 13,
+                              "icon": "pencil",
+                              "library": "lucide",
+                              "fill": "$color-primary"
+                            },
+                            {
+                              "type": "text",
+                              "id": "DCoDF",
+                              "name": "Edit Photo Label",
+                              "fill": "$color-primary-dark",
+                              "content": "Change photo",
+                              "fontFamily": "$font-body",
+                              "fontSize": 10,
+                              "fontWeight": "650"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "gYIUS",
+                      "name": "Review Submission Actions",
+                      "width": "fill_container",
+                      "padding": [
+                        8,
+                        0,
+                        0,
+                        0
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "id": "riFSw",
+                          "type": "ref",
+                          "ref": "d2PZoa",
+                          "name": "Back To Photo Button",
+                          "width": 180,
+                          "descendants": {
+                            "EmVoX": {
+                              "icon": "arrow-left"
+                            },
+                            "CxZBG": {
+                              "content": "Back to photo"
+                            }
+                          }
+                        },
+                        {
+                          "id": "cQxn9",
+                          "type": "ref",
+                          "ref": "FigAB",
+                          "name": "Submit Information Button",
+                          "width": 220,
+                          "descendants": {
+                            "PJqVV": {
+                              "icon": "send"
+                            },
+                            "DNfF9": {
+                              "content": "Submit information"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Y2T666",
+      "x": 3040,
+      "y": 7680,
+      "name": "W02 / COMPFORM-04 / Profile Completion / Invalid or Expired Token",
+      "clip": true,
+      "width": 1360,
+      "height": 900,
+      "layout": "none",
+      "children": [
+        {
+          "id": "SEuD5",
+          "type": "ref",
+          "ref": "AltBw",
+          "name": "Invalid Completion Link Shell",
+          "x": 0,
+          "y": 0,
+          "descendants": {
+            "FLghc/YglCv": {
+              "content": "/en/complete-profile?token={token}"
+            },
+            "FLghc/Stw87": {
+              "content": "Invalid or expired token"
+            },
+            "FLghc/oSDQV": {
+              "content": "COMPFORM-04"
+            },
+            "ShrzC": {
+              "fill": "$color-warning-soft"
+            },
+            "qi1J5": {
+              "content": "Need a new link?",
+              "fill": "$color-text"
+            },
+            "M4leGR": {
+              "content": "Contact BlihOps so the team can verify your application and issue a replacement.",
+              "fill": "$color-text-muted"
+            },
+            "y83BY": {
+              "type": "frame",
+              "id": "NrmJI",
+              "name": "Invalid Completion Link Content",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "$color-bg",
+              "layout": "vertical",
+              "padding": [
+                40,
+                96
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "WVGFJ",
+                  "name": "Invalid Completion State",
+                  "width": 560,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "UFyld",
+                      "name": "Invalid Completion Icon Frame",
+                      "width": 54,
+                      "height": 54,
+                      "fill": "$color-warning-soft",
+                      "cornerRadius": 27,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "QgjJH",
+                          "name": "Invalid Completion Icon",
+                          "width": 23,
+                          "height": 23,
+                          "icon": "link-2-off",
+                          "library": "lucide",
+                          "fill": "$color-warning"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "mDj6g",
+                      "name": "Invalid Completion Eyebrow",
+                      "fill": "$color-warning",
+                      "content": "COMPLETION LINK UNAVAILABLE",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "650",
+                      "letterSpacing": 1.1
+                    },
+                    {
+                      "type": "text",
+                      "id": "W94dgt",
+                      "name": "Invalid Completion Title",
+                      "fill": "$color-text",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "This completion link is no longer available.",
+                      "lineHeight": 1.08,
+                      "textAlign": "center",
+                      "fontFamily": "$font-display",
+                      "fontSize": 31,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "qqUIM",
+                      "name": "Invalid Completion Description",
+                      "fill": "$color-text-muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "The link may have expired, been replaced, or already been used. Your application has not been submitted from this page.",
+                      "lineHeight": 1.5,
+                      "textAlign": "center",
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "id": "WWGZQ",
+                      "type": "ref",
+                      "ref": "U8NSM4",
+                      "name": "Invalid Completion Alert",
+                      "width": "fill_container",
+                      "descendants": {
+                        "t2xxET": {
+                          "content": "A new secure link is required"
+                        },
+                        "EDrmo": {
+                          "content": "BlihOps will first verify the application before sending another link."
+                        }
+                      }
+                    },
+                    {
+                      "id": "PFNEt",
+                      "type": "ref",
+                      "ref": "FigAB",
+                      "name": "Contact BlihOps For New Link Button",
+                      "width": 260,
+                      "descendants": {
+                        "PJqVV": {
+                          "icon": "messages-square"
+                        },
+                        "DNfF9": {
+                          "content": "Contact BlihOps"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "lx5hv",
+      "x": 4480,
+      "y": 7680,
+      "name": "W02 / COMPFORM-05 / Profile Completion / Submission Success",
+      "clip": true,
+      "width": 1360,
+      "height": 900,
+      "layout": "none",
+      "children": [
+        {
+          "id": "h4oh8f",
+          "type": "ref",
+          "ref": "AltBw",
+          "name": "Completion Success Shell",
+          "x": 0,
+          "y": 0,
+          "descendants": {
+            "FLghc/YglCv": {
+              "content": "/en/complete-profile?token={token}"
+            },
+            "FLghc/Stw87": {
+              "content": "Submission success"
+            },
+            "FLghc/oSDQV": {
+              "content": "COMPFORM-05"
+            },
+            "uI9BA": {
+              "fill": "$color-success",
+              "stroke": "$color-success"
+            },
+            "leosi": {
+              "content": "✓",
+              "fill": "#FFFFFF"
+            },
+            "PRBsw": {
+              "fill": "$color-text",
+              "fontWeight": "600"
+            },
+            "df9jp": {
+              "fill": "$color-success",
+              "stroke": "$color-success"
+            },
+            "dBaAo": {
+              "content": "✓",
+              "fill": "#FFFFFF"
+            },
+            "p9iFr": {
+              "fill": "$color-text",
+              "fontWeight": "600"
+            },
+            "ciKyH": {
+              "fill": "$color-success",
+              "stroke": "$color-success"
+            },
+            "K1xk1J": {
+              "content": "✓",
+              "fill": "#FFFFFF"
+            },
+            "q4Ew7": {
+              "fill": "$color-text",
+              "fontWeight": "600"
+            },
+            "hlpe2": {
+              "fill": "$color-success",
+              "stroke": "$color-success"
+            },
+            "ygmlJ": {
+              "content": "✓",
+              "fill": "#FFFFFF"
+            },
+            "NLrYU": {
+              "fill": "$color-text",
+              "fontWeight": "600"
+            },
+            "ShrzC": {
+              "fill": "$color-success-soft"
+            },
+            "qi1J5": {
+              "content": "Review is next",
+              "fill": "$color-success"
+            },
+            "M4leGR": {
+              "content": "BlihOps will review the submission. A separate account invitation may follow later.",
+              "fill": "$color-text-muted"
+            },
+            "y83BY": {
+              "type": "frame",
+              "id": "QfdZy",
+              "name": "Completion Success Content",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "$color-bg",
+              "layout": "vertical",
+              "padding": [
+                40,
+                96
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "NuMfc",
+                  "name": "Completion Success State",
+                  "width": 570,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "OoVU6",
+                      "name": "Completion Success Icon Frame",
+                      "width": 58,
+                      "height": 58,
+                      "fill": "$color-success-soft",
+                      "cornerRadius": 29,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "MWvVw",
+                          "name": "Completion Success Icon",
+                          "width": 25,
+                          "height": 25,
+                          "icon": "circle-check-big",
+                          "library": "lucide",
+                          "fill": "$color-success"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "JE3ps",
+                      "name": "Completion Success Eyebrow",
+                      "fill": "$color-success",
+                      "content": "SUBMISSION RECEIVED",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "650",
+                      "letterSpacing": 1.1
+                    },
+                    {
+                      "type": "text",
+                      "id": "gHIoL",
+                      "name": "Completion Success Title",
+                      "fill": "$color-text",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Your information has been submitted.",
+                      "lineHeight": 1.08,
+                      "textAlign": "center",
+                      "fontFamily": "$font-display",
+                      "fontSize": 32,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "n5gjyY",
+                      "name": "Completion Success Description",
+                      "fill": "$color-text-muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "BlihOps will review your details and files. This submission does not create an account; if the next stage requires one, you will receive a separate invitation.",
+                      "lineHeight": 1.5,
+                      "textAlign": "center",
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "id": "IVHWm",
+                      "type": "ref",
+                      "ref": "u14DBg",
+                      "name": "Completion Success Alert",
+                      "width": "fill_container",
+                      "descendants": {
+                        "lNWpV": {
+                          "content": "Application BLH-2048 is queued for review"
+                        },
+                        "sUoPP": {
+                          "content": "You do not need to resubmit this form. BlihOps will contact you about next steps."
+                        }
+                      }
+                    },
+                    {
+                      "id": "A31CK",
+                      "type": "ref",
+                      "ref": "FigAB",
+                      "name": "Return To BlihOps Button",
+                      "width": 260,
+                      "descendants": {
+                        "PJqVV": {
+                          "icon": "arrow-up-right"
+                        },
+                        "DNfF9": {
+                          "content": "Return to BlihOps"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
     }
   ],
   "variables": {

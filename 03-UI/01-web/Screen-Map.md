@@ -8,7 +8,7 @@ Design source: `web.pen`
 |---|---|---|
 | W00 | Foundations and reusable components | Complete |
 | W01 | Authentication and access | Complete |
-| W02 | Invitations and profile completion | Planned |
+| W02 | Invitations and profile completion | Complete |
 | W03 | Client Workspace shell and dashboard | Planned |
 | W04 | Talent discovery and interview request | Planned |
 | W05 | Talent Pod planning | Planned |
@@ -44,7 +44,7 @@ Expired sessions redirect directly to `/en/sign-in`; they do not use a dedicated
 | COMPFORM-01 | `/en/complete-profile?token={token}` | Default |
 | COMPFORM-01 | `/en/complete-profile?token={token}` | Validation errors |
 | COMPFORM-02 | Completion URL | Photo upload in progress |
-| COMPFORM-03 | Completion URL | Resume upload in progress |
+| COMPFORM-03 | Completion URL | Review information |
 | COMPFORM-04 | Completion URL | Invalid or expired token |
 | COMPFORM-05 | Completion URL | Submission success |
 

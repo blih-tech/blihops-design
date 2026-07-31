@@ -186,7 +186,7 @@ Session expiry is redirect behavior, not an inventory screen: redirect directly 
 |----|---------|------|-------|--------------|---------|--------|
 | COMPFORM-01 | Talent Final-Information Form | Page | Approved Talent with token | Valid profile-completion link | Collect final professional information without creating an account. | PRD 4.3; Flow 7.5 |
 | COMPFORM-02 | Final-Information Photo Upload | Section | Approved Talent with token | Final-Information Form | Validate and upload the proposed profile photo. | PRD 4.3, 12; Flow 7.5 |
-| COMPFORM-03 | Final-Information Resume Upload | Section | Approved Talent with token | Final-Information Form | Validate and upload or replace the resume. | PRD 4.3, 12; Flow 7.5 |
+| COMPFORM-03 | Final-Information Review and Submit | Section | Approved Talent with token | Completed professional details and profile photo | Review the completion information and perform the final submission. | PRD 4.3; Flow 7.5 |
 | COMPFORM-04 | Invalid or Expired Completion Link | Full-Screen State | Approved Talent with token | Invalid, expired, replaced, or consumed link | Block the form and explain how to contact BlihOps. | PRD 4.3; Flow 7.5 |
 | COMPFORM-05 | Final-Information Submission Success | Full-Screen State | Approved Talent with token | Successful form submission | Confirm Admin review is next and avoid implying account creation. | PRD 4.3; Flow 7.5 |
 
