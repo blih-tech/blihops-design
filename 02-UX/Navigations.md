@@ -1,194 +1,214 @@
 # Navigation
 
-## Overview
+## 1. Overview
 
-This document defines how users navigate through BlihOps. It describes the navigation structure for each application, global navigation patterns, and navigation principles that ensure a fast, predictable, and consistent user experience.
+This document defines V1 navigation for the public website, Admin Portal, Client Workspace, and Talent Portal.
 
----
-
-# Navigation Principles
-
-Navigation should be:
-
-- Simple and predictable
-- Consistent across each application
-- Minimize the number of clicks
-- Keep users oriented within their current application
-- Prioritize frequently used actions
-- Clearly separate operational and client experiences
+Navigation follows the canonical PRD and Information Architecture.
 
 ---
 
-# Navigation Hierarchy
+## 2. Navigation Principles
 
-```text
-Website
-├── Home
-├── Services
-├── About
-├── Contact
-├── Request Pilot
-├── Book a Call
-├── Join Talent Pool
-└── Client Login
-
-Admin Portal
-├── Dashboard
-├── Leads
-├── Companies
-├── Talent Applications
-├── Talent Profiles
-├── CMS
-└── Settings
-
-Client Workspace
-├── Dashboard
-├── Talent Directory
-├── Interview Requests
-├── Teams
-└── Pilot Status
-
-Talent Portal
-├── Dashboard
-└── Profile Management
-```
+- Keep each application’s navigation distinct.
+- Prioritize frequent tasks.
+- Maintain a stable active state.
+- Preserve useful list filters when returning from details.
+- Support browser back/forward behavior.
+- Deep-link major resources when authorization permits.
+- Use contextual actions for resource operations instead of adding unnecessary primary destinations.
 
 ---
 
-# Primary Navigation
+## 3. Public Website Navigation
 
-Each application provides its own primary navigation.
-
-## Website
+Primary destinations:
 
 - Home
 - Services
+- How We Work
 - About
+- Case Studies
+- Insights
+- Careers
+- Pilot
 - Contact
-- Request Pilot
+
+Primary actions:
+
+- Request a Pilot
 - Book a Call
 - Join Talent Pool
-- Client Login
+- Log In
+
+Footer destinations:
+
+- Privacy
+- Terms
+- Contact
+- Relevant marketing destinations
+
+Locale control:
+
+- English
+- German
+
+The locale selection controls published Case Studies, Insights, and Pilot FAQs.
 
 ---
 
-## Admin Portal
+## 4. Admin Portal Navigation
+
+Primary navigation:
 
 - Dashboard
 - Leads
 - Companies
 - Talent Applications
 - Talent Profiles
-- CMS
+- Interview Requests
+- Managed Content
 - Settings
 
----
+### 4.1 Leads
 
-## Client Workspace
-
-- Dashboard
-- Talent Directory
-- Interview Requests
-- Teams
-- Pilot Status
-
----
-
-## Talent Portal
-
-- Dashboard
-- Profile Management
-
----
-
-# Secondary Navigation
-
-Some sections provide local navigation for related views.
-
-### Leads
-
-- Contact Requests
-- Pilot Requests
-- Calendly Bookings
-- Archived
-
-### Companies
+Local views:
 
 - Active
+- Contact
+- Pilot
+- Calendly
 - Archived
 
-### Talent Applications
+### 4.2 Companies
 
-- Active Pipeline
+Local views:
+
+- Active
+- Invitation Pending
+- On Pilot
+- Archived
+
+### 4.3 Talent Applications
+
+Local views:
+
+- Recruitment Pipeline
 - Approved
+- Profile Information Submitted
 - Rejected
+- Archived
 
-### Talent Profiles
+### 4.4 Talent Profiles
+
+Local views:
 
 - Visible
 - Hidden
 - Archived
 
-### Settings
+### 4.5 Managed Content
+
+Secondary destinations:
+
+- Trusted Logos
+- Testimonials
+- Services Hero Media
+- Case Studies
+- Insights
+- Careers Roles
+- Pilot FAQs
+
+### 4.6 Settings
+
+Secondary destinations:
 
 - Email Templates
 - Calendly
-- General
 
 ---
 
-# Global Navigation Elements
+## 5. Client Workspace Navigation
 
-Available within authenticated applications where applicable:
+Primary navigation:
 
-- User Menu
-- Profile
-- Logout
+- Dashboard
+- Talent Directory
+- Interview Requests
+- Pilot Status
 
----
+The workspace identity remains visible so the Client stays oriented to their Company.
 
-# Navigation Patterns
-
-Users should be able to:
-
-- Navigate between sections without losing context.
-- Return to the previous page using browser navigation.
-- Open resources directly from contextual links.
-- Move between related resources with minimal navigation.
+The Client Workspace does not contain Teams, user management, contracts, billing, or messaging.
 
 ---
 
-# Deep Linking
+## 6. Talent Portal Navigation
 
-Every major resource should have a unique URL.
+The Talent Portal has one primary destination:
 
-Examples:
+- Profile Management
+
+Account-menu actions:
+
+- Change Password
+- Log Out
+
+The Talent Portal does not display a dashboard or multi-section application sidebar. Page sections may use in-page anchors or a progress indicator when useful, but they remain part of Profile Management.
+
+---
+
+## 7. Shared Authenticated Navigation
+
+Authenticated applications provide:
+
+- Current user identity
+- Account menu
+- Change Password or password-reset entry where applicable
+- Log Out
+
+Users cannot navigate into applications their role does not permit.
+
+---
+
+## 8. Contextual Navigation
+
+Contextual links connect related resources:
+
+- Lead → converted Company
+- Company → Client Workspace status and Interview Requests
+- Talent Application → profile-completion submission and Talent Profile
+- Talent Profile → linked Talent Application
+- Interview Request → Company and Talent Profile
+- Dashboard widgets → filtered resource lists
+
+Destructive or lifecycle actions remain contextual actions rather than navigation destinations.
+
+---
+
+## 9. Deep Linking
+
+Stable, permission-aware detail URLs are required for:
 
 - Lead
 - Company
 - Talent Application
 - Talent Profile
-- Team
 - Interview Request
+- Case Study
+- Insight
+- Careers Role
 
-Users should be able to bookmark or share links to individual resources where permissions allow.
-
----
-
-# Navigation Behavior
-
-- The active section is clearly highlighted.
-- Navigation remains consistent within each application.
-- Navigation state persists during normal browsing.
-- Unauthorized navigation redirects users to the appropriate login page or access-denied screen.
-- Users cannot navigate between applications unless they have permission.
+Invitation, completion, and reset URLs are tokenized and may not be reused after consumption.
 
 ---
 
-# Future Enhancements
+## 10. Navigation States
 
-- Global Search
-- Command Palette
-- Recently Viewed
-- Favorites
-- Breadcrumb Navigation
+- The active primary and secondary destination is visually clear.
+- Loading preserves the application shell when possible.
+- Missing resources show a not-found state.
+- Unauthorized resources show access denied or redirect to the correct login.
+- Expired token links show a dedicated recovery action where one exists.
+- Empty lists explain the absence of data and offer a permitted next action.
+

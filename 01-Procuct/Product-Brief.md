@@ -1,160 +1,133 @@
-# BlihOps V1 – Product Brief
+# BlihOps V1 — Product Brief
 
-# 1. Overview
+## 1. Overview
 
 BlihOps is an outsourcing platform that connects global companies with pre-vetted Ethiopian software engineers.
 
-The first version focuses on validating the business by generating leads, managing operations internally, and providing approved clients with access to a curated talent pool.
+Version 1 validates the outsourcing business by generating qualified leads, running internal sales and talent operations, giving approved clients access to a private talent workspace, and allowing approved talent to maintain permitted parts of an admin-created profile.
 
-This version intentionally excludes the future Skills and Talent Marketplace products, which will be developed in Version 2.
+The future BlihOps Skills product and public Talent Marketplace are not part of Version 1.
 
 ---
 
-# 2. Goals
+## 2. Goals
 
-## Business Goals
+### Business Goals
 
 - Generate qualified company leads.
 - Build and maintain a vetted talent pool.
 - Reduce the time required to match clients with engineers.
-- Deliver a professional client experience during the pilot process.
+- Deliver a professional pilot and client experience.
+- Keep published website content current without introducing a general-purpose page builder.
 
-## Product Goals
+### Product Goals
 
-- Manage all leads from one admin portal.
-- Recruit and validate engineers before clients need them.
-- Provide approved companies with a private workspace to explore available talent.
-- Keep internal operations simple and scalable.
+- Centralize lead, company, talent, and content operations.
+- Recruit and validate engineers before presenting them to clients.
+- Provide approved companies with a secure, private talent workspace.
+- Let approved talent maintain accurate professional information.
+- Keep permissions and operational control with BlihOps.
 
 ---
 
-# 3. Products
+## 3. Products
 
-## 3.1 BlihOps Web
+### 3.1 BlihOps Web
 
-### Purpose
+The public website supports marketing, lead generation, talent applications, careers content, and entry into protected applications.
 
-Public-facing website for marketing, lead generation, talent applications, and client access.
-
-### Features
+Key capabilities:
 
 - Marketing pages
-- Services
-- About
-- Contact
-- Request Pilot
-- Book a Call (Calendly)
-- Join Talent Pool
-- Client Workspace (Protected)
+- Contact and pilot-request forms
+- Book a Call through Calendly
+- Join Talent Pool application
+- Case Studies and Insights
+- Careers roles
+- Client and Talent login
+- Client Workspace
+- Talent Portal
 
----
+### 3.2 BlihOps Admin
 
-## 3.2 BlihOps Admin
+The internal operations platform used by the BlihOps team.
 
-### Purpose
-
-Internal platform used by the BlihOps team to manage operations.
-
-### Features
+Key capabilities:
 
 - Dashboard
-- Lead Management
-- Pilot Requests
-- Contact Requests
-- Booked Calls
-- Talent Applications
-- Talent Pool
-- Company Management
-- Rate Cards
-- CMS
-- User Management
+- Lead management
+- Company and client-access management
+- Talent recruitment
+- Talent Profile management
+- Interview and pilot oversight
+- Bounded website content management
+- Email-template and Calendly settings
+
+### 3.3 BlihOps API
+
+The backend powering the public website, Admin Portal, Client Workspace, and Talent Portal.
+
+Primary responsibilities:
+
+- Authentication and role-based authorization
+- Invitations and secure tokens
+- Lead and company management
+- Talent applications and recruitment
+- Talent Profiles and Talent Portal access
+- Client Workspace and interview requests
+- Content management and locale-aware delivery
+- Notifications, files, and activity history
 
 ---
 
-## 3.3 BlihOps API
+## 4. User Types
 
-### Purpose
+### Visitor
 
-Backend powering both the public website and the admin platform.
+Can:
 
-### Responsibilities include:
+- Browse public website content.
+- Contact BlihOps.
+- Request a pilot.
+- Book a call.
+- Apply to the Talent Pool.
+- Browse published Case Studies, Insights, and Careers roles.
 
-- Authentication
-- Lead Management
-- Talent Management
-- Company Management
-- Client Workspace
-- CMS
-- Email & Invitations
+### Admin
 
----
+An internal BlihOps operator who manages every V1 operational workflow and all admin-controlled profile fields.
 
-# 4. User Types
+### Client
 
-## Visitor
+The single approved company representative invited by BlihOps.
 
-Public website visitor.
+Can:
 
-### Can:
+- Access the company’s private Client Workspace.
+- Browse visible Talent Profiles.
+- Search and filter available talent.
+- Request interviews through BlihOps.
+- Track interview requests and pilot progress.
 
-- Browse website
-- Contact BlihOps
-- Request a pilot
-- Book a call
-- Apply to the talent pool
+### Talent
 
----
+An approved engineer whose Talent Profile has been manually created by an admin.
 
-## Client
+Can:
 
-Approved company invited by BlihOps.
+- Activate an invitation-only Talent account.
+- Access a private Profile Management page.
+- Maintain permitted professional information.
+- Upload or replace their profile photo and resume.
+- Update availability and professional links.
 
-### Can:
-
-- Access Client Workspace
-- Browse available talent
-- View rate cards
-- Save candidates
-- Request interviews
-- Track pilot progress
+Talent cannot change commercial rates, assessments, verification, client visibility, lifecycle status, or internal notes.
 
 ---
 
-## Admin
+## 5. Core Business Lifecycles
 
-Internal BlihOps team.
-
-Can manage every aspect of the platform.
-
----
-
-# 5. Talent Recruitment Flow
-
-```text
-Join Talent Pool
-      ↓
-Submit Application
-      ↓
-Application Review
-      ↓
-Screening Call
-      ↓
-Technical Assessment
-      ↓
-English Assessment
-      ↓
-Remote Readiness Assessment
-      ↓
-Internal Approval
-      ↓
-Create Rate Card
-      ↓
-Available in Talent Pool
-```
-
----
-
-# 6. Client Flow
+### 5.1 Company Lifecycle
 
 ```text
 Visit Website
@@ -163,94 +136,158 @@ Contact / Pilot Request / Book Call
       ↓
 Lead Created
       ↓
-Discovery Call
+Admin Qualification
       ↓
-Qualified
+Company Created
       ↓
-Pilot Approved
+Client Workspace Created
       ↓
-Create Client Workspace
-      ↓
-Invite Sent
+Client Account Invitation
       ↓
 Client Activates Account
       ↓
-Access Client Workspace
+Client Workspace Access
 ```
+
+Each company has one Client Workspace and one Client account in Version 1.
+
+### 5.2 Talent Lifecycle
+
+```text
+Join Talent Pool
+      ↓
+Submit Application
+      ↓
+Application Review
+      ↓
+Screening and Assessments
+      ↓
+Admin Approval
+      ↓
+Profile-Completion Token Sent
+      ↓
+Talent Submits Final Information
+      ↓
+Admin Reviews Submission
+      ↓
+Admin Manually Creates Talent Profile
+      ↓
+Admin Sends Talent Account Invitation
+      ↓
+Talent Activates Account
+      ↓
+Talent Maintains Permitted Profile Information
+```
+
+The profile-completion token and Talent account invitation are separate events. Completing the tokenized form does not create an account or Talent Profile automatically.
 
 ---
 
-# 7. Client Workspace (V1)
+## 6. Client Workspace
 
-## Purpose
+The Client Workspace gives the invited company representative a focused, private way to evaluate available engineers and follow the pilot process.
 
-Provide approved companies with a secure, private portal to explore available engineers.
-
-### Features
+V1 capabilities:
 
 - Dashboard
-- Available Talent
-- Talent Profiles
-- Rate Cards
-- Saved Candidates
+- Talent Directory
+- Talent Profile details
+- Search, filters, sorting, and pagination
 - Interview Requests
 - Pilot Status
 
+Clients cannot edit Talent Profiles, contact talent directly, create teams, or invite additional client users.
+
 ---
 
-# 8. Talent Pool
+## 7. Talent Portal
 
-The Talent Pool is an internal database of approved engineers.
+The Talent Portal is a single authenticated Profile Management experience. It does not contain a dashboard.
 
-Each profile includes:
+Talent may update:
 
-- Profile Photo
-- Name
-- Role
-- Seniority
-- Tech Stack
-- Years of Experience
-- English Level
-- Availability
-- Portfolio
+- Profile photo
+- Professional headline
+- Short bio
+- Primary role
+- Tech stack and secondary skills
+- Years of experience
+- Portfolio, GitHub, and LinkedIn links
 - Resume
-- Hourly Rate
-- Monthly Rate
-- Status
+- Availability
+- Earliest start date
+- Preferred engagement
 
-Only approved talents are visible to clients.
+Permitted changes publish immediately. Admin-only fields remain protected.
 
 ---
 
-# 9. Architecture
+## 8. Talent Pool
+
+The Talent Pool is the admin-managed database of approved engineers.
+
+Profiles may include:
+
+- Profile photo and identity
+- Headline, bio, role, and seniority
+- Tech stack, skills, and experience
+- Portfolio, GitHub, LinkedIn, and resume
+- English level and verification
+- Availability and engagement preference
+- Hourly and monthly rates
+- Assessment summary and internal notes
+- Visibility and lifecycle status
+
+Only visible, active Talent Profiles appear in the Client Workspace.
+
+---
+
+## 9. Managed Website Content
+
+V1 provides structured content management for selected website content only:
+
+- Home: trusted logos, testimonials, and one primary testimonial.
+- Services: one hero video with a cover image.
+- Case Studies: English and German content.
+- Insights: English and German content.
+- Careers: English-only roles.
+- Pilot pages: English and German FAQs.
+
+Case Studies, Insights, and Pilot FAQs require complete English and German content before publication. BlihOps does not provide unrestricted page editing in V1.
+
+---
+
+## 10. Product Shape
 
 ```text
-blihops-web
-      │
-┌───────────────┴───────────────┐
-│                               │
-Public Website          Client Workspace
-            │
-            ▼
-      blihops-api
-            ▲
-            │
-      blihops-admin
+BlihOps Web
+├── Public Website
+├── Client Workspace
+└── Talent Portal
+
+BlihOps Admin
+├── Operations
+└── Managed Content
+
+All applications
+└── BlihOps API
 ```
 
 ---
 
-# 10. Out of Scope (Version 1)
-
-The following products are intentionally postponed:
+## 11. Out of Scope for Version 1
 
 - BlihOps Skills
-- BlihOps Talent Marketplace
-- Public talent marketplace
-- Self-service company registration
-- Self-managed talent profiles
+- Public Talent Marketplace
+- Public account registration
+- Multiple Client accounts per company
+- Client team management
+- Talent-created profiles before admin approval
+- Talent access to commercial, assessment, verification, visibility, or internal fields
+- Direct client-to-talent messaging
+- Contracts, payments, and invoicing
 - AI talent matching
-- Payments & invoicing
-- Messaging system
+- Advanced analytics and reporting
+- Multi-factor authentication
+- General-purpose website page building
 
-These will be considered for Version 2 after validating the core outsourcing workflow.

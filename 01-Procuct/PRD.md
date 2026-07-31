@@ -1,383 +1,429 @@
-# BlihOps V1 – Product Requirements Document (PRD)
+# BlihOps V1 — Product Requirements Document
 
-# 1. Product Overview
+## 1. Product Overview
 
-## Purpose
+### 1.1 Purpose
 
-BlihOps is an outsourcing platform that connects global companies with pre-vetted Ethiopian software engineers.
+BlihOps connects global companies with pre-vetted Ethiopian software engineers.
 
-Version 1 focuses on validating the business by:
+Version 1 validates the outsourcing model by:
 
-- Generating qualified company leads.
-- Building and maintaining a vetted talent pool.
-- Providing approved clients with a private workspace to explore available talent.
-- Managing all operations through an internal admin portal.
+- Generating and qualifying company leads.
+- Recruiting, assessing, and approving talent.
+- Manually creating controlled Talent Profiles.
+- Giving one invited representative per company access to a private Client Workspace.
+- Giving approved talent invitation-only access to maintain permitted profile information.
+- Managing selected website content through structured admin tools.
 
-Version 1 intentionally excludes the future Skills platform and Talent Marketplace.
+### 1.2 Product Principles
 
----
-
-# 2. Product Goals
-
-## Business Goals
-
-- Generate qualified leads.
-- Build a high-quality talent pool.
-- Reduce time-to-match for clients.
-- Deliver an excellent pilot experience.
-
-## Product Goals
-
-- Centralize operations.
-- Recruit and validate talent.
-- Provide a secure client workspace.
-- Keep the platform simple and scalable.
+- Admin operations are the product’s operational center.
+- Access is invitation-only for protected client and talent experiences.
+- Talent self-service begins only after admin approval and profile creation.
+- Clients never contact talent directly through the platform.
+- Website content management is bounded to defined content types.
+- V1 favors clear manual control over workflow automation.
 
 ---
 
-# 3. Products
+## 2. Products and Applications
 
-## 3.1 BlihOps Web
+### 2.1 BlihOps Web
 
-### Purpose
+The public website and protected client/talent entry point.
 
-Public-facing website for marketing, lead generation, talent applications, and client access.
+Includes:
 
-### Features
-
-- Marketing Pages
-- Contact Form
-- Pilot Request
-- Book a Call (Calendly)
+- Marketing pages
+- Contact and pilot-request forms
+- Calendly booking
 - Join Talent Pool
-- Client Workspace (Protected)
+- Case Studies and Insights
+- Careers roles
+- Client Workspace
+- Talent Portal
 
----
+### 2.2 BlihOps Admin
 
-## 3.2 BlihOps Admin
+The internal application for:
 
-### Purpose
-
-Internal operations platform.
-
-### Features
-
-- Dashboard
+- Dashboard and operational activity
 - Leads
-- Companies
+- Companies and client access
 - Talent Applications
 - Talent Profiles
-- CMS
-- Settings
+- Interview and pilot oversight
+- Managed website content
+- Email-template and Calendly settings
+
+### 2.3 BlihOps API
+
+The backend provides:
+
+- Authentication and role-based authorization
+- Invitations and token validation
+- Lead, company, and client-workspace operations
+- Talent recruitment and profile operations
+- Content delivery by locale
+- Notifications, file handling, and audit history
 
 ---
 
-## 3.3 BlihOps API
+## 3. User Roles and Authorization
 
-### Purpose
+### 3.1 Roles
 
-Backend powering both applications.
+| Role | Description | Protected Application |
+|------|-------------|-----------------------|
+| Visitor | Unauthenticated public website user | None |
+| Admin | Internal BlihOps operator | Admin Portal |
+| Client | The invited representative of one approved company | Client Workspace |
+| Talent | Approved engineer with an admin-created Talent Profile | Talent Portal |
 
-### Responsibilities
+System authorization roles:
 
-- Authentication
-- Lead Management
-- Company Management
-- Talent Management
-- Client Workspace
-- CMS
-- Notifications
+- `ADMIN`
+- `CLIENT`
+- `TALENT`
 
----
+### 3.2 Global Authorization Rules
 
-# 4. User Roles
-
-## Visitor
-
-Can:
-
-- Browse website
-- Contact BlihOps
-- Request Pilot
-- Book Call
-- Apply to Talent Pool
-
----
-
-## Client
-
-Approved company representative.
-
-Can:
-
-- Access Client Workspace
-- Browse Talent Profiles
-- View Talent Details
-- Shortlist Talent (Future)
-- Request Interviews
-- View Pilot Status
+- There is no public registration.
+- Admin accounts are provisioned internally.
+- Client and Talent accounts are invitation-only.
+- Each company has one Client account and one Client Workspace in V1.
+- A Client can access only their company’s workspace.
+- A Talent can access only their own Talent Profile.
+- A Talent account can be invited only after the Talent Profile exists.
+- Unauthorized cross-application access redirects to the appropriate login or access-denied surface.
+- The Admin Portal is not indexed by search engines.
 
 ---
 
-## Admin
+## 4. Authentication and Invitations
 
-Internal BlihOps team.
+### 4.1 Shared Authentication
 
-Can manage every aspect of the platform.
+Admin, Client, and Talent users can:
 
----
+- Log in.
+- Log out.
+- Request a password-reset email.
+- Set a new password using a valid reset link.
 
-# 5. Authentication & Authorization
+The system redirects authenticated users to their permitted application:
 
-## Purpose
+- Admin → Admin Dashboard
+- Client → Client Workspace Dashboard
+- Talent → Talent Profile Management
 
-Provide secure access to protected applications.
+### 4.2 Client Account Invitation
 
-## Authentication Architecture
+An admin sends an invitation from an existing Company.
 
-- Single authentication service.
-- Single User entity.
-- Role-based authorization.
+Requirements:
 
-### Roles
+- The Company and its Client Workspace must exist.
+- Only one active or pending Client account is allowed per company.
+- The invitation is single-use and expires.
+- A valid invitation lets the Client create a password and activate the account.
+- An invalid, expired, or consumed invitation cannot activate access.
+- Admin can resend or replace an expired pending invitation.
 
-- ADMIN
-- CLIENT
+### 4.3 Talent Profile-Completion Token
 
-### Protected Applications
+After approving a Talent Application, an admin may send a secure profile-completion request.
 
-| Application | URL | Access |
-|-------------|-----|--------|
-| Admin Portal | admin.blihops.com | Admin |
-| Client Workspace | blihops.com/workspace | Client |
+This request:
 
----
+- Uses a single-use, expiring token.
+- Does not create a user account.
+- Does not create a Talent Profile automatically.
+- Opens a public token-protected final-information form.
+- Becomes invalid after successful submission or expiry.
 
-## Authentication Flows
+The form collects:
 
-### Admin
+- Profile photo
+- Professional headline
+- Short bio
+- Primary role
+- Tech stack and secondary skills
+- Years of experience
+- Portfolio
+- GitHub and LinkedIn
+- Resume
+- Availability
+- Earliest start date
+- Preferred engagement
 
-```text
-Login
-  ↓
-Admin Dashboard
-```
+The submitted information returns to the associated Talent Application for admin review.
 
-### Client
+### 4.4 Talent Account Invitation
 
-```text
-Invitation Email
-      ↓
-Accept Invitation
-      ↓
-Set Password
-      ↓
-Login
-      ↓
-Client Workspace
-```
+After reviewing the completed information and manually creating the Talent Profile, an admin may send a Talent account invitation.
 
-### Password Reset
+Requirements:
 
-```text
-Forgot Password
-      ↓
-Reset Link
-      ↓
-New Password
-      ↓
-Login
-```
+- The Talent Application must be approved.
+- A Talent Profile must already exist.
+- The invitation is single-use and expires.
+- The Talent creates a password and activates the account.
+- The activated account opens Talent Profile Management, not a dashboard.
+- Admin can resend or replace an expired pending invitation.
 
----
+### 4.5 Password Reset
 
-## Functional Requirements
-
-### Admin
-
-- Login
-- Logout
-- Forgot Password
-- Reset Password
-
-### Client
-
-- Accept Invitation
-- Login
-- Logout
-- Forgot Password
-- Reset Password
+- Reset links are single-use and expire.
+- Requesting a reset does not reveal whether an email exists.
+- Successful password reset invalidates previous reset links.
 
 ---
 
-## Business Rules
+## 5. Public Website
 
-- No public registration.
-- Clients are created only by admins.
-- Invitations are single-use.
-- Invitations expire.
-- Non-admin users cannot access the Admin Portal.
-- Clients can only access their own Workspace.
-- Admin Portal is not indexed by search engines.
+### 5.1 Public Pages
 
----
-
-# 6. BlihOps Web
-
-## Marketing Pages
+The website may include:
 
 - Home
 - Services
+- How We Work
 - About
+- Case Studies
+- Insights
+- Careers
+- Pilot
 - Contact
+- Join Talent Pool
+- Client and Talent login entry
+- Privacy and Terms
+
+Only published content is visible publicly.
+
+### 5.2 Contact Form
+
+Purpose: collect general business inquiries.
+
+Requirements:
+
+- Validate required contact and company information.
+- Capture the source page.
+- Create a Lead with type `CONTACT`.
+- Show a success state after submission.
+- Prevent duplicate form submission during processing.
+
+### 5.3 Pilot Request
+
+Purpose: collect qualified pilot leads.
+
+Requirements:
+
+- Validate required company, contact, and pilot information.
+- Capture the source page.
+- Create a Lead with type `PILOT`.
+- Show a success state with a Book Discovery Call action.
+
+### 5.4 Book a Call
+
+- Calendly provides scheduling.
+- A successful Calendly webhook creates or updates a Lead with type `CALENDLY`.
+- Duplicate webhook delivery must not create duplicate leads.
+
+### 5.5 Join Talent Pool
+
+Requirements:
+
+- Collect the candidate’s application information.
+- Require a resume.
+- Accept supported file formats and size limits.
+- Create one Talent Application.
+- Show a confirmation state after successful submission.
+
+### 5.6 Published Content
+
+- Visitors can browse published Case Studies and Insights and open detail pages.
+- Visitors can browse active Careers roles.
+- Pilot pages display active FAQs for the selected locale.
+- The website requests English or German content according to the active locale.
 
 ---
 
-## Contact Form
+## 6. Admin Portal
 
-### Purpose
+### 6.1 Dashboard
 
-General inquiries.
+The Admin Dashboard displays:
 
-### Hidden Field
+- New and active Leads
+- Pilot Requests and Calendly bookings
+- Talent Applications by current stage
+- Pending profile-completion submissions
+- Talent Profiles by visibility and availability
+- Companies and pending Client invitations
+- Interview Requests requiring attention
+- Recent activity
 
-- Source Page
+### 6.2 Leads
 
-### Creates
+Lead types:
 
-- Lead (Type: Contact)
+- Contact
+- Pilot
+- Calendly
+- Manually created
 
----
+Lead statuses:
 
-## Pilot Request
+- New
+- Contacted
+- Discovery Scheduled
+- In Discussion
+- Qualified
+- Converted
+- Closed Lost
+- Archived
 
-### Purpose
+Admin can:
 
-Qualified business leads.
+- View, search, filter, and paginate Leads.
+- Create a Lead manually.
+- View and edit Lead details.
+- Add internal notes.
+- Change status.
+- Archive and restore a Lead.
+- Convert a qualified Lead into a Company.
 
-### Hidden Field
+Business rules:
 
-- Source Page
+- Every public Contact, Pilot Request, and completed Calendly booking creates or resolves to a Lead.
+- A Lead never becomes a Company automatically.
+- Conversion creates a Company and its Client Workspace, then marks the Lead as converted.
+- Duplicate-company detection blocks accidental duplicate conversion.
 
-### Creates
+### 6.3 Companies
 
-- Lead (Type: Pilot)
+Company statuses:
 
-### After successful submission
+- Invitation Pending
+- On Pilot
+- Active
+- Archived
 
-```text
-Success Page
-      ↓
-Book Discovery Call (Calendly)
-```
+Admin can:
 
----
+- Create a Company manually or from a qualified Lead.
+- View and edit company information.
+- View the Client Workspace status, Client invitation status, Pilot status, Interview Requests, notes, and activity.
+- Send or resend the single Client account invitation.
+- Deactivate or reactivate the Client account.
+- Update Pilot status and milestones.
+- Archive and restore a Company.
 
-## Book a Call
+Business rules:
 
-Calendly integration.
+- Creating a Company creates one Client Workspace.
+- A company has at most one Client account in V1.
+- Archiving a Company disables Client Workspace access without deleting history.
+- Restoring a Company does not automatically reactivate a deactivated Client account.
 
-Calendly webhook creates:
+### 6.4 Talent Applications
 
-- Lead (Type: Calendly)
+Recruitment stages:
 
----
+- New
+- Under Review
+- Screening
+- Technical Assessment
+- English Assessment
+- Remote Readiness Assessment
+- Approved
+- Profile Completion Requested
+- Profile Information Submitted
+- Profile Created
+- Rejected
+- Archived
 
-## Join Talent Pool
+Admin can:
 
-### Purpose
+- View, search, filter, and paginate applications.
+- Review candidate details and uploaded files.
+- Add internal notes.
+- Record stage-specific outcomes.
+- Advance or return an application to a valid stage.
+- Reject an application at any stage with a reason.
+- Approve a candidate after required assessments.
+- Send or resend the profile-completion token.
+- Review the final-information submission.
+- Manually create a Talent Profile.
+- Send or resend the Talent account invitation after profile creation.
+- Archive and restore an application.
 
-Collect talent applications.
+Business rules:
 
-### Flow
+- One Talent Application represents one candidate submission.
+- Only an approved application can receive a profile-completion request.
+- Profile completion does not create a Talent Profile automatically.
+- One Talent Profile may be created per approved application.
+- A Talent account invitation is unavailable until the Talent Profile exists.
 
-```text
-Join Talent Pool
-      ↓
-Submit Application
-      ↓
-Application Created
-      ↓
-Confirmation Page
-```
+### 6.5 Talent Profiles
 
-### Creates
+Admin can:
 
-- Talent Application
+- View, search, filter, sort, and paginate profiles.
+- Create a profile from an approved, completed application.
+- View and edit all profile fields.
+- Publish or hide a profile from clients.
+- Archive and restore a profile.
+- Review profile activity and its linked application.
+- Send or resend the Talent account invitation.
 
----
+Admin-managed fields include:
 
-# 7. Client Workspace
+- Identity and contact information
+- Seniority
+- Hourly and monthly rates
+- English level
+- Verification state
+- Assessment summary
+- Internal notes
+- Client visibility
+- Lifecycle status
 
-## Purpose
+Talent-editable fields include:
 
-Private workspace for approved companies.
-
----
-
-## Dashboard
-
-### Displays
-
-- Welcome
-- Pilot Status
-- Available Talent
-- Recent Activity
-- Upcoming Interviews
-
----
-
-## Talent Directory
-
-### Features
-
-- Search
-- Filters
-- Sorting
-- Pagination
-
----
-
-### Talent Card
-
-- Photo
-- Name
-- Headline
-- Experience
-- Tech Stack
-- English Level
-- Availability
-- Hourly Rate
-
----
-
-## Talent Profile
-
-### Displays
-
-- Profile Photo
-- Professional Information
-- Experience
-- Tech Stack
-- Portfolio
+- Profile photo
+- Professional headline
+- Short bio
+- Primary role
+- Tech stack and secondary skills
+- Years of experience
+- Portfolio, GitHub, and LinkedIn
 - Resume
 - Availability
-- Rates
+- Earliest start date
+- Preferred engagement
 
-### Actions
+Business rules:
 
-- Request Interview
+- Talent edits to permitted fields publish immediately.
+- Talent cannot edit admin-managed fields.
+- Only active, visible profiles appear in Client Workspaces.
+- Archiving a profile removes it from client visibility and disables Talent Portal access.
+- Restoring a profile does not automatically make it client-visible.
 
----
+### 6.6 Interview and Pilot Oversight
 
-## Interview Requests
+Admin can:
 
-Client can
+- View Interview Requests across companies.
+- Update Interview Request status.
+- Record scheduling information and internal notes.
+- View the related Company and Talent Profile.
+- Update company Pilot status and milestones.
 
-- View Requests
-- Track Status
-
-### Statuses
+Interview Request statuses:
 
 - Pending
 - Scheduled
@@ -386,529 +432,447 @@ Client can
 
 ---
 
-## Pilot Status
+## 7. Client Workspace
 
-### Displays
+### 7.1 Dashboard
+
+Displays:
+
+- Welcome and company context
+- Current Pilot status
+- Available Talent summary
+- Recent workspace activity
+- Upcoming or recent Interview Requests
+
+### 7.2 Talent Directory
+
+Client can:
+
+- Browse active, visible Talent Profiles.
+- Search by relevant profile text.
+- Filter by role, skills, experience, and availability.
+- Sort and paginate results.
+- Open a Talent Profile.
+
+Talent cards may display:
+
+- Photo
+- Name
+- Headline
+- Role and experience
+- Tech stack
+- English level
+- Availability
+- Client-visible rate information
+
+### 7.3 Talent Profile
+
+Displays only client-visible fields:
+
+- Photo, name, headline, and bio
+- Role, seniority, and experience
+- Tech stack and skills
+- Portfolio and resume
+- Availability
+- English level and verification
+- Client-visible rates
+
+Client can request an interview but cannot edit the profile or contact the Talent directly.
+
+### 7.4 Interview Requests
+
+Client can:
+
+- Submit one Interview Request from a Talent Profile.
+- Add relevant context for BlihOps.
+- View their company’s requests.
+- Track Pending, Scheduled, Completed, and Cancelled statuses.
+
+All scheduling and direct coordination remains with BlihOps.
+
+### 7.5 Pilot Status
+
+Displays:
 
 - Current Pilot
-- Timeline
-- Status
+- Current status
+- Timeline and milestones
+- Assigned or participating talent when applicable
+- Recent updates
+
+### 7.6 Client Workspace Rules
+
+- Only the company’s single active Client account can enter.
+- The Client sees only their own Company data.
+- There is no Team Management.
+- There is no invitation flow for additional Client users.
+- There is no direct messaging with Talent.
 
 ---
 
-## Business Rules
+## 8. Talent Portal
 
-- Clients only see Visible Talent Profiles.
-- Clients cannot edit Talent Profiles.
-- Clients cannot contact talents directly.
-- All interview requests go through BlihOps.
+### 8.1 Purpose
 
-# 8. Admin Portal
+Provide an approved Talent with one focused, authenticated page for viewing and maintaining permitted fields on their admin-created profile.
 
-## Dashboard
+### 8.2 Profile Management
 
-### Widgets
+Talent can:
 
-- Leads
-- Pilot Requests
-- Booked Calls
-- Talent Applications
-- Talent Profiles
-- Companies
-- Recent Activity
+- View their own profile.
+- Edit permitted professional fields.
+- Upload or replace their profile photo.
+- Upload or replace their resume.
+- Update portfolio and social links.
+- Update availability and start information.
+- Save changes and receive immediate success or validation feedback.
 
----
+### 8.3 Talent Portal Rules
 
-## Leads
-
-### Purpose
-
-Manage incoming business leads.
-
-### Sections
-
-- Contact Requests
-- Pilot Requests
-- Calendly Bookings
-
-### Statuses
-
-- New
-- Contacted
-- In Discussion
-- Closed
-- Archived
-
-### Actions
-
-- View
-- Edit
-- Change Status
-- Archive
+- There is no Talent Dashboard in V1.
+- A Talent can access only their own profile.
+- A profile must exist before account activation.
+- Permitted changes are saved directly and reflected immediately.
+- Admin-only fields are visible only when explicitly useful and are always read-only to Talent.
+- Archived profiles cannot be edited through the Talent Portal.
 
 ---
 
-## Companies
+## 9. Managed Website Content
 
-### Purpose
+### 9.1 Scope
 
-Manage approved clients.
+The Admin Portal manages specific structured content. It does not provide unrestricted page editing.
 
-Creating a Company automatically:
-
-- Creates Client Workspace
+### 9.2 Home — Trusted Logos
 
 Admin can:
 
-- Send Invitation
-- Resend Invitation
-- Archive Client
+- Create, edit, activate/deactivate, reorder, and delete trusted-logo entries.
 
-### Statuses
+Fields:
 
-- Invitation Pending
-- On Pilot
-- Active
-- Archived
+- Organization name
+- Logo image
+- Optional website URL
+- Active state
+- Display order
 
----
+Only active entries are public.
 
-### Company Details
+### 9.3 Home — Testimonials
 
-#### Tabs
+Admin can:
 
-##### Workspace
+- Create text or video testimonials.
+- Edit, activate/deactivate, reorder, and delete testimonials.
+- Select exactly one active testimonial as the primary testimonial for the managed-outsourcing section.
 
-Displays
+Shared fields:
 
-- Company Information
-- Workspace Status
-- Invitation Status
-- Pilot Status
-- Workspace URL
+- Person name
+- Role or organization
+- Type: text or video
+- Active state
+- Display order
+- Primary selection
 
-### Actions
+Text testimonial fields:
 
-- Send / Resend Invitation
+- Testimonial text
+- Optional avatar
 
----
+Video testimonial fields:
 
-### Activity
+- Quote
+- Video
+- Optional cover image
 
-Timeline including
+If the primary testimonial becomes inactive or is deleted, the system requires another active primary selection before publishing the Home content state.
 
-- Client Created
-- Invitation Sent
-- Invitation Accepted
-- Viewed Talent Profile
-- Requested Interview
-- Pilot Started
-- Pilot Completed
+### 9.4 Services — Hero Media
 
----
+The Services hero uses one global media object:
 
-### Notes
+- Video
+- Cover image
+- Accessible media label or alt text
+- Last updated information
 
-Internal notes.
+Admin can replace the video or cover image and save the singleton object.
 
----
+### 9.5 Case Studies
 
-## Talent Applications
+Each Case Study is one record with:
 
-### Purpose
+- English content tab
+- German content tab
+- Shared media and metadata
+- Draft or Published status
+- Featured state
 
-Recruitment pipeline.
+Localized fields:
 
-### Statuses
+- Title
+- Slug
+- Summary
+- Body content
+- Services and outcomes copy
 
-- Applied
-- Review
-- Screening Call
-- Technical Test
-- Interview
-- Approved
-- Profile Completion Requested
-- Profile Submitted
-- Rejected
+Shared fields:
 
-### Actions
+- Client
+- Category
+- Hero image
+- Tags
+- Featured state
 
-- Review
-- Next
-- Reject
-- Request Profile Completion
-- Create Talent Profile
+Rules:
 
----
+- English and German required fields must both validate before publication.
+- Drafts may be incomplete.
+- Publication and unpublication apply to both locales together.
+- Slugs must be unique within their locale.
 
-### Expanded View
+### 9.6 Insights
 
-Displays
+Each Insight is one record with:
 
-- Original Application
-- Recruitment History
-- Profile Completion Submission
+- English content tab
+- German content tab
+- Shared metadata
+- Draft or Published status
+- Featured state
 
----
+Localized fields:
 
-## Profile Completion
+- Title
+- Slug
+- Excerpt
+- Body content
 
-After approval
+Shared fields:
 
-Admin requests profile completion.
+- Author
+- Category
+- Tags
+- Hero image
+- Read time
+- Featured state
 
-Talent receives
+Rules:
 
-- Secure token-based email.
+- English and German required fields must both validate before publication.
+- Drafts may be incomplete.
+- Publication and unpublication apply to both locales together.
+- Slugs must be unique within their locale.
 
-Completes
+### 9.7 Careers Roles
 
-- Profile Photo
-- Professional Headline
-- Short Bio
-- Primary Role
-- Tech Stack
-- Secondary Skills
-- Years of Experience
-- Portfolio
-- GitHub
-- LinkedIn
-- Resume
-- Availability
-- Earliest Start Date
-- Preferred Engagement
+Careers roles are English-only.
 
----
+Fields:
 
-## Talent Profiles
+- Title
+- Department
+- Location
+- Employment type
+- Summary and overview
+- Responsibilities
+- Requirements
+- Active state
+- Featured state
 
-### Purpose
+Admin can create, edit, activate/deactivate, feature/unfeature, and delete a role. Only active roles appear publicly.
 
-Approved talent database.
+### 9.8 Pilot FAQs
 
----
+Each FAQ entry contains:
 
-### List
+- English question and answer
+- German question and answer
+- Active state
+- Display order
 
-- Photo
-- Name
-- Headline
-- Role
-- Seniority
-- Availability
-- Hourly Rate
-- Visibility
-- Status
+Admin can create, edit, activate/deactivate, reorder, and delete FAQs.
 
-### Actions
+Rules:
 
-- Create
-- View
-- Edit
-- Hide / Show
-- Archive
+- Both locales are required before an FAQ can become active.
+- Only active FAQs appear on the Pilot page for the selected locale.
 
----
+### 9.9 Content Safety Rules
 
-### Talent Profile
-
-#### Basic
-
-- Photo
-- Name
-- Headline
-- Bio
-
-#### Professional
-
-- Primary Role
-- Seniority
-- Years of Experience
-- Primary Tech Stack
-- Secondary Skills
-- Portfolio
-- Resume
-- GitHub
-- LinkedIn
-
-#### Availability
-
-- Status
-- Earliest Start Date
-- Preferred Engagement
-
-#### Commercial
-
-- Hourly Rate
-- Monthly Rate
-
-#### Verification
-
-- English Level
-- BlihOps Verified
-
-#### Visibility
-
-- Visible to Clients
-
-#### Internal
-
-- Assessment Summary
-- Internal Notes
-- Linked Talent Application
+- Destructive deletion requires confirmation.
+- Upload failures preserve unsaved form data where possible.
+- Published or active content changes create activity records.
+- Public content delivery selects content using the requested locale.
+- Missing bilingual content cannot be published with an English fallback.
 
 ---
 
-### Business Rules
+## 10. Settings
 
-- One Talent Profile per approved application.
-- Talent Profiles are created from Talent Applications.
-- Hidden Talent Profiles are not visible to clients.
+### 10.1 Email Templates
 
----
+Admin can view and update templates for:
 
-## CMS
+- Client account invitation
+- Talent profile-completion request
+- Talent account invitation
+- Password reset
+- Interview Request notification
 
-Manage website content.
+Template variables must be validated before saving.
 
-Future editable sections include:
+### 10.2 Calendly
 
-- Homepage
-- Services
-- Testimonials
-- FAQs
+Admin can view:
 
----
+- Connection status
+- Webhook configuration
+- Event mapping
+- Last webhook received
 
-## Settings
-
-### Email Templates
-
-- Client Invitation
-- Password Reset
-- Profile Completion Request
-
-### Calendly
-
-- Webhook Configuration
-- Event Mapping
-- Connection Status
-- Last Webhook Received
+Sensitive credentials are never displayed in full.
 
 ---
 
-# 9. Notifications
+## 11. Notifications
 
-## Internal
+### 11.1 Admin Notifications
 
-- New Contact Request
-- New Pilot Request
+- New Contact or Pilot Request
+- New Calendly booking
 - New Talent Application
-- New Calendly Booking
-- Profile Completion Submitted
+- Talent profile information submitted
+- Client invitation accepted
+- Talent account invitation accepted
+- New Interview Request
+
+### 11.2 Client Notifications
+
+- Client account invitation
+- Password reset
+- Interview Request status update
+- Pilot status update
+
+### 11.3 Talent Notifications
+
+- Profile-completion request
+- Talent account invitation
+- Password reset
+- Important profile-access change
 
 ---
 
-## Client
+## 12. File Management
 
-- Workspace Invitation
-- Password Reset
-
----
-
-## Talent
-
-- Profile Completion Request
-
----
-
-# 10. File Management
-
-## Talent Application
-
-- Resume (Required)
+- Talent Applications require a resume.
+- Profile completion may include a profile photo and replacement resume.
+- Talent Portal supports profile photo and resume replacement.
+- Managed content supports the image and video types required by each content model.
+- Files must pass configured type and size validation.
+- Private candidate and talent files require authorization.
+- Replaced or deleted files follow the platform’s storage cleanup policy.
 
 ---
 
-## Talent Profile
+## 13. Activity and Audit
 
-- Profile Photo
-- Resume
+The system records important actions with actor, timestamp, resource, and action.
 
----
+At minimum:
 
-## Rules
+- Lead creation, status changes, conversion, archival, and restoration
+- Company creation, invitation activity, access changes, and archival
+- Talent Application stage changes, approval, rejection, and token activity
+- Talent Profile creation, field updates, visibility changes, and archival
+- Client and Talent account activation
+- Interview Request creation and status changes
+- Pilot status changes
+- Managed-content creation, publication, activation, ordering, and deletion
 
-- Resume must be PDF.
-- Photos support JPG, PNG, WebP.
-- Replacing a file overwrites the previous version.
-- Files remain available for historical purposes after profile archival.
-
----
-
-# 11. Audit & Activity
-
-## Lead
-
-- Created
-- Updated
-- Archived
+Talent-originated profile changes must be distinguishable from Admin changes.
 
 ---
 
-## Company
+## 14. Non-Functional Requirements
 
-- Created
-- Workspace Created
-- Invitation Sent
-- Invitation Accepted
-- Archived
+### Security
 
----
+- Role and ownership checks are enforced server-side.
+- Tokens and reset links are single-use and expire.
+- Private files use protected access.
+- Sensitive credentials and internal fields are never exposed to unauthorized users.
 
-## Talent Application
+### Accessibility
 
-- Submitted
-- Status Changed
-- Profile Completion Requested
-- Profile Submitted
+- Core workflows are keyboard accessible.
+- Forms provide programmatic labels and actionable validation messages.
+- Status is not communicated by color alone.
+- Upload controls expose progress and errors accessibly.
 
----
+### Responsive Behavior
 
-## Talent Profile
+- Public pages, Client Workspace, Talent Portal, and core Admin workflows support desktop and mobile layouts.
+- Data-heavy Admin tables may use responsive alternatives without hiding required actions.
 
-- Created
-- Updated
-- Visibility Changed
-- Archived
+### Reliability
 
----
-
-## Client Workspace
-
-- Talent Viewed
-- Interview Requested
+- Forms prevent accidental duplicate submission.
+- Failed mutations show retryable errors without falsely reporting success.
+- Locale-aware content requests return only published content.
 
 ---
 
-Each activity records:
+## 15. V1 Assumptions
 
-- Timestamp
-- User / System
-- Action
-- Target Entity
-
----
-
-# 12. Business Rules
-
-## Authentication
-
-- Single authentication system.
-- Role-based authorization.
-- No public registration.
+- One seeded or internally provisioned Admin account is sufficient initially.
+- Each company has one Client account and one Client Workspace.
+- Each approved Talent Profile has at most one Talent account.
+- Recruitment communication and interview scheduling remain operationally managed by BlihOps.
+- Calendly handles call scheduling.
+- Talent self-service is limited to the explicitly permitted profile fields.
+- The backend will store and return locale-specific content according to the requested locale.
 
 ---
 
-## Leads
+## 16. Out of Scope for Version 1
 
-- Every Contact, Pilot Request, and Calendly booking creates a Lead.
-- Leads never automatically become Clients.
-- Client creation is manual.
-- Leads can be archived.
-
----
-
-## Companies
-
-- Every Client has one Workspace.
-- Workspace is created when the Client is created.
-- Invitations are sent manually.
-- Archived Clients lose Workspace access.
-
----
-
-## Talent Applications
-
-- Every submission creates one Talent Application.
-- Applications can be rejected at any stage.
-- Only approved applications can request profile completion.
-
----
-
-## Talent Profiles
-
-- One Talent Profile per approved application.
-- Clients only see Visible profiles.
-- Clients never contact talents directly.
-
----
-
-## Client Workspace
-
-- Accessible only by invited Clients.
-- Clients only access their own Workspace.
-- Interview requests are managed through BlihOps.
-
----
-
-# 13. Assumptions & Future Considerations
-
-Current assumptions for Version 1:
-
-- One seeded admin account.
-- One client user per company.
-- One workspace per client.
-- Recruitment communication handled manually.
-- Interview scheduling outside the platform.
-- Calendly used for scheduling.
-- Talent Profiles managed only by admins.
-
----
-
-# 14. Out of Scope (Version 1)
-
-## Products
+### Products
 
 - BlihOps Skills
-- BlihOps Talent Marketplace
-
----
-
-## Authentication
-
-- Public Registration
-- Multi-Factor Authentication
-- Internal User Management
-- Multiple Client Users
-
----
-
-## Recruitment
-
-- Self-managed Talent Profiles
-- AI Matching
 - Public Talent Marketplace
 
----
+### Accounts and Security
 
-## Client Features
+- Public registration
+- Multiple Client accounts per company
+- Internal role-management UI
+- Multi-factor authentication
 
-- Messaging
-- Contracts
-- Payments
-- Invoicing
+### Client Features
+
 - Team Management
-- Analytics
+- Direct messaging with Talent
+- Contracts
+- Payments and invoicing
+- Advanced analytics
 
----
+### Talent Features
 
-## Admin Features
+- Talent-created profiles before Admin approval
+- Editing rates, assessments, verification, visibility, status, or internal notes
+- Talent Dashboard
+- Client discovery or marketplace browsing
 
-- Advanced Reporting
-- Role-based Admin Permissions
-- Workflow Automation
+### Operations
 
----
+- AI talent matching
+- Automated hiring decisions
+- Fully automated recruitment communication
+- General-purpose page-builder CMS
+- Advanced reporting and workflow automation
 
-# End of PRD

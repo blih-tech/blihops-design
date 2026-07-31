@@ -1,10 +1,8 @@
 # BlihOps Design
 
-The official planning and design repository for **BlihOps**.
+The official planning and design repository for BlihOps.
 
-This repository contains all product documentation, UX artifacts, UI designs, technical planning, and architecture documents created before implementation. It serves as the single source of truth for product decisions and provides a complete history of how BlihOps evolves from an idea into a production-ready platform.
-
-The application source code is maintained separately in the `blihops` repository.
+This repository is the product and UX source of truth used before UI design, technical planning, and implementation. Application source code is maintained separately.
 
 ---
 
@@ -12,25 +10,16 @@ The application source code is maintained separately in the `blihops` repository
 
 ```text
 blihops-design/
-├── 01-product/
-│   ├── Product Brief.md
-│   └── PRD.md
+├── 01-Procuct/
+│   ├── Product-Brief.md
+│   ├── PRD.md
+│   └── historical PDF references
 │
-├── 02-ux/
-│   ├── User Personas.md
-│   ├── Information Architecture.md
-│   ├── Navigation.md
-│   ├── UX Decisions.md
-│   └── User Flows/
-│       ├── 01-authentication.md
-│       ├── 02-public-website.md
-│       ├── 03-lead-management.md
-│       ├── 04-company-management.md
-│       ├── 05-talent-recruitment.md
-│       ├── 06-talent-profiles.md
-│       ├── 07-client-workspace.md
-│       ├── 08-talent-portal.md
-│       └── 09-cms-settings.md
+├── 02-UX/
+│   ├── User-Personas.md
+│   ├── Information-Archtecture.md
+│   ├── Navigations.md
+│   └── User-Flows.md
 │
 ├── 03-ui/
 │   ├── wireframes/
@@ -46,47 +35,61 @@ blihops-design/
 │   ├── API Specification.md
 │   └── Technical Decisions.md
 │
-├── assets/
-│
-└── README.md
+└── assets/
 ```
+
+Some later-stage folders and files are created only when that design stage begins.
+
+---
+
+## Canonical Document Order
+
+When documents differ, resolve them in this order:
+
+1. `01-Procuct/Product-Brief.md`
+2. `01-Procuct/PRD.md`
+3. `02-UX/User-Personas.md`
+4. `02-UX/Information-Archtecture.md`
+5. `02-UX/Navigations.md`
+6. `02-UX/User-Flows.md`
+7. Screen Inventory and later UI artifacts
+
+The Markdown Product Brief and PRD are canonical. PDFs in `01-Procuct` are historical references and may not reflect the current V1 scope.
+
+---
+
+## Current V1 Product Boundaries
+
+- One Client account and one Client Workspace per Company.
+- No Client Team Management.
+- Talent Profiles are created manually by Admin after recruitment and final-information review.
+- Talent receives a separate account invitation after the profile exists.
+- Talent Portal contains Profile Management only; it has no dashboard.
+- Talent may edit permitted professional fields but not commercial, assessment, verification, visibility, lifecycle, or internal fields.
+- Website content management is limited to the structured content types defined in the PRD.
 
 ---
 
 ## Design Workflow
 
-Every major feature follows the same planning process:
-
-1. Product Discovery
+1. Product discovery
 2. Product Brief
-3. Product Requirements Document (PRD)
-4. UX Planning
-5. UI Design
-6. Technical Planning
-7. Engineering Handoff
-8. Implementation (BlihOps Repository)
+3. Product Requirements Document
+4. Personas and information architecture
+5. Navigation
+6. Consolidated User Flows
+7. Screen Inventory
+8. UI design
+9. Technical planning
+10. Engineering handoff
+
+Each stage should be reviewed before the next stage begins.
 
 ---
 
-## Purpose
+## Related Application Repository
 
-This repository exists to:
-
-* Document product decisions
-* Plan features before implementation
-* Maintain UX and UI artifacts
-* Define the technical architecture
-* Record design and engineering decisions
-* Create a clear handoff for development
-
----
-
-## Related Repository
-
-| Repository         | Purpose                                                   |
-| ------------------ | --------------------------------------------------------- |
-| **blihops-design** | Product planning, UX, UI, architecture, and documentation |
-| **blihops**        | Application source code and implementation                |
+The existing BlihOps application monorepo is maintained outside this design directory. It may be inspected to verify current routes, content types, and behavior, but design-document updates do not modify application code unless implementation work is separately authorized.
 
 ---
 
@@ -94,4 +97,5 @@ This repository exists to:
 
 Plan first. Build second.
 
-Every implementation should be backed by clear product requirements, thoughtful UX, consistent UI, and documented technical decisions.
+Every implementation should be backed by clear product requirements, deliberate UX structure, consistent UI, and documented technical decisions.
+

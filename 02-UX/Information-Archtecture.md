@@ -1,35 +1,35 @@
 # Information Architecture
 
-## Overview
+## 1. Overview
 
-This document defines how information is organized within BlihOps. It establishes the hierarchy of the platform, the relationships between applications and resources, and the logical grouping of functionality.
+This document defines how BlihOps V1 information is organized across the public website, Admin Portal, Client Workspace, and Talent Portal.
 
-The Information Architecture serves as the foundation for navigation, screen design, user flows, and implementation.
-
----
-
-# Architecture Principles
-
-The information architecture follows these principles:
-
-- Application-first organization
-- Clear separation of user experiences
-- Predictable hierarchy
-- Minimal navigation depth
-- Consistent resource relationships
-- Scalable for future products
+It derives from the canonical V1 PRD and provides the structural foundation for navigation, user flows, screen inventory, and UI design.
 
 ---
 
-# Product Hierarchy
+## 2. Architecture Principles
+
+- Separate public, admin, client, and talent experiences.
+- Keep Admin operations resource-oriented.
+- Keep Client and Talent experiences focused on their primary tasks.
+- Use shallow, predictable navigation.
+- Give every major resource a stable, permission-aware URL.
+- Keep managed website content structured rather than page-based.
+- Do not expose internal, commercial, or assessment data outside Admin.
+
+---
+
+## 3. Product Hierarchy
 
 ```text
 BlihOps
-├── Website
+├── Public Website
 │   ├── Marketing Pages
 │   ├── Lead Generation
 │   ├── Talent Applications
-│   └── Client Workspace Entry
+│   ├── Published Content
+│   └── Protected Application Entry
 │
 ├── Admin Portal
 │   ├── Dashboard
@@ -37,164 +37,234 @@ BlihOps
 │   ├── Companies
 │   ├── Talent Applications
 │   ├── Talent Profiles
-│   ├── CMS
+│   ├── Interview and Pilot Oversight
+│   ├── Managed Content
 │   └── Settings
 │
 ├── Client Workspace
 │   ├── Dashboard
 │   ├── Talent Directory
 │   ├── Interview Requests
-│   ├── Teams
 │   └── Pilot Status
 │
 └── Talent Portal
-    ├── Dashboard
     └── Profile Management
 ```
 
 ---
 
-# Resource Hierarchy
+## 4. Primary Application Structures
+
+### 4.1 Public Website
+
+```text
+Public Website
+├── Home
+├── Services
+├── How We Work
+├── About
+├── Case Studies
+│   └── Case Study Detail
+├── Insights
+│   └── Insight Detail
+├── Careers
+├── Pilot
+├── Contact
+├── Join Talent Pool
+├── Login
+├── Privacy
+└── Terms
+```
+
+Public actions create Leads or Talent Applications but do not expose those resources back to the Visitor.
+
+### 4.2 Admin Portal
+
+```text
+Admin Portal
+├── Dashboard
+├── Leads
+│   ├── Active Leads
+│   ├── Archived Leads
+│   └── Lead Detail
+├── Companies
+│   ├── Active Companies
+│   ├── Archived Companies
+│   └── Company Detail
+├── Talent Applications
+│   ├── Recruitment Pipeline
+│   ├── Approved
+│   ├── Rejected
+│   ├── Archived
+│   └── Application Detail
+├── Talent Profiles
+│   ├── Visible
+│   ├── Hidden
+│   ├── Archived
+│   └── Talent Profile Detail
+├── Interview Requests
+├── Managed Content
+│   ├── Trusted Logos
+│   ├── Testimonials
+│   ├── Services Hero Media
+│   ├── Case Studies
+│   ├── Insights
+│   ├── Careers Roles
+│   └── Pilot FAQs
+└── Settings
+    ├── Email Templates
+    └── Calendly
+```
+
+### 4.3 Client Workspace
+
+```text
+Client Workspace
+├── Dashboard
+├── Talent Directory
+│   └── Talent Profile Detail
+├── Interview Requests
+│   └── Interview Request Detail
+└── Pilot Status
+```
+
+Each Company has one Client Workspace and one Client account in V1.
+
+### 4.4 Talent Portal
+
+```text
+Talent Portal
+└── Profile Management
+    ├── Professional Information
+    ├── Skills and Experience
+    ├── Links and Resume
+    └── Availability
+```
+
+Profile Management is a single application destination. The listed groups are sections of the page, not separate primary destinations.
+
+---
+
+## 5. Resource Hierarchy
 
 ```text
 Platform
-│
 ├── Leads
 ├── Companies
 │   └── Client Workspace
-│       ├── Teams
 │       └── Interview Requests
-│
 ├── Talent Applications
-│   └── Talent Profiles
-│
-├── Users
-│   ├── Admin
-│   ├── Client
-│   └── Talent
-│
-├── CMS
+│   ├── Profile-Completion Submission
+│   └── Talent Profile
+│       └── Talent Account
+├── Managed Content
+│   ├── Trusted Logos
+│   ├── Testimonials
+│   ├── Services Hero Media
+│   ├── Case Studies
+│   ├── Insights
+│   ├── Careers Roles
+│   └── Pilot FAQs
 └── Settings
 ```
 
 ---
 
-# Primary Sections
-
-## Website
-
-Public-facing application responsible for marketing, lead generation, talent recruitment, and client entry.
-
-Contains:
-
-- Marketing Pages
-- Contact
-- Pilot Request
-- Book a Call
-- Join Talent Pool
-- Client Login
-
----
-
-## Admin Portal
-
-Internal platform used to operate the business.
-
-Contains:
-
-- Dashboard
-- Leads
-- Companies
-- Talent Applications
-- Talent Profiles
-- CMS
-- Settings
-
----
-
-## Client Workspace
-
-Private workspace for approved clients.
-
-Contains:
-
-- Dashboard
-- Talent Directory
-- Talent Profiles
-- Interview Requests
-- Teams
-- Pilot Status
-
----
-
-## Talent Portal
-
-Self-service portal for approved engineers.
-
-Contains:
-
-- Dashboard
-- Profile Management
-
----
-
-# Resource Relationships
+## 6. Resource Relationships
 
 ```text
 Lead
-    ↓
-Company
-    ↓
-Client Workspace
-    ├── Teams
-    └── Interview Requests
+  └── may convert to → Company
+                         └── owns → Client Workspace
+                                      └── contains → Interview Requests
 
 Talent Application
-        ↓
-Talent Profile
-        ↓
-Talent Portal
+  ├── may receive → Profile-Completion Submission
+  └── may produce → Talent Profile
+                       └── may enable → Talent Account
+
+Interview Request
+  ├── belongs to → Company / Client Workspace
+  └── references → Talent Profile
 ```
 
-### Relationship Rules
+Relationship rules:
 
-- Every Lead may become one Company.
+- A Lead may convert into one Company.
 - Every Company has one Client Workspace.
-- Every Talent Application may become one Talent Profile.
-- Every Talent Profile belongs to one Talent.
-- Every Team belongs to one Client Workspace.
-- Every Interview Request belongs to one Company and one Talent Profile.
+- Every Company has at most one Client account in V1.
+- Every Talent Application may produce one Talent Profile.
+- A profile-completion submission belongs to one approved Talent Application.
+- A Talent account can exist only after its Talent Profile exists.
+- Every Interview Request belongs to one Company and references one Talent Profile.
+- There is no Team resource in V1.
 
 ---
 
-# Information Ownership
+## 7. Information Ownership and Access
 
-| Resource | Parent |
-|-----------|--------|
-| Lead | Platform |
-| Company | Platform |
-| Client Workspace | Company |
-| Team | Client Workspace |
-| Interview Request | Client Workspace |
-| Talent Application | Platform |
-| Talent Profile | Talent Application |
-| Talent Portal | Talent |
-| CMS | Platform |
-| Settings | Platform |
+| Resource | Owner or Parent | Admin | Client | Talent | Visitor |
+|----------|-----------------|-------|--------|--------|---------|
+| Lead | Platform | Full | None | None | Create through forms |
+| Company | Platform | Full | Own context, read-only | None | None |
+| Client Workspace | Company | Full | Own workspace | None | None |
+| Interview Request | Client Workspace | Full | Own company, create/read | None | None |
+| Talent Application | Platform | Full | None | Token-scoped completion only | Create |
+| Talent Profile | Talent Application | Full | Visible fields only | Own permitted fields | None |
+| Managed Content | Platform | Full | Public output only | Public output only | Published output |
+| Settings | Platform | Full | None | None | None |
 
 ---
 
-# Future Expansion
+## 8. Managed Content Structure
 
-The architecture is designed to support future products without restructuring the platform.
+### Global, Non-Localized Content
 
-Potential future sections include:
+- Trusted Logos
+- Testimonials
+- Primary Testimonial selection
+- Services Hero Media
+- Careers Roles in English
 
-- Skills Platform
-- Talent Marketplace
-- Messaging
-- Payments
-- Contracts
-- Analytics
-- AI Matching
-- Integrations
+### Bilingual Content
+
+- Case Studies
+- Insights
+- Pilot FAQs
+
+Bilingual content uses one record with English and German content groups. Both locale groups must be complete before the shared record can publish or activate.
+
+---
+
+## 9. URL and Deep-Link Model
+
+Every major resource has a stable URL where permissions allow:
+
+- Lead
+- Company
+- Talent Application
+- Talent Profile
+- Interview Request
+- Case Study
+- Insight
+- Careers Role
+
+Tokenized URLs are used only for:
+
+- Client account invitation
+- Talent profile-completion request
+- Talent account invitation
+- Password reset
+
+Tokenized links validate before showing protected form content.
+
+---
+
+## 10. Explicit V1 Boundaries
+
+- The Talent Portal has no dashboard.
+- The Client Workspace has no Teams section or Team resource.
+- Companies cannot manage multiple Client users.
+- Talent cannot create a profile before Admin approval.
+- Managed Content does not expose arbitrary page editing.
+
