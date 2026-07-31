@@ -74,7 +74,10 @@ The Client is the single approved representative of a company. They use a privat
 
 ### V1 Boundary
 
-The Client cannot invite additional users, create teams, edit Talent Profiles, or contact Talent directly.
+The Client can organize visible Talent into planning-only Pods and optionally
+select a Pod Lead. The Client cannot invite additional users, create company-user
+teams, turn Pod membership into a staffing assignment, edit Talent Profiles, or
+contact Talent directly.
 
 ---
 
@@ -160,4 +163,3 @@ The Admin experience is the operational priority. Client and Talent experiences 
 - Talent: complete requested information, then maintain permitted profile fields.
 
 Neither experience should inherit Admin complexity.
-

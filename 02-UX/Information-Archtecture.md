@@ -44,6 +44,7 @@ BlihOps
 ├── Client Workspace
 │   ├── Dashboard
 │   ├── Talent Directory
+│   ├── Talent Pods
 │   ├── Interview Requests
 │   └── Pilot Status
 │
@@ -123,6 +124,8 @@ Client Workspace
 ├── Dashboard
 ├── Talent Directory
 │   └── Talent Profile Detail
+├── Talent Pods
+│   └── Talent Pod Detail
 ├── Interview Requests
 │   └── Interview Request Detail
 └── Pilot Status
@@ -152,6 +155,7 @@ Platform
 ├── Leads
 ├── Companies
 │   └── Client Workspace
+│       ├── Talent Pods
 │       └── Interview Requests
 ├── Talent Applications
 │   ├── Profile-Completion Submission
@@ -176,6 +180,7 @@ Platform
 Lead
   └── may convert to → Company
                          └── owns → Client Workspace
+                                      ├── contains → Talent Pods
                                       └── contains → Interview Requests
 
 Talent Application
@@ -186,6 +191,11 @@ Talent Application
 Interview Request
   ├── belongs to → Company / Client Workspace
   └── references → Talent Profile
+
+Talent Pod
+  ├── belongs to → Client Workspace
+  ├── contains → zero or more Talent Profiles
+  └── may identify → one member as Pod Lead
 ```
 
 Relationship rules:
@@ -197,7 +207,10 @@ Relationship rules:
 - A profile-completion submission belongs to one approved Talent Application.
 - A Talent account can exist only after its Talent Profile exists.
 - Every Interview Request belongs to one Company and references one Talent Profile.
-- There is no Team resource in V1.
+- Every Talent Pod belongs to one Client Workspace.
+- A Talent Profile may belong to multiple Talent Pods.
+- A Pod Lead is optional and must be a current member of that Pod.
+- Talent Pods are planning-only and do not represent staffing assignments.
 
 ---
 
@@ -208,6 +221,7 @@ Relationship rules:
 | Lead | Platform | Full | None | None | Create through forms |
 | Company | Platform | Full | Own context, read-only | None | None |
 | Client Workspace | Company | Full | Own workspace | None | None |
+| Talent Pod | Client Workspace | Full | Own workspace, create/update/archive | None | None |
 | Interview Request | Client Workspace | Full | Own company, create/read | None | None |
 | Talent Application | Platform | Full | None | Token-scoped completion only | Create |
 | Talent Profile | Talent Application | Full | Visible fields only | Own permitted fields | None |
@@ -244,6 +258,7 @@ Every major resource has a stable URL where permissions allow:
 - Company
 - Talent Application
 - Talent Profile
+- Talent Pod
 - Interview Request
 - Case Study
 - Insight
@@ -263,8 +278,8 @@ Tokenized links validate before showing protected form content.
 ## 10. Explicit V1 Boundaries
 
 - The Talent Portal has no dashboard.
-- The Client Workspace has no Teams section or Team resource.
+- The Client Workspace has Talent Pods for planning, but no company-user Team resource.
+- Pod membership never reserves or assigns Talent.
 - Companies cannot manage multiple Client users.
 - Talent cannot create a profile before Admin approval.
 - Managed Content does not expose arbitrary page editing.
-

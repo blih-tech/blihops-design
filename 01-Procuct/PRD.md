@@ -12,6 +12,7 @@ Version 1 validates the outsourcing model by:
 - Recruiting, assessing, and approving talent.
 - Manually creating controlled Talent Profiles.
 - Giving one invited representative per company access to a private Client Workspace.
+- Letting that Client organize visible talent into planning-only Pods.
 - Giving approved talent invitation-only access to maintain permitted profile information.
 - Managing selected website content through structured admin tools.
 
@@ -63,6 +64,7 @@ The backend provides:
 - Authentication and role-based authorization
 - Invitations and token validation
 - Lead, company, and client-workspace operations
+- Talent Pod planning operations
 - Talent recruitment and profile operations
 - Content delivery by locale
 - Notifications, file handling, and audit history
@@ -409,8 +411,10 @@ Business rules:
 
 - Talent edits to permitted fields publish immediately.
 - Talent cannot edit admin-managed fields.
-- Only active, visible profiles appear in Client Workspaces.
-- Archiving a profile removes it from client visibility and disables Talent Portal access.
+- Only active, visible profiles expose Talent Profile details in Client Workspaces.
+- When a profile used in a Pod becomes hidden or archived, its Pod membership is
+  represented only by an unavailable placeholder with no profile access.
+- Archiving a profile removes its client visibility and disables Talent Portal access.
 - Restoring a profile does not automatically make it client-visible.
 
 ### 6.6 Interview and Pilot Oversight
@@ -441,6 +445,7 @@ Displays:
 - Welcome and company context
 - Current Pilot status
 - Available Talent summary
+- Active Talent Pod summary
 - Recent workspace activity
 - Upcoming or recent Interview Requests
 
@@ -453,6 +458,7 @@ Client can:
 - Filter by role, skills, experience, and availability.
 - Sort and paginate results.
 - Open a Talent Profile.
+- Add a visible Talent Profile to one or more Pods.
 
 Talent cards may display:
 
@@ -477,9 +483,39 @@ Displays only client-visible fields:
 - English level and verification
 - Client-visible rates
 
-Client can request an interview but cannot edit the profile or contact the Talent directly.
+Client can add the profile to a Pod or request an interview, but cannot edit the
+profile or contact the Talent directly.
 
-### 7.4 Interview Requests
+### 7.4 Talent Pods
+
+Purpose: let the Client organize visible Talent into private planning groups
+without creating an assignment, reservation, or employment commitment.
+
+Client can:
+
+- View active Pods in their own Client Workspace.
+- Create a Pod with a required name and optional planning note or objective.
+- Rename or update the planning note.
+- Add active, visible Talent Profiles from the Pod, Talent Directory, or Talent Profile.
+- Remove Talent from a Pod.
+- Optionally select one Pod Lead from the current Pod members.
+- Clear or change the Pod Lead.
+- Archive a Pod after confirmation.
+
+Rules:
+
+- A Pod belongs to exactly one Client Workspace.
+- A Talent Profile may appear in more than one Pod.
+- Duplicate membership within the same Pod is prevented.
+- The Pod Lead is optional and must be a current member of that Pod.
+- Removing the selected Pod Lead clears the lead assignment.
+- If a member becomes hidden or archived, the Pod marks that member unavailable
+  and blocks access to the Talent Profile.
+- Pods are planning-only. Membership does not reserve, assign, hire, notify, or
+  contact Talent and does not create an Interview Request or Pilot assignment.
+- Clients can access and manage only Pods belonging to their own Workspace.
+
+### 7.5 Interview Requests
 
 Client can:
 
@@ -490,7 +526,7 @@ Client can:
 
 All scheduling and direct coordination remains with BlihOps.
 
-### 7.5 Pilot Status
+### 7.6 Pilot Status
 
 Displays:
 
@@ -500,11 +536,11 @@ Displays:
 - Assigned or participating talent when applicable
 - Recent updates
 
-### 7.6 Client Workspace Rules
+### 7.7 Client Workspace Rules
 
 - Only the company’s single active Client account can enter.
 - The Client sees only their own Company data.
-- There is no Team Management.
+- Talent Pods are planning groups, not company-user teams or staffing assignments.
 - There is no invitation flow for additional Client users.
 - There is no direct messaging with Talent.
 
@@ -757,6 +793,7 @@ Sensitive credentials are never displayed in full.
 - Password reset
 - Interview Request status update
 - Pilot status update
+- A Talent Profile used in a Pod becoming unavailable
 
 ### 11.3 Talent Notifications
 
@@ -790,6 +827,7 @@ At minimum:
 - Talent Application stage changes, approval, rejection, and token activity
 - Talent Profile creation, field updates, visibility changes, and archival
 - Client and Talent account activation
+- Talent Pod creation, detail changes, membership changes, Pod Lead changes, and archival
 - Interview Request creation and status changes
 - Pilot status changes
 - Managed-content creation, publication, activation, ordering, and deletion
@@ -831,6 +869,7 @@ Talent-originated profile changes must be distinguishable from Admin changes.
 
 - One seeded or internally provisioned Admin account is sufficient initially.
 - Each company has one Client account and one Client Workspace.
+- Talent Pods are private planning aids and never imply reservation or assignment.
 - Each approved Talent Profile has at most one Talent account.
 - Recruitment communication and interview scheduling remain operationally managed by BlihOps.
 - Calendly handles call scheduling.
@@ -855,7 +894,8 @@ Talent-originated profile changes must be distinguishable from Admin changes.
 
 ### Client Features
 
-- Team Management
+- Company-user team management
+- Staffing, reservation, or assignment actions through Talent Pods
 - Direct messaging with Talent
 - Contracts
 - Payments and invoicing
@@ -875,4 +915,3 @@ Talent-originated profile changes must be distinguishable from Admin changes.
 - Fully automated recruitment communication
 - General-purpose page-builder CMS
 - Advanced reporting and workflow automation
-

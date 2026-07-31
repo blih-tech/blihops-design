@@ -134,12 +134,17 @@ Primary navigation:
 
 - Dashboard
 - Talent Directory
+- Talent Pods
 - Interview Requests
 - Pilot Status
 
 The workspace identity remains visible so the Client stays oriented to their Company.
 
-The Client Workspace does not contain Teams, user management, contracts, billing, or messaging.
+Talent Pods organize visible Talent for planning only. They do not create
+staffing assignments, reservations, interviews, or direct communication.
+
+The Client Workspace does not contain company-user teams, user management,
+contracts, billing, or messaging.
 
 ---
 
@@ -178,6 +183,8 @@ Contextual links connect related resources:
 - Lead → converted Company
 - Company → Client Workspace status and Interview Requests
 - Talent Application → profile-completion submission and Talent Profile
+- Talent Directory or Talent Profile → Add to Pod
+- Talent Pod → member Talent Profiles
 - Talent Profile → linked Talent Application
 - Interview Request → Company and Talent Profile
 - Dashboard widgets → filtered resource lists
@@ -211,4 +218,3 @@ Invitation, completion, and reset URLs are tokenized and may not be reused after
 - Unauthorized resources show access denied or redirect to the correct login.
 - Expired token links show a dedicated recovery action where one exists.
 - Empty lists explain the absence of data and offer a permitted next action.
-

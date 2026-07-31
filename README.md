@@ -63,7 +63,9 @@ The Markdown Product Brief and PRD are canonical. PDFs in `01-Procuct` are histo
 ## Current V1 Product Boundaries
 
 - One Client account and one Client Workspace per Company.
-- No Client Team Management.
+- Talent Pods support planning and optional Pod Lead selection without creating
+  staffing assignments.
+- No company-user Team Management or additional Client users.
 - Talent Profiles are created manually by Admin after recruitment and final-information review.
 - Talent receives a separate account invitation after the profile exists.
 - Talent Portal contains Profile Management only; it has no dashboard.

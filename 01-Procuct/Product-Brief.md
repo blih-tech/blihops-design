@@ -25,6 +25,7 @@ The future BlihOps Skills product and public Talent Marketplace are not part of 
 - Centralize lead, company, talent, and content operations.
 - Recruit and validate engineers before presenting them to clients.
 - Provide approved companies with a secure, private talent workspace.
+- Let Clients organize visible talent into planning-only Pods.
 - Let approved talent maintain accurate professional information.
 - Keep permissions and operational control with BlihOps.
 
@@ -74,7 +75,7 @@ Primary responsibilities:
 - Lead and company management
 - Talent applications and recruitment
 - Talent Profiles and Talent Portal access
-- Client Workspace and interview requests
+- Client Workspace, Talent Pods, and interview requests
 - Content management and locale-aware delivery
 - Notifications, files, and activity history
 
@@ -106,6 +107,7 @@ Can:
 - Access the company’s private Client Workspace.
 - Browse visible Talent Profiles.
 - Search and filter available talent.
+- Organize visible talent into planning-only Pods and optionally select a Pod Lead.
 - Request interviews through BlihOps.
 - Track interview requests and pilot progress.
 
@@ -193,10 +195,15 @@ V1 capabilities:
 - Talent Directory
 - Talent Profile details
 - Search, filters, sorting, and pagination
+- Talent Pods for planning and optional Pod Lead selection
 - Interview Requests
 - Pilot Status
 
-Clients cannot edit Talent Profiles, contact talent directly, create teams, or invite additional client users.
+Talent Pods are private planning groups. Adding Talent to a Pod does not reserve,
+assign, hire, or contact that Talent.
+
+Clients cannot edit Talent Profiles, contact talent directly, create teams of
+company users, or invite additional client users.
 
 ---
 
@@ -281,7 +288,8 @@ All applications
 - Public Talent Marketplace
 - Public account registration
 - Multiple Client accounts per company
-- Client team management
+- Company-user team management
+- Staffing, reservation, or assignment actions through Talent Pods
 - Talent-created profiles before admin approval
 - Talent access to commercial, assessment, verification, visibility, or internal fields
 - Direct client-to-talent messaging
@@ -290,4 +298,3 @@ All applications
 - Advanced analytics and reporting
 - Multi-factor authentication
 - General-purpose website page building
-

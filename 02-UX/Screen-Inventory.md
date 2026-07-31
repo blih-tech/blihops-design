@@ -203,7 +203,7 @@ Entry points name the user-visible origin, not an implementation route.
 | PROFILE-06 | Client-Visible Preview | Page / Modal | Admin | Profile Detail or Edit | Verify the exact client-safe presentation. | PRD 7.3; Flow 8.2 |
 | PROFILE-07 | Publish Profile Confirmation | Dialog | Admin | Complete hidden Profile | Confirm making the profile visible to Clients. | PRD 6.5; Flow 8.3 |
 | PROFILE-08 | Incomplete Profile Requirements | Dialog / Panel | Admin | Failed publish validation | List fields that must be completed before publication. | PRD 6.5; Flow 8.3 |
-| PROFILE-09 | Hide Profile Confirmation | Dialog | Admin | Visible Profile | Confirm removal from Client Workspaces. | PRD 6.5; Flow 8.3 |
+| PROFILE-09 | Hide Profile Confirmation | Dialog | Admin | Visible Profile | Confirm removal from Client discovery and explain unavailable placeholders in existing Pods. | PRD 6.5; Flow 8.3 |
 | PROFILE-10 | Talent Account Access | Section | Admin | Profile Detail | Show invitation, activation, and account-access state. | PRD 4.4, 6.5; Flow 7.7 |
 | PROFILE-11 | Archive Profile Confirmation | Dialog | Admin | Profile Detail, Profiles List | Explain Client visibility and Talent Portal access impact. | PRD 6.5; Flow 8.4 |
 | PROFILE-12 | Restore Profile Confirmation | Dialog | Admin | Archived Profiles | Restore the profile as hidden without automatic account reactivation. | PRD 6.5; Flow 8.4 |
@@ -337,8 +337,8 @@ Entry points name the user-visible origin, not an implementation route.
 | ID | Surface | Type | Actor | Entry Points | Purpose | Source |
 |----|---------|------|-------|--------------|---------|--------|
 | CLIENT-01 | Client Workspace Shell | Page Shell | Client | Successful login or invitation activation | Provide Company context, primary navigation, identity, and account actions. | IA 4.3; Navigation 5 |
-| CLIENT-02 | Client Dashboard | Page | Client | Login, Workspace navigation | Summarize Pilot, available Talent, activity, and Interview Requests. | PRD 7.1; Flow 9.1 |
-| CLIENT-03 | Client Notifications | Panel | Client | Workspace header | Show Interview Request and Pilot updates. | PRD 11.2 |
+| CLIENT-02 | Client Dashboard | Page | Client | Login, Workspace navigation | Summarize Pilot, available Talent, active Pods, activity, and Interview Requests. | PRD 7.1; Flow 9.1 |
+| CLIENT-03 | Client Notifications | Panel | Client | Workspace header | Show Interview Request, Pilot, and unavailable Pod-member updates. | PRD 11.2 |
 | CLIENT-04 | Talent Directory | Page | Client | Workspace navigation, Dashboard | Browse active visible Talent Profiles. | PRD 7.2; Flow 9.2 |
 | CLIENT-05 | Talent Search and Sort | Section | Client | Talent Directory | Search profile text and choose result ordering. | PRD 7.2; Flow 9.2 |
 | CLIENT-06 | Talent Filters | Drawer / Panel | Client | Talent Directory | Filter by role, skills, experience, and availability. | PRD 7.2; Flow 9.2 |
@@ -346,15 +346,26 @@ Entry points name the user-visible origin, not an implementation route.
 | CLIENT-08 | Client Talent Profile | Page | Client | Talent Directory, Interview Request | Display only client-safe professional, availability, verification, file, and rate information. | PRD 7.3; Flow 9.3 |
 | CLIENT-09 | Authorized Resume Viewer | Modal / Page | Client | Client Talent Profile | Preview or download an authorized visible resume. | PRD 7.3, 12; Flow 9.3 |
 | CLIENT-10 | Talent Profile Unavailable | Full-Screen State | Client | Hidden or archived profile URL | Explain that the profile is no longer available and return to Directory. | Flow 9.3 |
-| CLIENT-11 | Request Interview | Modal | Client | Client Talent Profile | Add context and submit an Interview Request through BlihOps. | PRD 7.4; Flow 9.4 |
+| CLIENT-11 | Request Interview | Modal | Client | Client Talent Profile | Add context and submit an Interview Request through BlihOps. | PRD 7.5; Flow 9.4 |
 | CLIENT-12 | Duplicate Interview Warning | Dialog | Client | Equivalent open request submission | Prevent an accidental duplicate and link the existing request. | Flow 9.4 |
-| CLIENT-13 | Interview Request Confirmation | Full-Screen State / Modal | Client | Successful Interview Request | Confirm creation and link to Interview Requests. | PRD 7.4; Flow 9.4 |
-| CLIENT-14 | Client Interview Requests | Page | Client | Workspace navigation, confirmation, Dashboard | List only the Company’s Interview Requests and statuses. | PRD 7.4; Flow 9.5 |
-| CLIENT-15 | Client Interview Request Detail | Page / Drawer | Client | Client Interview Requests | Show Talent summary, submitted context, status, scheduling, and visible updates. | PRD 7.4; Flow 9.5 |
+| CLIENT-13 | Interview Request Confirmation | Full-Screen State / Modal | Client | Successful Interview Request | Confirm creation and link to Interview Requests. | PRD 7.5; Flow 9.4 |
+| CLIENT-14 | Client Interview Requests | Page | Client | Workspace navigation, confirmation, Dashboard | List only the Company’s Interview Requests and statuses. | PRD 7.5; Flow 9.5 |
+| CLIENT-15 | Client Interview Request Detail | Page / Drawer | Client | Client Interview Requests | Show Talent summary, submitted context, status, scheduling, and visible updates. | PRD 7.5; Flow 9.5 |
 | CLIENT-16 | No Interview Requests | Inline State | Client | Empty Client Interview Requests | Link to Talent Directory to begin discovery. | Flow 9.5 |
-| CLIENT-17 | Pilot Status | Page | Client | Workspace navigation, Dashboard | Show current Pilot, timeline, milestones, participating talent, and updates. | PRD 7.5; Flow 9.6 |
+| CLIENT-17 | Pilot Status | Page | Client | Workspace navigation, Dashboard | Show current Pilot, timeline, milestones, participating talent, and updates. | PRD 7.6; Flow 9.6 |
 | CLIENT-18 | Pre-Pilot State | Inline State | Client | Pilot Status without active Pilot | Explain the current state before a Pilot begins. | Flow 9.6 |
-| CLIENT-19 | Client Workspace Unavailable | Full-Screen State | Client | Deactivated account or archived Company | Explain that access is unavailable and direct the Client to BlihOps. | PRD 7.6; Flow 9.1 |
+| CLIENT-19 | Client Workspace Unavailable | Full-Screen State | Client | Deactivated account or archived Company | Explain that access is unavailable and direct the Client to BlihOps. | PRD 7.7; Flow 9.1 |
+| CLIENT-20 | Talent Pods | Page | Client | Workspace navigation, Dashboard | Browse active planning Pods belonging to the Client Workspace. | PRD 7.4; Flow 9.7 |
+| CLIENT-21 | No Talent Pods | Inline State | Client | Empty Talent Pods page | Explain planning-only Pods and offer Create Pod. | Flow 9.7 |
+| CLIENT-22 | Create Talent Pod | Modal | Client | Talent Pods page | Create a Pod with a required name and optional planning note. | PRD 7.4; Flow 9.7 |
+| CLIENT-23 | Talent Pod Detail | Page | Client | Talent Pods page, Dashboard activity | Review Pod purpose, members, optional Pod Lead, and recent changes. | PRD 7.4; Flow 9.7 |
+| CLIENT-24 | Edit Talent Pod | Modal / Drawer | Client | Talent Pod Detail | Rename the Pod or update its planning note. | PRD 7.4; Flow 9.7 |
+| CLIENT-25 | Add Pod Members | Drawer / Modal | Client | Talent Pod Detail | Find and add active visible Talent without duplicating membership. | PRD 7.4; Flow 9.7 |
+| CLIENT-26 | Add Talent to Pod | Popover / Modal | Client | Talent Directory card, Client Talent Profile | Select an existing Pod or create a new Pod for the chosen Talent. | PRD 7.2–7.4; Flow 9.7 |
+| CLIENT-27 | Select Pod Lead | Popover / Dialog | Client | Talent Pod Detail | Select or clear one optional Pod Lead from current members. | PRD 7.4; Flow 9.7 |
+| CLIENT-28 | Remove Pod Member | Dialog | Client | Talent Pod Detail | Confirm member removal and explain when the Pod Lead will be cleared. | PRD 7.4; Flow 9.7 |
+| CLIENT-29 | Archive Talent Pod | Dialog | Client | Talent Pod Detail | Confirm archival without implying any Talent or Pilot status change. | PRD 7.4; Flow 9.7 |
+| CLIENT-30 | Unavailable Pod Member | Inline State | Client | Talent Pod Detail with a hidden or archived member | Preserve planning context while blocking access to an unavailable profile. | PRD 7.4; Flow 9.7 |
 
 ---
 
@@ -402,7 +413,8 @@ The following surfaces must not be designed for V1:
 - Talent Dashboard
 - Talent-created initial profile
 - Client user-management or additional-user invitation
-- Client Teams list, Team detail, Team creation, or Team membership
+- Company-user Teams or additional Client-user management
+- Pod staffing, reservation, assignment, contracting, or direct-contact actions
 - Direct Client–Talent messaging
 - Contracts, payments, or invoicing
 - Public Talent Marketplace
@@ -420,9 +432,10 @@ The following surfaces must not be designed for V1:
 - Keep the two talent invitations visually and verbally distinct:
   - Profile-completion request: tokenized final-information form, no account.
   - Talent account invitation: password activation after the Admin-created profile exists.
-- Never display Team navigation or a Talent Dashboard.
+- Display Talent Pods as planning-only resources; never present them as staffing
+  assignments or company-user Teams.
+- Never display a Talent Dashboard.
 - Client Profile designs must omit all internal and unauthorized Talent fields.
 - Talent Profile Management must not expose editable rates, assessments, verification, visibility, status, or internal notes.
 - Bilingual content editors must show English and German completion before publication.
 - Responsive and accessible states are required for every surface, not separate optional screens.
-

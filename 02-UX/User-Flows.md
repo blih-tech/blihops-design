@@ -981,7 +981,9 @@ Each flow defines:
 2. The Admin confirms the visibility change.
 3. The system updates visibility.
 4. Visible profiles appear in the Client Talent Directory.
-5. Hidden profiles are removed from Client Workspaces.
+5. Hidden profiles are removed from the Talent Directory and direct Client
+   access. Existing Pod membership becomes an unavailable placeholder without
+   profile access.
 6. Activity is recorded.
 
 ### Alternatives and Errors
@@ -1034,7 +1036,8 @@ Each flow defines:
 
 1. The system validates the Client session and Company ownership.
 2. The Workspace shell loads.
-3. The Dashboard displays Company context, Pilot summary, available Talent summary, recent activity, and Interview Request updates.
+3. The Dashboard displays Company context, Pilot summary, available Talent and
+   active Pod summaries, recent activity, and Interview Request updates.
 
 ### Alternatives and Errors
 
@@ -1059,7 +1062,7 @@ Each flow defines:
 2. The Client enters search text or applies role, skills, experience, or availability filters.
 3. The Client selects sorting and changes pages as needed.
 4. Results update while preserving the chosen controls.
-5. The Client selects a Talent Profile.
+5. The Client selects a Talent Profile or adds a visible Talent to a Pod.
 
 ### Alternatives and Errors
 
@@ -1084,7 +1087,8 @@ Each flow defines:
 1. The system validates Client Workspace access and profile visibility.
 2. The profile displays client-safe professional, availability, verification, portfolio, resume, and rate information.
 3. Internal notes, assessments, private contact data, and admin controls are omitted.
-4. The Client may return to preserved Directory results or request an interview.
+4. The Client may return to preserved Directory results, add the Talent to a
+   Pod, or request an interview.
 
 ### Alternatives and Errors
 
@@ -1168,6 +1172,45 @@ Each flow defines:
 ### Postconditions
 
 - The Client sees the latest Admin-managed Pilot information.
+
+---
+
+## Flow 9.7 — Plan Talent Pods
+
+**Actor:** Client
+
+**Trigger:** The Client opens Talent Pods or selects Add to Pod from a visible Talent Profile.
+**Preconditions:** The Client Workspace is active.
+
+### Main Flow
+
+1. The system loads only active Pods belonging to the Client's Workspace.
+2. The Client creates a Pod with a required name and an optional planning note
+   or opens an existing Pod.
+3. The Client adds one or more active, visible Talent Profiles from the Pod,
+   Talent Directory, or Talent Profile.
+4. The system prevents duplicate membership within the Pod.
+5. The Client may select one current member as the optional Pod Lead.
+6. The Client may rename the Pod, update its planning note, remove members,
+   clear or change the Pod Lead, or archive the Pod.
+7. The system saves the change and records Pod activity.
+
+### Alternatives and Errors
+
+- An empty Pods list explains the planning purpose and offers Create Pod.
+- A Pod may remain empty or have no Pod Lead.
+- Selecting a non-member as Pod Lead is blocked.
+- Removing the selected Pod Lead also clears the lead assignment.
+- If a member becomes hidden or archived, the Pod marks that member unavailable
+  and blocks the Talent Profile link.
+- Archiving requires confirmation.
+- A failed mutation preserves the last confirmed Pod state and offers retry.
+
+### Postconditions
+
+- The Client has a private planning group within their own Workspace.
+- Pod membership creates no reservation, staffing assignment, Interview Request,
+  Pilot assignment, direct contact, or Talent notification.
 
 ---
 
@@ -1559,9 +1602,10 @@ Each flow defines:
 - Talent account invitation is available only after Admin creates the Talent Profile.
 - Talent enters Profile Management after authentication; there is no Talent Dashboard.
 - Each Company has one Client account and one Client Workspace.
-- Client Workspace contains no Team Management or additional-user invitation.
+- Client Workspace may contain planning-only Talent Pods but no company-user
+  Team Management or additional-user invitation.
+- Pod membership never reserves, assigns, hires, contacts, or notifies Talent.
 - Talent edits only permitted professional fields and those changes publish immediately.
 - Admin remains the only role that can change rates, assessments, verification, visibility, lifecycle status, and internal notes.
 - Bilingual Case Studies, Insights, and Pilot FAQs cannot publish or activate until English and German content is complete.
 - Destructive actions require confirmation and preserve activity history where required.
-
