@@ -19,7 +19,8 @@ blihops-design/
 │   ├── User-Personas.md
 │   ├── Information-Archtecture.md
 │   ├── Navigations.md
-│   └── User-Flows.md
+│   ├── User-Flows.md
+│   └── Screen-Inventory.md
 │
 ├── 03-ui/
 │   ├── wireframes/
@@ -52,7 +53,8 @@ When documents differ, resolve them in this order:
 4. `02-UX/Information-Archtecture.md`
 5. `02-UX/Navigations.md`
 6. `02-UX/User-Flows.md`
-7. Screen Inventory and later UI artifacts
+7. `02-UX/Screen-Inventory.md`
+8. Later UI artifacts
 
 The Markdown Product Brief and PRD are canonical. PDFs in `01-Procuct` are historical references and may not reflect the current V1 scope.
 
@@ -98,4 +100,3 @@ The existing BlihOps application monorepo is maintained outside this design dire
 Plan first. Build second.
 
 Every implementation should be backed by clear product requirements, deliberate UX structure, consistent UI, and documented technical decisions.
-
