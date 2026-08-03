@@ -5357,7 +5357,7 @@
       "theme": {
         "mode": "light"
       },
-      "width": 2960,
+      "width": 6240,
       "height": 96,
       "stroke": "$color.border",
       "strokeWidth": {
@@ -5417,64 +5417,777 @@
     },
     {
       "type": "frame",
-      "id": "i7cvQ",
+      "id": "Uqkld",
       "x": 0,
       "y": 2960,
-      "name": "Auth / Client Shell Preview",
+      "name": "Auth / Accept Invitation / Valid",
       "theme": {
         "mode": "light"
       },
       "clip": true,
       "width": 1440,
       "height": 960,
+      "layout": "none",
       "children": [
         {
-          "id": "nOV4j",
+          "id": "IggYM",
           "type": "ref",
           "ref": "vpelb",
-          "name": "Auth Shell Instance",
-          "width": "fill_container",
-          "height": "fill_container",
+          "name": "Valid Invitation Shell",
+          "width": 1440,
+          "height": 960,
+          "x": 0,
+          "y": 0,
           "descendants": {
+            "ZwoAi": {
+              "content": "WELCOME TO BLIHOPS"
+            },
+            "jfPvG": {
+              "content": "A clear start.\nA shared standard."
+            },
+            "HlbHL": {
+              "content": "Activate your account with secure access, visible ownership, and a delivery system built around measurable work."
+            },
+            "UPMQB": {
+              "content": "SECURE ACCESS"
+            },
+            "suGZP": {
+              "content": "VISIBLE OWNERSHIP"
+            },
+            "Z7TQiA": {
+              "content": "MEASURED DELIVERY"
+            },
             "PM5tQ": {
+              "height": 560,
               "children": [
                 {
                   "type": "frame",
-                  "id": "IZsvK",
-                  "name": "Auth Shell Example Content",
+                  "id": "T8AQX",
+                  "name": "Valid Invitation Form",
                   "width": "fill_container",
                   "height": "fill_container",
                   "layout": "vertical",
-                  "gap": 24,
+                  "gap": 12,
                   "justifyContent": "center",
                   "children": [
                     {
+                      "id": "wYad4",
+                      "type": "ref",
+                      "ref": "Z7reEz",
+                      "name": "Invitation Verified Badge",
+                      "descendants": {
+                        "cZF0w": {
+                          "content": "Invitation verified"
+                        }
+                      }
+                    },
+                    {
                       "type": "frame",
-                      "id": "FIWtS",
-                      "name": "Auth Example Header",
+                      "id": "Z0gUm",
+                      "name": "Valid Invitation Header",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "vsoXF",
+                          "name": "Valid Invitation Title",
+                          "fill": "$color.foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Create your BlihOps account",
+                          "lineHeight": 1.08,
+                          "fontFamily": "$font.heading",
+                          "fontSize": 32,
+                          "fontWeight": "600",
+                          "letterSpacing": -0.7
+                        },
+                        {
+                          "type": "text",
+                          "id": "yQ5r2",
+                          "name": "Valid Invitation Description",
+                          "fill": "$color.muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Your invitation is valid. Set a secure password to activate your account.",
+                          "lineHeight": 1.55,
+                          "fontFamily": "$font.body",
+                          "fontSize": 14
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "U7m2o",
+                      "name": "Valid Invitation Fields",
                       "width": "fill_container",
                       "layout": "vertical",
                       "gap": 10,
                       "children": [
                         {
+                          "id": "nmGxW",
+                          "type": "ref",
+                          "ref": "L6rbGV",
+                          "name": "Invited Email Field",
+                          "width": "fill_container",
+                          "descendants": {
+                            "g08cg": {
+                              "content": "Invited email"
+                            },
+                            "IGgEI": {
+                              "fill": "$color.secondary"
+                            },
+                            "MAIXs": {
+                              "content": "alex@company.com",
+                              "fill": "$color.foreground"
+                            },
+                            "r4LE8": {
+                              "enabled": true,
+                              "icon": "lock-keyhole",
+                              "fill": "$color.muted-foreground"
+                            },
+                            "y6EJE": {
+                              "enabled": true,
+                              "content": "This email is linked to your invitation.",
+                              "fill": "$color.muted-foreground"
+                            }
+                          }
+                        },
+                        {
+                          "id": "YdQAY",
+                          "type": "ref",
+                          "ref": "L6rbGV",
+                          "name": "New Password Field",
+                          "width": "fill_container",
+                          "descendants": {
+                            "g08cg": {
+                              "content": "New password"
+                            },
+                            "MAIXs": {
+                              "content": "Create a secure password"
+                            },
+                            "r4LE8": {
+                              "enabled": true,
+                              "icon": "eye",
+                              "fill": "$color.muted-foreground"
+                            },
+                            "y6EJE": {
+                              "enabled": false
+                            }
+                          }
+                        },
+                        {
+                          "id": "b8xs77",
+                          "type": "ref",
+                          "ref": "L6rbGV",
+                          "name": "Confirm Password Field",
+                          "width": "fill_container",
+                          "descendants": {
+                            "g08cg": {
+                              "content": "Confirm password"
+                            },
+                            "MAIXs": {
+                              "content": "Repeat your password"
+                            },
+                            "r4LE8": {
+                              "enabled": true,
+                              "icon": "eye",
+                              "fill": "$color.muted-foreground"
+                            },
+                            "y6EJE": {
+                              "enabled": false
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "s6vU2",
+                      "name": "Password Requirements",
+                      "width": "fill_container",
+                      "fill": "$color.muted",
+                      "cornerRadius": "$radius.md",
+                      "stroke": "$color.border",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": 12,
+                      "children": [
+                        {
                           "type": "text",
-                          "id": "zbap1",
-                          "name": "Auth Example Eyebrow",
-                          "fill": "$color.primary",
-                          "content": "WELCOME BACK",
+                          "id": "Zfg59",
+                          "name": "Password Requirements Label",
+                          "fill": "$color.muted-foreground",
+                          "content": "PASSWORD REQUIREMENTS",
                           "fontFamily": "$font.mono",
-                          "fontSize": 10,
+                          "fontSize": 9,
                           "fontWeight": "600",
-                          "letterSpacing": 1.1
+                          "letterSpacing": 0.8
+                        },
+                        {
+                          "type": "frame",
+                          "id": "kmxn6",
+                          "name": "Password Requirement Row 1",
+                          "width": "fill_container",
+                          "gap": 16,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "FCqny",
+                              "name": "8+ characters Requirement",
+                              "width": "fill_container",
+                              "gap": 7,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "Bc1P0",
+                                  "name": "8+ characters Requirement Icon",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "lucide",
+                                  "fill": "$color.primary"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "eFhZD",
+                                  "name": "8+ characters Requirement Text",
+                                  "fill": "$color.body",
+                                  "content": "8+ characters",
+                                  "fontFamily": "$font.body",
+                                  "fontSize": 11
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "p5VaK",
+                              "name": "Upper & lowercase Requirement",
+                              "width": "fill_container",
+                              "gap": 7,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "k2C8A",
+                                  "name": "Upper & lowercase Requirement Icon",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "lucide",
+                                  "fill": "$color.primary"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "l6kgi",
+                                  "name": "Upper & lowercase Requirement Text",
+                                  "fill": "$color.body",
+                                  "content": "Upper & lowercase",
+                                  "fontFamily": "$font.body",
+                                  "fontSize": 11
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "O7K12m",
+                          "name": "Password Requirement Row 2",
+                          "width": "fill_container",
+                          "gap": 16,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "Fty5o",
+                              "name": "One number Requirement",
+                              "width": "fill_container",
+                              "gap": 7,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "BXCuv",
+                                  "name": "One number Requirement Icon",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "lucide",
+                                  "fill": "$color.primary"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "mctrw",
+                                  "name": "One number Requirement Text",
+                                  "fill": "$color.body",
+                                  "content": "One number",
+                                  "fontFamily": "$font.body",
+                                  "fontSize": 11
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "DJCtr",
+                              "name": "One symbol Requirement",
+                              "width": "fill_container",
+                              "gap": 7,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "JwoNN",
+                                  "name": "One symbol Requirement Icon",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "lucide",
+                                  "fill": "$color.primary"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "QHFdV",
+                                  "name": "One symbol Requirement Text",
+                                  "fill": "$color.body",
+                                  "content": "One symbol",
+                                  "fontFamily": "$font.body",
+                                  "fontSize": 11
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "U0XPe",
+                      "name": "Account Terms Note",
+                      "width": "fill_container",
+                      "gap": 4,
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "J9gfM",
+                          "name": "Account Terms Prefix",
+                          "fill": "$color.muted-foreground",
+                          "content": "By creating an account, you agree to the",
+                          "fontFamily": "$font.body",
+                          "fontSize": 10
                         },
                         {
                           "type": "text",
-                          "id": "v4pc9",
-                          "name": "Auth Example Title",
+                          "id": "mT6nh",
+                          "name": "Account Terms Link",
+                          "fill": "$color.primary",
+                          "content": "Terms and Privacy Policy.",
+                          "fontFamily": "$font.body",
+                          "fontSize": 10,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "G3Hoy5",
+                      "type": "ref",
+                      "ref": "PYZII",
+                      "name": "Create Account Button",
+                      "width": "fill_container",
+                      "height": 44,
+                      "descendants": {
+                        "uq68e": {
+                          "content": "Create account"
+                        },
+                        "S9pia": {
+                          "icon": "arrow-right"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "N8uVm",
+                      "name": "Existing Account Link",
+                      "width": "fill_container",
+                      "gap": 4,
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "LLNtD",
+                          "name": "Existing Account Prompt",
+                          "fill": "$color.muted-foreground",
+                          "content": "Already have an account?",
+                          "fontFamily": "$font.body",
+                          "fontSize": 11
+                        },
+                        {
+                          "type": "text",
+                          "id": "ywEcO",
+                          "name": "Existing Account Action",
+                          "fill": "$color.primary",
+                          "content": "Sign in",
+                          "fontFamily": "$font.body",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "pvOCK",
+      "x": 1600,
+      "y": 2960,
+      "name": "Auth / Accept Invitation / Invalid",
+      "theme": {
+        "mode": "light"
+      },
+      "clip": true,
+      "width": 1440,
+      "height": 960,
+      "layout": "none",
+      "children": [
+        {
+          "id": "RGkmN",
+          "type": "ref",
+          "ref": "vpelb",
+          "name": "Invalid Invitation Shell",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960,
+          "descendants": {
+            "ZwoAi": {
+              "content": "INVITATION ACCESS"
+            },
+            "jfPvG": {
+              "content": "Clear access.\nHuman recovery."
+            },
+            "HlbHL": {
+              "content": "When an invitation cannot be verified, the BlihOps administrator who invited you can issue a secure replacement."
+            },
+            "UPMQB": {
+              "content": "SECURE ACCESS"
+            },
+            "suGZP": {
+              "content": "VERIFIED LINKS"
+            },
+            "Z7TQiA": {
+              "content": "ADMIN SUPPORT"
+            },
+            "PM5tQ": {
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "r28HzX",
+                  "name": "Invalid Invitation Content",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 22,
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "id": "fohhe",
+                      "type": "ref",
+                      "ref": "Dadak",
+                      "name": "Invitation Unavailable Badge",
+                      "fill": "#FEF2F2",
+                      "stroke": "#FECACA",
+                      "descendants": {
+                        "M3gFze": {
+                          "fill": "$color.destructive"
+                        },
+                        "iwQpe": {
+                          "content": "Invitation unavailable",
+                          "fill": "$color.destructive"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "MemFF",
+                      "name": "Invalid Invitation Header",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "z9fka",
+                          "name": "Invalid Invitation Icon Container",
+                          "width": 52,
+                          "height": 52,
+                          "fill": "#FEF2F2",
+                          "cornerRadius": "$radius.xl",
+                          "stroke": "#FECACA",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "PZZqW",
+                              "name": "Invalid Invitation Icon",
+                              "width": 22,
+                              "height": 22,
+                              "icon": "link-2-off",
+                              "library": "lucide",
+                              "fill": "$color.destructive"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "dL0UB",
+                          "name": "Invalid Invitation Title",
                           "fill": "$color.foreground",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "Sign in to your client workspace",
+                          "content": "This invitation link is no longer valid",
+                          "lineHeight": 1.08,
+                          "fontFamily": "$font.heading",
+                          "fontSize": 34,
+                          "fontWeight": "600",
+                          "letterSpacing": -0.7
+                        },
+                        {
+                          "type": "text",
+                          "id": "jZbpp",
+                          "name": "Invalid Invitation Description",
+                          "fill": "$color.muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "The link may have expired, already been used, or been replaced by a newer invitation.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "$font.body",
+                          "fontSize": 14
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "NVdKP",
+                      "name": "Invalid Invitation Guidance",
+                      "width": "fill_container",
+                      "fill": "$color.muted",
+                      "cornerRadius": "$radius.md",
+                      "stroke": "$color.border",
+                      "strokeWidth": 1,
+                      "gap": 14,
+                      "padding": 18,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "a9um9",
+                          "name": "Administrator Guidance Icon Container",
+                          "width": 40,
+                          "height": 40,
+                          "fill": "$color.background",
+                          "cornerRadius": "$radius.md",
+                          "stroke": "$color.border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "hgogY",
+                              "name": "Administrator Guidance Icon",
+                              "width": 18,
+                              "height": 18,
+                              "icon": "user-round-cog",
+                              "library": "lucide",
+                              "fill": "$color.foreground"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "D1oW6",
+                          "name": "Administrator Guidance Copy",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 5,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "TFCij",
+                              "name": "Administrator Guidance Title",
+                              "fill": "$color.foreground",
+                              "content": "Contact your BlihOps administrator",
+                              "fontFamily": "$font.heading",
+                              "fontSize": 16,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "XY1qL",
+                              "name": "Administrator Guidance Description",
+                              "fill": "$color.muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Ask the administrator who invited you to resend a new invitation link.",
+                              "lineHeight": 1.5,
+                              "fontFamily": "$font.body",
+                              "fontSize": 12
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xDqKX",
+                      "name": "Invalid Invitation Safety Note",
+                      "gap": 7,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "bQoYo",
+                          "name": "Invalid Invitation Safety Icon",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "shield-check",
+                          "library": "lucide",
+                          "fill": "$color.muted-foreground"
+                        },
+                        {
+                          "type": "text",
+                          "id": "mkfN7",
+                          "name": "Invalid Invitation Safety Text",
+                          "fill": "$color.muted-foreground",
+                          "content": "No account changes were made.",
+                          "fontFamily": "$font.body",
+                          "fontSize": 11
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "COuW8",
+      "x": 3200,
+      "y": 2960,
+      "name": "Auth / Accept Invitation / Account Created",
+      "theme": {
+        "mode": "light"
+      },
+      "clip": true,
+      "width": 1440,
+      "height": 960,
+      "layout": "none",
+      "children": [
+        {
+          "id": "fWZo1",
+          "type": "ref",
+          "ref": "vpelb",
+          "name": "Account Created Shell",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960,
+          "descendants": {
+            "ZwoAi": {
+              "content": "ACCOUNT ACTIVATED"
+            },
+            "jfPvG": {
+              "content": "You're ready.\nLet's get to work."
+            },
+            "HlbHL": {
+              "content": "Your secure BlihOps account is ready. Sign in to continue to the workspace connected to your invitation."
+            },
+            "UPMQB": {
+              "content": "ACCOUNT READY"
+            },
+            "suGZP": {
+              "content": "SECURE SIGN-IN"
+            },
+            "Z7TQiA": {
+              "content": "WORKSPACE ACCESS"
+            },
+            "PM5tQ": {
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "TiG3a",
+                  "name": "Account Created Content",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 22,
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "id": "Jy5hf",
+                      "type": "ref",
+                      "ref": "Z7reEz",
+                      "name": "Account Created Badge",
+                      "descendants": {
+                        "cZF0w": {
+                          "content": "Account created"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "cG28H",
+                      "name": "Account Created Header",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "chLE3",
+                          "name": "Account Created Icon Container",
+                          "width": 56,
+                          "height": 56,
+                          "fill": "$color.accent",
+                          "cornerRadius": "$radius.xl",
+                          "stroke": "#BAE6FD",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "wE01M",
+                              "name": "Account Created Icon",
+                              "width": 24,
+                              "height": 24,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "$color.accent-foreground"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "MCNwW",
+                          "name": "Account Created Title",
+                          "fill": "$color.foreground",
+                          "content": "Your account is ready",
                           "lineHeight": 1.08,
                           "fontFamily": "$font.heading",
                           "fontSize": 36,
@@ -5483,32 +6196,257 @@
                         },
                         {
                           "type": "text",
-                          "id": "c1g3y2",
-                          "name": "Auth Example Description",
+                          "id": "Ex6Rr",
+                          "name": "Account Created Description",
                           "fill": "$color.muted-foreground",
                           "textGrowth": "fixed-width",
                           "width": "fill_container",
-                          "content": "Access your BlihOps client workspace using your registered work email.",
+                          "content": "Your password is set and your BlihOps account has been created successfully.",
                           "lineHeight": 1.6,
                           "fontFamily": "$font.body",
-                          "fontSize": 14,
-                          "fontWeight": "normal"
+                          "fontSize": 14
                         }
                       ]
                     },
                     {
                       "type": "frame",
-                      "id": "g3clcV",
-                      "name": "Auth Example Fields",
+                      "id": "x0ghg",
+                      "name": "Created Account Summary",
                       "width": "fill_container",
-                      "layout": "vertical",
-                      "gap": 16,
+                      "fill": "$color.muted",
+                      "cornerRadius": "$radius.md",
+                      "stroke": "$color.border",
+                      "strokeWidth": 1,
+                      "gap": 14,
+                      "padding": 18,
+                      "alignItems": "center",
                       "children": [
                         {
-                          "id": "oYIsE",
+                          "type": "frame",
+                          "id": "G5vPwH",
+                          "name": "Created Account Email Icon Container",
+                          "width": 40,
+                          "height": 40,
+                          "fill": "$color.background",
+                          "cornerRadius": "$radius.md",
+                          "stroke": "$color.border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "Acxk7",
+                              "name": "Created Account Email Icon",
+                              "width": 18,
+                              "height": 18,
+                              "icon": "mail-check",
+                              "library": "lucide",
+                              "fill": "$color.primary"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "NGVyU",
+                          "name": "Created Account Email Copy",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "dqIU9",
+                              "name": "Created Account Email Label",
+                              "fill": "$color.muted-foreground",
+                              "content": "ACCOUNT EMAIL",
+                              "fontFamily": "$font.mono",
+                              "fontSize": 9,
+                              "fontWeight": "600",
+                              "letterSpacing": 0.8
+                            },
+                            {
+                              "type": "text",
+                              "id": "Dv1iP",
+                              "name": "Created Account Email Value",
+                              "fill": "$color.foreground",
+                              "content": "alex@company.com",
+                              "fontFamily": "$font.body",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "kchLj",
+                      "type": "ref",
+                      "ref": "PYZII",
+                      "name": "Go to Sign In Button",
+                      "width": "fill_container",
+                      "height": 44,
+                      "descendants": {
+                        "uq68e": {
+                          "content": "Go to sign in"
+                        },
+                        "S9pia": {
+                          "icon": "arrow-right"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "l2HFI",
+                      "name": "Account Created Sign In Note",
+                      "width": "fill_container",
+                      "gap": 7,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "VPZEq",
+                          "name": "Account Created Sign In Note Icon",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "key-round",
+                          "library": "lucide",
+                          "fill": "$color.muted-foreground"
+                        },
+                        {
+                          "type": "text",
+                          "id": "v3TI5U",
+                          "name": "Account Created Sign In Note Text",
+                          "fill": "$color.muted-foreground",
+                          "content": "Use the password you just created.",
+                          "fontFamily": "$font.body",
+                          "fontSize": 11
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Fsvup",
+      "x": 4800,
+      "y": 2960,
+      "name": "Auth / Sign In / Shared",
+      "theme": {
+        "mode": "light"
+      },
+      "clip": true,
+      "width": 1440,
+      "height": 960,
+      "layout": "none",
+      "children": [
+        {
+          "id": "Xs8Zo",
+          "type": "ref",
+          "ref": "vpelb",
+          "name": "Shared Sign In Shell",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960,
+          "descendants": {
+            "ZwoAi": {
+              "content": "BLIHOPS WORKSPACE"
+            },
+            "jfPvG": {
+              "content": "One secure entry.\nClear access."
+            },
+            "HlbHL": {
+              "content": "Sign in to continue to the BlihOps workspace connected to your account."
+            },
+            "UPMQB": {
+              "content": "SECURE ACCESS"
+            },
+            "suGZP": {
+              "content": "VERIFIED ACCOUNT"
+            },
+            "Z7TQiA": {
+              "content": "WORKSPACE READY"
+            },
+            "PM5tQ": {
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "g4OVmY",
+                  "name": "Shared Sign In Form",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 20,
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "YX9bI",
+                      "name": "Shared Sign In Header",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 9,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "zinVS",
+                          "name": "Client Sign In Eyebrow",
+                          "fill": "$color.primary",
+                          "content": "ACCOUNT ACCESS",
+                          "fontFamily": "$font.mono",
+                          "fontSize": 10,
+                          "fontWeight": "600",
+                          "letterSpacing": 1.1
+                        },
+                        {
+                          "type": "text",
+                          "id": "X8X7en",
+                          "name": "Client Sign In Title",
+                          "fill": "$color.foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Sign in to your workspace",
+                          "lineHeight": 1.08,
+                          "fontFamily": "$font.heading",
+                          "fontSize": 36,
+                          "fontWeight": "600",
+                          "letterSpacing": -0.7
+                        },
+                        {
+                          "type": "text",
+                          "id": "HfulJ",
+                          "name": "Client Sign In Description",
+                          "fill": "$color.muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Use the email and password associated with your BlihOps account.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "$font.body",
+                          "fontSize": 14
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "HrpB8",
+                      "name": "Shared Sign In Fields",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 14,
+                      "children": [
+                        {
+                          "id": "Phubq",
                           "type": "ref",
                           "ref": "L6rbGV",
-                          "name": "Auth Email Field",
+                          "name": "Client Sign In Email Field",
                           "width": "fill_container",
                           "descendants": {
                             "g08cg": {
@@ -5526,10 +6464,10 @@
                           }
                         },
                         {
-                          "id": "y8hGH",
+                          "id": "ssV3F",
                           "type": "ref",
                           "ref": "L6rbGV",
-                          "name": "Auth Password Field",
+                          "name": "Client Sign In Password Field",
                           "width": "fill_container",
                           "descendants": {
                             "g08cg": {
@@ -5552,24 +6490,24 @@
                     },
                     {
                       "type": "frame",
-                      "id": "A6rxd",
-                      "name": "Auth Example Support Row",
+                      "id": "i3UYYm",
+                      "name": "Shared Sign In Support Row",
                       "width": "fill_container",
                       "justifyContent": "space_between",
                       "alignItems": "center",
                       "children": [
                         {
                           "type": "frame",
-                          "id": "q8yWqK",
-                          "name": "Remember Me Control",
+                          "id": "S12Ps",
+                          "name": "Client Remember Me",
                           "gap": 8,
                           "alignItems": "center",
                           "children": [
                             {
                               "type": "rectangle",
                               "cornerRadius": "$radius.sm",
-                              "id": "Lv8xz",
-                              "name": "Remember Me Checkbox",
+                              "id": "WS3Jo",
+                              "name": "Client Remember Me Checkbox",
                               "fill": "$color.background",
                               "width": 16,
                               "height": 16,
@@ -5578,20 +6516,19 @@
                             },
                             {
                               "type": "text",
-                              "id": "jRdi2",
-                              "name": "Remember Me Label",
+                              "id": "DvTAQ",
+                              "name": "Client Remember Me Label",
                               "fill": "$color.body",
                               "content": "Keep me signed in",
                               "fontFamily": "$font.body",
-                              "fontSize": 12,
-                              "fontWeight": "normal"
+                              "fontSize": 12
                             }
                           ]
                         },
                         {
                           "type": "text",
-                          "id": "rk0sl",
-                          "name": "Forgot Password Link",
+                          "id": "r2q1uM",
+                          "name": "Client Forgot Password Link",
                           "fill": "$color.primary",
                           "content": "Forgot password?",
                           "fontFamily": "$font.body",
@@ -5601,15 +6538,161 @@
                       ]
                     },
                     {
-                      "id": "shiFI",
+                      "id": "x0I5x",
                       "type": "ref",
                       "ref": "PYZII",
-                      "name": "Auth Continue Button",
+                      "name": "Shared Sign In Button",
                       "width": "fill_container",
                       "height": 44,
                       "descendants": {
                         "uq68e": {
-                          "content": "Continue"
+                          "content": "Sign in"
+                        },
+                        "S9pia": {
+                          "icon": "arrow-right"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "iEGYU",
+      "x": 0,
+      "y": 4080,
+      "name": "Auth / Forgot Password / Request",
+      "theme": {
+        "mode": "light"
+      },
+      "clip": true,
+      "width": 1440,
+      "height": 960,
+      "layout": "none",
+      "children": [
+        {
+          "id": "OwW2D",
+          "type": "ref",
+          "ref": "vpelb",
+          "name": "Forgot Password Shell",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960,
+          "descendants": {
+            "ZwoAi": {
+              "content": "ACCOUNT RECOVERY"
+            },
+            "jfPvG": {
+              "content": "Secure recovery.\nA clear next step."
+            },
+            "HlbHL": {
+              "content": "Request a secure reset link and return to the BlihOps workspace connected to your verified account."
+            },
+            "UPMQB": {
+              "content": "SECURE RESET"
+            },
+            "suGZP": {
+              "content": "EMAIL VERIFIED"
+            },
+            "Z7TQiA": {
+              "content": "ACCOUNT PROTECTED"
+            },
+            "PM5tQ": {
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "zuUGN",
+                  "name": "Forgot Password Form",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 22,
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "U2YZE",
+                      "name": "Forgot Password Header",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 9,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "bm6IS",
+                          "name": "Forgot Password Eyebrow",
+                          "fill": "$color.primary",
+                          "content": "PASSWORD RECOVERY",
+                          "fontFamily": "$font.mono",
+                          "fontSize": 10,
+                          "fontWeight": "600",
+                          "letterSpacing": 1.1
+                        },
+                        {
+                          "type": "text",
+                          "id": "IIy2L",
+                          "name": "Forgot Password Title",
+                          "fill": "$color.foreground",
+                          "content": "Reset your password",
+                          "lineHeight": 1.08,
+                          "fontFamily": "$font.heading",
+                          "fontSize": 36,
+                          "fontWeight": "600",
+                          "letterSpacing": -0.7
+                        },
+                        {
+                          "type": "text",
+                          "id": "PzbVj",
+                          "name": "Forgot Password Description",
+                          "fill": "$color.muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Enter the email associated with your BlihOps account. We'll send password reset instructions if it matches an account.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "$font.body",
+                          "fontSize": 14
+                        }
+                      ]
+                    },
+                    {
+                      "id": "H668oX",
+                      "type": "ref",
+                      "ref": "L6rbGV",
+                      "name": "Password Reset Email Field",
+                      "width": "fill_container",
+                      "descendants": {
+                        "g08cg": {
+                          "content": "Email address"
+                        },
+                        "MAIXs": {
+                          "content": "name@company.com"
+                        },
+                        "r4LE8": {
+                          "enabled": false
+                        },
+                        "y6EJE": {
+                          "enabled": true,
+                          "content": "We'll send the reset link to this address.",
+                          "fill": "$color.muted-foreground"
+                        }
+                      }
+                    },
+                    {
+                      "id": "maLvY",
+                      "type": "ref",
+                      "ref": "PYZII",
+                      "name": "Send Reset Link Button",
+                      "width": "fill_container",
+                      "height": 44,
+                      "descendants": {
+                        "uq68e": {
+                          "content": "Send reset link"
                         },
                         "S9pia": {
                           "icon": "arrow-right"
@@ -5618,32 +6701,1128 @@
                     },
                     {
                       "type": "frame",
-                      "id": "xbpNj",
-                      "name": "Auth Role Note",
+                      "id": "tbplg",
+                      "name": "Back to Sign In Link",
                       "width": "fill_container",
-                      "gap": 8,
+                      "gap": 6,
                       "justifyContent": "center",
                       "alignItems": "center",
                       "children": [
                         {
                           "type": "icon",
-                          "id": "I5O9w",
-                          "name": "Auth Role Note Icon",
+                          "id": "rfGKH",
+                          "name": "Back to Sign In Icon",
                           "width": 14,
                           "height": 14,
-                          "icon": "split",
+                          "icon": "arrow-left",
+                          "library": "lucide",
+                          "fill": "$color.primary"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ClBKH",
+                          "name": "Back to Sign In Text",
+                          "fill": "$color.primary",
+                          "content": "Back to sign in",
+                          "fontFamily": "$font.body",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "KlbPq",
+      "x": 1600,
+      "y": 4080,
+      "name": "Auth / Forgot Password / Email Sent",
+      "theme": {
+        "mode": "light"
+      },
+      "clip": true,
+      "width": 1440,
+      "height": 960,
+      "layout": "none",
+      "children": [
+        {
+          "id": "J47pgg",
+          "type": "ref",
+          "ref": "vpelb",
+          "name": "Password Reset Email Sent Shell",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960,
+          "descendants": {
+            "ZwoAi": {
+              "content": "RESET LINK SENT"
+            },
+            "jfPvG": {
+              "content": "Your next step\nis in your inbox."
+            },
+            "HlbHL": {
+              "content": "Open the reset email, choose a new password, and return to the BlihOps workspace connected to your account."
+            },
+            "UPMQB": {
+              "content": "SECURE DELIVERY"
+            },
+            "suGZP": {
+              "content": "PRIVATE RECOVERY"
+            },
+            "Z7TQiA": {
+              "content": "WORKSPACE READY"
+            },
+            "PM5tQ": {
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "R1BTjl",
+                  "name": "Password Reset Email Sent Content",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 20,
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "id": "MjbCD",
+                      "type": "ref",
+                      "ref": "Z7reEz",
+                      "name": "Reset Email Sent Badge",
+                      "descendants": {
+                        "cZF0w": {
+                          "content": "Reset email sent"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "MWAki",
+                      "name": "Password Reset Email Sent Header",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "yIxmy",
+                          "name": "Password Reset Email Sent Icon Container",
+                          "width": 56,
+                          "height": 56,
+                          "fill": "$color.accent",
+                          "cornerRadius": "$radius.xl",
+                          "stroke": "#BAE6FD",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "XMrz5",
+                              "name": "Password Reset Email Sent Icon",
+                              "width": 24,
+                              "height": 24,
+                              "icon": "mail-check",
+                              "library": "lucide",
+                              "fill": "$color.accent-foreground"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "vXH2B",
+                          "name": "Password Reset Email Sent Title",
+                          "fill": "$color.foreground",
+                          "content": "Check your email",
+                          "lineHeight": 1.08,
+                          "fontFamily": "$font.heading",
+                          "fontSize": 36,
+                          "fontWeight": "600",
+                          "letterSpacing": -0.7
+                        },
+                        {
+                          "type": "text",
+                          "id": "kohqf",
+                          "name": "Password Reset Email Sent Description",
+                          "fill": "$color.muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "If the address matches a BlihOps account, password reset instructions are on the way.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "$font.body",
+                          "fontSize": 14
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "IWOwY",
+                      "name": "Password Reset Email Summary",
+                      "width": "fill_container",
+                      "fill": "$color.muted",
+                      "cornerRadius": "$radius.md",
+                      "stroke": "$color.border",
+                      "strokeWidth": 1,
+                      "gap": 14,
+                      "padding": 18,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "B8Loc",
+                          "name": "Password Reset Email Summary Icon Container",
+                          "width": 40,
+                          "height": 40,
+                          "fill": "$color.background",
+                          "cornerRadius": "$radius.md",
+                          "stroke": "$color.border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "c75oPy",
+                              "name": "Password Reset Email Summary Icon",
+                              "width": 18,
+                              "height": 18,
+                              "icon": "mail",
+                              "library": "lucide",
+                              "fill": "$color.primary"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Nce4g",
+                          "name": "Password Reset Email Summary Copy",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "CIGl6",
+                              "name": "Password Reset Email Summary Label",
+                              "fill": "$color.muted-foreground",
+                              "content": "EMAIL ENTERED",
+                              "fontFamily": "$font.mono",
+                              "fontSize": 9,
+                              "fontWeight": "600",
+                              "letterSpacing": 0.8
+                            },
+                            {
+                              "type": "text",
+                              "id": "IwFcG",
+                              "name": "Password Reset Email Summary Value",
+                              "fill": "$color.foreground",
+                              "content": "name@company.com",
+                              "fontFamily": "$font.body",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "rRpG6",
+                      "name": "Password Reset Delivery Note",
+                      "width": "fill_container",
+                      "fill": "$color.muted",
+                      "cornerRadius": "$radius.md",
+                      "stroke": "$color.border",
+                      "strokeWidth": 1,
+                      "gap": 10,
+                      "padding": 14,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "oXoQz",
+                          "name": "Password Reset Delivery Note Icon",
+                          "width": 16,
+                          "height": 16,
+                          "icon": "inbox",
                           "library": "lucide",
                           "fill": "$color.muted-foreground"
                         },
                         {
                           "type": "text",
-                          "id": "dIm8m",
-                          "name": "Auth Role Note Text",
+                          "id": "Zlx7H",
+                          "name": "Password Reset Delivery Note Text",
                           "fill": "$color.muted-foreground",
-                          "content": "Secure access for BlihOps client workspaces.",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Check your spam or junk folder if the email doesn't appear after a few minutes.",
+                          "lineHeight": 1.5,
+                          "fontFamily": "$font.body",
+                          "fontSize": 11
+                        }
+                      ]
+                    },
+                    {
+                      "id": "WSOqV",
+                      "type": "ref",
+                      "ref": "BonU6",
+                      "name": "Resend Reset Email Button",
+                      "width": "fill_container",
+                      "height": 44,
+                      "descendants": {
+                        "NEzBl": {
+                          "content": "Resend email"
+                        },
+                        "ycXhd": {
+                          "icon": "rotate-cw"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "NfaRa",
+                      "name": "Email Sent Back to Sign In Link",
+                      "width": "fill_container",
+                      "gap": 6,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "C7Pjdr",
+                          "name": "Email Sent Back to Sign In Icon",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "arrow-left",
+                          "library": "lucide",
+                          "fill": "$color.primary"
+                        },
+                        {
+                          "type": "text",
+                          "id": "zAoV5",
+                          "name": "Email Sent Back to Sign In Text",
+                          "fill": "$color.primary",
+                          "content": "Back to sign in",
                           "fontFamily": "$font.body",
                           "fontSize": 11,
-                          "fontWeight": "normal"
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "H7DZf",
+      "x": 3200,
+      "y": 4080,
+      "name": "Auth / Reset Password / Default",
+      "theme": {
+        "mode": "light"
+      },
+      "clip": true,
+      "width": 1440,
+      "height": 960,
+      "layout": "none",
+      "children": [
+        {
+          "id": "iPPPE",
+          "type": "ref",
+          "ref": "vpelb",
+          "name": "Default Reset Password Shell",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960,
+          "descendants": {
+            "ZwoAi": {
+              "content": "PASSWORD RESET"
+            },
+            "jfPvG": {
+              "content": "A new password.\nThe same secure access."
+            },
+            "HlbHL": {
+              "content": "Choose a strong password to protect the BlihOps workspace connected to your verified account."
+            },
+            "UPMQB": {
+              "content": "VERIFIED LINK"
+            },
+            "suGZP": {
+              "content": "SECURE PASSWORD"
+            },
+            "Z7TQiA": {
+              "content": "ACCOUNT PROTECTED"
+            },
+            "PM5tQ": {
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "DulKC",
+                  "name": "Default Reset Password Form",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 14,
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "id": "vCKYP",
+                      "type": "ref",
+                      "ref": "Z7reEz",
+                      "name": "Reset Link Verified Badge",
+                      "descendants": {
+                        "cZF0w": {
+                          "content": "Reset link verified"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "x49jac",
+                      "name": "Default Reset Password Header",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 7,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "PENU9",
+                          "name": "Default Reset Password Title",
+                          "fill": "$color.foreground",
+                          "content": "Create a new password",
+                          "lineHeight": 1.08,
+                          "fontFamily": "$font.heading",
+                          "fontSize": 34,
+                          "fontWeight": "600",
+                          "letterSpacing": -0.7
+                        },
+                        {
+                          "type": "text",
+                          "id": "MDcka",
+                          "name": "Default Reset Password Description",
+                          "fill": "$color.muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Your new password must be different from the password you used before.",
+                          "lineHeight": 1.55,
+                          "fontFamily": "$font.body",
+                          "fontSize": 14
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "cVRrN",
+                      "name": "Default Reset Password Fields",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "children": [
+                        {
+                          "id": "ss9ks",
+                          "type": "ref",
+                          "ref": "L6rbGV",
+                          "name": "Reset New Password Field",
+                          "width": "fill_container",
+                          "descendants": {
+                            "g08cg": {
+                              "content": "New password"
+                            },
+                            "MAIXs": {
+                              "content": "Create a secure password"
+                            },
+                            "r4LE8": {
+                              "enabled": true,
+                              "icon": "eye",
+                              "fill": "$color.muted-foreground"
+                            },
+                            "y6EJE": {
+                              "enabled": false
+                            }
+                          }
+                        },
+                        {
+                          "id": "vquIR",
+                          "type": "ref",
+                          "ref": "L6rbGV",
+                          "name": "Reset Confirm Password Field",
+                          "width": "fill_container",
+                          "descendants": {
+                            "g08cg": {
+                              "content": "Confirm password"
+                            },
+                            "MAIXs": {
+                              "content": "Repeat your new password"
+                            },
+                            "r4LE8": {
+                              "enabled": true,
+                              "icon": "eye",
+                              "fill": "$color.muted-foreground"
+                            },
+                            "y6EJE": {
+                              "enabled": false
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "dZDiy",
+                      "name": "Reset Password Requirements",
+                      "width": "fill_container",
+                      "fill": "$color.muted",
+                      "cornerRadius": "$radius.md",
+                      "stroke": "$color.border",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": 12,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "p7vf8n",
+                          "name": "Reset Password Requirements Label",
+                          "fill": "$color.muted-foreground",
+                          "content": "PASSWORD REQUIREMENTS",
+                          "fontFamily": "$font.mono",
+                          "fontSize": 9,
+                          "fontWeight": "600",
+                          "letterSpacing": 0.8
+                        },
+                        {
+                          "type": "frame",
+                          "id": "FeU5T",
+                          "name": "Reset Requirement Row 1",
+                          "width": "fill_container",
+                          "gap": 16,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "up7eI",
+                              "name": "Reset 8+ characters Requirement",
+                              "width": "fill_container",
+                              "gap": 7,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "bC7xW",
+                                  "name": "Reset 8+ characters Requirement Icon",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "lucide",
+                                  "fill": "$color.primary"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "cEDwe",
+                                  "name": "Reset 8+ characters Requirement Text",
+                                  "fill": "$color.body",
+                                  "content": "8+ characters",
+                                  "fontFamily": "$font.body",
+                                  "fontSize": 11
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "OtAcu",
+                              "name": "Reset Upper & lowercase Requirement",
+                              "width": "fill_container",
+                              "gap": 7,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "IKChN",
+                                  "name": "Reset Upper & lowercase Requirement Icon",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "lucide",
+                                  "fill": "$color.primary"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "xQQTG",
+                                  "name": "Reset Upper & lowercase Requirement Text",
+                                  "fill": "$color.body",
+                                  "content": "Upper & lowercase",
+                                  "fontFamily": "$font.body",
+                                  "fontSize": 11
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "xBp6R",
+                          "name": "Reset Requirement Row 2",
+                          "width": "fill_container",
+                          "gap": 16,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "XZXCE",
+                              "name": "Reset One number Requirement",
+                              "width": "fill_container",
+                              "gap": 7,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "DXABn",
+                                  "name": "Reset One number Requirement Icon",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "lucide",
+                                  "fill": "$color.primary"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "W5fbGW",
+                                  "name": "Reset One number Requirement Text",
+                                  "fill": "$color.body",
+                                  "content": "One number",
+                                  "fontFamily": "$font.body",
+                                  "fontSize": 11
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Xtwb6",
+                              "name": "Reset One symbol Requirement",
+                              "width": "fill_container",
+                              "gap": 7,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "GiaUl",
+                                  "name": "Reset One symbol Requirement Icon",
+                                  "width": 13,
+                                  "height": 13,
+                                  "icon": "check",
+                                  "library": "lucide",
+                                  "fill": "$color.primary"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "Zk098",
+                                  "name": "Reset One symbol Requirement Text",
+                                  "fill": "$color.body",
+                                  "content": "One symbol",
+                                  "fontFamily": "$font.body",
+                                  "fontSize": 11
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "F2CQKr",
+                      "type": "ref",
+                      "ref": "PYZII",
+                      "name": "Reset Password Button",
+                      "width": "fill_container",
+                      "height": 44,
+                      "descendants": {
+                        "uq68e": {
+                          "content": "Reset password"
+                        },
+                        "S9pia": {
+                          "icon": "arrow-right"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "sK0e4",
+                      "name": "Reset Password Back to Sign In",
+                      "width": "fill_container",
+                      "gap": 6,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "y9RwfB",
+                          "name": "Reset Password Back Icon",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "arrow-left",
+                          "library": "lucide",
+                          "fill": "$color.primary"
+                        },
+                        {
+                          "type": "text",
+                          "id": "b7aBxU",
+                          "name": "Reset Password Back Text",
+                          "fill": "$color.primary",
+                          "content": "Back to sign in",
+                          "fontFamily": "$font.body",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "EG3rR",
+      "x": 4800,
+      "y": 4080,
+      "name": "Auth / Reset Password / Invalid Token",
+      "theme": {
+        "mode": "light"
+      },
+      "clip": true,
+      "width": 1440,
+      "height": 960,
+      "layout": "none",
+      "children": [
+        {
+          "id": "FpRrO",
+          "type": "ref",
+          "ref": "vpelb",
+          "name": "Invalid Reset Token Shell",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960,
+          "descendants": {
+            "ZwoAi": {
+              "content": "RESET LINK EXPIRED"
+            },
+            "jfPvG": {
+              "content": "Recovery stays\nunder your control."
+            },
+            "HlbHL": {
+              "content": "Expired and used reset links stay closed. Request a new secure link to continue protecting your account."
+            },
+            "UPMQB": {
+              "content": "SINGLE-USE LINK"
+            },
+            "suGZP": {
+              "content": "SECURE RECOVERY"
+            },
+            "Z7TQiA": {
+              "content": "ACCOUNT PROTECTED"
+            },
+            "PM5tQ": {
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VlwNu",
+                  "name": "Invalid Reset Token Content",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 22,
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "id": "Jf7kL",
+                      "type": "ref",
+                      "ref": "Dadak",
+                      "name": "Reset Link Unavailable Badge",
+                      "fill": "#FEF2F2",
+                      "stroke": "#FECACA",
+                      "descendants": {
+                        "M3gFze": {
+                          "fill": "$color.destructive"
+                        },
+                        "iwQpe": {
+                          "content": "Reset link unavailable",
+                          "fill": "$color.destructive"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "F8CA5j",
+                      "name": "Invalid Reset Token Header",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "dTvvt",
+                          "name": "Invalid Reset Token Icon Container",
+                          "width": 52,
+                          "height": 52,
+                          "fill": "#FEF2F2",
+                          "cornerRadius": "$radius.xl",
+                          "stroke": "#FECACA",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "h0CS0z",
+                              "name": "Invalid Reset Token Icon",
+                              "width": 22,
+                              "height": 22,
+                              "icon": "link-2-off",
+                              "library": "lucide",
+                              "fill": "$color.destructive"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "WDKet",
+                          "name": "Invalid Reset Token Title",
+                          "fill": "$color.foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "This reset link is no longer valid",
+                          "lineHeight": 1.08,
+                          "fontFamily": "$font.heading",
+                          "fontSize": 34,
+                          "fontWeight": "600",
+                          "letterSpacing": -0.7
+                        },
+                        {
+                          "type": "text",
+                          "id": "JIpOM",
+                          "name": "Invalid Reset Token Description",
+                          "fill": "$color.muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "The link may have expired or already been used. Request a new link to reset your password.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "$font.body",
+                          "fontSize": 14
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "gx1eU",
+                      "name": "Invalid Reset Recovery Note",
+                      "width": "fill_container",
+                      "fill": "$color.muted",
+                      "cornerRadius": "$radius.md",
+                      "stroke": "$color.border",
+                      "strokeWidth": 1,
+                      "gap": 14,
+                      "padding": 18,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "aq9cc",
+                          "name": "Invalid Reset Recovery Icon Container",
+                          "width": 40,
+                          "height": 40,
+                          "fill": "$color.background",
+                          "cornerRadius": "$radius.md",
+                          "stroke": "$color.border",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "x4QGqn",
+                              "name": "Invalid Reset Recovery Icon",
+                              "width": 18,
+                              "height": 18,
+                              "icon": "shield-check",
+                              "library": "lucide",
+                              "fill": "$color.primary"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "E0DHJC",
+                          "name": "Invalid Reset Recovery Copy",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 5,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "z9Yzf",
+                              "name": "Invalid Reset Recovery Title",
+                              "fill": "$color.foreground",
+                              "content": "Reset links are single use",
+                              "fontFamily": "$font.heading",
+                              "fontSize": 16,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Uv1j1",
+                              "name": "Invalid Reset Recovery Description",
+                              "fill": "$color.muted-foreground",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Creating a new request safely replaces the expired link.",
+                              "lineHeight": 1.5,
+                              "fontFamily": "$font.body",
+                              "fontSize": 12
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "XgYJY",
+                      "type": "ref",
+                      "ref": "PYZII",
+                      "name": "Request New Reset Link Button",
+                      "width": "fill_container",
+                      "height": 44,
+                      "descendants": {
+                        "uq68e": {
+                          "content": "Request new reset link"
+                        },
+                        "S9pia": {
+                          "icon": "arrow-right"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "O5BMB9",
+                      "name": "Invalid Reset Back to Sign In",
+                      "width": "fill_container",
+                      "gap": 6,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "Wgv43",
+                          "name": "Invalid Reset Back Icon",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "arrow-left",
+                          "library": "lucide",
+                          "fill": "$color.primary"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Ck59b",
+                          "name": "Invalid Reset Back Text",
+                          "fill": "$color.primary",
+                          "content": "Back to sign in",
+                          "fontFamily": "$font.body",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "hABle",
+      "x": 0,
+      "y": 5200,
+      "name": "Auth / Reset Password / Success",
+      "theme": {
+        "mode": "light"
+      },
+      "clip": true,
+      "width": 1440,
+      "height": 960,
+      "layout": "none",
+      "children": [
+        {
+          "id": "E0x7vW",
+          "type": "ref",
+          "ref": "vpelb",
+          "name": "Reset Password Success Shell",
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960,
+          "descendants": {
+            "ZwoAi": {
+              "content": "PASSWORD UPDATED"
+            },
+            "jfPvG": {
+              "content": "You're secure.\nYou're ready."
+            },
+            "HlbHL": {
+              "content": "Your new password is active. Sign in to return to the BlihOps workspace connected to your account."
+            },
+            "UPMQB": {
+              "content": "PASSWORD ACTIVE"
+            },
+            "suGZP": {
+              "content": "SECURE SIGN-IN"
+            },
+            "Z7TQiA": {
+              "content": "WORKSPACE READY"
+            },
+            "PM5tQ": {
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "hyfLB",
+                  "name": "Reset Password Success Content",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 22,
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "id": "jPHVG",
+                      "type": "ref",
+                      "ref": "Z7reEz",
+                      "name": "Password Updated Badge",
+                      "descendants": {
+                        "cZF0w": {
+                          "content": "Password updated"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "gZhT7",
+                      "name": "Reset Password Success Header",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "pcsxh",
+                          "name": "Reset Password Success Icon Container",
+                          "width": 56,
+                          "height": 56,
+                          "fill": "$color.accent",
+                          "cornerRadius": "$radius.xl",
+                          "stroke": "#BAE6FD",
+                          "strokeWidth": 1,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "ilwRI",
+                              "name": "Reset Password Success Icon",
+                              "width": 24,
+                              "height": 24,
+                              "icon": "check",
+                              "library": "lucide",
+                              "fill": "$color.accent-foreground"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "l4i5x",
+                          "name": "Reset Password Success Title",
+                          "fill": "$color.foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Your password has been reset",
+                          "lineHeight": 1.08,
+                          "fontFamily": "$font.heading",
+                          "fontSize": 36,
+                          "fontWeight": "600",
+                          "letterSpacing": -0.7
+                        },
+                        {
+                          "type": "text",
+                          "id": "A4sEVo",
+                          "name": "Reset Password Success Description",
+                          "fill": "$color.muted-foreground",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Your new password is active and ready to use the next time you sign in.",
+                          "lineHeight": 1.6,
+                          "fontFamily": "$font.body",
+                          "fontSize": 14
+                        }
+                      ]
+                    },
+                    {
+                      "id": "R5h01J",
+                      "type": "ref",
+                      "ref": "PYZII",
+                      "name": "Reset Success Go to Sign In Button",
+                      "width": "fill_container",
+                      "height": 44,
+                      "descendants": {
+                        "uq68e": {
+                          "content": "Go to sign in"
+                        },
+                        "S9pia": {
+                          "icon": "arrow-right"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "f22eMG",
+                      "name": "Reset Success Password Note",
+                      "width": "fill_container",
+                      "gap": 7,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "R5j3xH",
+                          "name": "Reset Success Password Note Icon",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "key-round",
+                          "library": "lucide",
+                          "fill": "$color.muted-foreground"
+                        },
+                        {
+                          "type": "text",
+                          "id": "JpbIb",
+                          "name": "Reset Success Password Note Text",
+                          "fill": "$color.muted-foreground",
+                          "content": "Use the password you just created.",
+                          "fontFamily": "$font.body",
+                          "fontSize": 11
                         }
                       ]
                     }
