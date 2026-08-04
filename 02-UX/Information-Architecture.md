@@ -97,6 +97,7 @@ The following routes support entry, recovery, and handoffs but do not appear in
 primary navigation:
 
 - Shared account invitation activation (`/accept-invitation`)
+- Profile completion form (`/complete-profile`) — token-protected, unauthenticated
 - Password-reset request and new-password form
 - Invalid, expired, or consumed link
 - Access denied
@@ -105,8 +106,9 @@ primary navigation:
 Client and Talent account invitations use the same `/accept-invitation` screen.
 The invitation token identifies the account type, and successful activation
 redirects the user to the Client Workspace or Talent Profile Management based on
-that role. Talent Profile and account creation happen in Admin from the approved
-Talent Application before this invitation is sent.
+that role. The profile completion form uses a separate, single-use 7-day token
+sent to the candidate after application approval; it precedes the account
+invitation and does not log the candidate into the platform.
 
 ## 4. BlihOps Admin Architecture
 

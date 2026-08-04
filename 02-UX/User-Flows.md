@@ -32,16 +32,19 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    A["Candidate applies"] --> B["Admin review and assessments"]
+    A["Candidate applies (Round 1)"] --> B["Admin review and assessments"]
     B --> C["Admin approves Candidate"]
-    C --> D["Admin creates Talent Profile and account"]
-    D --> E["Admin sends account invitation"]
-    E --> F["Talent accepts invitation"]
-    F --> G["Talent manages permitted profile fields"]
+    C --> D["Admin sends completion request"]
+    D --> E["Talent completes profile (Round 2)"]
+    E --> F["Admin creates Talent Profile and account"]
+    F --> G["Admin sends account invitation"]
+    G --> H["Talent accepts invitation"]
+    H --> I["Talent manages permitted profile fields"]
 ```
 
-The Talent Pool application contains the full professional information required
-for Admin review and Profile creation. Account activation remains invitation-only.
+The Talent Application collects assessment information in Round 1; the remaining
+profile-building fields are collected through a profile completion request after
+approval. Account activation remains invitation-only.
 
 ## 3. Flow Catalogue
 
@@ -53,12 +56,13 @@ for Admin review and Profile creation. Account activation remains invitation-onl
 | AUTH-04 | Admin login | Admin |
 | PUBLIC-01 | Submit a Contact inquiry | Prospective Client |
 | PUBLIC-02 | Request a Pilot or book a call | Prospective Client |
-| PUBLIC-03 | Apply to the Talent Pool | Candidate |
+| PUBLIC-03a | Apply to the Talent Pool (Round 1) | Candidate |
+| PUBLIC-03b | Complete the Profile (Round 2) | Candidate |
 | PUBLIC-04 | Browse published content or Careers | Visitor |
 | ADMIN-01 | Qualify a Lead and create a Company | Admin |
 | ADMIN-02 | Manage Company and Client access | Admin |
 | ADMIN-03 | Review and assess a Talent Application | Admin |
-| ADMIN-04 | Create, control, and invite a Talent Profile | Admin |
+| ADMIN-04 | Request completion, create Profile, and invite Talent | Admin |
 | ADMIN-05 | Manage Interview Requests and Pilot progress | Admin |
 | ADMIN-06 | Manage structured website content | Admin |
 | ADMIN-07 | Manage email templates and Calendly settings | Admin |
@@ -153,11 +157,11 @@ Open Pilot page
 
 A Visitor may also enter Calendly directly from another Book a Call action.
 
-### PUBLIC-03 — Apply to the Talent Pool
+### PUBLIC-03a — Apply to the Talent Pool (Round 1)
 
 ```text
 Open Join Talent Pool
-→ Enter complete application and professional profile information
+→ Enter identity, contact, screening, and professional assessment information
 → Upload required resume
 → Submit
 → (System) validates fields and file
@@ -166,7 +170,27 @@ Open Join Talent Pool
 ```
 
 Submitting an application creates the Talent Application only. After approval,
-Admin creates the Talent Profile and account from that application.
+Admin may request remaining profile-building information through a completion
+request.
+
+### PUBLIC-03b — Complete the Profile (Round 2)
+
+```text
+Open email link to /complete-profile with token
+→ (System) validates the single-use 7-day token
+→ [Valid] → Present the profile completion form with remaining fields:
+  profile photo, short bio, availability, earliest start date, and preferred engagement
+→ [Invalid, expired, or consumed] → Show link-status state (AUTH-06)
+→ Fill form fields
+→ Upload optional profile photo
+→ Submit
+→ (System) validates and updates the Talent Application with completion data
+→ Application moves to Completion Submitted
+→ Show confirmation and expected next steps
+```
+
+The completion form is unauthenticated and protected only by the single-use
+token. It does not create a Talent Profile or account.
 
 ### PUBLIC-04 — Browse Published Content or Careers
 
@@ -227,14 +251,20 @@ Talent Applications
 → Mark application ready for Profile and account creation
 ```
 
-Valid stages are controlled by the PRD. Only an approved application can create
-the Talent Profile and associated account.
+Valid stages are controlled by the PRD. Only an approved application with a
+submitted completion form can create the Talent Profile and associated account.
 
-### ADMIN-04 — Create, Control, and Invite Talent Account
+### ADMIN-04 — Request Completion, Create Profile, and Invite Talent
 
 ```text
-Open approved application with complete profile information
+Open approved Talent Application
 → Review application and assessment history
+→ Send profile completion request (generates 7-day single-use token)
+→ System sends the profile completion email to the candidate
+→ Track Completion Requested state
+→ [Expired or replaced] → Resend or replace the completion request
+→ Talent submits completion form → Application moves to Completion Submitted
+→ Review combined Round 1 application data and Round 2 completion data
 → Create Talent Profile and account
 → Choose active/visible state
 → Send shared account invitation

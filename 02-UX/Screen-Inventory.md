@@ -41,9 +41,10 @@ single shared screen; its token identifies the account type.
 | WEB-10 | Career Role Detail | Visitor | Review one active role | Careers Index |
 | WEB-11 | Pilot | Prospective Client | Understand and request a Pilot; access FAQs and booking | Public navigation |
 | WEB-12 | Contact | Prospective Client | Submit a general business inquiry | Public navigation |
-| WEB-13 | Join Talent Pool | Candidate | Submit the complete Talent Pool application and resume | Public navigation |
+| WEB-13 | Join Talent Pool | Candidate | Submit the Round 1 Talent Pool application (assessment fields and resume) | Public navigation |
 | WEB-14 | Privacy | Visitor | Read privacy information | Public footer |
 | WEB-15 | Terms | Visitor | Read terms information | Public footer |
+| WEB-16 | Complete Profile | Candidate | Submit remaining profile-building fields after receiving a completion request token | Email → `/complete-profile` |
 
 Case Studies, Insights, and Pilot content use the selected locale. Only
 published or active content is visible publicly.

@@ -21,6 +21,7 @@ Version 1 validates the outsourcing model by:
 - Admin operations are the product’s operational center.
 - Access is invitation-only for protected client and talent experiences.
 - Talent self-service begins only after admin approval and profile creation.
+- Talent Application information is collected in two rounds: Round 1 collects only what Admin needs to assess the candidate; Round 2 collects remaining profile-building fields after approval. The Round 2 form completes the Application, not the Profile.
 - Clients never contact talent directly through the platform.
 - Website content management is bounded to defined content types.
 - V1 favors clear manual control over workflow automation.
@@ -140,14 +141,37 @@ associated Talent account from the application, then send the account invitation
 Requirements:
 
 - The Talent Application must be approved.
-- The application must contain the full information required to create the Talent Profile.
+- The application and its submitted completion form together contain the full information required to create the Talent Profile.
 - The action creates one Talent Profile and one pending Talent account.
 - The invitation is single-use and expires.
 - The Talent creates a password and activates the account.
 - The activated account opens Talent Profile Management, not a dashboard.
 - Admin can resend or replace an expired pending invitation.
 
-### 4.4 Password Reset
+### 4.4 Profile Completion Request
+
+After approving a Talent Application, an admin can request the remaining profile
+information from the candidate before creating the Talent Profile.
+
+Requirements:
+
+- The Talent Application must be approved.
+- The admin triggers the completion request from the Application Detail,
+  generating a single-use token with a 7-day expiry.
+- The system sends the candidate an email with the completion request link.
+- A valid token opens an unauthenticated profile completion form that collects
+  the remaining talent-editable fields: profile photo, short bio, availability,
+  earliest start date, and preferred engagement.
+- The candidate fills the form and submits; the submission updates the Talent
+  Application with the completion data.
+- An invalid, expired, consumed, or replaced token cannot open the completion
+  form.
+- Admin can resend or replace an expired pending completion request from the
+  Application Detail.
+- The completion request does not create a Talent Profile or account; those are
+  created later by the admin using the combined application and completion data.
+
+### 4.5 Password Reset
 
 - Reset links are single-use and expire.
 - Requesting a reset does not reveal whether an email exists.
@@ -209,14 +233,16 @@ Requirements:
 
 Requirements:
 
-- Collect the candidate’s full name, email, phone, country/city, screening, and complete professional profile information.
-- Collect profile photo, professional headline, short bio, primary role, tech stack,
-  secondary skills, years of experience, portfolio, GitHub, LinkedIn, availability,
-  earliest start date, and preferred engagement.
+- Collect the candidate's full name, email, phone, country/city, and screening.
+- Collect professional headline, primary role, tech stack, secondary skills,
+  years of experience, portfolio, GitHub, and LinkedIn.
 - Require a resume.
 - Accept supported file formats and size limits.
 - Create one Talent Application.
 - Show a confirmation state after successful submission.
+- Admin may request remaining profile-building information (profile photo, short bio,
+  availability, earliest start date, and preferred engagement) through a profile
+  completion request after the application is approved.
 
 ### 5.6 Published Content
 
@@ -316,6 +342,8 @@ Recruitment stages:
 - English Assessment
 - Remote Readiness Assessment
 - Approved
+- Completion Requested
+- Completion Submitted
 - Profile Created
 - Rejected
 - Archived
@@ -329,16 +357,19 @@ Admin can:
 - Advance or return an application to a valid stage.
 - Reject an application at any stage with a reason.
 - Approve a candidate after required assessments.
-- Create the Talent Profile and associated account from an approved application.
+- Send, resend, or replace a profile completion request from an approved application.
+- Review the combined Round 1 and Round 2 application data before creating the Talent Profile.
+- Create the Talent Profile and associated account from an approved application with a submitted completion form.
 - Send or resend the Talent account invitation.
 - Archive and restore an application.
 
 Business rules:
 
 - One Talent Application represents one candidate submission.
-- The application contains all candidate and profile information required for Admin review and Profile creation.
-- Only an approved application can create a Talent Profile and associated Talent account.
+- The application and its completion form together contain all candidate and profile information required for Admin review and Profile creation.
+- Only an approved application with a submitted completion form can create a Talent Profile and associated Talent account.
 - One Talent Profile may be created per approved application.
+- The profile completion request becomes available after the application is approved.
 - The Talent account invitation becomes available after the Profile and account are created.
 
 ### 6.5 Talent Profiles
@@ -378,6 +409,12 @@ Talent-editable fields include:
 - Availability
 - Earliest start date
 - Preferred engagement
+
+These fields are initially populated at profile creation from the application
+(Round 1) and completion form (Round 2) data. Once the profile exists, the Talent
+can continue to edit these fields through the Talent Portal. Talent-originated
+changes publish immediately and are distinguishable from Admin changes in the
+activity log.
 
 Business rules:
 
@@ -728,6 +765,7 @@ Admin can view and update templates for:
 
 - Client account invitation
 - Talent account invitation
+- Profile completion request
 - Password reset
 - Interview Request notification
 
@@ -753,6 +791,7 @@ Sensitive credentials are never displayed in full.
 - New Contact or Pilot Request
 - New Calendly booking
 - New Talent Application
+- Talent completion form submitted
 - Talent Profile and account created
 - Client invitation accepted
 - Talent account invitation accepted
@@ -768,6 +807,7 @@ Sensitive credentials are never displayed in full.
 
 ### 11.3 Talent Notifications
 
+- Profile completion requested
 - Talent account invitation
 - Password reset
 - Important profile-access change
@@ -777,8 +817,9 @@ Sensitive credentials are never displayed in full.
 ## 12. File Management
 
 - Talent Applications require a resume.
-- Talent Applications collect the complete information required for Profile creation,
-  including the profile photo and professional fields.
+- Talent Applications collect assessment-required information in Round 1; the
+  remaining profile-building fields are collected through the profile completion
+  form after approval.
 - Talent Portal supports profile photo and resume replacement.
 - Managed content supports the image and video types required by each content model.
 - Files must pass configured type and size validation.
@@ -797,6 +838,8 @@ At minimum:
 - Company creation, invitation activity, access changes, and archival
 - Talent Application stage changes, approval, rejection, Profile/account creation, and invitation activity
 - Talent Profile creation, field updates, visibility changes, and archival
+- Profile completion request sent, resent, replaced, or expired
+- Profile completion form submitted
 - Client and Talent account activation
 - Talent Pod creation, detail changes, membership changes, Pod Lead changes, and archival
 - Interview Request creation and status changes
@@ -845,6 +888,7 @@ Talent-originated profile changes must be distinguishable from Admin changes.
 - Recruitment communication and interview scheduling remain operationally managed by BlihOps.
 - Calendly handles call scheduling.
 - Talent self-service is limited to the explicitly permitted profile fields.
+- Talent Application information is collected in two rounds: Round 1 collects only what Admin needs to assess the candidate; Round 2 collects remaining profile-building fields after approval.
 - The backend will store and return locale-specific content according to the requested locale.
 
 ---

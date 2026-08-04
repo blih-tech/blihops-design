@@ -175,9 +175,10 @@ Talent Activates Account
 Talent Maintains Permitted Profile Information
 ```
 
-The Talent Pool application collects the full professional information required
-for Admin review and Profile creation. Account activation remains invitation-only:
-the invitation lets Approved Talent create a password and enter Profile Management.
+The Talent Application collects assessment information in Round 1; the remaining
+profile-building fields are collected through a profile completion request after
+approval. Account activation remains invitation-only: the invitation lets
+Approved Talent create a password and enter Profile Management.
 
 ---
 
@@ -241,10 +242,11 @@ Profiles may include:
 - Assessment summary and internal notes
 - Visibility and lifecycle status
 
-The Talent Pool application collects the full candidate and professional
-information required for Admin review and Profile creation. Admin can create the
-Profile and associated account directly from an approved application before
-sending the account invitation.
+The Talent Application collects assessment information in Round 1; the remaining
+profile-building fields are collected through a profile completion request after
+approval. Admin can create the Profile and associated account from the approved
+application once the completion form is submitted, before sending the account
+invitation.
 
 Only visible, active Talent Profiles appear in the Client Workspace.
 
