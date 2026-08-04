@@ -41,23 +41,14 @@ single shared screen; its token identifies the account type.
 | WEB-10 | Career Role Detail | Visitor | Review one active role | Careers Index |
 | WEB-11 | Pilot | Prospective Client | Understand and request a Pilot; access FAQs and booking | Public navigation |
 | WEB-12 | Contact | Prospective Client | Submit a general business inquiry | Public navigation |
-| WEB-13 | Join Talent Pool | Candidate | Submit a Talent Pool application and resume | Public navigation |
+| WEB-13 | Join Talent Pool | Candidate | Submit the complete Talent Pool application and resume | Public navigation |
 | WEB-14 | Privacy | Visitor | Read privacy information | Public footer |
 | WEB-15 | Terms | Visitor | Read terms information | Public footer |
 
 Case Studies, Insights, and Pilot content use the selected locale. Only
 published or active content is visible publicly.
 
-## 4. Token-Protected Talent Entry
-
-| ID | Screen | User | Purpose | Primary entry |
-|---|---|---|---|---|
-| TALENT-01 | Profile Completion | Talent Pool Candidate | Submit final professional information after approval | Profile-completion email link |
-
-This is a separate public token-protected screen. It is not the Talent Portal,
-does not create an account, and does not create a Talent Profile.
-
-## 5. Protected Client Workspace Screens
+## 4. Protected Client Workspace Screens
 
 | ID | Screen | User | Purpose | Primary entry |
 |---|---|---|---|---|
@@ -72,18 +63,18 @@ does not create an account, and does not create a Talent Profile.
 Pods are planning-only. They do not reserve, assign, hire, notify, or contact
 Talent. No additional Client-user management screen exists in V1.
 
-## 6. Protected Talent Portal Screens
+## 5. Protected Talent Portal Screens
 
 | ID | Screen | User | Purpose | Primary entry |
 |---|---|---|---|---|
-| TALENT-02 | Profile Management | Approved Talent | View and edit permitted profile fields, photo, resume, links, and availability | Successful login or invitation activation |
+| TALENT-01 | Profile Management | Approved Talent | View and edit permitted profile fields, photo, resume, links, and availability | Successful login or invitation activation |
 
 There is no Talent Dashboard. Talent lands directly on Profile Management and
 cannot edit Admin-managed fields.
 
-## 7. Admin Portal Screens
+## 6. Admin Portal Screens
 
-### 7.1 Operations
+### 6.1 Operations
 
 | ID | Screen | User | Purpose | Primary entry |
 |---|---|---|---|---|
@@ -95,13 +86,13 @@ cannot edit Admin-managed fields.
 | ADMIN-06 | Talent Applications | Admin | Search, filter, paginate, and manage recruitment applications | Admin navigation or Dashboard |
 | ADMIN-07 | Application Detail | Admin | Review candidate data, files, stages, assessments, notes, and invitations | Talent Applications |
 | ADMIN-08 | Talent Profiles | Admin | Search, filter, sort, paginate, and manage profiles | Admin navigation or Dashboard |
-| ADMIN-09 | Talent Profile Detail | Admin | Create, edit, review, publish, hide, archive, restore, and invite Talent | Talent Profiles or Application Detail |
+| ADMIN-09 | Talent Profile Detail | Admin | Create Profile/account from an approved application; edit, publish, hide, archive, restore, and invite Talent | Talent Profiles or Application Detail |
 
 Interview Requests are contained within `ADMIN-05 Company Detail`; there is no
 separate Admin Interview Requests screen. Pilot status and milestones also remain
 within Company Detail.
 
-### 7.2 Managed Website Content
+### 6.2 Managed Website Content
 
 | ID | Screen family | User | Purpose | Primary entry |
 |---|---|---|---|---|
@@ -117,14 +108,14 @@ The manager screen families include their relevant list, create, and edit
 states. Publication, activation, ordering, deletion confirmation, upload
 failure, and bilingual validation are variants within those families.
 
-### 7.3 Settings
+### 6.3 Settings
 
 | ID | Screen | User | Purpose | Primary entry |
 |---|---|---|---|---|
 | ADMIN-17 | Email Templates | Admin | View and edit validated notification templates | Admin → Settings |
 | ADMIN-18 | Calendly Settings | Admin | Review connection, webhook, event mapping, and last received event | Admin → Settings |
 
-## 8. Inventory Conventions
+## 7. Inventory Conventions
 
 - `WEB-*` identifies public BlihOps Web screens.
 - `AUTH-*` identifies shared authentication and access screens.

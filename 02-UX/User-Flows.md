@@ -34,16 +34,14 @@ flowchart LR
 flowchart LR
     A["Candidate applies"] --> B["Admin review and assessments"]
     B --> C["Admin approves Candidate"]
-    C --> D["Profile-completion request"]
-    D --> E["Candidate submits final information"]
-    E --> F["Admin creates Talent Profile"]
-    F --> G["Admin sends account invitation"]
-    G --> H["Talent accepts invitation"]
-    H --> I["Talent manages permitted profile fields"]
+    C --> D["Admin creates Talent Profile and account"]
+    D --> E["Admin sends account invitation"]
+    E --> F["Talent accepts invitation"]
+    F --> G["Talent manages permitted profile fields"]
 ```
 
-Profile completion and account activation are separate journeys. The
-profile-completion token does not create an account or Talent Profile.
+The Talent Pool application contains the full professional information required
+for Admin review and Profile creation. Account activation remains invitation-only.
 
 ## 3. Flow Catalogue
 
@@ -69,8 +67,7 @@ profile-completion token does not create an account or Talent Profile.
 | CLIENT-03 | Create and manage a Talent Pod | Client |
 | CLIENT-04 | Request an interview | Client |
 | CLIENT-05 | Track Interview Requests and Pilot progress | Client |
-| TALENT-01 | Submit final profile information | Candidate |
-| TALENT-02 | View and update the Talent Profile | Talent |
+| TALENT-01 | View and update the Talent Profile | Talent |
 
 ## 4. Shared Authentication Flows
 
@@ -160,7 +157,7 @@ A Visitor may also enter Calendly directly from another Book a Call action.
 
 ```text
 Open Join Talent Pool
-→ Enter application information
+→ Enter complete application and professional profile information
 → Upload required resume
 → Submit
 → (System) validates fields and file
@@ -168,7 +165,8 @@ Open Join Talent Pool
 → Show confirmation and expected next steps
 ```
 
-Submitting an application does not create an account or Talent Profile.
+Submitting an application creates the Talent Application only. After approval,
+Admin creates the Talent Profile and account from that application.
 
 ### PUBLIC-04 — Browse Published Content or Careers
 
@@ -226,21 +224,18 @@ Talent Applications
 → Move through screening and required assessments
 → [Not suitable] → Reject with reason
 → [Requirements met] → Approve
-→ Send profile-completion request
-→ Track submission state
+→ Mark application ready for Profile and account creation
 ```
 
-Valid stages are controlled by the PRD. Only an approved application can
-receive a profile-completion request.
+Valid stages are controlled by the PRD. Only an approved application can create
+the Talent Profile and associated account.
 
-### ADMIN-04 — Create, Control, and Invite a Talent Profile
+### ADMIN-04 — Create, Control, and Invite Talent Account
 
 ```text
-Open approved application with submitted final information
-→ Review submission
-→ Create Talent Profile manually
-→ Complete Admin-managed fields
-→ Save profile
+Open approved application with complete profile information
+→ Review application and assessment history
+→ Create Talent Profile and account
 → Choose active/visible state
 → Send shared account invitation
 → Track Pending or Accepted state
@@ -360,25 +355,9 @@ Open Interview Requests or Pilot Status
 → Wait for BlihOps coordination or status update
 ```
 
-## 8. Candidate and Talent Flows
+## 8. Talent Flow
 
-### TALENT-01 — Submit Final Profile Information
-
-**Entry:** An approved Candidate opens the separate profile-completion link.
-
-```text
-(System) validates the single-use token
-→ Candidate enters requested professional information
-→ Upload profile photo
-→ Submit
-→ (System) attaches information to the Talent Application and consumes token
-→ Show confirmation and Admin-review expectation
-```
-
-The original application resume is reused. Submission does not create a Talent
-Profile or account.
-
-### TALENT-02 — View and Update the Talent Profile
+### TALENT-01 — View and Update the Talent Profile
 
 ```text
 Enter protected Talent Portal

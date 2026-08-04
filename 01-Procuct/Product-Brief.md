@@ -166,13 +166,7 @@ Screening and Assessments
       ↓
 Admin Approval
       ↓
-Profile-Completion Token Sent
-      ↓
-Talent Submits Final Information
-      ↓
-Admin Reviews Submission
-      ↓
-Admin Manually Creates Talent Profile
+Admin Creates Talent Profile and Account from Application
       ↓
 Admin Sends Talent Account Invitation
       ↓
@@ -181,7 +175,9 @@ Talent Activates Account
 Talent Maintains Permitted Profile Information
 ```
 
-The profile-completion token and Talent account invitation are separate events. Completing the tokenized form does not create an account or Talent Profile automatically.
+The Talent Pool application collects the full professional information required
+for Admin review and Profile creation. Account activation remains invitation-only:
+the invitation lets Approved Talent create a password and enter Profile Management.
 
 ---
 
@@ -244,6 +240,11 @@ Profiles may include:
 - Hourly and monthly rates
 - Assessment summary and internal notes
 - Visibility and lifecycle status
+
+The Talent Pool application collects the full candidate and professional
+information required for Admin review and Profile creation. Admin can create the
+Profile and associated account directly from an approved application before
+sending the account invitation.
 
 Only visible, active Talent Profiles appear in the Client Workspace.
 

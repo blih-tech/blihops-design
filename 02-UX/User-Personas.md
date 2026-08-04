@@ -34,14 +34,13 @@ person selected by the Company. V1 permits only one Client account per Company.
     Talent Pool Candidate
         -> submits a Talent Pool application
         -> completes Admin-managed review and assessments
-        -> receives a final-information request after approval
-        -> submits final professional information
-        -> Admin manually creates the Talent Profile
-        -> becomes Approved Talent
-        -> receives a separate account invitation
+        -> Admin creates the Talent Profile and account from the approved application
+        -> receives an account invitation
         -> activates the account and maintains permitted profile information
 
-The final-information request does not create a Talent Profile or account.
+The Talent Pool application contains the full information needed for Admin review
+and Profile creation. The account invitation is the only post-approval Talent
+handoff.
 Careers applicants are not part of this V1 persona set.
 
 ## 3. Primary Persona - BlihOps Admin
@@ -58,8 +57,7 @@ Pilot coordination, selected website content, and operational settings.
 - Move agreed companies into a controlled onboarding journey.
 - Maintain one Client representative and Workspace per Company.
 - Recruit and assess Talent consistently.
-- Keep final-information collection separate from profile and account creation.
-- Create accurate, client-safe Talent Profiles.
+- Create accurate, client-safe Talent Profiles directly from complete applications.
 - Coordinate Interview Requests and Pilots through BlihOps.
 - Keep selected public content accurate and current.
 - Preserve reliable operational history.
@@ -72,8 +70,8 @@ Pilot coordination, selected website content, and operational settings.
 - Invite and manage the single Client representative.
 - Review Talent Pool applications and record assessments.
 - Approve or reject candidates.
-- Send final-information requests and review submissions.
-- Manually create and control Talent Profiles.
+- Create Talent Profiles and accounts from approved applications.
+- Control Talent Profiles and invitation status.
 - Invite Approved Talent after their profile exists.
 - Update Interview Request and Pilot information.
 - Manage the structured website content defined for V1.
@@ -83,7 +81,7 @@ Pilot coordination, selected website content, and operational settings.
 
 - Clear pipeline and lifecycle states.
 - Fast lists, filters, and contextual actions.
-- Visible invitation, token, delivery, and account states.
+- Visible invitation, delivery, and account states.
 - Strong separation between internal and client-visible information.
 - Clear warnings before destructive or access-changing actions.
 - Predictable links between related resources.
@@ -92,7 +90,7 @@ Pilot coordination, selected website content, and operational settings.
 ### Frustrations and risks
 
 - Duplicate Leads, Companies, applications, or profiles.
-- Confusing a final-information request with account activation.
+- Confusing approval, account creation, and account activation.
 - Accidentally exposing private or internal information.
 - Losing track of invitations, submissions, Interview Requests, or Pilot work.
 - Invalid or unclear lifecycle transitions.
@@ -214,57 +212,55 @@ who originally contacted BlihOps.
 
 The Talent Pool Candidate is an engineer applying specifically to the BlihOps
 Talent Pool. This persona does not represent a Careers applicant. The Candidate
-remains unauthenticated throughout application, recruitment, and the tokenized
-final-information journey.
+remains unauthenticated throughout application, recruitment, and account
+invitation.
 
 ### Primary goals
 
 - Submit a complete Talent Pool application successfully.
 - Understand the recruitment process and current expectations.
-- Complete required assessments and requested information.
-- Provide accurate final professional information after approval.
-- Know what happens after final-information submission.
+- Complete required assessments and provide complete professional information.
+- Know what happens after approval and account invitation.
 
 ### Core tasks
 
 - Complete the Talent Pool application.
 - Upload the required resume.
 - Participate in BlihOps-managed screening and assessments.
-- Open a secure final-information link after approval.
-- Submit professional information and a profile photo for Admin review.
+- Provide the professional information needed to create a client-safe Profile.
 
 ### Needs and expectations
 
 - Clear application requirements and file constraints.
 - Accessible forms that preserve valid work after recoverable errors.
-- Honest confirmation after application and final-information submission.
-- Clear separation between approval, final-information submission, profile
-  creation, and account invitation.
-- Secure token handling that does not expose candidate information.
+- Honest confirmation after application submission.
+- Clear separation between application approval, Admin-created Profile/account,
+  and account invitation.
+- Clear invitation handling that does not expose candidate information.
 
 ### Frustrations and risks
 
-- Assuming the first secure link creates an account.
-- Re-entering information without a clear reason.
+- Confusing account creation with account activation.
 - Losing form data after validation, upload, or server errors.
 - Unclear next steps after submission.
 - Receiving account-oriented language before a profile exists.
 
 ### Journey boundary
 
-- Application submission creates only a Talent Application.
-- Approval does not automatically create a Talent Profile.
-- The final-information token is not a login or account invitation.
-- Admin reviews the submission and manually creates the Talent Profile.
-- The persona becomes Approved Talent once the Talent Profile exists.
+- Application submission creates a Talent Application containing the full
+  information needed for Admin review and Profile creation.
+- Approval allows Admin to create one Talent Profile and account from the
+  application.
+- The account invitation activates access after the account is created.
+- The persona becomes Approved Talent once the Profile and account exist.
 
 ## 7. Persona - Approved Talent
 
 ### Context
 
-Approved Talent is an engineer whose Talent Profile has been manually created
-by Admin. They receive a separate invitation to activate one Talent account and
-use a focused Profile Management experience.
+Approved Talent is an engineer whose Talent Profile and account have been created
+by Admin from an approved application. They receive an invitation to activate
+the account and use a focused Profile Management experience.
 
 ### Primary goals
 
@@ -294,7 +290,7 @@ use a focused Profile Management experience.
 
 ### Frustrations and risks
 
-- Confusing account activation with the earlier final-information request.
+- Confusing account activation with Admin account creation.
 - Not knowing which fields can be changed.
 - Overwriting a newer Admin update.
 - Losing an existing file after a failed replacement.

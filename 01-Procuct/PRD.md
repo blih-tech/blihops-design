@@ -132,50 +132,22 @@ Requirements:
 - An invalid, expired, or consumed invitation cannot activate access.
 - Admin can resend or replace an expired pending invitation.
 
-### 4.3 Talent Profile-Completion Token
+### 4.3 Talent Account Invitation
 
-After approving a Talent Application, an admin may send a secure profile-completion request.
-
-This request:
-
-- Uses a single-use, expiring token.
-- Does not create a user account.
-- Does not create a Talent Profile automatically.
-- Opens a public token-protected final-information form.
-- Becomes invalid after successful submission or expiry.
-
-The form collects:
-
-- Profile photo
-- Professional headline
-- Short bio
-- Primary role
-- Tech stack and secondary skills
-- Years of experience
-- Portfolio
-- GitHub and LinkedIn
-- Availability
-- Earliest start date
-- Preferred engagement
-
-The resume submitted with the original Talent Application remains attached to the application and is not requested again during profile completion.
-
-The submitted information returns to the associated Talent Application for admin review.
-
-### 4.4 Talent Account Invitation
-
-After reviewing the completed information and manually creating the Talent Profile, an admin may send a Talent account invitation.
+After approving a Talent Application, an admin can create the Talent Profile and
+associated Talent account from the application, then send the account invitation.
 
 Requirements:
 
 - The Talent Application must be approved.
-- A Talent Profile must already exist.
+- The application must contain the full information required to create the Talent Profile.
+- The action creates one Talent Profile and one pending Talent account.
 - The invitation is single-use and expires.
 - The Talent creates a password and activates the account.
 - The activated account opens Talent Profile Management, not a dashboard.
 - Admin can resend or replace an expired pending invitation.
 
-### 4.5 Password Reset
+### 4.4 Password Reset
 
 - Reset links are single-use and expire.
 - Requesting a reset does not reveal whether an email exists.
@@ -237,7 +209,10 @@ Requirements:
 
 Requirements:
 
-- Collect the candidate’s application information.
+- Collect the candidate’s full name, email, phone, country/city, screening, and complete professional profile information.
+- Collect profile photo, professional headline, short bio, primary role, tech stack,
+  secondary skills, years of experience, portfolio, GitHub, LinkedIn, availability,
+  earliest start date, and preferred engagement.
 - Require a resume.
 - Accept supported file formats and size limits.
 - Create one Talent Application.
@@ -261,7 +236,7 @@ The Admin Dashboard displays:
 - New and active Leads
 - Pilot Requests and Calendly bookings
 - Talent Applications by current stage
-- Pending profile-completion submissions
+- Approved Talent Applications ready for Profile and account creation
 - Talent Profiles by visibility and availability
 - Companies and pending Client invitations
 - Interview Requests requiring attention
@@ -341,8 +316,6 @@ Recruitment stages:
 - English Assessment
 - Remote Readiness Assessment
 - Approved
-- Profile Completion Requested
-- Profile Information Submitted
 - Profile Created
 - Rejected
 - Archived
@@ -356,26 +329,24 @@ Admin can:
 - Advance or return an application to a valid stage.
 - Reject an application at any stage with a reason.
 - Approve a candidate after required assessments.
-- Send or resend the profile-completion token.
-- Review the final-information submission.
-- Manually create a Talent Profile.
-- Send or resend the Talent account invitation after profile creation.
+- Create the Talent Profile and associated account from an approved application.
+- Send or resend the Talent account invitation.
 - Archive and restore an application.
 
 Business rules:
 
 - One Talent Application represents one candidate submission.
-- Only an approved application can receive a profile-completion request.
-- Profile completion does not create a Talent Profile automatically.
+- The application contains all candidate and profile information required for Admin review and Profile creation.
+- Only an approved application can create a Talent Profile and associated Talent account.
 - One Talent Profile may be created per approved application.
-- A Talent account invitation is unavailable until the Talent Profile exists.
+- The Talent account invitation becomes available after the Profile and account are created.
 
 ### 6.5 Talent Profiles
 
 Admin can:
 
 - View, search, filter, sort, and paginate profiles.
-- Create a profile from an approved, completed application.
+- Create a profile and associated account from an approved application.
 - View and edit all profile fields.
 - Publish or hide a profile from clients.
 - Archive and restore a profile.
@@ -756,7 +727,6 @@ Rules:
 Admin can view and update templates for:
 
 - Client account invitation
-- Talent profile-completion request
 - Talent account invitation
 - Password reset
 - Interview Request notification
@@ -783,7 +753,7 @@ Sensitive credentials are never displayed in full.
 - New Contact or Pilot Request
 - New Calendly booking
 - New Talent Application
-- Talent profile information submitted
+- Talent Profile and account created
 - Client invitation accepted
 - Talent account invitation accepted
 - New Interview Request
@@ -798,7 +768,6 @@ Sensitive credentials are never displayed in full.
 
 ### 11.3 Talent Notifications
 
-- Profile-completion request
 - Talent account invitation
 - Password reset
 - Important profile-access change
@@ -808,7 +777,8 @@ Sensitive credentials are never displayed in full.
 ## 12. File Management
 
 - Talent Applications require a resume.
-- Profile completion may include a profile photo; it reuses the resume from the original Talent Application.
+- Talent Applications collect the complete information required for Profile creation,
+  including the profile photo and professional fields.
 - Talent Portal supports profile photo and resume replacement.
 - Managed content supports the image and video types required by each content model.
 - Files must pass configured type and size validation.
@@ -825,7 +795,7 @@ At minimum:
 
 - Lead creation, status changes, conversion, archival, and restoration
 - Company creation, invitation activity, access changes, and archival
-- Talent Application stage changes, approval, rejection, and token activity
+- Talent Application stage changes, approval, rejection, Profile/account creation, and invitation activity
 - Talent Profile creation, field updates, visibility changes, and archival
 - Client and Talent account activation
 - Talent Pod creation, detail changes, membership changes, Pod Lead changes, and archival
