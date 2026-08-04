@@ -1,0 +1,2837 @@
+{
+  "version": "2.15",
+  "children": [
+    {
+      "type": "frame",
+      "id": "yyo7m",
+      "x": 0,
+      "y": 0,
+      "name": "BlihOps V1 User Flow Map",
+      "clip": true,
+      "width": 2400,
+      "height": 1840,
+      "fill": "$bg",
+      "layout": "vertical",
+      "gap": 44,
+      "padding": [
+        72,
+        88
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "B4pam",
+          "name": "Header",
+          "width": "fill_container",
+          "height": 270,
+          "layout": "vertical",
+          "gap": 18,
+          "children": [
+            {
+              "type": "frame",
+              "id": "P6iO03",
+              "name": "Document Metadata",
+              "width": "fill_container",
+              "height": 28,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "xmb7Z",
+                  "name": "Metadata Label",
+                  "fill": "$accent",
+                  "content": "BLIHOPS / V1 / USER FLOW MAP",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 15,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.2
+                },
+                {
+                  "type": "text",
+                  "id": "v3q7Fu",
+                  "name": "Source Label",
+                  "fill": "$quiet",
+                  "content": "SOURCE  ·  USER-FLOWS.MD",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 14,
+                  "letterSpacing": 0.6
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "BiEwZ",
+              "name": "Title Row",
+              "width": "fill_container",
+              "height": 112,
+              "gap": 22,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "rectangle",
+                  "id": "F0uuvD",
+                  "name": "Title Accent",
+                  "fill": "$accent",
+                  "width": 12,
+                  "height": 84
+                },
+                {
+                  "type": "text",
+                  "id": "U2yoVo",
+                  "name": "Main Title",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "How BlihOps moves clients and talent\nfrom public intent to protected work",
+                  "lineHeight": 1.02,
+                  "fontFamily": "$font-heading",
+                  "fontSize": 54,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "uyJEO",
+              "name": "Subtitle",
+              "fill": "$muted",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Two controlled lifecycles. One shared web login. One shared invitation route. Admin approval remains the operational gate.",
+              "lineHeight": 1.3,
+              "fontFamily": "$font-body",
+              "fontSize": 22
+            },
+            {
+              "type": "frame",
+              "id": "HfhLN",
+              "name": "Legend",
+              "width": "fill_container",
+              "height": 34,
+              "gap": 24,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "if4tD",
+                  "name": "PUBLIC Legend",
+                  "height": 32,
+                  "fill": "$surface",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "svHTg",
+                      "name": "PUBLIC Legend Label",
+                      "fill": "$ink",
+                      "content": "PUBLIC",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.8
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Pvzzz",
+                  "name": "ADMIN Legend",
+                  "height": 32,
+                  "fill": "$ink",
+                  "stroke": "$ink",
+                  "strokeWidth": 1,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "tXK5W",
+                      "name": "ADMIN Legend Label",
+                      "fill": "$white",
+                      "content": "ADMIN",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.8
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "AU1iI",
+                  "name": "TOKEN / EMAIL Legend",
+                  "height": 32,
+                  "fill": "$accent-soft",
+                  "stroke": "$accent-soft",
+                  "strokeWidth": 1,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "KUraa",
+                      "name": "TOKEN / EMAIL Legend Label",
+                      "fill": "$accent",
+                      "content": "TOKEN / EMAIL",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.8
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "e8U6G",
+                  "name": "PROTECTED WEB Legend",
+                  "height": 32,
+                  "fill": "$accent",
+                  "stroke": "$accent",
+                  "strokeWidth": 1,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "kR1M3",
+                      "name": "PROTECTED WEB Legend Label",
+                      "fill": "$white",
+                      "content": "PROTECTED WEB",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 12,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.8
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "aPUeZ",
+          "name": "Company and Client Lifecycle",
+          "width": "fill_container",
+          "height": 320,
+          "fill": "$surface",
+          "stroke": "$border",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 18,
+          "padding": [
+            24,
+            28
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "FxRil",
+              "name": "Company Section Header",
+              "width": "fill_container",
+              "height": 48,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "BoB6e",
+                  "name": "Company Title Group",
+                  "gap": 14,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "jtL2F",
+                      "name": "Company Journey Index",
+                      "width": 42,
+                      "height": 32,
+                      "fill": "$ink",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Tcsyy",
+                          "name": "Company Journey Number",
+                          "fill": "$white",
+                          "content": "01",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "eCjpv",
+                      "name": "Company Journey Title",
+                      "fill": "$ink",
+                      "content": "Company → Client Workspace",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 30,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "ZFJfm",
+                  "name": "Company Journey Caption",
+                  "fill": "$muted",
+                  "content": "PUBLIC INTENT  →  ADMIN APPROVAL  →  PROTECTED ACCESS",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 0.7
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "UgmjR",
+              "name": "Company Flow Steps",
+              "width": "fill_container",
+              "height": 124,
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "pEwmw",
+                  "name": "Company Step 1",
+                  "width": 228,
+                  "height": 118,
+                  "fill": "$bg",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 9,
+                  "padding": [
+                    15,
+                    16
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oM8Nq",
+                      "name": "Company Step 1 Role",
+                      "fill": "$ink",
+                      "content": "PUBLIC",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.7
+                    },
+                    {
+                      "type": "text",
+                      "id": "TD9Lv",
+                      "name": "Company Step 1 Label",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Contact / Pilot /\nCalendly",
+                      "lineHeight": 1.22,
+                      "fontFamily": "$font-body",
+                      "fontSize": 17,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "uT31F",
+                  "name": "Company Arrow 1",
+                  "fill": "$quiet",
+                  "content": "→",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 24,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "SJ0Tm",
+                  "name": "Company Step 2",
+                  "width": 228,
+                  "height": 118,
+                  "fill": "$bg",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 9,
+                  "padding": [
+                    15,
+                    16
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "TZIU0",
+                      "name": "Company Step 2 Role",
+                      "fill": "$ink",
+                      "content": "SYSTEM",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.7
+                    },
+                    {
+                      "type": "text",
+                      "id": "k31tw6",
+                      "name": "Company Step 2 Label",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Lead created\nor updated",
+                      "lineHeight": 1.22,
+                      "fontFamily": "$font-body",
+                      "fontSize": 17,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "bhZOy",
+                  "name": "Company Arrow 2",
+                  "fill": "$quiet",
+                  "content": "→",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 24,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "AG9eA",
+                  "name": "Company Step 3",
+                  "width": 228,
+                  "height": 118,
+                  "fill": "$ink",
+                  "stroke": "$ink",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 9,
+                  "padding": [
+                    15,
+                    16
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "u6mAY",
+                      "name": "Company Step 3 Role",
+                      "fill": "$white",
+                      "content": "ADMIN",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.7
+                    },
+                    {
+                      "type": "text",
+                      "id": "DbF0j",
+                      "name": "Company Step 3 Label",
+                      "fill": "$white",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Qualify Lead +\nmanual agreement",
+                      "lineHeight": 1.22,
+                      "fontFamily": "$font-body",
+                      "fontSize": 17,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "puDST",
+                  "name": "Company Arrow 3",
+                  "fill": "$quiet",
+                  "content": "→",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 24,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "mVMua",
+                  "name": "Company Step 4",
+                  "width": 228,
+                  "height": 118,
+                  "fill": "$ink",
+                  "stroke": "$ink",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 9,
+                  "padding": [
+                    15,
+                    16
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "q7tU9r",
+                      "name": "Company Step 4 Role",
+                      "fill": "$white",
+                      "content": "ADMIN",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.7
+                    },
+                    {
+                      "type": "text",
+                      "id": "uY1uy",
+                      "name": "Company Step 4 Label",
+                      "fill": "$white",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Create Company\n+ Workspace",
+                      "lineHeight": 1.22,
+                      "fontFamily": "$font-body",
+                      "fontSize": 17,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "b8irA",
+                  "name": "Company Arrow 4",
+                  "fill": "$quiet",
+                  "content": "→",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 24,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "gpO2t",
+                  "name": "Company Step 5",
+                  "width": 228,
+                  "height": 118,
+                  "fill": "$ink",
+                  "stroke": "$ink",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 9,
+                  "padding": [
+                    15,
+                    16
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "HgxTf",
+                      "name": "Company Step 5 Role",
+                      "fill": "$white",
+                      "content": "ADMIN",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.7
+                    },
+                    {
+                      "type": "text",
+                      "id": "piEoH",
+                      "name": "Company Step 5 Label",
+                      "fill": "$white",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Send account\ninvitation",
+                      "lineHeight": 1.22,
+                      "fontFamily": "$font-body",
+                      "fontSize": 17,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "r860J",
+                  "name": "Company Arrow 5",
+                  "fill": "$quiet",
+                  "content": "→",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 24,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "EGw2c",
+                  "name": "Company Step 6",
+                  "width": 228,
+                  "height": 118,
+                  "fill": "$accent-soft",
+                  "stroke": "$accent",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 9,
+                  "padding": [
+                    15,
+                    16
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "GZuuk",
+                      "name": "Company Step 6 Role",
+                      "fill": "$accent",
+                      "content": "TOKEN",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.7
+                    },
+                    {
+                      "type": "text",
+                      "id": "rJIdU",
+                      "name": "Company Step 6 Label",
+                      "fill": "$accent",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "/accept-invitation",
+                      "lineHeight": 1.22,
+                      "fontFamily": "$font-body",
+                      "fontSize": 17,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "hBbQp",
+                  "name": "Company Arrow 6",
+                  "fill": "$quiet",
+                  "content": "→",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 24,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "zdyRj",
+                  "name": "Company Step 7",
+                  "width": 228,
+                  "height": 118,
+                  "fill": "$bg",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 9,
+                  "padding": [
+                    15,
+                    16
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "pamK1",
+                      "name": "Company Step 7 Role",
+                      "fill": "$ink",
+                      "content": "SYSTEM",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.7
+                    },
+                    {
+                      "type": "text",
+                      "id": "S56aM7",
+                      "name": "Company Step 7 Label",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Activate +\ncheck role",
+                      "lineHeight": 1.22,
+                      "fontFamily": "$font-body",
+                      "fontSize": 17,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "DWaIq",
+                  "name": "Company Arrow 7",
+                  "fill": "$quiet",
+                  "content": "→",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 24,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "OY8f0",
+                  "name": "Company Step 8",
+                  "width": 228,
+                  "height": 118,
+                  "fill": "$accent",
+                  "stroke": "$accent",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 9,
+                  "padding": [
+                    15,
+                    16
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "QMVF8",
+                      "name": "Company Step 8 Role",
+                      "fill": "$white",
+                      "content": "PROTECTED",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.7
+                    },
+                    {
+                      "type": "text",
+                      "id": "C9Hyn",
+                      "name": "Company Step 8 Label",
+                      "fill": "$white",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Client Workspace",
+                      "lineHeight": 1.22,
+                      "fontFamily": "$font-body",
+                      "fontSize": 17,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "nRTq9",
+              "name": "Company Guardrails",
+              "width": "fill_container",
+              "height": 66,
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "gytig",
+                  "name": "Company GATE Rule",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$bg",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "gap": 14,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "U2MxgH",
+                      "name": "Company GATE Rule Tag",
+                      "fill": "$accent",
+                      "content": "GATE",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.8
+                    },
+                    {
+                      "type": "text",
+                      "id": "LpNiS",
+                      "name": "Company GATE Rule Text",
+                      "fill": "$ink",
+                      "content": "A Lead never becomes a Company automatically.",
+                      "fontFamily": "$font-body",
+                      "fontSize": 16
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "L8SnK7",
+                  "name": "Company LIMIT Rule",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$bg",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "gap": 14,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "YpOtS",
+                      "name": "Company LIMIT Rule Tag",
+                      "fill": "$accent",
+                      "content": "LIMIT",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.8
+                    },
+                    {
+                      "type": "text",
+                      "id": "Ui0Bj",
+                      "name": "Company LIMIT Rule Text",
+                      "fill": "$ink",
+                      "content": "One Client account and one Workspace per Company.",
+                      "fontFamily": "$font-body",
+                      "fontSize": 16
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "tMk1K",
+          "name": "Candidate and Talent Lifecycle",
+          "width": "fill_container",
+          "height": 350,
+          "fill": "$surface",
+          "stroke": "$border",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 18,
+          "padding": [
+            24,
+            28
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "k3xDYX",
+              "name": "Talent Section Header",
+              "width": "fill_container",
+              "height": 48,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "NfhSh",
+                  "name": "Talent Title Group",
+                  "gap": 14,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "HZ7r3",
+                      "name": "Talent Journey Index",
+                      "width": 42,
+                      "height": 32,
+                      "fill": "$ink",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "jk1nP",
+                          "name": "Talent Journey Number",
+                          "fill": "$white",
+                          "content": "02",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "al8SZ",
+                      "name": "Talent Journey Title",
+                      "fill": "$ink",
+                      "content": "Candidate → Approved Talent",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 30,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "cilJ0",
+                  "name": "Talent Journey Caption",
+                  "fill": "$muted",
+                  "content": "APPLICATION  →  APPROVAL  →  PROFILE  →  ACCOUNT",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 0.7
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "t954Yy",
+              "name": "Talent Flow Steps",
+              "width": "fill_container",
+              "height": 124,
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "OCt0r",
+                  "name": "Talent Step 1",
+                  "width": 204,
+                  "height": 118,
+                  "fill": "$bg",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 9,
+                  "padding": [
+                    15,
+                    14
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "SoQs0",
+                      "name": "Talent Step 1 Role",
+                      "fill": "$ink",
+                      "content": "PUBLIC",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.6
+                    },
+                    {
+                      "type": "text",
+                      "id": "m99gJM",
+                      "name": "Talent Step 1 Label",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Talent Pool\napplication",
+                      "lineHeight": 1.2,
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "iSlBM",
+                  "name": "Talent Arrow 1",
+                  "fill": "$quiet",
+                  "content": "→",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "Ncuql",
+                  "name": "Talent Step 2",
+                  "width": 204,
+                  "height": 118,
+                  "fill": "$ink",
+                  "stroke": "$ink",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 9,
+                  "padding": [
+                    15,
+                    14
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "r2smq",
+                      "name": "Talent Step 2 Role",
+                      "fill": "$white",
+                      "content": "ADMIN",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.6
+                    },
+                    {
+                      "type": "text",
+                      "id": "s6ZsW",
+                      "name": "Talent Step 2 Label",
+                      "fill": "$white",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Review +\nassessments",
+                      "lineHeight": 1.2,
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "Qkejw",
+                  "name": "Talent Arrow 2",
+                  "fill": "$quiet",
+                  "content": "→",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "tOO29",
+                  "name": "Talent Step 3",
+                  "width": 204,
+                  "height": 118,
+                  "fill": "$ink",
+                  "stroke": "$ink",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 9,
+                  "padding": [
+                    15,
+                    14
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "tmvYL",
+                      "name": "Talent Step 3 Role",
+                      "fill": "$white",
+                      "content": "ADMIN",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.6
+                    },
+                    {
+                      "type": "text",
+                      "id": "S0uO7",
+                      "name": "Talent Step 3 Label",
+                      "fill": "$white",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Approve\ncandidate",
+                      "lineHeight": 1.2,
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "O8LjpI",
+                  "name": "Talent Arrow 3",
+                  "fill": "$quiet",
+                  "content": "→",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "Djdp2",
+                  "name": "Talent Step 4",
+                  "width": 204,
+                  "height": 118,
+                  "fill": "$accent-soft",
+                  "stroke": "$accent",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 9,
+                  "padding": [
+                    15,
+                    14
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "r5MKU",
+                      "name": "Talent Step 4 Role",
+                      "fill": "$accent",
+                      "content": "TOKEN",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.6
+                    },
+                    {
+                      "type": "text",
+                      "id": "OXRE2",
+                      "name": "Talent Step 4 Label",
+                      "fill": "$accent",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Profile-completion\nrequest",
+                      "lineHeight": 1.2,
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "P4awBG",
+                  "name": "Talent Arrow 4",
+                  "fill": "$quiet",
+                  "content": "→",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "EEPqR",
+                  "name": "Talent Step 5",
+                  "width": 204,
+                  "height": 118,
+                  "fill": "$bg",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 9,
+                  "padding": [
+                    15,
+                    14
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Kv1MG",
+                      "name": "Talent Step 5 Role",
+                      "fill": "$ink",
+                      "content": "CANDIDATE",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.6
+                    },
+                    {
+                      "type": "text",
+                      "id": "Y7vtE",
+                      "name": "Talent Step 5 Label",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Submit final\ninformation",
+                      "lineHeight": 1.2,
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "qMLZM",
+                  "name": "Talent Arrow 5",
+                  "fill": "$quiet",
+                  "content": "→",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "bJnkN",
+                  "name": "Talent Step 6",
+                  "width": 204,
+                  "height": 118,
+                  "fill": "$ink",
+                  "stroke": "$ink",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 9,
+                  "padding": [
+                    15,
+                    14
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "XTiwN",
+                      "name": "Talent Step 6 Role",
+                      "fill": "$white",
+                      "content": "ADMIN",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.6
+                    },
+                    {
+                      "type": "text",
+                      "id": "J2ce9",
+                      "name": "Talent Step 6 Label",
+                      "fill": "$white",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Review + create\nTalent Profile",
+                      "lineHeight": 1.2,
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "KTPXY",
+                  "name": "Talent Arrow 6",
+                  "fill": "$quiet",
+                  "content": "→",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "IcuI5",
+                  "name": "Talent Step 7",
+                  "width": 204,
+                  "height": 118,
+                  "fill": "$ink",
+                  "stroke": "$ink",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 9,
+                  "padding": [
+                    15,
+                    14
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "r9NA7",
+                      "name": "Talent Step 7 Role",
+                      "fill": "$white",
+                      "content": "ADMIN",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.6
+                    },
+                    {
+                      "type": "text",
+                      "id": "GrKr7",
+                      "name": "Talent Step 7 Label",
+                      "fill": "$white",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Send account\ninvitation",
+                      "lineHeight": 1.2,
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "ku5El",
+                  "name": "Talent Arrow 7",
+                  "fill": "$quiet",
+                  "content": "→",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "PRL3b",
+                  "name": "Talent Step 8",
+                  "width": 204,
+                  "height": 118,
+                  "fill": "$accent-soft",
+                  "stroke": "$accent",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 9,
+                  "padding": [
+                    15,
+                    14
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "U8FwEe",
+                      "name": "Talent Step 8 Role",
+                      "fill": "$accent",
+                      "content": "TOKEN",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.6
+                    },
+                    {
+                      "type": "text",
+                      "id": "r4oT5c",
+                      "name": "Talent Step 8 Label",
+                      "fill": "$accent",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "/accept-invitation",
+                      "lineHeight": 1.2,
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "iyNSH",
+                  "name": "Talent Arrow 8",
+                  "fill": "$quiet",
+                  "content": "→",
+                  "fontFamily": "$font-heading",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "SRgaJ",
+                  "name": "Talent Step 9",
+                  "width": 204,
+                  "height": 118,
+                  "fill": "$accent",
+                  "stroke": "$accent",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 9,
+                  "padding": [
+                    15,
+                    14
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "SfhQT",
+                      "name": "Talent Step 9 Role",
+                      "fill": "$white",
+                      "content": "PROTECTED",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.6
+                    },
+                    {
+                      "type": "text",
+                      "id": "rOgKs",
+                      "name": "Talent Step 9 Label",
+                      "fill": "$white",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Profile\nManagement",
+                      "lineHeight": 1.2,
+                      "fontFamily": "$font-body",
+                      "fontSize": 16,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "EBspW",
+              "name": "Talent Guardrails",
+              "width": "fill_container",
+              "height": 78,
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jMVSp",
+                  "name": "Talent SEPARATE Rule",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$bg",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 7,
+                  "padding": [
+                    13,
+                    15
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "HvSdU",
+                      "name": "Talent SEPARATE Rule Tag",
+                      "fill": "$accent",
+                      "content": "SEPARATE",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.8
+                    },
+                    {
+                      "type": "text",
+                      "id": "EvGFL",
+                      "name": "Talent SEPARATE Rule Text",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Profile completion is not account activation.",
+                      "lineHeight": 1.25,
+                      "fontFamily": "$font-body",
+                      "fontSize": 15
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "v6QLa",
+                  "name": "Talent ORDER Rule",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$bg",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 7,
+                  "padding": [
+                    13,
+                    15
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "qORuo",
+                      "name": "Talent ORDER Rule Tag",
+                      "fill": "$accent",
+                      "content": "ORDER",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.8
+                    },
+                    {
+                      "type": "text",
+                      "id": "c2x2e1",
+                      "name": "Talent ORDER Rule Text",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "The Profile exists before the account invitation.",
+                      "lineHeight": 1.25,
+                      "fontFamily": "$font-body",
+                      "fontSize": 15
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Lv9Iu",
+                  "name": "Talent CONTROL Rule",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$bg",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 7,
+                  "padding": [
+                    13,
+                    15
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "e3GFIK",
+                      "name": "Talent CONTROL Rule Tag",
+                      "fill": "$accent",
+                      "content": "CONTROL",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 10,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.8
+                    },
+                    {
+                      "type": "text",
+                      "id": "L5AMKt",
+                      "name": "Talent CONTROL Rule Text",
+                      "fill": "$ink",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Talent edits only permitted fields; saved changes are live.",
+                      "lineHeight": 1.25,
+                      "fontFamily": "$font-body",
+                      "fontSize": 15
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "iAD7d",
+          "name": "Main Feature Loops",
+          "width": "fill_container",
+          "height": 520,
+          "fill": "$bg",
+          "stroke": "$border",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 20,
+          "padding": [
+            24,
+            28
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "pLBJ3",
+              "name": "Feature Section Header",
+              "width": "fill_container",
+              "height": 48,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "t3gox",
+                  "name": "Feature Title Group",
+                  "gap": 14,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ZH6gH",
+                      "name": "Feature Map Index",
+                      "width": 42,
+                      "height": 32,
+                      "fill": "$ink",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "mL7Gy",
+                          "name": "Feature Map Number",
+                          "fill": "$white",
+                          "content": "03",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "aVSSA",
+                      "name": "Feature Map Title",
+                      "fill": "$ink",
+                      "content": "Main feature loops by product area",
+                      "fontFamily": "$font-heading",
+                      "fontSize": 30,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "VfaSw",
+                  "name": "Feature Map Caption",
+                  "fill": "$muted",
+                  "content": "DETAILS STAY IN USER-FLOWS.MD",
+                  "fontFamily": "$font-mono",
+                  "fontSize": 13,
+                  "fontWeight": "500",
+                  "letterSpacing": 0.7
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ItjE7",
+              "name": "Feature Columns",
+              "width": "fill_container",
+              "height": 344,
+              "gap": 18,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "amIOy",
+                  "name": "Public Web Panel",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$bg",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "GC6gB",
+                      "name": "Public Web Header",
+                      "width": "fill_container",
+                      "height": 82,
+                      "fill": "$surface",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        14,
+                        16
+                      ],
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "SrjNc",
+                          "name": "Public Web Tag",
+                          "fill": "$ink",
+                          "content": "PUBLIC",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 10,
+                          "fontWeight": "500",
+                          "letterSpacing": 0.8
+                        },
+                        {
+                          "type": "text",
+                          "id": "k59K3s",
+                          "name": "Public Web Title",
+                          "fill": "$ink",
+                          "content": "Public Web",
+                          "fontFamily": "$font-heading",
+                          "fontSize": 25,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "rhvfU",
+                      "name": "Public Web Flow 1",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$bg",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        13,
+                        15
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "DTOTi",
+                          "name": "Public Web Flow 1 Code Box",
+                          "width": 94,
+                          "height": 28,
+                          "fill": "$surface",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "m1cguE",
+                              "name": "Public Web Flow 1 Code",
+                              "fill": "$accent",
+                              "content": "PUBLIC-01",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 10,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "wLXwJ",
+                          "name": "Public Web Flow 1 Label",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Contact → Lead",
+                          "lineHeight": 1.2,
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "jGDc6",
+                      "name": "Public Web Flow 2",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$bg",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        13,
+                        15
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "qKo10",
+                          "name": "Public Web Flow 2 Code Box",
+                          "width": 94,
+                          "height": 28,
+                          "fill": "$surface",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "NJykH",
+                              "name": "Public Web Flow 2 Code",
+                              "fill": "$accent",
+                              "content": "PUBLIC-02",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 10,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "WsdWW",
+                          "name": "Public Web Flow 2 Label",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Pilot / Calendly → Lead",
+                          "lineHeight": 1.2,
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "pRv7F",
+                      "name": "Public Web Flow 3",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$bg",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        13,
+                        15
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "XFZJ4",
+                          "name": "Public Web Flow 3 Code Box",
+                          "width": 94,
+                          "height": 28,
+                          "fill": "$surface",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "K6tLA",
+                              "name": "Public Web Flow 3 Code",
+                              "fill": "$accent",
+                              "content": "PUBLIC-03",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 10,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "jJzJh",
+                          "name": "Public Web Flow 3 Label",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Application → New",
+                          "lineHeight": 1.2,
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "zuUPs",
+                      "name": "Public Web Flow 4",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$bg",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        13,
+                        15
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "U5pZ9",
+                          "name": "Public Web Flow 4 Code Box",
+                          "width": 94,
+                          "height": 28,
+                          "fill": "$surface",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "GpUBd",
+                              "name": "Public Web Flow 4 Code",
+                              "fill": "$accent",
+                              "content": "PUBLIC-04",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 10,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "zKk6J",
+                          "name": "Public Web Flow 4 Label",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Browse published content",
+                          "lineHeight": 1.2,
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "M0EZR",
+                  "name": "Admin Operations Panel",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$bg",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ppHDt",
+                      "name": "Admin Operations Header",
+                      "width": "fill_container",
+                      "height": 82,
+                      "fill": "$ink",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        14,
+                        16
+                      ],
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "F8hWqr",
+                          "name": "Admin Operations Tag",
+                          "fill": "$white",
+                          "content": "ADMIN",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 10,
+                          "fontWeight": "500",
+                          "letterSpacing": 0.8
+                        },
+                        {
+                          "type": "text",
+                          "id": "CFmGU",
+                          "name": "Admin Operations Title",
+                          "fill": "$white",
+                          "content": "Admin Operations",
+                          "fontFamily": "$font-heading",
+                          "fontSize": 25,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "je92a",
+                      "name": "Admin Operations Flow 1",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$bg",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        13,
+                        15
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "Qvqcv",
+                          "name": "Admin Operations Flow 1 Code Box",
+                          "width": 94,
+                          "height": 28,
+                          "fill": "$surface",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "e3YeVt",
+                              "name": "Admin Operations Flow 1 Code",
+                              "fill": "$accent",
+                              "content": "ADMIN-01",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 10,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "BdCUX",
+                          "name": "Admin Operations Flow 1 Label",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Lead → Company + Workspace",
+                          "lineHeight": 1.2,
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "R1PIS",
+                      "name": "Admin Operations Flow 2",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$bg",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        13,
+                        15
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "A7Wv0h",
+                          "name": "Admin Operations Flow 2 Code Box",
+                          "width": 94,
+                          "height": 28,
+                          "fill": "$surface",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "k0Ks4Q",
+                              "name": "Admin Operations Flow 2 Code",
+                              "fill": "$accent",
+                              "content": "ADMIN-03/04",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 10,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "Qara0",
+                          "name": "Admin Operations Flow 2 Label",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Application → Profile → Invite",
+                          "lineHeight": 1.2,
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xKW8t",
+                      "name": "Admin Operations Flow 3",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$bg",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        13,
+                        15
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "yb7hy",
+                          "name": "Admin Operations Flow 3 Code Box",
+                          "width": 94,
+                          "height": 28,
+                          "fill": "$surface",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "x5Vou",
+                              "name": "Admin Operations Flow 3 Code",
+                              "fill": "$accent",
+                              "content": "ADMIN-05",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 10,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "KB5kA",
+                          "name": "Admin Operations Flow 3 Label",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Company → Interview + Pilot",
+                          "lineHeight": 1.2,
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "PriJJ",
+                      "name": "Admin Operations Flow 4",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$bg",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        13,
+                        15
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "e6U0XP",
+                          "name": "Admin Operations Flow 4 Code Box",
+                          "width": 94,
+                          "height": 28,
+                          "fill": "$surface",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "fz9p8",
+                              "name": "Admin Operations Flow 4 Code",
+                              "fill": "$accent",
+                              "content": "ADMIN-06/07",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 10,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "V8dbXu",
+                          "name": "Admin Operations Flow 4 Label",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Content + settings",
+                          "lineHeight": 1.2,
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "RDjjN",
+                  "name": "Client Workspace Panel",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$bg",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "GYxjB",
+                      "name": "Client Workspace Header",
+                      "width": "fill_container",
+                      "height": 82,
+                      "fill": "$accent-soft",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        14,
+                        16
+                      ],
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "C7eeom",
+                          "name": "Client Workspace Tag",
+                          "fill": "$ink",
+                          "content": "PROTECTED WEB",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 10,
+                          "fontWeight": "500",
+                          "letterSpacing": 0.8
+                        },
+                        {
+                          "type": "text",
+                          "id": "os444",
+                          "name": "Client Workspace Title",
+                          "fill": "$ink",
+                          "content": "Client Workspace",
+                          "fontFamily": "$font-heading",
+                          "fontSize": 25,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "rgyzY",
+                      "name": "Client Workspace Flow 1",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$bg",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        13,
+                        15
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "qFIwY",
+                          "name": "Client Workspace Flow 1 Code Box",
+                          "width": 94,
+                          "height": 28,
+                          "fill": "$surface",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "XD6m3",
+                              "name": "Client Workspace Flow 1 Code",
+                              "fill": "$accent",
+                              "content": "CLIENT-01",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 10,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "gMNn2",
+                          "name": "Client Workspace Flow 1 Label",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Dashboard → next task",
+                          "lineHeight": 1.2,
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "j9NPsh",
+                      "name": "Client Workspace Flow 2",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$bg",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        13,
+                        15
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "F07xw0",
+                          "name": "Client Workspace Flow 2 Code Box",
+                          "width": 94,
+                          "height": 28,
+                          "fill": "$surface",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "ud5OJ",
+                              "name": "Client Workspace Flow 2 Code",
+                              "fill": "$accent",
+                              "content": "CLIENT-02",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 10,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "GSvPA",
+                          "name": "Client Workspace Flow 2 Label",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Directory → Talent Profile",
+                          "lineHeight": 1.2,
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "yVMEC",
+                      "name": "Client Workspace Flow 3",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$bg",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        13,
+                        15
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "Jlpjy",
+                          "name": "Client Workspace Flow 3 Code Box",
+                          "width": 94,
+                          "height": 28,
+                          "fill": "$surface",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "GL6LC",
+                              "name": "Client Workspace Flow 3 Code",
+                              "fill": "$accent",
+                              "content": "CLIENT-03/04",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 10,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "FdJoA",
+                          "name": "Client Workspace Flow 3 Label",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Profile → Pod or Interview",
+                          "lineHeight": 1.2,
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "EZT7V",
+                      "name": "Client Workspace Flow 4",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$bg",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        13,
+                        15
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "a0fFfY",
+                          "name": "Client Workspace Flow 4 Code Box",
+                          "width": 94,
+                          "height": 28,
+                          "fill": "$surface",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "G6K51l",
+                              "name": "Client Workspace Flow 4 Code",
+                              "fill": "$accent",
+                              "content": "CLIENT-05",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 10,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "NP1A9",
+                          "name": "Client Workspace Flow 4 Label",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Track requests + Pilot",
+                          "lineHeight": 1.2,
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "sR6D5",
+                  "name": "Talent Portal Panel",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$bg",
+                  "stroke": "$border",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "STEdg",
+                      "name": "Talent Portal Header",
+                      "width": "fill_container",
+                      "height": 82,
+                      "fill": "$accent",
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        14,
+                        16
+                      ],
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "EON7v",
+                          "name": "Talent Portal Tag",
+                          "fill": "$white",
+                          "content": "PROTECTED WEB",
+                          "fontFamily": "$font-mono",
+                          "fontSize": 10,
+                          "fontWeight": "500",
+                          "letterSpacing": 0.8
+                        },
+                        {
+                          "type": "text",
+                          "id": "S8jPAo",
+                          "name": "Talent Portal Title",
+                          "fill": "$white",
+                          "content": "Talent Portal",
+                          "fontFamily": "$font-heading",
+                          "fontSize": 25,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "SpDLj",
+                      "name": "Talent Portal Flow 1",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$bg",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        13,
+                        15
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "tICDN",
+                          "name": "Talent Portal Flow 1 Code Box",
+                          "width": 94,
+                          "height": 28,
+                          "fill": "$surface",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "csv3L",
+                              "name": "Talent Portal Flow 1 Code",
+                              "fill": "$accent",
+                              "content": "TALENT-01",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 10,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "wEjzX",
+                          "name": "Talent Portal Flow 1 Label",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Final info via separate token",
+                          "lineHeight": 1.2,
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "UuIQH",
+                      "name": "Talent Portal Flow 2",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$bg",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        13,
+                        15
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "gz78s",
+                          "name": "Talent Portal Flow 2 Code Box",
+                          "width": 94,
+                          "height": 28,
+                          "fill": "$surface",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "xAHay",
+                              "name": "Talent Portal Flow 2 Code",
+                              "fill": "$accent",
+                              "content": "AUTH-02",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 10,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "XUJlk",
+                          "name": "Talent Portal Flow 2 Label",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Accept account invitation",
+                          "lineHeight": 1.2,
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "eQ9Ku",
+                      "name": "Talent Portal Flow 3",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$bg",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        13,
+                        15
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "jukxM",
+                          "name": "Talent Portal Flow 3 Code Box",
+                          "width": 94,
+                          "height": 28,
+                          "fill": "$surface",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "h2qivU",
+                              "name": "Talent Portal Flow 3 Code",
+                              "fill": "$accent",
+                              "content": "TALENT-02",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 10,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "q0zwF",
+                          "name": "Talent Portal Flow 3 Label",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Profile → edit fields/files",
+                          "lineHeight": 1.2,
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "NUQnZ",
+                      "name": "Talent Portal Flow 4",
+                      "width": "fill_container",
+                      "height": "fill_container",
+                      "fill": "$bg",
+                      "stroke": "$border",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        13,
+                        15
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "bsRow",
+                          "name": "Talent Portal Flow 4 Code Box",
+                          "width": 94,
+                          "height": 28,
+                          "fill": "$surface",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "Hmuk6",
+                              "name": "Talent Portal Flow 4 Code",
+                              "fill": "$accent",
+                              "content": "SYSTEM",
+                              "fontFamily": "$font-mono",
+                              "fontSize": 10,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "SlbCo",
+                          "name": "Talent Portal Flow 4 Label",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Save → changes live",
+                          "lineHeight": 1.2,
+                          "fontFamily": "$font-body",
+                          "fontSize": 15,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "msxH3",
+              "name": "Shared Recovery Pattern",
+              "width": "fill_container",
+              "height": 64,
+              "fill": "$accent-soft",
+              "stroke": "$accent",
+              "strokeWidth": 1,
+              "gap": 16,
+              "padding": [
+                14,
+                18
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "A6wis",
+                  "name": "Recovery Pattern Tag",
+                  "width": 132,
+                  "height": 30,
+                  "fill": "$accent",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "QHJyn",
+                      "name": "Recovery Pattern Tag Label",
+                      "fill": "$white",
+                      "content": "ALL FLOWS",
+                      "fontFamily": "$font-mono",
+                      "fontSize": 11,
+                      "fontWeight": "500",
+                      "letterSpacing": 0.8
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "s7Q99N",
+                  "name": "Recovery Pattern Text",
+                  "fill": "$ink",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Validate → preserve input → explain failure → offer retry or safe exit   ·   Block duplicates   ·   Enforce role + ownership",
+                  "fontFamily": "$font-body",
+                  "fontSize": 16,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "OnltC",
+          "name": "Diagram Footer",
+          "width": "fill_container",
+          "height": 56,
+          "stroke": "$border",
+          "strokeWidth": {
+            "top": 1
+          },
+          "padding": [
+            0,
+            4
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "w1XOF",
+              "name": "Footer Guardrail",
+              "fill": "$muted",
+              "content": "NO DIRECT CLIENT ↔ TALENT CONTACT   ·   PODS ARE PLANNING-ONLY   ·   ADMIN CONTROLS VISIBILITY",
+              "fontFamily": "$font-mono",
+              "fontSize": 12,
+              "fontWeight": "500",
+              "letterSpacing": 0.6
+            },
+            {
+              "type": "text",
+              "id": "OPncU",
+              "name": "Footer Version",
+              "fill": "$accent",
+              "content": "V1 / 2026",
+              "fontFamily": "$font-mono",
+              "fontSize": 12,
+              "fontWeight": "500",
+              "letterSpacing": 0.6
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "bg": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "surface": {
+      "type": "color",
+      "value": "#F7F7F7"
+    },
+    "ink": {
+      "type": "color",
+      "value": "#1A1A1A"
+    },
+    "muted": {
+      "type": "color",
+      "value": "#666666"
+    },
+    "quiet": {
+      "type": "color",
+      "value": "#999999"
+    },
+    "border": {
+      "type": "color",
+      "value": "#E5E5E5"
+    },
+    "accent": {
+      "type": "color",
+      "value": "#0066FF"
+    },
+    "accent-soft": {
+      "type": "color",
+      "value": "#EAF2FF"
+    },
+    "white": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "font-heading": {
+      "type": "string",
+      "value": "Funnel Sans"
+    },
+    "font-body": {
+      "type": "string",
+      "value": "Inter"
+    },
+    "font-mono": {
+      "type": "string",
+      "value": "IBM Plex Mono"
+    }
+  },
+  "fileToken": "0178b839-3bb5-4686-aca4-bee4607d50c1"
+}
