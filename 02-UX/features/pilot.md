@@ -234,7 +234,7 @@ Pilot and Interview Request management remain within Company Detail. Admin can:
 
 There is no separate V1 project-management application.
 
-## 14. Activity and Notifications
+## 14. Activity
 
 Activity records capture Interview Request status changes and all important Pilot
 lifecycle, milestone, participant, update, and outcome changes.
@@ -242,11 +242,8 @@ lifecycle, milestone, participant, update, and outcome changes.
 The Client's recent-activity feed may show Interview Request status changes, Pilot
 creation and status changes, completed milestones, client-visible Pilot updates,
 participant changes, and related Talent becoming unavailable. It excludes internal
-notes, Admin-only changes, and technical events.
-
-Client notifications may be sent for important Pilot status changes, completed
-milestones, and client-visible updates. Notification channels and delivery rules
-are defined separately.
+notes, Admin-only changes, and technical events. Pilot events do not send automated
+emails or create notifications in V1.
 
 ## 15. Edge States
 

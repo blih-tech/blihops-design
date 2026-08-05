@@ -114,7 +114,7 @@ failure, and bilingual validation are variants within those families.
 
 | ID | Screen | User | Purpose | Primary entry |
 |---|---|---|---|---|
-| ADMIN-17 | Email Templates | Admin | View and edit validated notification templates | Admin → Settings |
+| ADMIN-17 | Email Templates | Admin | View and edit the four validated essential transactional email templates | Admin → Settings |
 | ADMIN-18 | Cal.com Settings | Admin | Review connection, webhook, event mapping, and last received event | Admin → Settings |
 
 ## 7. Inventory Conventions

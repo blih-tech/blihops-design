@@ -184,7 +184,9 @@ Company Detail rather than through a separate page.
 - Talent navigation remains limited to Profile Management and account actions.
 - Admin navigation follows the operational domains of sales, Companies, Talent,
   delivery oversight, managed content, and settings.
-- Notifications, confirmations, and permitted activity records appear in context;
-  V1 has no dedicated notification or activity center.
+- Confirmations and permitted activity records appear in context. V1 has no
+  notification system, notification center, unread state, or activity center.
+- Automated email is limited to account invitations, profile completion requests,
+  and password resets that deliver essential secure links.
 - Protected or unavailable destinations provide an appropriate login,
   access-denied, expired-link, or unavailable-resource state.

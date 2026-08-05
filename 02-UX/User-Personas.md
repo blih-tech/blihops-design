@@ -83,7 +83,7 @@ Pilot coordination, selected website content, and operational settings.
 - Invite Approved Talent after their profile exists.
 - Update Interview Request and Pilot information.
 - Manage the structured website content defined for V1.
-- Review activity, notifications, email templates, and Cal.com information.
+- Review activity, essential email templates, and Cal.com information.
 
 ### Needs and expectations
 

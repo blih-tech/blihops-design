@@ -68,7 +68,7 @@ The backend provides:
 - Talent Pod planning operations
 - Talent recruitment and profile operations
 - Content delivery by locale
-- Notifications, file handling, and audit history
+- Essential transactional email, file handling, and audit history
 
 ---
 
@@ -833,7 +833,6 @@ Admin can view and update templates for:
 - Talent account invitation
 - Profile completion request
 - Password reset
-- Interview Request notification
 
 Template variables must be validated before saving.
 
@@ -850,33 +849,21 @@ Sensitive credentials are never displayed in full.
 
 ---
 
-## 11. Notifications
+## 11. Essential Transactional Email
 
-### 11.1 Admin Notifications
-
-- New Contact or Pilot Request
-- New Cal.com booking
-- New Talent Application
-- Talent completion form submitted
-- Talent Profile and account created
-- Client invitation accepted
-- Talent account invitation accepted
-- New Interview Request
-
-### 11.2 Client Notifications
+V1 sends automated email only when a secure link must be delivered for an
+essential access or onboarding flow:
 
 - Client account invitation
-- Password reset
-- Interview Request status update
-- Pilot status update
-- A Talent Profile used in a Pod becoming unavailable
-
-### 11.3 Talent Notifications
-
-- Profile completion requested
 - Talent account invitation
+- Profile completion request
 - Password reset
-- Important profile-access change
+
+V1 has no general notification system, notification center, unread state, or
+automated status/update email. Leads, applications, Interview Requests, Pilot
+changes, milestones, Talent availability, Profile activity, and Workspace activity
+do not trigger notifications. Their current state appears only in the relevant
+Admin or Client screens.
 
 ---
 

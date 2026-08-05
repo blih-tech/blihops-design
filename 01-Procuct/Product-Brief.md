@@ -77,7 +77,7 @@ Primary responsibilities:
 - Talent Profiles and Talent Portal access
 - Client Workspace, Talent Pods, and interview requests
 - Content management and locale-aware delivery
-- Notifications, files, and activity history
+- Essential transactional email, files, and activity history
 
 ---
 

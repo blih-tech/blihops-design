@@ -441,10 +441,11 @@ feature:
 - **Unavailable resource:** explain the state and remove actions the user can no
   longer perform.
 - **Authorization:** enforce role and ownership server-side and redirect safely.
-- **Notifications:** trigger the permitted user notification when a documented
-  invitation, submission, request, Pilot, or access event occurs.
+- **Transactional email:** send email only for Client and Talent account
+  invitations, profile completion requests, and password resets.
 - **Activity:** record important lifecycle, access, content, and profile changes
   with actor and timestamp.
 
 Internal activity records are not exposed directly to Clients. The Client
 Dashboard receives only the curated event set defined in the PRD.
+V1 has no notification center, unread state, or automated status/update email.
