@@ -87,7 +87,7 @@ cannot edit Admin-managed fields.
 | ADMIN-06 | Talent Applications | Admin | Search, filter, paginate, and manage recruitment applications | Admin navigation or Dashboard |
 | ADMIN-07 | Application Detail | Admin | Review candidate data, files, stages, assessments, notes, and invitations | Talent Applications |
 | ADMIN-08 | Talent Profiles | Admin | Search, filter, sort, paginate, and manage profiles | Admin navigation or Dashboard |
-| ADMIN-09 | Talent Profile Detail | Admin | Create Profile/account from an approved application; edit, publish, hide, archive, restore, and invite Talent | Talent Profiles or Application Detail |
+| ADMIN-09 | Talent Profile Detail | Admin | Create Profile/account from an approved application with submitted completion data; edit, publish, hide, archive, restore, and invite Talent | Talent Profiles or Application Detail |
 
 Interview Requests are contained within `ADMIN-05 Company Detail`; there is no
 separate Admin Interview Requests screen. Pilot status and milestones also remain

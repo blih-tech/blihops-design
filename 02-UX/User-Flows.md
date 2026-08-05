@@ -170,8 +170,8 @@ Open Join Talent Pool
 ```
 
 Submitting an application creates the Talent Application only. After approval,
-Admin may request remaining profile-building information through a completion
-request.
+Admin must request the remaining profile-building information through a completion
+request before the Profile and account can be created.
 
 ### PUBLIC-03b — Complete the Profile (Round 2)
 
@@ -248,7 +248,7 @@ Talent Applications
 → Move through screening and required assessments
 → [Not suitable] → Reject with reason
 → [Requirements met] → Approve
-→ Mark application ready for Profile and account creation
+→ Mark application ready for the mandatory profile completion request
 ```
 
 Valid stages are controlled by the PRD. Only an approved application with a

@@ -166,7 +166,13 @@ Screening and Assessments
       ↓
 Admin Approval
       ↓
-Admin Creates Talent Profile and Account from Application
+Admin Sends Profile Completion Request
+      ↓
+Candidate Submits Remaining Profile Information
+      ↓
+Admin Reviews Combined Application Information
+      ↓
+Admin Creates Talent Profile and Account
       ↓
 Admin Sends Talent Account Invitation
       ↓
@@ -175,10 +181,11 @@ Talent Activates Account
 Talent Maintains Permitted Profile Information
 ```
 
-The Talent Application collects assessment information in Round 1; the remaining
-profile-building fields are collected through a profile completion request after
-approval. Account activation remains invitation-only: the invitation lets
-Approved Talent create a password and enter Profile Management.
+The Talent Application collects assessment information in Round 1. After approval,
+the candidate must submit the remaining profile-building fields through a profile
+completion request before Admin can create the Talent Profile and account. Account
+activation remains invitation-only: the invitation lets Approved Talent create a
+password and enter Profile Management.
 
 ---
 
@@ -242,11 +249,11 @@ Profiles may include:
 - Assessment summary and internal notes
 - Visibility and lifecycle status
 
-The Talent Application collects assessment information in Round 1; the remaining
-profile-building fields are collected through a profile completion request after
-approval. Admin can create the Profile and associated account from the approved
-application once the completion form is submitted, before sending the account
-invitation.
+The Talent Application collects assessment information in Round 1. After approval,
+the candidate must submit the remaining profile-building fields through a profile
+completion request. Admin can create the Profile and associated account only after
+the completion form is submitted and the combined application information is
+reviewed, before sending the account invitation.
 
 Only visible, active Talent Profiles appear in the Client Workspace.
 

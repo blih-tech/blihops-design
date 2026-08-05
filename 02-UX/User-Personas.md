@@ -34,13 +34,18 @@ person selected by the Company. V1 permits only one Client account per Company.
     Talent Pool Candidate
         -> submits a Talent Pool application
         -> completes Admin-managed review and assessments
-        -> Admin creates the Talent Profile and account from the approved application
+        -> receives approval
+        -> receives and submits a mandatory profile completion request
+        -> Admin reviews the combined application information
+        -> Admin creates the Talent Profile and account
         -> receives an account invitation
         -> activates the account and maintains permitted profile information
 
-The Talent Pool application contains the full information needed for Admin review
-and Profile creation. The account invitation is the only post-approval Talent
-handoff.
+The Talent Pool application collects the information needed for Admin review in
+Round 1. After approval, the candidate must provide the remaining profile-building
+information through a mandatory Round 2 completion request. Admin creates the
+Profile and account only after reviewing the combined information, then sends the
+account invitation.
 Careers applicants are not part of this V1 persona set.
 
 ## 3. Primary Persona - BlihOps Admin
@@ -57,7 +62,8 @@ Pilot coordination, selected website content, and operational settings.
 - Move agreed companies into a controlled onboarding journey.
 - Maintain one Client representative and Workspace per Company.
 - Recruit and assess Talent consistently.
-- Create accurate, client-safe Talent Profiles directly from complete applications.
+- Create accurate, client-safe Talent Profiles from completed Round 1 and Round 2
+  application information.
 - Coordinate Interview Requests and Pilots through BlihOps.
 - Keep selected public content accurate and current.
 - Preserve reliable operational history.
@@ -70,7 +76,9 @@ Pilot coordination, selected website content, and operational settings.
 - Invite and manage the single Client representative.
 - Review Talent Pool applications and record assessments.
 - Approve or reject candidates.
-- Create Talent Profiles and accounts from approved applications.
+- Request mandatory Round 2 information from approved candidates.
+- Create Talent Profiles and accounts from approved applications only after Round 2
+  is submitted.
 - Control Talent Profiles and invitation status.
 - Invite Approved Talent after their profile exists.
 - Update Interview Request and Pilot information.
@@ -227,15 +235,16 @@ invitation.
 - Complete the Talent Pool application.
 - Upload the required resume.
 - Participate in BlihOps-managed screening and assessments.
-- Provide the professional information needed to create a client-safe Profile.
+- After approval, submit the mandatory profile completion form with the remaining
+  information needed to create a client-safe Profile.
 
 ### Needs and expectations
 
 - Clear application requirements and file constraints.
 - Accessible forms that preserve valid work after recoverable errors.
 - Honest confirmation after application submission.
-- Clear separation between application approval, Admin-created Profile/account,
-  and account invitation.
+- Clear separation between application approval, mandatory profile completion,
+  Admin-created Profile/account, and account invitation.
 - Clear invitation handling that does not expose candidate information.
 
 ### Frustrations and risks
@@ -247,10 +256,13 @@ invitation.
 
 ### Journey boundary
 
-- Application submission creates a Talent Application containing the full
-  information needed for Admin review and Profile creation.
-- Approval allows Admin to create one Talent Profile and account from the
+- Round 1 application submission creates a Talent Application containing the
+  information needed for Admin review and assessment.
+- Approval requires Admin to send a Round 2 profile completion request.
+- Round 2 submission adds the remaining profile-building information to the
   application.
+- Admin can create one Talent Profile and account only after reviewing the combined
+  Round 1 and Round 2 information.
 - The account invitation activates access after the account is created.
 - The persona becomes Approved Talent once the Profile and account exist.
 

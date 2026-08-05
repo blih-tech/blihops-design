@@ -150,13 +150,13 @@ Requirements:
 
 ### 4.4 Profile Completion Request
 
-After approving a Talent Application, an admin can request the remaining profile
+After approving a Talent Application, an admin must request the remaining profile
 information from the candidate before creating the Talent Profile.
 
 Requirements:
 
 - The Talent Application must be approved.
-- The admin triggers the completion request from the Application Detail,
+- The admin must trigger the completion request from the Application Detail,
   generating a single-use token with a 7-day expiry.
 - The system sends the candidate an email with the completion request link.
 - A valid token opens an unauthenticated profile completion form that collects
@@ -240,9 +240,9 @@ Requirements:
 - Accept supported file formats and size limits.
 - Create one Talent Application.
 - Show a confirmation state after successful submission.
-- Admin may request remaining profile-building information (profile photo, short bio,
-  availability, earliest start date, and preferred engagement) through a profile
-  completion request after the application is approved.
+- After approval, Admin must request remaining profile-building information (profile
+  photo, short bio, availability, earliest start date, and preferred engagement)
+  through a profile completion request.
 
 ### 5.6 Published Content
 
@@ -262,7 +262,8 @@ The Admin Dashboard displays:
 - New and active Leads
 - Pilot Requests and Calendly bookings
 - Talent Applications by current stage
-- Approved Talent Applications ready for Profile and account creation
+- Approved Talent Applications awaiting a completion request or submission
+- Completion-submitted Talent Applications ready for Profile and account creation
 - Talent Profiles by visibility and availability
 - Companies and pending Client invitations
 - Interview Requests requiring attention
@@ -377,7 +378,8 @@ Business rules:
 Admin can:
 
 - View, search, filter, sort, and paginate profiles.
-- Create a profile and associated account from an approved application.
+- Create a profile and associated account from an approved application with a
+  submitted completion form.
 - View and edit all profile fields.
 - Publish or hide a profile from clients.
 - Archive and restore a profile.
