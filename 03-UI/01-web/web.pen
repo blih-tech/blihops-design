@@ -7,20 +7,21 @@
       "x": 0,
       "y": 0,
       "name": "Design System",
-      "width": 5680,
+      "width": 4478,
       "height": 2521,
+      "fill": "$color.muted",
       "layout": "none",
       "children": [
         {
           "type": "frame",
           "id": "x2PcnP",
-          "x": 0,
-          "y": 0,
+          "x": 48,
+          "y": 48,
           "name": "Zone Header/Design System",
           "theme": {
             "mode": "light"
           },
-          "width": 5680,
+          "width": 4332,
           "height": 96,
           "stroke": "$color.border",
           "strokeWidth": {
@@ -81,8 +82,8 @@
         {
           "type": "frame",
           "id": "t8UGt",
-          "x": 0,
-          "y": 160,
+          "x": 48,
+          "y": 208,
           "name": "Foundations",
           "theme": {
             "mode": "light"
@@ -2741,8 +2742,8 @@
         {
           "type": "frame",
           "id": "X2MXsJ",
-          "x": 1360,
-          "y": 160,
+          "x": 1408,
+          "y": 208,
           "name": "Content Primitives",
           "theme": {
             "mode": "light"
@@ -3425,8 +3426,8 @@
         {
           "type": "frame",
           "id": "P7MRA",
-          "x": 2720,
-          "y": 160,
+          "x": 2768,
+          "y": 208,
           "name": "Labels and Status",
           "theme": {
             "mode": "light"
@@ -3776,8 +3777,8 @@
         {
           "type": "frame",
           "id": "f5842E",
-          "x": 2720,
-          "y": 958,
+          "x": 2768,
+          "y": 1006,
           "name": "Form Controls",
           "theme": {
             "mode": "light"
@@ -4347,8 +4348,8 @@
         {
           "type": "frame",
           "id": "PoTY9",
-          "x": 1360,
-          "y": 1591,
+          "x": 1408,
+          "y": 1639,
           "name": "Actions",
           "theme": {
             "mode": "light"
@@ -4876,8 +4877,8 @@
         {
           "type": "frame",
           "id": "BGeGI",
-          "x": 2720,
-          "y": 1700,
+          "x": 2768,
+          "y": 1748,
           "name": "Decoration",
           "theme": {
             "mode": "light"
@@ -5076,15 +5077,16 @@
       "x": 5880,
       "y": 0,
       "name": "UI Shells",
-      "width": 1536,
+      "width": 1682,
       "height": 2361,
+      "fill": "$color.muted",
       "layout": "none",
       "children": [
         {
           "type": "frame",
           "id": "rxL16",
-          "x": 0,
-          "y": 160,
+          "x": 48,
+          "y": 208,
           "name": "Shells",
           "theme": {
             "mode": "light"
@@ -5788,8 +5790,8 @@
         {
           "type": "frame",
           "id": "mviPz",
-          "x": 0,
-          "y": 0,
+          "x": 48,
+          "y": 48,
           "name": "Zone Header/UI Shells",
           "theme": {
             "mode": "light"
@@ -5860,15 +5862,16 @@
       "x": 5880,
       "y": 2401,
       "name": "Auth Screens",
-      "width": 6240,
-      "height": 3360,
+      "width": 6309,
+      "height": 3482,
+      "fill": "$color.muted",
       "layout": "none",
       "children": [
         {
           "type": "frame",
           "id": "vBF92",
-          "x": 0,
-          "y": 0,
+          "x": 48,
+          "y": 48,
           "name": "Zone Header/Product UI",
           "theme": {
             "mode": "light"
@@ -5934,8 +5937,8 @@
         {
           "type": "frame",
           "id": "Uqkld",
-          "x": 0,
-          "y": 160,
+          "x": 48,
+          "y": 208,
           "name": "Auth / Accept Invitation / Valid",
           "theme": {
             "mode": "light"
@@ -6381,8 +6384,8 @@
         {
           "type": "frame",
           "id": "pvOCK",
-          "x": 1600,
-          "y": 160,
+          "x": 1648,
+          "y": 208,
           "name": "Auth / Accept Invitation / Invalid",
           "theme": {
             "mode": "light"
@@ -6635,8 +6638,8 @@
         {
           "type": "frame",
           "id": "COuW8",
-          "x": 3200,
-          "y": 160,
+          "x": 3248,
+          "y": 208,
           "name": "Auth / Accept Invitation / Account Created",
           "theme": {
             "mode": "light"
@@ -6897,8 +6900,8 @@
         {
           "type": "frame",
           "id": "Fsvup",
-          "x": 4800,
-          "y": 160,
+          "x": 4848,
+          "y": 208,
           "name": "Auth / Sign In / Shared",
           "theme": {
             "mode": "light"
@@ -7138,8 +7141,8 @@
         {
           "type": "frame",
           "id": "iEGYU",
-          "x": 0,
-          "y": 1280,
+          "x": 48,
+          "y": 1328,
           "name": "Auth / Forgot Password / Request",
           "theme": {
             "mode": "light"
@@ -7327,8 +7330,8 @@
         {
           "type": "frame",
           "id": "KlbPq",
-          "x": 1600,
-          "y": 1280,
+          "x": 1648,
+          "y": 1328,
           "name": "Auth / Forgot Password / Email Sent",
           "theme": {
             "mode": "light"
@@ -7627,8 +7630,8 @@
         {
           "type": "frame",
           "id": "H7DZf",
-          "x": 3200,
-          "y": 1280,
+          "x": 3248,
+          "y": 1328,
           "name": "Auth / Reset Password / Default",
           "theme": {
             "mode": "light"
@@ -8013,8 +8016,8 @@
         {
           "type": "frame",
           "id": "EG3rR",
-          "x": 4800,
-          "y": 1280,
+          "x": 4848,
+          "y": 1328,
           "name": "Auth / Reset Password / Invalid Token",
           "theme": {
             "mode": "light"
@@ -8285,8 +8288,8 @@
         {
           "type": "frame",
           "id": "hABle",
-          "x": 0,
-          "y": 2400,
+          "x": 48,
+          "y": 2448,
           "name": "Auth / Reset Password / Success",
           "theme": {
             "mode": "light"
@@ -8483,17 +8486,18 @@
       "x": 12200,
       "y": 2401,
       "name": "Talent Portal Screens",
-      "width": 6240,
-      "height": 2400,
+      "width": 3036,
+      "height": 3506,
+      "fill": "$color.muted",
       "layout": "none",
       "children": [
         {
           "type": "frame",
           "id": "xktyr",
-          "x": 0,
-          "y": 0,
+          "x": 48,
+          "y": 48,
           "name": "Zone Header/Talent Portal",
-          "width": 6240,
+          "width": 2960,
           "height": 96,
           "stroke": "$color.border",
           "strokeWidth": {
@@ -8555,8 +8559,8 @@
           "id": "TQmYu",
           "type": "ref",
           "ref": "AuqXM",
-          "x": 0,
-          "y": 160,
+          "x": 48,
+          "y": 208,
           "name": "Talent Portal / Profile Management",
           "width": 1440,
           "height": 3200,
@@ -9677,8 +9681,8 @@
           "id": "zdjd0",
           "type": "ref",
           "ref": "AuqXM",
-          "x": 1520,
-          "y": 160,
+          "x": 1568,
+          "y": 208,
           "name": "Talent Portal / Profile Management / Account Menu Open",
           "width": 1440,
           "height": 716,
@@ -9773,8 +9777,8 @@
         {
           "type": "frame",
           "id": "PXuxd",
-          "x": 2717,
-          "y": 217,
+          "x": 2765,
+          "y": 265,
           "name": "Account Dropdown Menu",
           "width": 220,
           "fill": "$color.background",
@@ -9831,6 +9835,558 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "u0U2J",
+      "x": 15536,
+      "y": 2401,
+      "name": "Client Workspace Screens",
+      "width": 4000,
+      "height": 4000,
+      "fill": "$color.muted",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "I7EQL",
+          "x": 48,
+          "y": 48,
+          "name": "Zone Header/Client Workspace",
+          "width": 3872,
+          "height": 96,
+          "stroke": "$color.border",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "padding": [
+            0,
+            0,
+            20,
+            0
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "end",
+          "children": [
+            {
+              "type": "frame",
+              "id": "w31KUK",
+              "name": "Client Workspace Zone Title Group",
+              "layout": "vertical",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "D37wq",
+                  "name": "Client Workspace Zone Eyebrow",
+                  "fill": "$color.primary",
+                  "content": "04 / CLIENT WORKSPACE",
+                  "fontFamily": "$font.mono",
+                  "fontSize": 11,
+                  "fontWeight": "600",
+                  "letterSpacing": 1.2
+                },
+                {
+                  "type": "text",
+                  "id": "MTHmt",
+                  "name": "Client Workspace Zone Title",
+                  "fill": "$color.foreground",
+                  "content": "Client workspace screens",
+                  "fontFamily": "$font.heading",
+                  "fontSize": 28,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "E2Q1p",
+              "name": "Client Workspace Zone Meta",
+              "fill": "$color.muted-foreground",
+              "content": "DASHBOARD · DIRECTORY · PODS · PILOT",
+              "fontFamily": "$font.mono",
+              "fontSize": 10,
+              "fontWeight": "600",
+              "letterSpacing": 1
+            }
+          ]
+        },
+        {
+          "id": "Z1Ubrt",
+          "type": "ref",
+          "ref": "M0r61J",
+          "name": "Client Workspace / Dashboard",
+          "x": 48,
+          "y": 208,
+          "width": 1440,
+          "height": 960
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "M0r61J",
+      "x": 7642,
+      "y": 0,
+      "name": "Client/Shell Desktop",
+      "reusable": true,
+      "clip": true,
+      "width": 1440,
+      "height": 960,
+      "fill": "$color.background",
+      "children": [
+        {
+          "type": "frame",
+          "id": "p6gq9h",
+          "name": "Sidebar",
+          "width": 280,
+          "height": "fill_container",
+          "fill": "$color.background",
+          "stroke": "$color.border",
+          "strokeWidth": {
+            "right": 1
+          },
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "r93f0",
+              "name": "Sidebar Top",
+              "width": "fill_container",
+              "height": 64,
+              "padding": [
+                0,
+                20,
+                0,
+                16
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "WpzvT",
+                  "name": "Logo Area",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "rqKpB",
+                      "name": "Wordmark",
+                      "width": 112,
+                      "height": 30,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "logo-blihops.png",
+                        "mode": "fit"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ai1pm",
+                  "name": "Collapse Button",
+                  "width": 36,
+                  "height": 36,
+                  "cornerRadius": "$radius.lg",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "qxPby",
+                      "name": "Collapse Icon",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "panel-left-close",
+                      "library": "lucide",
+                      "fill": "$color.muted-foreground"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "OcPkh",
+              "name": "Nav Section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                16,
+                12
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "OFz7W",
+                  "name": "Nav Item / Overview",
+                  "width": "fill_container",
+                  "height": 40,
+                  "fill": "$color.background",
+                  "cornerRadius": "$radius.lg",
+                  "stroke": "$color.primary",
+                  "gap": 12,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "HvTuu",
+                      "name": "Overview Icon",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "layout-dashboard",
+                      "library": "lucide",
+                      "fill": "$color.foreground"
+                    },
+                    {
+                      "type": "text",
+                      "id": "bqmml",
+                      "name": "Overview Label",
+                      "fill": "$color.foreground",
+                      "content": "Overview",
+                      "fontFamily": "$font.body",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "yBL2L",
+                      "layoutPosition": "absolute",
+                      "x": 232,
+                      "y": 13,
+                      "name": "Active Arrow",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "arrow-right",
+                      "library": "lucide",
+                      "fill": "$color.primary"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "YBczI",
+                  "name": "Nav Item / Talent",
+                  "width": "fill_container",
+                  "height": 40,
+                  "cornerRadius": "$radius.lg",
+                  "gap": 12,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "pmeCF",
+                      "name": "Talent Left",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "kvHwE",
+                          "name": "Talent Icon",
+                          "width": 18,
+                          "height": 18,
+                          "icon": "users",
+                          "library": "lucide",
+                          "fill": "$color.body"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ouz0N",
+                          "name": "Talent Label",
+                          "fill": "$color.body",
+                          "content": "Talent",
+                          "fontFamily": "$font.body",
+                          "fontSize": 14,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "icon",
+                      "id": "vuKlO",
+                      "name": "Talent Chevron",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "chevron-down",
+                      "library": "lucide",
+                      "fill": "$color.muted-foreground"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Bvqb5",
+                  "name": "Nav Item / Directory",
+                  "width": "fill_container",
+                  "height": 36,
+                  "cornerRadius": "$radius.lg",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    16,
+                    0,
+                    44
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "iG3eU",
+                      "name": "Directory Icon",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "search",
+                      "library": "lucide",
+                      "fill": "$color.muted-foreground"
+                    },
+                    {
+                      "type": "text",
+                      "id": "CKVA8",
+                      "name": "Directory Label",
+                      "fill": "$color.muted-foreground",
+                      "content": "Directory",
+                      "fontFamily": "$font.body",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "IhQs2",
+                  "name": "Nav Item / Pods",
+                  "width": "fill_container",
+                  "height": 36,
+                  "cornerRadius": "$radius.lg",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    16,
+                    0,
+                    44
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "y2Cxvq",
+                      "name": "Pods Icon",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "layers",
+                      "library": "lucide",
+                      "fill": "$color.muted-foreground"
+                    },
+                    {
+                      "type": "text",
+                      "id": "dhAcL",
+                      "name": "Pods Label",
+                      "fill": "$color.muted-foreground",
+                      "content": "Pods",
+                      "fontFamily": "$font.body",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "JysOz",
+                  "name": "Nav Item / Interview Requests",
+                  "width": "fill_container",
+                  "height": 40,
+                  "cornerRadius": "$radius.lg",
+                  "gap": 12,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "d8h3k",
+                      "name": "Interviews Icon",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "calendar",
+                      "library": "lucide",
+                      "fill": "$color.body"
+                    },
+                    {
+                      "type": "text",
+                      "id": "NOPje",
+                      "name": "Interviews Label",
+                      "fill": "$color.body",
+                      "content": "Interview Requests",
+                      "fontFamily": "$font.body",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "q5mle",
+                  "name": "Nav Item / Pilot",
+                  "width": "fill_container",
+                  "height": 40,
+                  "cornerRadius": "$radius.lg",
+                  "gap": 12,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "DGoKn",
+                      "name": "Pilot Icon",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "flask-conical",
+                      "library": "lucide",
+                      "fill": "$color.body"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Yl133",
+                      "name": "Pilot Label",
+                      "fill": "$color.body",
+                      "content": "Pilot",
+                      "fontFamily": "$font.body",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "V7R1wI",
+              "name": "Nav Spacer",
+              "width": "fill_container",
+              "height": "fill_container"
+            },
+            {
+              "type": "rectangle",
+              "id": "Arqc1",
+              "name": "Separator Bottom",
+              "fill": "$color.border",
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "type": "frame",
+              "id": "AEURj",
+              "name": "Account Panel",
+              "width": "fill_container",
+              "gap": 12,
+              "padding": [
+                16,
+                20
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "d0dUa",
+                  "name": "Avatar",
+                  "width": 36,
+                  "height": 36,
+                  "fill": "$color.secondary",
+                  "cornerRadius": "$radius.full",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "htGYO",
+                      "name": "Avatar Initials",
+                      "fill": "$color.muted-foreground",
+                      "content": "AC",
+                      "fontFamily": "$font.body",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "nIakV",
+                  "name": "User Info",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 1,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "X1THnL",
+                      "name": "User Email",
+                      "fill": "$color.foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "alex@acmecorp.com",
+                      "fontFamily": "$font.body",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "tbLWy",
+                      "name": "User Company",
+                      "fill": "$color.muted-foreground",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Acme Corporation",
+                      "fontFamily": "$font.body",
+                      "fontSize": 11,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "icon",
+                  "id": "XYzOs",
+                  "name": "Settings Icon",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "chevrons-up-down",
+                  "library": "lucide",
+                  "fill": "$color.muted-foreground"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ESdFW",
+          "name": "Content Slot",
+          "slot": [],
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "$color.muted",
+          "layout": "vertical"
         }
       ]
     }
