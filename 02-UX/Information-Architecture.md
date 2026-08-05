@@ -75,7 +75,9 @@ Client Workspace
 The Workspace belongs to one Company and is accessible by its single active
 Client account. Talent Profiles are reached through the Directory, Pods, and
 related Interview Requests. Pods are private planning groups and do not create
-assignments or direct contact with Talent.
+assignments, interviews, Pilot participation, or direct contact with Talent. A
+Pilot is created and managed by Admin only after interviews and manual agreement;
+the Client's Pilot Status area is read-only.
 
 ### 3.3 Protected Talent Portal
 
@@ -173,7 +175,7 @@ Company Detail rather than through a separate page.
 - Public navigation prioritizes understanding the service, evaluating trust,
   contacting BlihOps, requesting a Pilot, and joining the Talent Pool.
 - Client navigation prioritizes discovering Talent, organizing Pods, requesting
-  interviews, and tracking the Pilot.
+  interviews, and tracking an agreed two-week Pilot.
 - Talent navigation remains limited to Profile Management and account actions.
 - Admin navigation follows the operational domains of sales, Companies, Talent,
   delivery oversight, managed content, and settings.

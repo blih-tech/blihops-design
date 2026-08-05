@@ -173,8 +173,9 @@ who originally contacted BlihOps.
 - Find relevant, available engineers.
 - Review clear, client-safe Talent information.
 - Organize potential Talent into private planning Pods.
-- Request interviews through BlihOps.
-- Track Interview Requests and Pilot progress.
+- Request one or more interviews through BlihOps.
+- Agree on Pilot participants with BlihOps after interviews.
+- Track the agreed two-week Pilot's progress.
 
 ### Core tasks
 
@@ -183,8 +184,9 @@ who originally contacted BlihOps.
 - Browse, search, filter, sort, and paginate visible Talent Profiles.
 - Review permitted Talent details and authorized files.
 - Create and manage planning-only Talent Pods.
-- Submit an Interview Request with relevant context.
-- Review Interview Request and Pilot updates.
+- Submit Interview Requests with relevant context.
+- Review Interview Request progress while BlihOps coordinates with Talent.
+- Monitor Pilot goals, dates, milestones, participants, and updates.
 
 ### Needs and expectations
 
@@ -210,6 +212,8 @@ who originally contacted BlihOps.
 - The Client can access only their own Company's Workspace and data.
 - Talent Pods are private planning groups only.
 - Pod membership does not reserve, assign, hire, notify, or contact Talent.
+- Pod membership does not create an Interview Request or Pilot participation.
+- The Client can monitor but cannot create or manage a Pilot.
 - The Client cannot edit Talent Profiles or contact Talent directly.
 - The Client cannot invite additional users or manage company-user teams.
 - Contracts, payments, billing, and direct messaging are outside V1.

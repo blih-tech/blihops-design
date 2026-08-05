@@ -59,10 +59,11 @@ published or active content is visible publicly.
 | CLIENT-04 | Talent Pods | Client | View and manage the Company's planning Pods | Workspace navigation |
 | CLIENT-05 | Pod Detail | Client | Manage Pod name, note, members, and optional Pod Lead | Talent Pods |
 | CLIENT-06 | Interview Requests | Client | View the Company's request history and statuses | Workspace navigation or confirmation |
-| CLIENT-07 | Pilot Status | Client | View current Pilot status, milestones, Talent, and updates | Workspace navigation |
+| CLIENT-07 | Pilot Status | Client | Monitor the current two-week Pilot's goals, dates, status, milestones, participating Talent, and updates; view prior Pilot history | Workspace navigation |
 
 Pods are planning-only. They do not reserve, assign, hire, notify, or contact
-Talent. No additional Client-user management screen exists in V1.
+Talent and do not create Interview Requests or Pilot participation. No additional
+Client-user management screen exists in V1.
 
 ## 5. Protected Talent Portal Screens
 
@@ -83,7 +84,7 @@ cannot edit Admin-managed fields.
 | ADMIN-02 | Leads | Admin | Search, filter, paginate, create, and manage Leads | Admin navigation or Dashboard |
 | ADMIN-03 | Lead Detail | Admin | Review Lead information, notes, status, and conversion action | Leads |
 | ADMIN-04 | Companies | Admin | Search, filter, and open Companies | Admin navigation or Lead conversion |
-| ADMIN-05 | Company Detail | Admin | Manage Company, Workspace access, Pilot, Interview Requests, notes, and activity | Companies or Lead conversion |
+| ADMIN-05 | Company Detail | Admin | Manage Company, Workspace access, Interview Requests, two-week Pilots, notes, and activity | Companies or Lead conversion |
 | ADMIN-06 | Talent Applications | Admin | Search, filter, paginate, and manage recruitment applications | Admin navigation or Dashboard |
 | ADMIN-07 | Application Detail | Admin | Review candidate data, files, stages, assessments, notes, and invitations | Talent Applications |
 | ADMIN-08 | Talent Profiles | Admin | Search, filter, sort, paginate, and manage profiles | Admin navigation or Dashboard |

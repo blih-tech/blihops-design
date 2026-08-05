@@ -204,7 +204,18 @@ V1 capabilities:
 - Pilot Status
 
 Talent Pods are private planning groups. Adding Talent to a Pod does not reserve,
-assign, hire, or contact that Talent.
+assign, hire, contact that Talent, or add them to a Pilot. Clients use Pods to
+organize and compare Talent before deciding whom to interview.
+
+The Client may request interviews with one or more Talent Profiles. BlihOps
+confirms availability, contacts Talent, and coordinates interviews manually. The
+Client may request additional interviews before deciding whether to proceed.
+
+After the Client and BlihOps agree on the participating Talent, Admin creates a
+two-week Pilot with goals, dates, milestones, participants, and progress updates.
+The Client can monitor the Pilot in the Workspace, while Admin manages it. Daily
+work and communication remain outside the platform. A longer-term contract is a
+separate post-Pilot decision and remains outside V1.
 
 Clients cannot edit Talent Profiles, contact talent directly, create teams of
 company users, or invite additional client users.

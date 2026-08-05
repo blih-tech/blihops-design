@@ -326,7 +326,7 @@ Admin can:
 - View the Client Workspace status, Client invitation status, Pilot status, Interview Requests, notes, and activity.
 - Send or resend the single Client account invitation.
 - Deactivate or reactivate the Client account.
-- Update Pilot status and milestones.
+- Create and manage two-week Pilots after interviews and manual agreement.
 - Archive and restore a Company.
 
 Business rules:
@@ -440,7 +440,10 @@ Admin can:
 - Update Interview Request status.
 - Record scheduling information and internal notes.
 - View the related Company and Talent Profile.
-- Update company Pilot status and milestones.
+- Create a two-week Pilot after the Client and BlihOps agree to proceed.
+- Define the Pilot goals, dates, milestones, participating Talent, and
+  client-visible updates.
+- Start, complete, or cancel a Pilot and record its outcome.
 
 Interview Request statuses:
 
@@ -448,6 +451,37 @@ Interview Request statuses:
 - Scheduled
 - Completed
 - Cancelled
+
+Interview rules:
+
+- A Client may request interviews with one or more available Talent Profiles.
+- BlihOps confirms availability, contacts Talent, and coordinates interviews
+  outside the platform.
+- Completing an Interview Request does not create a Pilot automatically.
+- The Client may request additional interviews before agreeing to a Pilot.
+
+Pilot statuses:
+
+- Planned
+- Active
+- Completed
+- Cancelled
+
+Pilot rules:
+
+- A Pilot is a two-week trial engagement, distinct from a Pilot Request, Talent
+  Pod, and longer-term contract.
+- Admin creates a Pilot only after the interview process and manual agreement with
+  the Client.
+- A Company may have multiple Pilots over time but at most one Planned or Active
+  Pilot at once.
+- Admin manages Pilot goals, dates, milestones, participating Talent, progress,
+  client-visible updates, and final outcome.
+- Pod membership never creates Pilot participation. Admin adds the agreed Talent
+  to the Pilot explicitly.
+- The Client has read-only visibility into its Pilot status and progress.
+- Daily work, communication, task management, contracts, and payments remain
+  outside the platform in V1.
 
 ---
 
@@ -503,8 +537,9 @@ profile or contact the Talent directly.
 
 ### 7.4 Talent Pods
 
-Purpose: let the Client organize visible Talent into private planning groups
-without creating an assignment, reservation, or employment commitment.
+Purpose: let the Client organize and compare visible Talent in private shortlists
+before deciding whom to interview, without creating an assignment, reservation,
+Pilot participation, or employment commitment.
 
 Client can:
 
@@ -541,15 +576,24 @@ Client can:
 
 All scheduling and direct coordination remains with BlihOps.
 
+Interview completion does not start a Pilot automatically. After interviews, the
+Client may request more interviews or agree with BlihOps to proceed with selected
+Talent. Admin then creates the Pilot separately.
+
 ### 7.6 Pilot Status
 
 Displays:
 
 - Current Pilot
 - Current status
+- Goals and dates
 - Timeline and milestones
-- Assigned or participating talent when applicable
+- Participating Talent when applicable
 - Recent updates
+- Completed or cancelled Pilot history
+
+The Client can monitor Pilot information but cannot create a Pilot, change its
+status, edit milestones, manage participants, or post updates.
 
 ### 7.7 Client Workspace Rules
 
@@ -849,7 +893,8 @@ At minimum:
 - Client and Talent account activation
 - Talent Pod creation, detail changes, membership changes, Pod Lead changes, and archival
 - Interview Request creation and status changes
-- Pilot status changes
+- Pilot creation, status changes, milestone changes, participant changes, updates,
+  and final outcome
 - Managed-content creation, publication, activation, ordering, and deletion
 
 Talent-originated profile changes must be distinguishable from Admin changes.
@@ -892,6 +937,10 @@ Talent-originated profile changes must be distinguishable from Admin changes.
 - Talent Pods are private planning aids and never imply reservation or assignment.
 - Each approved Talent Profile has at most one Talent account.
 - Recruitment communication and interview scheduling remain operationally managed by BlihOps.
+- Pilots are two-week trials created and managed by Admin after interviews and
+  manual agreement with the Client.
+- Pilot work and communication are conducted outside the platform; the Workspace
+  provides progress visibility only.
 - Cal.com handles call scheduling.
 - Talent self-service is limited to the explicitly permitted profile fields.
 - Talent Application information is collected in two rounds: Round 1 collects only what Admin needs to assess the candidate; Round 2 collects remaining profile-building fields after approval.

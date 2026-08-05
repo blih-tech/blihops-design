@@ -281,14 +281,21 @@ profile does not automatically make it visible to Clients.
 Companies
 → Open requesting Company
 → Review Interview Requests within Company Detail
-→ Update request status, scheduling information, or internal notes
-→ Update Company Pilot status, milestones, participating Talent, or updates
-→ Save
-→ Client sees permitted status changes
+→ Confirm requested Talent availability and contact Talent manually
+→ Schedule and coordinate interviews
+→ Update requests through Pending, Scheduled, Completed, or Cancelled
+→ [Client requests more interviews] → Repeat interview coordination
+→ [Client and BlihOps agree to proceed] → Create two-week Pilot
+→ Define goals, dates, milestones, and participating Talent
+→ Start Pilot
+→ Record progress, milestone changes, and client-visible updates
+→ Complete or cancel Pilot and record outcome
+→ Client sees permitted Pilot progress throughout
 ```
 
 Interview Requests remain within Company Detail; there is no separate Admin
-Interview Requests page in V1.
+Interview Requests page in V1. Completing an interview does not create a Pilot
+automatically. Pilot work and communication remain outside the platform.
 
 ### ADMIN-06 — Manage Structured Website Content
 
@@ -355,13 +362,15 @@ Talent Pods
 → Add visible Talent from Pod, Directory, or Talent Profile
 → (System) prevents duplicate membership
 → Optionally select a current member as Pod Lead
+→ Compare members and decide whom to interview
 → Rename Pod, update note, change Lead, or remove members
 → Save changes
 ```
 
 Removing the selected Pod Lead clears the lead assignment. Archiving a Pod
 requires confirmation. An unavailable member remains only as a non-clickable
-placeholder.
+placeholder. Pod membership does not create an Interview Request or Pilot
+participation.
 
 ### CLIENT-04 — Request an Interview
 
@@ -372,18 +381,28 @@ Open available Talent Profile
 → Submit
 → (System) creates Pending request for the Company
 → Show confirmation and coordination expectations
+→ BlihOps confirms availability and contacts Talent manually
+→ [Available] → BlihOps schedules interview → Request becomes Scheduled
+→ Interview occurs → Request becomes Completed
 ```
 
-BlihOps handles scheduling and direct Talent communication.
+BlihOps handles scheduling and direct Talent communication. The Client may request
+additional interviews after one is completed. A completed interview does not
+create a Pilot automatically.
 
 ### CLIENT-05 — Track Requests and Pilot Progress
 
 ```text
 Open Interview Requests or Pilot Status
-→ Review current status, timeline, milestones, Talent, and updates
+→ Review Interview Request progress
+→ [Pilot agreed and created by Admin] → Review Pilot goals and dates
+→ Monitor status, timeline, milestones, participating Talent, and updates
 → Open related permitted information
 → Wait for BlihOps coordination or status update
 ```
+
+The Client's Pilot experience is read-only. Pilot work, communication, contracts,
+payments, and task management remain outside the platform.
 
 ## 8. Talent Flow
 
