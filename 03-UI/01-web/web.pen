@@ -9846,7 +9846,7 @@
       "name": "Client Workspace Screens",
       "width": 4000,
       "height": 4000,
-      "fill": "$color.muted",
+      "fill": "$color.secondary",
       "layout": "none",
       "children": [
         {
@@ -9921,7 +9921,23 @@
           "x": 48,
           "y": 208,
           "width": 1440,
-          "height": 960
+          "height": 960,
+          "descendants": {
+            "Arqc1": {
+              "width": 280
+            },
+            "Z9s29r": {
+              "padding": 8
+            },
+            "TzhUn": {
+              "width": "fill_container",
+              "height": "fill_container",
+              "flipX": false,
+              "flipY": false,
+              "x": 8,
+              "y": 8
+            }
+          }
         }
       ]
     },
@@ -9935,7 +9951,7 @@
       "clip": true,
       "width": 1440,
       "height": 960,
-      "fill": "$color.background",
+      "fill": "$color.muted",
       "children": [
         {
           "type": "frame",
@@ -9943,11 +9959,8 @@
           "name": "Sidebar",
           "width": 280,
           "height": "fill_container",
-          "fill": "$color.background",
+          "fill": "$color.muted",
           "stroke": "$color.border",
-          "strokeWidth": {
-            "right": 1
-          },
           "layout": "vertical",
           "children": [
             {
@@ -10382,11 +10395,88 @@
           "type": "frame",
           "id": "ESdFW",
           "name": "Content Slot",
-          "slot": [],
           "width": "fill_container",
           "height": "fill_container",
           "fill": "$color.muted",
-          "layout": "vertical"
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "R3bGbk",
+              "name": "App Header",
+              "width": "fill_container",
+              "height": 64,
+              "stroke": "$color.border",
+              "padding": [
+                0,
+                24
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "I9KzGK",
+                  "name": "Breadcrumbs",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "MhakW",
+                      "name": "Workspace Label",
+                      "fill": "$color.muted-foreground",
+                      "content": "Client Workspace",
+                      "fontFamily": "$font.body",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "SoLrR",
+                      "name": "Breadcrumb Separator",
+                      "fill": "$color.muted-foreground",
+                      "content": "/",
+                      "fontFamily": "$font.body",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "PFafv",
+                      "name": "Current Page",
+                      "fill": "$color.foreground",
+                      "content": "Overview",
+                      "fontFamily": "$font.body",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Z9s29r",
+              "name": "Main Content Wrapper",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "padding": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "TzhUn",
+                  "name": "Main Content Slot",
+                  "clip": true,
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$color.background",
+                  "cornerRadius": "$radius.xl",
+                  "layout": "vertical"
+                }
+              ]
+            }
+          ]
         }
       ]
     }
