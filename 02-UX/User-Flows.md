@@ -19,7 +19,7 @@ Action → Next action
 
 ```mermaid
 flowchart LR
-    A["Prospective Client visits website"] --> B["Contact, Pilot Request, or Calendly"]
+    A["Prospective Client visits website"] --> B["Contact, Pilot Request, or Cal.com"]
     B --> C["Lead created or updated"]
     C --> D["Admin qualifies Lead"]
     D --> E["Admin creates Company and Workspace"]
@@ -65,7 +65,7 @@ approval. Account activation remains invitation-only.
 | ADMIN-04 | Request completion, create Profile, and invite Talent | Admin |
 | ADMIN-05 | Manage Interview Requests and Pilot progress | Admin |
 | ADMIN-06 | Manage structured website content | Admin |
-| ADMIN-07 | Manage email templates and Calendly settings | Admin |
+| ADMIN-07 | Manage email templates and Cal.com settings | Admin |
 | CLIENT-01 | Review the Workspace Dashboard | Client |
 | CLIENT-02 | Discover and review Talent | Client |
 | CLIENT-03 | Create and manage a Talent Pod | Client |
@@ -151,11 +151,11 @@ Open Pilot page
 → Submit
 → (System) creates a PILOT Lead
 → Show success with Book Discovery Call action
-→ [Book call] → Calendly scheduling
-→ (System) creates or updates the CALENDLY Lead without duplication
+→ [Book call] → Cal.com scheduling
+→ (System) creates or updates a BOOKING Lead with source provider CALCOM without duplication
 ```
 
-A Visitor may also enter Calendly directly from another Book a Call action.
+A Visitor may also enter Cal.com directly from another Book a Call action.
 
 ### PUBLIC-03a — Apply to the Talent Pool (Round 1)
 
@@ -311,17 +311,17 @@ Important variations:
 - Services Hero Media is one global media object.
 - Destructive deletion requires confirmation.
 
-### ADMIN-07 — Manage Email and Calendly Settings
+### ADMIN-07 — Manage Email and Cal.com Settings
 
 ```text
 Settings
-→ Choose Email Templates or Calendly
+→ Choose Email Templates or Cal.com
 → Review current configuration
 → [Email] → Edit template → Validate variables → Save
-→ [Calendly] → Review connection, webhook mapping, and last event
+→ [Cal.com] → Review connection, webhook mapping, and last event
 ```
 
-Sensitive Calendly credentials are never shown in full.
+Sensitive Cal.com credentials are never shown in full.
 
 ## 7. Client Workspace Flows
 

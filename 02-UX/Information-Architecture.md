@@ -138,7 +138,7 @@ BlihOps Admin
 │   └── Pilot FAQs
 ├── Settings
 │   ├── Email Templates
-│   └── Calendly
+│   └── Cal.com
 └── Account Actions
     └── Logout
 ```

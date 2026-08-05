@@ -41,7 +41,7 @@ Key capabilities:
 
 - Marketing pages
 - Contact and pilot-request forms
-- Book a Call through Calendly
+- Book a Call through Cal.com
 - Join Talent Pool application
 - Case Studies and Insights
 - Careers roles
@@ -62,7 +62,7 @@ Key capabilities:
 - Talent Profile management
 - Interview and pilot oversight
 - Bounded website content management
-- Email-template and Calendly settings
+- Email-template and Cal.com settings
 
 ### 3.3 BlihOps API
 

@@ -38,7 +38,7 @@ Includes:
 
 - Marketing pages
 - Contact and pilot-request forms
-- Calendly booking
+- Cal.com booking
 - Join Talent Pool
 - Case Studies and Insights
 - Careers roles
@@ -56,7 +56,7 @@ The internal application for:
 - Talent Profiles
 - Interview and pilot oversight
 - Managed website content
-- Email-template and Calendly settings
+- Email-template and Cal.com settings
 
 ### 2.3 BlihOps API
 
@@ -225,8 +225,9 @@ Requirements:
 
 ### 5.4 Book a Call
 
-- Calendly provides scheduling.
-- A successful Calendly webhook creates or updates a Lead with type `CALENDLY`.
+- Cal.com provides scheduling.
+- A successful Cal.com webhook creates or updates a Lead with type `BOOKING` and
+  source provider `CALCOM`.
 - Duplicate webhook delivery must not create duplicate leads.
 
 ### 5.5 Join Talent Pool
@@ -260,7 +261,7 @@ Requirements:
 The Admin Dashboard displays:
 
 - New and active Leads
-- Pilot Requests and Calendly bookings
+- Pilot Requests and Cal.com bookings
 - Talent Applications by current stage
 - Approved Talent Applications awaiting a completion request or submission
 - Completion-submitted Talent Applications ready for Profile and account creation
@@ -275,7 +276,7 @@ Lead types:
 
 - Contact
 - Pilot
-- Calendly
+- Booking
 - Manually created
 
 Lead statuses:
@@ -301,7 +302,10 @@ Admin can:
 
 Business rules:
 
-- Every public Contact, Pilot Request, and completed Calendly booking creates or resolves to a Lead.
+- Every public Contact, Pilot Request, and completed Cal.com booking creates or
+  resolves to a Lead.
+- Booking Leads use type `BOOKING`; their source provider identifies Cal.com as
+  `CALCOM`.
 - A Lead never becomes a Company automatically.
 - Conversion creates a Company and its Client Workspace, then marks the Lead as converted.
 - Duplicate-company detection blocks accidental duplicate conversion.
@@ -773,7 +777,7 @@ Admin can view and update templates for:
 
 Template variables must be validated before saving.
 
-### 10.2 Calendly
+### 10.2 Cal.com
 
 Admin can view:
 
@@ -791,7 +795,7 @@ Sensitive credentials are never displayed in full.
 ### 11.1 Admin Notifications
 
 - New Contact or Pilot Request
-- New Calendly booking
+- New Cal.com booking
 - New Talent Application
 - Talent completion form submitted
 - Talent Profile and account created
@@ -888,7 +892,7 @@ Talent-originated profile changes must be distinguishable from Admin changes.
 - Talent Pods are private planning aids and never imply reservation or assignment.
 - Each approved Talent Profile has at most one Talent account.
 - Recruitment communication and interview scheduling remain operationally managed by BlihOps.
-- Calendly handles call scheduling.
+- Cal.com handles call scheduling.
 - Talent self-service is limited to the explicitly permitted profile fields.
 - Talent Application information is collected in two rounds: Round 1 collects only what Admin needs to assess the candidate; Round 2 collects remaining profile-building fields after approval.
 - The backend will store and return locale-specific content according to the requested locale.

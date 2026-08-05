@@ -70,7 +70,7 @@ Pilot coordination, selected website content, and operational settings.
 
 ### Core tasks
 
-- Review Contact, Pilot, Calendly, and manually created Leads.
+- Review Contact, Pilot, Booking, and manually created Leads.
 - Qualify, close, archive, or convert Leads into Companies.
 - Create Companies and Client Workspaces after manual agreement.
 - Invite and manage the single Client representative.
@@ -83,7 +83,7 @@ Pilot coordination, selected website content, and operational settings.
 - Invite Approved Talent after their profile exists.
 - Update Interview Request and Pilot information.
 - Manage the structured website content defined for V1.
-- Review activity, notifications, email templates, and Calendly information.
+- Review activity, notifications, email templates, and Cal.com information.
 
 ### Needs and expectations
 
@@ -133,7 +133,7 @@ Client Representative.
 
 - Browse public marketing content, Case Studies, and Insights.
 - Submit a Contact form or Pilot Request.
-- Book a call through Calendly.
+- Book a call through Cal.com.
 - Continue qualification and agreement discussions manually with BlihOps.
 
 ### Needs and expectations
