@@ -239,6 +239,11 @@ There is no separate V1 project-management application.
 Activity records capture Interview Request status changes and all important Pilot
 lifecycle, milestone, participant, update, and outcome changes.
 
+The Client's recent-activity feed may show Interview Request status changes, Pilot
+creation and status changes, completed milestones, client-visible Pilot updates,
+participant changes, and related Talent becoming unavailable. It excludes internal
+notes, Admin-only changes, and technical events.
+
 Client notifications may be sent for important Pilot status changes, completed
 milestones, and client-visible updates. Notification channels and delivery rules
 are defined separately.

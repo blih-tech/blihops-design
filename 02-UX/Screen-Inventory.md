@@ -53,7 +53,7 @@ published or active content is visible publicly.
 
 | ID | Screen | User | Purpose | Primary entry |
 |---|---|---|---|---|
-| CLIENT-01 | Workspace Dashboard | Client | Show Company context, Pilot, Talent, Pods, requests, and activity | Successful login or invitation activation |
+| CLIENT-01 | Workspace Dashboard | Client | Show Company context, Pilot, Talent, Pods, requests, and curated client-safe recent activity | Successful login or invitation activation |
 | CLIENT-02 | Talent Directory | Client | Search, filter, sort, paginate, and browse visible Talent | Workspace navigation |
 | CLIENT-03 | Talent Profile | Client | Review one client-visible Talent Profile | Directory, Pod, or related request |
 | CLIENT-04 | Talent Pods | Client | View and manage the Company's planning Pods | Workspace navigation |

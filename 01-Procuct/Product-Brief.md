@@ -202,6 +202,7 @@ V1 capabilities:
 - Talent Pods for planning and optional Pod Lead selection
 - Interview Requests
 - Pilot Status
+- Curated recent Workspace activity
 
 Talent Pods are private planning groups. Adding Talent to a Pod does not reserve,
 assign, hire, contact that Talent, or add them to a Pilot. Clients use Pods to
@@ -216,6 +217,11 @@ two-week Pilot with goals, dates, milestones, participants, and progress updates
 The Client can monitor the Pilot in the Workspace, while Admin manages it. Daily
 work and communication remain outside the platform. A longer-term contract is a
 separate post-Pilot decision and remains outside V1.
+
+Recent Workspace activity is limited to client-relevant Interview, Pilot,
+milestone, participant, and Talent-availability events. It does not expose the
+internal audit log or include routine Pod changes, internal notes, Admin-only
+changes, or Talent Profile edit history.
 
 Clients cannot edit Talent Profiles, contact talent directly, create teams of
 company users, or invite additional client users.

@@ -595,7 +595,23 @@ Displays:
 The Client can monitor Pilot information but cannot create a Pilot, change its
 status, edit milestones, manage participants, or post updates.
 
-### 7.7 Client Workspace Rules
+### 7.7 Recent Workspace Activity
+
+The Client Dashboard displays a curated feed of client-relevant events:
+
+- Interview Request submitted
+- Interview Request scheduled, completed, or cancelled
+- Pilot created, started, completed, or cancelled
+- Pilot milestone completed
+- Client-visible Pilot update posted
+- Pilot participant added or removed
+- Talent used in a Pod or Pilot becoming unavailable
+
+The feed excludes routine Pod actions, internal notes, Admin-only changes, Talent
+Profile edit history, sensitive audit information, and technical system events.
+It is a restricted Client view and not the internal audit log.
+
+### 7.8 Client Workspace Rules
 
 - Only the company’s single active Client account can enter.
 - The Client sees only their own Company data.
@@ -881,6 +897,8 @@ Sensitive credentials are never displayed in full.
 ## 13. Activity and Audit
 
 The system records important actions with actor, timestamp, resource, and action.
+The internal audit history is separate from the curated Client Workspace activity
+feed and is never exposed directly to Clients.
 
 At minimum:
 
@@ -898,6 +916,8 @@ At minimum:
 - Managed-content creation, publication, activation, ordering, and deletion
 
 Talent-originated profile changes must be distinguishable from Admin changes.
+Only the explicitly permitted events in Section 7.7 may appear in the Client
+Workspace activity feed.
 
 ---
 

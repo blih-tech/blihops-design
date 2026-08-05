@@ -337,9 +337,13 @@ Sensitive Cal.com credentials are never shown in full.
 ```text
 Enter protected Client Workspace
 → Review Company and Pilot context
-→ Review Talent, Pods, requests, and recent activity summaries
+→ Review Talent, Pods, and Interview Request summaries
+→ Review curated Interview, Pilot, milestone, participant, and Talent-availability activity
 → Open the relevant Workspace area
 ```
+
+Recent activity excludes routine Pod actions, internal notes, Admin-only changes,
+Talent Profile edit history, sensitive audit information, and technical events.
 
 ### CLIENT-02 — Discover and Review Talent
 
@@ -441,3 +445,6 @@ feature:
   invitation, submission, request, Pilot, or access event occurs.
 - **Activity:** record important lifecycle, access, content, and profile changes
   with actor and timestamp.
+
+Internal activity records are not exposed directly to Clients. The Client
+Dashboard receives only the curated event set defined in the PRD.

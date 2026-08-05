@@ -79,6 +79,11 @@ assignments, interviews, Pilot participation, or direct contact with Talent. A
 Pilot is created and managed by Admin only after interviews and manual agreement;
 the Client's Pilot Status area is read-only.
 
+The Workspace Dashboard includes a curated recent-activity feed for relevant
+Interview, Pilot, milestone, participant, and Talent-availability events. This is
+not the internal Admin audit history and excludes routine Pod actions and internal
+information.
+
 ### 3.3 Protected Talent Portal
 
 ```text
@@ -156,7 +161,7 @@ Company Detail rather than through a separate page.
 | Area | Access | Information boundary |
 |---|---|---|
 | Public Website | Anyone | Published or active public content only |
-| Client Workspace | Invited Client | Their Company, Pods, requests, Pilot, and visible Talent Profiles |
+| Client Workspace | Invited Client | Their Company, Pods, requests, Pilot, curated activity, and visible Talent Profiles |
 | Talent Portal | Invited Talent | Their own profile and permitted editable fields |
 | BlihOps Admin | Provisioned Admin | All authorized V1 operational and managed-content resources |
 
@@ -179,7 +184,7 @@ Company Detail rather than through a separate page.
 - Talent navigation remains limited to Profile Management and account actions.
 - Admin navigation follows the operational domains of sales, Companies, Talent,
   delivery oversight, managed content, and settings.
-- Notifications, confirmations, and activity records appear in context unless a
-  later requirement establishes a dedicated notification center.
+- Notifications, confirmations, and permitted activity records appear in context;
+  V1 has no dedicated notification or activity center.
 - Protected or unavailable destinations provide an appropriate login,
   access-denied, expired-link, or unavailable-resource state.

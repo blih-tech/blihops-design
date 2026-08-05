@@ -187,6 +187,8 @@ who originally contacted BlihOps.
 - Submit Interview Requests with relevant context.
 - Review Interview Request progress while BlihOps coordinates with Talent.
 - Monitor Pilot goals, dates, milestones, participants, and updates.
+- Review recent client-relevant Interview, Pilot, milestone, participant, and
+  Talent-availability activity.
 
 ### Needs and expectations
 
@@ -196,6 +198,7 @@ who originally contacted BlihOps.
   client-visible commercial information.
 - Clear feedback after requests and Pod changes.
 - Confidence that BlihOps coordinates the next step.
+- A focused recent-activity feed without internal operational information.
 - Clear explanations when a Profile or Workspace becomes unavailable.
 
 ### Frustrations and risks
@@ -214,6 +217,7 @@ who originally contacted BlihOps.
 - Pod membership does not reserve, assign, hire, notify, or contact Talent.
 - Pod membership does not create an Interview Request or Pilot participation.
 - The Client can monitor but cannot create or manage a Pilot.
+- The Client can see only curated Workspace activity, never the internal audit log.
 - The Client cannot edit Talent Profiles or contact Talent directly.
 - The Client cannot invite additional users or manage company-user teams.
 - Contracts, payments, billing, and direct messaging are outside V1.
