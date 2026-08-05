@@ -194,8 +194,9 @@ who originally contacted BlihOps.
 
 - Clear Company identity and Workspace orientation.
 - A focused interface without internal BlihOps complexity.
-- Accurate professional, availability, verification, and approved
-  client-visible commercial information.
+- Accurate professional, availability, and verification information.
+- A clear final BlihOps monthly selling rate in EUR without internal compensation
+  or margin details.
 - Clear feedback after requests and Pod changes.
 - Confidence that BlihOps coordinates the next step.
 - A focused recent-activity feed without internal operational information.
@@ -204,7 +205,7 @@ who originally contacted BlihOps.
 ### Frustrations and risks
 
 - Seeing private or internal Talent information.
-- Unclear Talent availability or commercial information.
+- Unclear Talent availability or monthly pricing.
 - Confusing a planning Pod with staffing or assignment.
 - Uncertainty after submitting an Interview Request.
 - Losing Workspace access without an explanation.
@@ -321,8 +322,8 @@ the account and use a focused Profile Management experience.
 - Talent can access only their own Admin-created Talent Profile.
 - Talent lands on Profile Management; there is no Talent Dashboard.
 - Talent may edit only the professional fields permitted by the PRD.
-- Talent cannot edit rates, assessments, verification, client visibility,
-  lifecycle status, or internal notes.
+- Talent cannot view or edit rates and cannot edit assessments, verification,
+  client visibility, lifecycle status, or internal notes.
 - Permitted saved changes take effect immediately where the profile is visible.
 - An archived profile blocks Talent Portal editing.
 

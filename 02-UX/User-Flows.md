@@ -352,11 +352,14 @@ Talent Directory
 → Search, filter, sort, or paginate
 → Review visible Talent cards
 → Open Talent Profile
-→ Review client-visible professional, verification, availability, and rate data
+→ Review client-visible professional, verification, and availability data
+→ Review the final BlihOps monthly selling rate in EUR
 → Add to Pod or request interview
 ```
 
 Hidden, archived, or otherwise unavailable profiles cannot be opened.
+Internal Talent compensation, hourly rates, and BlihOps margin are never shown to
+the Client.
 
 ### CLIENT-03 — Create and Manage a Talent Pod
 

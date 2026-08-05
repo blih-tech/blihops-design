@@ -394,7 +394,9 @@ Admin-managed fields include:
 
 - Identity and contact information
 - Seniority
-- Hourly and monthly rates
+- Internal hourly compensation rate
+- Internal monthly compensation rate
+- Client monthly selling rate in EUR
 - English level
 - Verification state
 - Assessment summary
@@ -518,7 +520,7 @@ Talent cards may display:
 - Tech stack
 - English level
 - Availability
-- Client-visible rate information
+- BlihOps monthly selling rate in EUR
 
 ### 7.3 Talent Profile
 
@@ -530,10 +532,20 @@ Displays only client-visible fields:
 - Portfolio and resume
 - Availability
 - English level and verification
-- Client-visible rates
+- BlihOps monthly selling rate in EUR
 
 Client can add the profile to a Pod or request an interview, but cannot edit the
 profile or contact the Talent directly.
+
+Rate rules:
+
+- Clients see only the final BlihOps monthly selling rate in EUR.
+- Internal Talent compensation and BlihOps margin are never exposed to Clients.
+- Internal hourly rates are never exposed to Clients.
+- V1 provides no rate breakdown, alternative currency, or currency conversion.
+- A Talent Profile must have a client monthly selling rate before it can become
+  client-visible.
+- Talent cannot view or edit commercial rates.
 
 ### 7.4 Talent Pods
 
@@ -981,7 +993,8 @@ Workspace activity feed.
 ### Talent Features
 
 - Talent-created profiles before Admin approval
-- Editing rates, assessments, verification, visibility, status, or internal notes
+- Viewing or editing rates; editing assessments, verification, visibility, status,
+  or internal notes
 - Talent Dashboard
 - Client discovery or marketplace browsing
 

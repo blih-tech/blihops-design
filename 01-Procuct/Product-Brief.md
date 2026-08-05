@@ -123,7 +123,8 @@ Can:
 - Upload or replace their profile photo and resume.
 - Update availability and professional links.
 
-Talent cannot change commercial rates, assessments, verification, client visibility, lifecycle status, or internal notes.
+Talent cannot view or change commercial rates and cannot change assessments,
+verification, client visibility, lifecycle status, or internal notes.
 
 ---
 
@@ -262,7 +263,8 @@ Profiles may include:
 - Portfolio, GitHub, LinkedIn, and resume
 - English level and verification
 - Availability and engagement preference
-- Hourly and monthly rates
+- Internal hourly and monthly compensation rates
+- Client monthly selling rate in EUR
 - Assessment summary and internal notes
 - Visibility and lifecycle status
 
@@ -273,6 +275,10 @@ the completion form is submitted and the combined application information is
 reviewed, before sending the account invitation.
 
 Only visible, active Talent Profiles appear in the Client Workspace.
+
+Clients see only the final BlihOps monthly selling rate in EUR. Internal Talent
+compensation, hourly rates, and BlihOps margin remain private. V1 does not expose a
+rate breakdown or provide currency conversion.
 
 ---
 
