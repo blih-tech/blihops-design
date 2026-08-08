@@ -44,7 +44,7 @@ Create a **Web Service** from the `blihops-api` GitHub repo (`main` branch):
 | Setting            | Value                                                       |
 | ------------------ | ----------------------------------------------------------- |
 | Environment        | Node                                         |
-| Build command      | `pnpm install --frozen-lockfile && pnpm build && prisma generate` |
+| Build command      | `pnpm install --frozen-lockfile && pnpm build`              |
 | Start command      | `pnpm start` (runs `node dist/server.js`)    |
 | Release command    | `prisma migrate deploy` (runs before deploy completes)      |
 | Health check path  | `/health`                                                   |
@@ -53,12 +53,17 @@ Create a **Web Service** from the `blihops-api` GitHub repo (`main` branch):
 
 Notes:
 
-- `prisma generate` must run in the build because Prisma Client is generated
-  code and the install command does not generate it.
+- Node **`>=24.18 <25`** is required (engines in `package.json`) — confirm the
+  Render Node runtime supports 24 before creating the service.
+- `pnpm build` already runs `prisma generate` (via `pnpm db:generate`), so no
+  extra generate step is needed in the build command.
 - `prisma migrate deploy` in the release command applies committed migrations
   safely (never `prisma db push` in production).
 - The server already logs pino JSON to stdout — Render captures it under
   **Logs** in the dashboard.
+- Transactional email is sent through **Resend** from the verified domain
+  `mail.blihops.com` (`EMAIL_FROM`). Resend is a separate service — its env
+  vars are listed in §5.
 
 ### Custom domain
 
@@ -77,6 +82,11 @@ Notes:
    - **Direct** (migrations/admin): `postgresql://...@ep-xxx.eu-central-1.aws.neon.tech/blihops?sslmode=require`
 3. Set them in Render as `DATABASE_URL` (pooled) and `DIRECT_URL` (direct).
 
+Migrations and Prisma CLI commands use `DIRECT_URL` (`prisma.config.ts`
+resolves `DIRECT_URL ?? DATABASE_URL`); the runtime app always uses
+`DATABASE_URL` (pooled). If `DIRECT_URL` is unset, the CLI falls back to
+`DATABASE_URL` (local dev setup).
+
 ### Branching
 
 Neon branches give every PR a disposable database:
@@ -89,30 +99,51 @@ Backups are automatic (7-day point-in-time on free tier).
 
 ## 5. Environment variables
 
-Set these in the Render service dashboard (and in local `.env` for dev).
+Set these in the Render service dashboard (and in local `.env` for dev). The
+schema in `src/shared/configs/envSchema.ts` is the source of truth.
 
-| Variable       | Local dev (Docker)                          | Production (Render)                        |
-| -------------- | ------------------------------------------- | ------------------------------------------ |
-| `NODE_ENV`     | `development`                               | `production`                               |
-| `PORT`         | `4000`                                      | `10000` (Render-injected)                  |
-| `API_URL`      | `http://localhost:4000`                     | `https://api.blihops.com`                  |
-| `DATABASE_URL` | `postgresql://blihops:blihops@localhost:5432/blihops` | Neon **pooled** URL        |
-| `DIRECT_URL`   | (same as local)                             | Neon **direct** URL                        |
-| `LOG_LEVEL`    | `debug`                                     | `info`                                     |
-| `CORS_ORIGIN`  | `http://localhost:3000,http://localhost:5173` | `https://blihops.com,https://www.blihops.com` |
-| `JWT_SECRET`   | random ≥32 chars                            | random ≥32 chars (replaced by Better Auth secrets when auth lands) |
+| Variable             | Local dev (Docker)                          | Production (Render)                        |
+| -------------------- | ------------------------------------------- | ------------------------------------------ |
+| `NODE_ENV`           | `development`                               | `production`                               |
+| `PORT`               | `4000`                                      | `10000` (Render-injected)                  |
+| `API_URL`            | `http://localhost:4000`                     | `https://api.blihops.com`                  |
+| `WEB_URL`            | `http://localhost:3000`                     | `https://blihops.com`                      |
+| `DATABASE_URL`       | `postgresql://blihops:blihops@localhost:5432/blihops` | Neon **pooled** URL        |
+| `DIRECT_URL`         | (same as local)                             | Neon **direct** URL                        |
+| `LOG_LEVEL`          | `debug`                                     | `info`                                     |
+| `CORS_ORIGIN`        | `http://localhost:3000,http://localhost:5173` | `https://blihops.com,https://www.blihops.com` |
+| `BETTER_AUTH_SECRET` | random ≥32 chars                            | random ≥32 chars                           |
+| `RESEND_API_KEY`     | Resend API key                              | Resend API key                             |
+| `EMAIL_FROM`         | `Blih Ops <noreply@mail.blihops.com>`       | same                                       |
+| `EMAIL_LOGO_URL`     | `https://blihops.com/logo.png`              | same (hosted on the deployed web app)      |
+| `SEED_ADMIN_PASSWORD`| required for `pnpm seed:admin`              | **not set in production**                  |
+| `SEED_DEMO_PASSWORD` | required for `pnpm seed:demo`               | **not set in production**                  |
 
 Notes:
 
-- `CORS_ORIGIN` is comma-separated (parsed by the env schema).
-- The same origins list must go into Better Auth `trustedOrigins` once auth is
-  wired.
+- `CORS_ORIGIN` is comma-separated (parsed by the env schema) and also feeds
+  Better Auth `trustedOrigins` (already wired — no separate config).
+- `DATABASE_URL` (pooled) is used at runtime by the app; `DIRECT_URL`
+  (direct) is used by Prisma CLI/migrations via `prisma.config.ts`.
+- `RESEND_API_KEY` is required outside the test environment (enforced by the
+  env schema). Emails are sent from the verified Resend domain
+  `mail.blihops.com`.
+- `BETTER_AUTH_SECRET` replaced the earlier `JWT_SECRET` placeholder. Sign-up
+  is disabled (`disableSignUp`), so production user creation happens only via
+  admin invites and the admin seed — which is why seed passwords are never
+  set in production.
 - Never commit `.env` files; CI already fails on committed env files.
 
 ## 6. Frontend (Vercel)
 
-- Set `API_URL=https://api.blihops.com` (and any `NEXT_PUBLIC_API_URL`) in the
-  `blihops-web` project settings.
+Set both API env vars to `https://api.blihops.com` in the `blihops-web` (and
+`blihops-admin`) project settings:
+
+- `API_URL` — server-side only, used by the `proxy.ts` middleware to validate
+  sessions against the API.
+- `NEXT_PUBLIC_API_URL` — inlined into the client bundle, used by the
+  better-auth client and `apiFetch`.
+
 - CORS on the API already allows the configured origins; add the Vercel
   preview domain (`*.vercel.app`) to `CORS_ORIGIN` only if previews must call
   the API cross-origin.
@@ -139,6 +170,7 @@ Notes:
 - Vercel: $0 (free tier) — already in use.
 - Render: $0 (free tier).
 - Neon: $0 (free tier).
+- Resend: $0 (free tier, 100 emails/day) — plenty for a pilot.
 - **Total ≈ $0/month** until the pilot needs paid tiers.
 
 ## 10. Backups & DR
@@ -167,8 +199,11 @@ No code changes are required — this is why local dev uses Docker Compose.
 
 - [ ] Neon project created (Frankfurt), pooled + direct URLs copied
 - [ ] Render service created from repo, build/start/release commands set
-- [ ] Env vars from §5 set in Render
+- [ ] Env vars from §5 set in Render (incl. `BETTER_AUTH_SECRET`, Resend vars)
+- [ ] No `SEED_*` vars set in production
 - [ ] `api.blihops.com` CNAME + TLS verified (`curl https://api.blihops.com/health`)
-- [ ] Vercel web project env set to `https://api.blihops.com`
+- [ ] Vercel web + admin project envs set to `https://api.blihops.com`
 - [ ] CORS smoke test from the live web domain
-- [ ] First `prisma migrate deploy` runs clean on production
+- [ ] First `prisma migrate deploy` runs clean on production (via `DIRECT_URL`)
+- [ ] Resend domain `mail.blihops.com` verified + `EMAIL_LOGO_URL` reachable
+- [ ] Prod email smoke test: real invite/reset email sent, logo renders
