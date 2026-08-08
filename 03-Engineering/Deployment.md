@@ -111,7 +111,7 @@ schema in `src/shared/configs/envSchema.ts` is the source of truth.
 | `DATABASE_URL`       | `postgresql://blihops:blihops@localhost:5432/blihops` | Neon **pooled** URL        |
 | `DIRECT_URL`         | (same as local)                             | Neon **direct** URL                        |
 | `LOG_LEVEL`          | `debug`                                     | `info`                                     |
-| `CORS_ORIGIN`        | `http://localhost:3000,http://localhost:5173` | `https://blihops.com,https://www.blihops.com` |
+| `CORS_ORIGIN`        | `http://localhost:3000,http://localhost:5173` | `https://blihops.com,https://www.blihops.com,https://admin.blihops.com` |
 | `BETTER_AUTH_SECRET` | random ≥32 chars                            | random ≥32 chars                           |
 | `RESEND_API_KEY`     | Resend API key                              | Resend API key                             |
 | `EMAIL_FROM`         | `Blih Ops <noreply@mail.blihops.com>`       | same                                       |
@@ -122,7 +122,9 @@ schema in `src/shared/configs/envSchema.ts` is the source of truth.
 Notes:
 
 - `CORS_ORIGIN` is comma-separated (parsed by the env schema) and also feeds
-  Better Auth `trustedOrigins` (already wired — no separate config).
+  Better Auth `trustedOrigins` (already wired — no separate config). It must
+  contain every frontend origin: the public site (`blihops.com`), its `www`
+  alias, and the admin console (`admin.blihops.com`).
 - `DATABASE_URL` (pooled) is used at runtime by the app; `DIRECT_URL`
   (direct) is used by Prisma CLI/migrations via `prisma.config.ts`.
 - `RESEND_API_KEY` is required outside the test environment (enforced by the
