@@ -55,17 +55,21 @@ model Tag {
 }
 
 model CaseStudyTag {
-  caseStudyId String    @id
-  tagId       String    @id
+  caseStudyId String
+  tagId       String
   caseStudy   CaseStudy @relation(fields: [caseStudyId], references: [id], onDelete: Cascade)
   tag         Tag       @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([caseStudyId, tagId])
 }
 
 model InsightTag {
-  insightId String   @id
-  tagId     String   @id
-  insight   Insight  @relation(fields: [insightId], references: [id], onDelete: Cascade)
-  tag       Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  insightId String
+  tagId     String
+  insight   Insight @relation(fields: [insightId], references: [id], onDelete: Cascade)
+  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([insightId, tagId])
 }
 
 model Category {

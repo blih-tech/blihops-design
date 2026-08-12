@@ -10,20 +10,24 @@ validation, and business-rule semantics.
 
 - Feature folder `src/features/content/` mounted at
   `app.use('/api/v1/content', contentRouter)` in `src/app.ts`.
-- Response envelopes (existing shared utils): `{ data }` via `sendSuccess`,
-  `{ items, meta }` via `sendMany`, `{ error: { code, message, details? } }`
-  via the error handler.
-- **Public routes** (unauthenticated GETs) serve everything the web renders.
-  **Every admin action — including admin GETs — lives under an `/admin`
-  sub-path per resource**, so the auth guard can be applied once per subtree
-  (`router.use('/admin', requireAuth, requireRole('admin'))`) instead of
-  per-route.
+- Response envelopes (existing shared utils): `{ data }` via `sendSuccess`
+  (single resources), `{ items, meta }` via `sendMany` (multiple resources;
+  unpaginated lists return `meta: {}`), `{ error: { code, message, details? } }`
+  via the error handler. Successful `DELETE` returns **204 No Content with no
+  body**.
+- **Public routes** (unauthenticated GETs) serve everything the web renders
+  and live on the bare resource paths (`/api/v1/content/tags`).
+  **Every admin action — including admin GETs — lives under the single
+  `/api/v1/content/admin` subtree** (`/api/v1/content/admin/tags`,
+  `/api/v1/content/admin/tags/:id`, …). One `admin.router.ts` applies
+  `requireAuth` + `requireRole('admin')` once to the whole subtree, so no
+  admin route can ever be registered without the guard.
 - Public GETs return **only published or active content**. Because the
   `/admin` subtree is the only place filters like `status` exist, drafts can
   never leak through public paths.
-- Admin routes are registered **before** public `/:slug` routes so the
-  literal path `admin` can never be captured as a slug; the slug `admin` is
-  additionally reserved in validation (see §6.2).
+- Public `/:slug` detail routes live under their resource path
+  (`/api/v1/content/case-studies/:slug`) and can never collide with the
+  `/admin` subtree.
 - Bilingual resources (Case Studies, Insights, FAQs) return **both locales**
   in every payload; the web selects the variant matching its active locale.
   There is no `locale` query parameter.
@@ -34,24 +38,35 @@ validation, and business-rule semantics.
 ## 3. File Structure
 
 One feature folder; each resource is a self-contained mini-feature mirroring
-the auth feature pattern:
+the auth feature pattern, exporting a public router and an admin router:
 
 ```
 src/features/content/
 ├── index.ts                 # exports contentRouter
-├── content.router.ts        # mounts the 9 sub-routers
+├── content.router.ts        # public surface: mounts resource routers
+│                            #   use('/tags', tagRouter), use('/case-studies', ...)
+├── admin/
+│   ├── index.ts             # exports adminContentRouter
+│   └── admin.router.ts      # use(requireAuth, requireRole('admin')) ONCE,
+│                            # then mounts admin routers:
+│                            #   use('/tags', tagAdminRouter), use('/case-studies', ...)
 ├── common/
 │   ├── html.ts              # sanitizeHtml helper
 │   ├── schemas.ts           # pagination query schema, slug regex
 │   └── helpers.ts           # JSON path slug uniqueness check etc.
 └── <resource>/              # tags, categories, logos, testimonials,
     ├── index.ts             # services-hero, case-studies, insights,
-    ├── router.ts            # careers, faqs
+    ├── router.ts            # public routes (GET /)                  careers, faqs
+    ├── admin.router.ts      # admin routes (GET /, POST /, PATCH /:id, DELETE /:id)
     ├── controller.ts
     ├── service.ts
     ├── repository.ts
     └── schema.ts
 ```
+
+`content.router.ts` mounts `admin.router.ts` at `/admin`; the guard lives
+inside `admin.router.ts` itself, so it holds regardless of how the subtree is
+mounted.
 
 ## 4. Route Inventory
 
@@ -60,10 +75,10 @@ src/features/content/
 | Method | Path | Auth | Notes |
 |---|---|---|---|
 | GET | `/api/v1/content/tags` | public | all, sorted by name |
-| GET | `/api/v1/content/tags/admin` | admin | all, sorted by name |
-| POST | `/api/v1/content/tags/admin` | admin | `{ name }` |
-| PATCH | `/api/v1/content/tags/admin/:id` | admin | rename |
-| DELETE | `/api/v1/content/tags/admin/:id` | admin | join rows cascade |
+| GET | `/api/v1/content/admin/tags` | admin | all, sorted by name |
+| POST | `/api/v1/content/admin/tags` | admin | `{ name }` |
+| PATCH | `/api/v1/content/admin/tags/:id` | admin | rename |
+| DELETE | `/api/v1/content/admin/tags/:id` | admin | 204 No Content; join rows cascade |
 
 ### 4.2 Categories
 
@@ -74,28 +89,28 @@ Identical shape to Tags (`/api/v1/content/categories`).
 | Method | Path | Auth | Notes |
 |---|---|---|---|
 | GET | `/api/v1/content/logos` | public | all, creation order |
-| GET | `/api/v1/content/logos/admin` | admin | all, creation order |
-| POST | `/api/v1/content/logos/admin` | admin | `{ imageUrl, alt }` |
-| PATCH | `/api/v1/content/logos/admin/:id` | admin | |
-| DELETE | `/api/v1/content/logos/admin/:id` | admin | |
+| GET | `/api/v1/content/admin/logos` | admin | all, creation order |
+| POST | `/api/v1/content/admin/logos` | admin | `{ imageUrl, alt }` |
+| PATCH | `/api/v1/content/admin/logos/:id` | admin | |
+| DELETE | `/api/v1/content/admin/logos/:id` | admin | |
 
 ### 4.4 Testimonials
 
 | Method | Path | Auth | Notes |
 |---|---|---|---|
 | GET | `/api/v1/content/testimonials` | public | all, creation order, `isPrimary` included |
-| GET | `/api/v1/content/testimonials/admin` | admin | all, creation order |
-| POST | `/api/v1/content/testimonials/admin` | admin | `{ avatarUrl, name, role, company, quote }` |
-| PATCH | `/api/v1/content/testimonials/admin/:id` | admin | `isPrimary: true` clears the previous primary in a transaction |
-| DELETE | `/api/v1/content/testimonials/admin/:id` | admin | blocked (409) if it is the current primary |
+| GET | `/api/v1/content/admin/testimonials` | admin | all, creation order |
+| POST | `/api/v1/content/admin/testimonials` | admin | `{ avatarUrl, name, role, company, quote }` |
+| PATCH | `/api/v1/content/admin/testimonials/:id` | admin | `isPrimary: true` clears the previous primary in a transaction |
+| DELETE | `/api/v1/content/admin/testimonials/:id` | admin | blocked (409) if it is the current primary |
 
 ### 4.5 Services Hero Media (singleton)
 
 | Method | Path | Auth | Notes |
 |---|---|---|---|
 | GET | `/api/v1/content/services-hero` | public | the singleton record |
-| GET | `/api/v1/content/services-hero/admin` | admin | same record (uniform admin view) |
-| PUT | `/api/v1/content/services-hero/admin` | admin | full replace; upsert on fixed id `"global"` |
+| GET | `/api/v1/content/admin/services-hero` | admin | same record (uniform admin view) |
+| PUT | `/api/v1/content/admin/services-hero` | admin | full replace; upsert on fixed id `"global"` |
 
 ### 4.6 Case Studies
 
@@ -103,17 +118,18 @@ Identical shape to Tags (`/api/v1/content/categories`).
 |---|---|---|---|
 | GET | `/api/v1/content/case-studies` | public | PUBLISHED only, newest first, paginated |
 | GET | `/api/v1/content/case-studies/:slug` | public | PUBLISHED only; slug may match either locale; 404 otherwise |
-| GET | `/api/v1/content/case-studies/admin` | admin | all statuses; filters `status`, `categoryId`; paginated |
-| GET | `/api/v1/content/case-studies/admin/:id` | admin | full detail: both locales, category, tags |
-| POST | `/api/v1/content/case-studies/admin` | admin | creates a DRAFT; partial content allowed |
-| PATCH | `/api/v1/content/case-studies/admin/:id` | admin | shared fields, or `{ locale, content }` for one locale, or `tags`/`categoryId` |
-| POST | `/api/v1/content/case-studies/admin/:id/publish` | admin | validates both locales + shared fields, then flips status |
-| POST | `/api/v1/content/case-studies/admin/:id/unpublish` | admin | flips to DRAFT |
-| DELETE | `/api/v1/content/case-studies/admin/:id` | admin | |
+| GET | `/api/v1/content/admin/case-studies` | admin | all statuses; filters `status`, `categoryId`; paginated; list items include `status` |
+| GET | `/api/v1/content/admin/case-studies/:id` | admin | full detail: both locales, category, tags |
+| POST | `/api/v1/content/admin/case-studies` | admin | creates a DRAFT; partial content allowed |
+| PATCH | `/api/v1/content/admin/case-studies/:id` | admin | shared fields, or `{ locale, content }` for one locale, or `tags`/`categoryId` |
+| POST | `/api/v1/content/admin/case-studies/:id/publish` | admin | validates both locales + shared fields, then flips status |
+| POST | `/api/v1/content/admin/case-studies/:id/unpublish` | admin | flips to DRAFT |
+| DELETE | `/api/v1/content/admin/case-studies/:id` | admin | |
 
 ### 4.7 Insights
 
-Identical shape to Case Studies (`/api/v1/content/insights`).
+Identical shape to Case Studies (`/api/v1/content/insights`). Admin list
+items include `status`, like case studies.
 
 ### 4.8 Career Roles
 
@@ -121,22 +137,22 @@ Identical shape to Case Studies (`/api/v1/content/insights`).
 |---|---|---|---|
 | GET | `/api/v1/content/careers` | public | `isActive` only, newest first, paginated |
 | GET | `/api/v1/content/careers/:slug` | public | active only; 404 otherwise |
-| GET | `/api/v1/content/careers/admin` | admin | all, filter `isActive`, paginated |
-| GET | `/api/v1/content/careers/admin/:id` | admin | |
-| POST | `/api/v1/content/careers/admin` | admin | |
-| PATCH | `/api/v1/content/careers/admin/:id` | admin | incl. `isActive` toggle |
-| DELETE | `/api/v1/content/careers/admin/:id` | admin | |
+| GET | `/api/v1/content/admin/careers` | admin | all, filter `isActive`, paginated; list items include `isActive` |
+| GET | `/api/v1/content/admin/careers/:id` | admin | |
+| POST | `/api/v1/content/admin/careers` | admin | |
+| PATCH | `/api/v1/content/admin/careers/:id` | admin | incl. `isActive` toggle |
+| DELETE | `/api/v1/content/admin/careers/:id` | admin | |
 
 ### 4.9 Pilot FAQs
 
 | Method | Path | Auth | Notes |
 |---|---|---|---|
 | GET | `/api/v1/content/faqs` | public | active only, by `displayOrder` |
-| GET | `/api/v1/content/faqs/admin` | admin | all, by `displayOrder` |
-| GET | `/api/v1/content/faqs/admin/:id` | admin | |
-| POST | `/api/v1/content/faqs/admin` | admin | |
-| PATCH | `/api/v1/content/faqs/admin/:id` | admin | incl. `isActive`, `displayOrder` |
-| DELETE | `/api/v1/content/faqs/admin/:id` | admin | |
+| GET | `/api/v1/content/admin/faqs` | admin | all, by `displayOrder` |
+| GET | `/api/v1/content/admin/faqs/:id` | admin | |
+| POST | `/api/v1/content/admin/faqs` | admin | |
+| PATCH | `/api/v1/content/admin/faqs/:id` | admin | incl. `isActive`, `displayOrder` |
+| DELETE | `/api/v1/content/admin/faqs/:id` | admin | |
 
 Activating an FAQ requires both locales' question and answer non-empty.
 
@@ -144,13 +160,17 @@ Activating an FAQ requires both locales' question and answer non-empty.
 
 ### 5.1 Simple resources
 
+List endpoints return the `{ items, meta }` envelope with an **empty
+`meta` object** — no pagination in V1 for simple resources. Single-resource
+endpoints use `{ data }`.
+
 ```json
 // GET /content/logos
-{ "data": [{ "id": "…", "imageUrl": "…", "alt": "…", "createdAt": "…" }] }
+{ "items": [{ "id": "…", "imageUrl": "…", "alt": "…", "createdAt": "…" }], "meta": {} }
 
 // GET /content/testimonials
-{ "data": [{ "id": "…", "avatarUrl": "…", "name": "…", "role": "…",
-             "company": "…", "quote": "…", "isPrimary": false }] }
+{ "items": [{ "id": "…", "avatarUrl": "…", "name": "…", "role": "…",
+              "company": "…", "quote": "…", "isPrimary": false }], "meta": {} }
 
 // GET /content/services-hero
 { "data": { "id": "global", "videoUrl": "…", "coverUrl": "…",
@@ -183,9 +203,29 @@ in detail; the web selects by locale. Exact DTO mapping:
   it is rendering; list DTOs carry both locales' `slug`/`title`/`summary`
   where ambiguity matters (`slugs: { en, de }`, `titles: { en, de }`,
   `summaries: { en, de }`) so a German archive renders German text without
-  an extra fetch.
+  an extra fetch. Public list items do **not** include `status` — public
+  lists only ever return published records.
 
-Admin detail (`GET /content/case-studies/admin/:id`):
+Admin list (`GET /content/admin/case-studies`) — same item shape as the
+public list plus `status` (the admin needs to distinguish drafts from
+published records):
+
+```json
+{ "items": [
+  { "id": "…",
+    "slugs": { "en": "…", "de": "…" },
+    "titles": { "en": "…", "de": "…" },
+    "summaries": { "en": "…", "de": "…" },
+    "client": "…",
+    "category": { "id": "…", "name": "…" },
+    "media": { "type": "image", "url": "…", "alt": "…" },
+    "status": "DRAFT",
+    "tags": [{ "id": "…", "name": "…" }],
+    "createdAt": "…" }
+], "meta": { "page": 1, "pageSize": 12, "total": 34, "totalPages": 3 } }
+```
+
+Admin detail (`GET /content/admin/case-studies/:id`):
 
 ```json
 { "data": {
@@ -206,11 +246,11 @@ Admin detail (`GET /content/case-studies/admin/:id`):
 ### 5.3 FAQ
 
 ```json
-{ "data": [{ "id": "…", "isActive": true, "displayOrder": 1,
-             "content": {
-               "en": { "question": "…", "answer": "…" },
-               "de": { "question": "…", "answer": "…" }
-             } }] }
+{ "items": [{ "id": "…", "isActive": true, "displayOrder": 1,
+              "content": {
+                "en": { "question": "…", "answer": "…" },
+                "de": { "question": "…", "answer": "…" }
+              } }], "meta": {} }
 ```
 
 ### 5.4 Pagination
@@ -218,7 +258,8 @@ Admin detail (`GET /content/case-studies/admin/:id`):
 `page` (default 1), `pageSize` (default 12, max 100). Response meta:
 `{ page, pageSize, total, totalPages }`. Applied to archive lists and all
 admin lists. Simple resources (tags, categories, logos, testimonials, faqs)
-are unpaginated.
+are unpaginated — their lists use the `{ items, meta }` envelope with
+`meta: {}`.
 
 ## 6. Validation Rules
 
@@ -228,7 +269,8 @@ are unpaginated.
 |---|---|
 | tag/category `name` | required, trimmed, ≤ 100 chars, unique |
 | `imageUrl` / `avatarUrl` / `videoUrl` / `coverUrl` | required, ≤ 2048 chars |
-| logo `alt`, media `alt` | optional, ≤ 160 chars |
+| logo `alt` | required, ≤ 160 chars |
+| media `alt` | optional, ≤ 160 chars |
 | testimonial `name`/`role`/`company` | required, ≤ 100 chars |
 | testimonial `quote` | required, ≤ 2000 chars |
 | case study `client` | required to publish, ≤ 200 chars |
@@ -241,9 +283,6 @@ are unpaginated.
 ### 6.2 Slugs
 
 - Regex: `^[a-z0-9]+(?:-[a-z0-9]+)*$` (lowercase kebab).
-- The literal slug `admin` is **reserved** (rejected in validation) so the
-  public `/:slug` route can never shadow the admin subtree, independent of
-  route ordering.
 - Career slug: globally unique (DB constraint).
 - Case study / insight slug: unique **per locale** — app-layer check via
   Prisma JSON path filter before create/update/publish:
@@ -264,7 +303,7 @@ never performs uploads.
 
 ### 7.1 Publish (Case Studies / Insights)
 
-`POST /admin/:id/publish`:
+`POST /admin/case-studies/:id/publish`:
 
 1. Validate both locales: `title`, `slug`, `summary`, and body present and
    non-empty (case study: all three fixed sections; insight: ≥ 1 section).
@@ -274,18 +313,19 @@ never performs uploads.
 4. Set `status = PUBLISHED`.
 
 Failures return `CONTENT_INCOMPLETE` with `details` listing the missing
-fields. `POST /admin/:id/unpublish` sets `status = DRAFT` without validation.
+fields. `POST /admin/case-studies/:id/unpublish` sets `status = DRAFT`
+without validation.
 
 ### 7.2 Primary testimonial
 
-- `PATCH /admin/:id` with `isPrimary: true` runs a transaction: clear the
-  existing primary, set the new one. At most one primary invariant.
-- `DELETE /admin/:id` on the current primary returns 409
+- `PATCH /admin/testimonials/:id` with `isPrimary: true` runs a transaction:
+  clear the existing primary, set the new one. At most one primary invariant.
+- `DELETE /admin/testimonials/:id` on the current primary returns 409
   `CONTENT_PRIMARY_DELETE_BLOCKED` — Admin must select a replacement first.
 
 ### 7.3 Singleton hero media
 
-- `PUT /api/v1/content/services-hero/admin` upserts the fixed-id record
+- `PUT /api/v1/content/admin/services-hero` upserts the fixed-id record
   (`"global"`); full replace of `videoUrl`, `coverUrl`, `altLabel`.
 
 ### 7.4 Sanitization
@@ -307,14 +347,14 @@ fields. `POST /admin/:id/unpublish` sets `status = DRAFT` without validation.
 
 New codes added to `src/shared/errors/errorCodes.ts`:
 
-| Code | Meaning | HTTP |
-|---|---|---|
-| `CONTENT_INVALID_LOCALE` | locale value not `en`/`de` (admin PATCH) | 400 |
-| `CONTENT_SLUG_TAKEN` | slug already used in the target locale | 409 |
-| `CONTENT_INCOMPLETE` | publish/activate validation failed; `details` lists missing fields | 422 |
-| `CONTENT_PRIMARY_DELETE_BLOCKED` | deleting the current primary testimonial | 409 |
-| `CONTENT_NOT_FOUND` | admin resource or public slug not found | 404 |
-| `CONTENT_VALIDATION_FAILED` | generic body validation failure | 400 |
+| Code | Meaning | HTTP | Used |
+|---|---|---|---|
+| `CONTENT_INVALID_LOCALE` | locale value not `en`/`de` (admin PATCH) | 400 | yes |
+| `CONTENT_SLUG_TAKEN` | slug already used in the target locale (publish / career slug) | 409 | yes |
+| `CONTENT_INCOMPLETE` | publish/activate validation failed; `details` lists missing fields | 422 | yes |
+| `CONTENT_PRIMARY_DELETE_BLOCKED` | deleting the current primary testimonial | 409 | yes |
+| `CONTENT_NOT_FOUND` | content resource not found | 404 | reserved — generic `NOT_FOUND` is used |
+| `CONTENT_VALIDATION_FAILED` | generic body validation failure | 400 | reserved — generic `VALIDATION_ERROR` (422) is used |
 
 Existing `AppError` + error envelope handle transport; no new middleware.
 
@@ -323,5 +363,5 @@ Existing `AppError` + error envelope handle transport; no new middleware.
 - Each resource registers its schemas and paths in the OpenAPI registry
   (`src/shared/openapi/registry.ts`) via `@asteasolutions/zod-to-openapi`,
   mirroring `openapi/auth.paths.ts`.
-- Public and admin-prefixed paths are documented separately with their
+- Public paths and the `/admin` subtree are documented separately with their
   respective auth requirements.

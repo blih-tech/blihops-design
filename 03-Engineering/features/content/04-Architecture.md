@@ -113,7 +113,7 @@ new fetch library.
 
 ```text
 Admin UI (client component)
-  → useMutation(apiFetch('PATCH /api/v1/content/case-studies/admin/:id', body))
+  → useMutation(apiFetch('PATCH /api/v1/content/admin/case-studies/:id', body))
   → content.router
   → router.use('/admin', requireAuth, requireRole('admin'))   // subtree guard
   → controller (zod parse, 400 CONTENT_VALIDATION_FAILED)
@@ -129,7 +129,7 @@ Admin UI (client component)
 ### 4.2 Admin publish (Case Studies / Insights)
 
 ```text
-POST /api/v1/content/case-studies/admin/:id/publish
+POST /api/v1/content/admin/case-studies/:id/publish
   → subtree guard (admin)
   → service:
       1. validate both locales: title, slug, summary, body non-empty
@@ -144,14 +144,15 @@ POST /api/v1/content/case-studies/admin/:id/publish
   → invalidate list + detail keys
 ```
 
-`POST /admin/:id/unpublish` flips `status = DRAFT` without validation.
+`POST /admin/case-studies/:id/unpublish` flips `status = DRAFT` without
+validation.
 
 ### 4.3 Primary testimonial
 
 ```text
-PATCH /api/v1/content/testimonials/admin/:id  { isPrimary: true }
+PATCH /api/v1/content/admin/testimonials/:id  { isPrimary: true }
   → transaction: clear existing primary, set new one  (at-most-one invariant)
-DELETE /api/v1/content/testimonials/admin/:id  (current primary)
+DELETE /api/v1/content/admin/testimonials/:id  (current primary)
   → 409 CONTENT_PRIMARY_DELETE_BLOCKED until a replacement is chosen
 ```
 
@@ -206,7 +207,7 @@ AppError (service/repository)
 | Concern | Layer |
 |---|---|
 | Payload shape, field limits, slug regex | zod schemas in each resource's `schema.ts` |
-| HTML sanitization, publish completeness, primary invariant, slug uniqueness, reserved `admin` slug | service layer |
+| HTML sanitization, publish completeness, primary invariant, slug uniqueness | service layer |
 | JSON path filters, pagination, PUBLISHED/active filters | repository layer |
 | Unique tag/category names, unique career slug, cascade join deletes, category `onDelete: Restrict` | database |
 | Auth on all admin routes | subtree guard `router.use('/admin', ...)` |
@@ -219,7 +220,8 @@ AppError (service/repository)
 - Sanitize-on-write: HTML is cleaned in the service before persist; the DB is
   the single trusted source on read (public paths never re-sanitize).
 - The blob token never leaves the admin server.
-- Reserved slug `admin` prevents shadowing the admin subtree.
+- The `/admin` subtree is a distinct path namespace — public `/:slug` detail
+  routes can never shadow it.
 - Cookie-based sessions; CORS with credentials for both frontend origins.
 
 ## 7. Env & Wiring
@@ -241,3 +243,34 @@ Dependencies to add:
 - Webhook-based cache invalidation from API to web
 - CDN or edge caching beyond Vercel's ISR
 - Any blob SDK usage inside the API
+
+## 9. Accepted V1 Debt
+
+These items are consciously accepted for V1 and should be revisited after the
+pilot. They are documented so the team knows they exist and why they were
+deferred.
+
+### 9.1 Orphaned blob files (M5)
+
+Replacing a media URL (e.g., a new hero image) or deleting a record leaves the
+previous file in Vercel Blob — nothing deletes it. At pilot scale the storage
+cost is negligible, but orphaned files accumulate over time.
+
+Revisit options after the pilot:
+
+- Vercel Blob lifecycle rules (automatic expiry by age or path prefix)
+- A periodic reference scan: list blob objects and delete those not referenced
+  by any `media`/`imageUrl`/`avatarUrl`/`videoUrl` value in the database
+
+### 9.2 No optimistic concurrency on edits (M6)
+
+Two admins editing the same record (e.g., the same case study) resolve
+last-writer-wins with no conflict signal. This is fine while the admin team is
+a single operator, but becomes a data-loss hazard once multiple admins work
+concurrently.
+
+Revisit options when the team grows:
+
+- Compare `updatedAt` (or a version counter) on PATCH and reject stale writes
+  with a conflict error
+- Or accept last-writer-wins deliberately and document it as a workflow rule
