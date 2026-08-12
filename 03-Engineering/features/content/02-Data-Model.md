@@ -34,8 +34,9 @@ Rationale:
   uniqueness (the only real advantage of per-locale rows) is not worth the
   join and upsert cost for an admin-only CMS in V1.
 
-This applies to CaseStudy, Insight, and PilotFaq. `PilotFaq` uses the same
-pattern for one consistent bilingual convention across the feature.
+This applies to CaseStudy, Insight, PilotFaq, and Service. `PilotFaq` and
+`Service` use the same pattern for one consistent bilingual convention
+across the feature.
 
 ## 4. Schema
 
@@ -161,6 +162,17 @@ model PilotFaq {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 }
+
+model Service {
+  id           String   @id @default(cuid())
+  icon         String
+  imageUrl     String
+  alt          String
+  displayOrder Int      @default(0)
+  content      Json
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
 ```
 
 ### 4.1 JSON payload shapes
@@ -206,6 +218,26 @@ model PilotFaq {
 }
 ```
 
+`Service.content`:
+
+```json
+{
+  "en": {
+    "slug": "customer-support",
+    "title": "Customer Support",
+    "subtitle": "Support that scales without the chaos",
+    "shortDescription": "Omnichannel support across email, chat, and voice with response-time SLAs.",
+    "details": "Trained agents, quality scoring, and clear ownership. Your customers get consistent help. You get relief.",
+    "tag": "SUPPORT THAT SCALES",
+    "body": "Email, chat, and voice with trained agents, AI-assisted routing, and clear response SLAs. Tracked and reported every week.",
+    "features": ["Omnichannel: email, chat, voice", "AI-assisted routing", "Response-time SLAs", "Weekly quality reports"],
+    "whoThisIsFor": "SaaS and ecommerce teams that want better support without growing headcount."
+  },
+  "de": { "slug": "…", "title": "…", "subtitle": "…", "shortDescription": "…",
+          "details": "…", "tag": "…", "body": "…", "features": [], "whoThisIsFor": "…" }
+}
+```
+
 `media` (CaseStudy and Insight):
 
 ```json
@@ -240,6 +272,15 @@ model PilotFaq {
   per key.
 - **Career slug** is globally unique — careers are English-only, so there is
   no locale dimension.
+- **Service has no status**: always live. Completeness of both locales is
+  enforced on every create and update — there is no draft state to hide
+  behind.
+- **Service slugs are anchor-only** — unique per locale (JSON path filter,
+  like case studies), but never routed: there is no public detail path.
+- **Service content is plain text** — no Tiptap/HTML anywhere in the model
+  (unlike case studies, insights, and FAQs), so nothing is sanitized.
+- **Service icon** is a whitelisted key string (content model §4.10.1); the
+  database stores the key, the web maps it to a Lucide component.
 - `ServicesHeroMedia.updatedAt` is exposed to the API as `lastUpdatedAt`.
 
 ## 6. Product Rule → Enforcement Map
@@ -256,6 +297,8 @@ model PilotFaq {
 | Category required to publish | App-layer publish validation (FK nullable for drafts) |
 | Only active careers public | `isActive` filter on public queries |
 | FAQ active requires both locales | App-layer check on activation |
+| Services always live | No status column; completeness validated on every save (app layer) |
+| Service display order | `displayOrder` column; create defaults to max + 1 (app layer) |
 | Tag deletion unlinks records | Explicit join tables with `onDelete: Cascade` |
 | Category deletion blocked while assigned | `onDelete: Restrict` |
 | HTML sanitization | Content service sanitizes Tiptap output before persist |
@@ -274,3 +317,7 @@ pnpm db:migrate -- --name add_content_models
 If the partial unique index is adopted, include the raw SQL in the same
 migration. Production applies the committed migration via
 `prisma migrate deploy` (see `03-Engineering/Deployment.md`).
+
+The services resource ships later in its own migration
+(`add_service_model`); production applies it via `prisma migrate deploy`
+before the API merge, per `03-Engineering/Deployment.md`.

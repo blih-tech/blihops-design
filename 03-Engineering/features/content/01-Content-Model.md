@@ -20,18 +20,19 @@ Admin manages the following website content:
 | Area | Content |
 |---|---|
 | Home | Trusted Logos, Testimonials |
-| Services | Hero media (singleton) |
+| Services | Hero media (singleton), service offerings (bilingual records) |
 | Case Studies | Bilingual records (EN + DE) |
 | Insights | Bilingual records (EN + DE) |
 | Careers | English-only roles |
 | Pilot | Bilingual FAQs (EN + DE) |
 | Shared | Tags and Categories (shared vocabularies for Case Studies and Insights) |
 
-Out of scope (stays static code, not CMS-managed): the five service offering
-pages, About/How-We-Work copy, navigation, locale strings, and any
-general-purpose page building. Existing `blihops-web/src/content` and
-`LogoCloud.tsx` data are placeholder UI content and dictate nothing for this
-feature.
+Out of scope (stays static code, not CMS-managed): About/How-We-Work copy,
+navigation, locale strings, and any general-purpose page building. Page
+composition (which sections a page renders and how they are laid out) also
+stays in web code — only the service offering records themselves move into
+the CMS. Existing `blihops-web/src/content` and `LogoCloud.tsx` data are
+placeholder UI content and dictate nothing for this feature.
 
 ## 3. Cross-cutting Decisions
 
@@ -53,6 +54,7 @@ feature.
   - Trusted Logo — image
   - Testimonial — avatar image (required)
   - Services hero — video + cover image
+  - Service — cover image (required)
   - Case Study / Insight hero — image **or** video
 
 ### 3.3 Localization
@@ -62,6 +64,8 @@ feature.
   within their locale.
 - Pilot FAQs: EN and DE Q/A on one entry; both locales are required before the
   entry can be active.
+- Services: EN and DE content on one record (like Case Studies). Services
+  have no publish state — both locales are validated complete on every save.
 - Careers: English only.
 - Logos, Testimonials, hero media, Tags, and Categories: not localized.
 
@@ -74,6 +78,7 @@ feature.
 | Pilot FAQ | active toggle; requires both locales |
 | Trusted Logo / Testimonial | none — all entries are shown |
 | Services hero media | singleton, always live |
+| Service | none — always live; created complete, validated on every save |
 
 ### 3.5 Ordering
 
@@ -81,6 +86,7 @@ feature.
 |---|---|
 | Case Study / Insight / Career Role | newest first (by creation) |
 | Pilot FAQ | explicit display order |
+| Service | explicit display order |
 | Trusted Logo / Testimonial | creation order |
 | Tag | n/a |
 
@@ -271,6 +277,62 @@ Rules:
 
 - Both locales are required before an FAQ can become active.
 - Only active FAQs appear on the Pilot page for the selected locale.
+
+### 4.10 Service
+
+The service offerings rendered on the landing page and the What-We-Offer
+page. Previously static web content (`blihops-web/src/content/services.ts`
+plus the `Shared.services` locale strings); now CMS-managed.
+
+Localized fields (per locale — all required):
+
+| Field | Type | Notes |
+|---|---|---|
+| slug | string | anchor-only routing (`/what-we-offer#<slug>`); unique within the locale; no detail page |
+| title | string | |
+| subtitle | string | |
+| shortDescription | string | landing-page card copy |
+| details | string | landing-page panel copy |
+| tag | string | uppercase eyebrow label |
+| body | string | what-we-offer row paragraph |
+| features | string[] | what-we-offer checklist |
+| whoThisIsFor | string | what-we-offer callout |
+
+Shared fields:
+
+| Field | Type | Notes |
+|---|---|---|
+| icon | string | key from the icon whitelist (§4.10.1); the web maps keys to Lucide components |
+| imageUrl | string | required cover image |
+| alt | string | required accessibility text |
+| displayOrder | number | explicit ordering shared by both consumers |
+
+Rules:
+
+- **Always live**: no status and no active toggle — a Service is public as
+  soon as it exists. Both locales must therefore be complete and valid on
+  every create and update (API design §7.6).
+- No detail page: `slug` is used only for the in-page section anchor.
+- Slugs are unique per locale.
+- Deleting a live Service removes it from both pages immediately; deletion
+  requires confirmation (content safety rules §5).
+- The `href` used by the web is derived (`/what-we-offer#<slug>`) and is
+  never stored.
+
+#### 4.10.1 Icon whitelist
+
+Icons are Lucide components and cannot be stored in the database. Each
+Service stores an `icon` key; the API validates it against a fixed whitelist,
+the Admin offers a dropdown of the same keys, and the web maps keys to
+Lucide components. V1 whitelist:
+
+`headset`, `files`, `code`, `bot`, `chart-column`, `globe`, `shield-check`,
+`database`, `users`, `sparkles`
+
+(The first five cover the current static services; the rest are near-term
+additions. Extending the whitelist means updating the API schema enum, the
+admin dropdown, and the web registry together — the key strings are the
+contract.)
 
 ## 5. Content Safety Rules
 

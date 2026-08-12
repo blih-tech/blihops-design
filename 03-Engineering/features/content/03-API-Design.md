@@ -55,8 +55,8 @@ src/features/content/
 │   ├── schemas.ts           # pagination query schema, slug regex
 │   └── helpers.ts           # JSON path slug uniqueness check etc.
 └── <resource>/              # tags, categories, logos, testimonials,
-    ├── index.ts             # services-hero, case-studies, insights,
-    ├── router.ts            # public routes (GET /)                  careers, faqs
+    ├── index.ts             # services-hero, services, case-studies,
+    ├── router.ts            # public routes (GET /)                  insights, careers, faqs
     ├── admin.router.ts      # admin routes (GET /, POST /, PATCH /:id, DELETE /:id)
     ├── controller.ts
     ├── service.ts
@@ -156,6 +156,20 @@ items include `status`, like case studies.
 
 Activating an FAQ requires both locales' question and answer non-empty.
 
+### 4.10 Services
+
+| Method | Path | Auth | Notes |
+|---|---|---|---|
+| GET | `/api/v1/content/services` | public | all, `displayOrder` asc, both locales |
+| GET | `/api/v1/content/admin/services` | admin | same record set as public (no status to filter) |
+| GET | `/api/v1/content/admin/services/:id` | admin | full record under `{ data }` |
+| POST | `/api/v1/content/admin/services` | admin | both locales must be complete (422 otherwise); `displayOrder` defaults to end |
+| PATCH | `/api/v1/content/admin/services/:id` | admin | shared fields or `{ locale, content }`; merged record must stay complete |
+| DELETE | `/api/v1/content/admin/services/:id` | admin | 204 No Content |
+
+No public `/:slug` route — service slugs are anchor-only
+(`/what-we-offer#<slug>`), never URL paths.
+
 ## 5. Payload Shapes
 
 ### 5.1 Simple resources
@@ -253,11 +267,32 @@ Admin detail (`GET /content/admin/case-studies/:id`):
               } }], "meta": {} }
 ```
 
-### 5.4 Pagination
+### 5.4 Services
+
+```json
+// GET /content/services
+{ "items": [
+  { "id": "…", "icon": "headset", "imageUrl": "…", "alt": "…",
+    "displayOrder": 1,
+    "content": {
+      "en": { "slug": "customer-support", "title": "…", "subtitle": "…",
+              "shortDescription": "…", "details": "…", "tag": "…",
+              "body": "…", "features": ["…"], "whoThisIsFor": "…" },
+      "de": { "slug": "…", "title": "…", "subtitle": "…", "shortDescription": "…",
+              "details": "…", "tag": "…", "body": "…",
+              "features": ["…"], "whoThisIsFor": "…" } },
+  "createdAt": "…", "updatedAt": "…" }
+], "meta": {} }
+```
+
+Public and admin list items are identical — no status field exists. Admin
+detail returns the same shape under `{ data }`.
+
+### 5.5 Pagination
 
 `page` (default 1), `pageSize` (default 12, max 100). Response meta:
 `{ page, pageSize, total, totalPages }`. Applied to archive lists and all
-admin lists. Simple resources (tags, categories, logos, testimonials, faqs)
+admin lists. Simple resources (tags, categories, logos, testimonials, faqs, services)
 are unpaginated — their lists use the `{ items, meta }` envelope with
 `meta: {}`.
 
@@ -278,6 +313,12 @@ are unpaginated — their lists use the `{ items, meta }` envelope with
 | insight `readTimeMinutes` | required to publish, ≥ 1 |
 | career fields | required on create, limits per field (title ≤ 150, others ≤ 500, list entries ≤ 500) |
 | faq `question`/`answer` | required to activate, ≤ 500 / ≤ 4000 |
+| service `icon` | required, one of the icon whitelist keys (content model §4.10.1) |
+| service `imageUrl` / `alt` | required, ≤ 2048 / ≤ 160 chars |
+| service `title` / `subtitle` / `shortDescription` / `details` | required per locale, ≤ 150 / 300 / 300 / 500 chars |
+| service `tag` / `body` / `whoThisIsFor` | required per locale, ≤ 80 / 5000 / 500 chars |
+| service `features` | required per locale, 1–10 items, each ≤ 200 chars |
+| service `displayOrder` | integer ≥ 0 |
 | HTML body content | sanitized, ≤ 200 KB per section |
 
 ### 6.2 Slugs
@@ -287,6 +328,8 @@ are unpaginated — their lists use the `{ items, meta }` envelope with
 - Case study / insight slug: unique **per locale** — app-layer check via
   Prisma JSON path filter before create/update/publish:
   `content: { path: ["de", "slug"], equals: value }`, excluding self.
+- Service slug: unique **per locale** like case studies, but anchor-only —
+  there is no public detail lookup (see §4.10).
 - Public detail lookup matches the slug against either locale's slug path.
 
 ### 6.3 Upload limits
@@ -343,6 +386,24 @@ without validation.
   recorded through the existing activity mechanism (implementation detail to
   be wired when the activity feature lands).
 
+### 7.6 Services (always live)
+
+- **No status, no active toggle.** Creation makes a Service public
+  immediately; there is no draft or publish step.
+- **Completeness is enforced on every save.** POST and PATCH validate the
+  merged record — both locales with every field present and non-empty, plus
+  `icon`, `imageUrl`, `alt` — and return 422 `CONTENT_INCOMPLETE` with
+  `details` listing missing fields on failure.
+- `displayOrder` defaults to `max(displayOrder) + 1` (append to end) when
+  not provided; reordering is a PATCH of `displayOrder`.
+- Slugs are unique per locale (JSON path check excluding self) and are
+  anchor-only — no public detail route exists (§4.10).
+- **Plain text only**: services contain no rich text, so no HTML is
+  sanitized (unlike case studies, insights, and FAQs; cf. §7.4). The admin
+  editor uses plain inputs and textareas, not Tiptap.
+- Icon keys are validated against the whitelist in the controller schema
+  (zod enum); see content model §4.10.1.
+
 ## 8. Error Codes
 
 New codes added to `src/shared/errors/errorCodes.ts`:
@@ -357,6 +418,8 @@ New codes added to `src/shared/errors/errorCodes.ts`:
 | `CONTENT_VALIDATION_FAILED` | generic body validation failure | 400 | reserved — generic `VALIDATION_ERROR` (422) is used |
 
 Existing `AppError` + error envelope handle transport; no new middleware.
+Services add no new codes — `CONTENT_INCOMPLETE` (422) covers completeness
+and `CONTENT_SLUG_TAKEN` (409) covers per-locale slug conflicts.
 
 ## 9. OpenAPI
 

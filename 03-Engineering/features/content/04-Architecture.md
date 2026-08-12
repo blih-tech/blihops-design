@@ -54,6 +54,8 @@ new fetch library.
   ['content', 'logos']
   ['content', 'testimonials']
   ['content', 'services-hero']
+  ['content', 'services', 'admin']
+  ['content', 'services', 'detail', id]
   ['content', 'case-studies', 'admin', { page, pageSize, status, categoryId }]
   ['content', 'case-studies', 'detail', id]
   ['content', 'insights', 'admin', { page, pageSize, status, categoryId }]
@@ -92,6 +94,7 @@ new fetch library.
   ['content', 'logos']
   ['content', 'testimonials']
   ['content', 'services-hero']
+  ['content', 'services']
   ['content', 'case-studies', 'public', { page }]
   ['content', 'case-studies', 'detail', slug]
   ['content', 'insights', 'public', { page }]
@@ -104,6 +107,12 @@ new fetch library.
 - Pages pick the locale variant of bilingual payloads with a small
   `contentByLocale(content, locale)` helper — the API always returns both
   locales.
+- Services are consumed by the landing and What-We-Offer pages. The web
+  derives each section anchor from the active locale's slug
+  (`/what-we-offer#<slug>`) and maps `icon` keys to Lucide components via a
+  local registry mirroring the whitelist (content model §4.10.1).
+  `src/content/services.ts` plus the `Shared.services` locale strings remain
+  as the offline/fallback copy until the API integration lands.
 - Default `staleTime` (~5 min) aligns with the ISR window so the server and
   client cache layers agree.
 
@@ -169,9 +178,9 @@ Web server component (revalidate = 300)
   → data hydrated into the TanStack Query cache for client-side reuse
 ```
 
-Simple resources (logos, testimonials, hero media, FAQs) are fetched the same
-way without pagination; public careers/insights follow the same pattern as
-case studies.
+Simple resources (logos, testimonials, hero media, FAQs, services) are
+fetched the same way without pagination; public careers/insights follow the
+same pattern as case studies.
 
 ### 4.5 Upload flow
 
@@ -192,7 +201,28 @@ Admin UI (upload control)
 - The API validates URL length and media `type` enum; it never performs
   uploads.
 
-### 4.6 Error flow
+### 4.6 Services CRUD (always-live resource)
+
+```text
+Admin UI (client component)
+  → useMutation(apiFetch('POST /api/v1/content/admin/services', body))
+  → subtree guard (admin)
+  → controller (zod parse: icon whitelist, field limits, slug regex)
+  → service:
+      - completeness check on the merged record — both locales, all fields
+        present and non-empty → 422 CONTENT_INCOMPLETE with details
+      - slug-per-locale uniqueness (JSON path filter, excl. self)
+      - displayOrder defaults to max + 1 (append to end)
+  → repository (Prisma) → Neon
+  → { data } envelope
+  → mutation success → invalidate ['content','services', ...] keys
+```
+
+PATCH behaves identically against the merged record; DELETE returns 204 and
+invalidates the list. No publish/unpublish step exists — the record is public
+from the moment it is created.
+
+### 4.7 Error flow
 
 ```text
 AppError (service/repository)
@@ -207,7 +237,7 @@ AppError (service/repository)
 | Concern | Layer |
 |---|---|
 | Payload shape, field limits, slug regex | zod schemas in each resource's `schema.ts` |
-| HTML sanitization, publish completeness, primary invariant, slug uniqueness | service layer |
+| HTML sanitization, publish completeness, primary invariant, slug uniqueness, service completeness (always-live), icon whitelist enforcement | service layer |
 | JSON path filters, pagination, PUBLISHED/active filters | repository layer |
 | Unique tag/category names, unique career slug, cascade join deletes, category `onDelete: Restrict` | database |
 | Auth on all admin routes | subtree guard `router.use('/admin', ...)` |
