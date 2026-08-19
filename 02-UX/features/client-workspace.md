@@ -152,7 +152,7 @@ For the first implementation, the directory may use approved dummy Talent data.
 Client capabilities:
 
 - Search relevant profile text
-- Filter by role, skills, experience, and availability
+- Filter by role, skills, and experience
 - Sort and paginate
 - Open Talent Detail
 - Add a Talent to a private Pod
@@ -166,7 +166,6 @@ Talent cards may show:
 - Role and experience
 - Tech stack and skills
 - English level
-- Availability
 - Blihops monthly selling rate in EUR
 
 Internal compensation, hourly rates, margin, private assessment information,

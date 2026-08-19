@@ -160,8 +160,7 @@ Requirements:
   generating a single-use token with a 7-day expiry.
 - The system sends the candidate an email with the completion request link.
 - A valid token opens an unauthenticated profile completion form that collects
-  the remaining talent-editable fields: profile photo, short bio, availability,
-  earliest start date, and preferred engagement.
+  the remaining profile-building fields: profile photo and short bio.
 - The candidate fills the form and submits; the submission updates the Talent
   Application with the completion data.
 - An invalid, expired, consumed, or replaced token cannot open the completion
@@ -234,16 +233,15 @@ Requirements:
 
 Requirements:
 
-- Collect the candidate's full name, email, phone, country/city, and screening.
-- Collect professional headline, primary role, tech stack, secondary skills,
-  years of experience, portfolio, GitHub, and LinkedIn.
+- Collect the candidate's full name, email, phone, country, city, professional
+  headline, primary role, tech stack, secondary skills, years of experience,
+  portfolio, GitHub, and LinkedIn.
 - Require a resume.
 - Accept supported file formats and size limits.
 - Create one Talent Application.
 - Show a confirmation state after successful submission.
-- After approval, Admin must request remaining profile-building information (profile
-  photo, short bio, availability, earliest start date, and preferred engagement)
-  through a profile completion request.
+- After approval, Admin must request the remaining profile-building information
+  (profile photo and short bio) through a profile completion request.
 
 ### 5.6 Published Content
 
@@ -265,7 +263,7 @@ The Admin Dashboard displays:
 - Talent Applications by current stage
 - Approved Talent Applications awaiting a completion request or submission
 - Completion-submitted Talent Applications ready for Profile and account creation
-- Talent Profiles by visibility and availability
+- Talent Profiles by visibility and account status
 - Companies and pending Client invitations
 - Interview Requests requiring attention
 - Recent activity
@@ -372,9 +370,9 @@ Admin can:
 - View, search, filter, and paginate applications.
 - Review candidate details and uploaded files.
 - Add internal notes.
-- Record stage-specific outcomes.
-- Advance or return an application to a valid stage.
-- Reject an application at any stage with a reason.
+- Move an application flexibly between workflow stages.
+- Reopen a rejected application by moving it to an active workflow stage.
+- Maintain one Admin-only internal notes field.
 - Approve a candidate after required assessments.
 - Send, resend, or replace a profile completion request from an approved application.
 - Review the combined Round 1 and Round 2 application data before creating the Talent Profile.
@@ -398,9 +396,10 @@ Admin can:
 - View, search, filter, sort, and paginate profiles.
 - Create a profile and associated account from an approved application with a
   submitted completion form.
-- View and edit all profile fields.
-- Publish or hide a profile from clients.
-- Archive and restore a profile.
+- View all Profile fields.
+- Edit a Profile only while it is hidden.
+- Publish or hide a Profile from Clients.
+- Deactivate or reactivate the Talent Account.
 - Review profile activity and its linked application.
 - Send or resend the Talent account invitation.
 
@@ -408,15 +407,13 @@ Admin-managed fields include:
 
 - Identity and contact information
 - Seniority
-- Internal hourly compensation rate
-- Internal monthly compensation rate
 - Client monthly selling rate in EUR
 - English level
-- Verification state
+- Verification state, permanently set to Verified at Profile creation
 - Assessment summary
 - Internal notes
 - Client visibility
-- Lifecycle status
+- Talent Account status
 
 Talent-editable fields include:
 
@@ -428,9 +425,6 @@ Talent-editable fields include:
 - Years of experience
 - Portfolio, GitHub, and LinkedIn
 - Resume
-- Availability
-- Earliest start date
-- Preferred engagement
 
 These fields are initially populated at profile creation from the application
 (Round 1) and completion form (Round 2) data. Once the profile exists, the Talent
@@ -443,10 +437,11 @@ Business rules:
 - Talent edits to permitted fields publish immediately.
 - Talent cannot edit admin-managed fields.
 - Only active, visible profiles expose Talent Profile details in Client Workspaces.
-- When a profile used in a Pod becomes hidden or archived, its Pod membership is
-  represented only by an unavailable placeholder with no profile access.
-- Archiving a profile removes its client visibility and disables Talent Portal access.
-- Restoring a profile does not automatically make it client-visible.
+- When a Profile used in a Pod becomes hidden or its Talent Account is deactivated,
+  its Pod membership is represented only by an unavailable placeholder with no
+  Profile access.
+- Deactivating a Talent Account hides the Profile and disables Talent Portal access.
+- Reactivating a Talent Account does not automatically make the Profile visible.
 
 ### 6.6 Interview and Pilot Oversight
 
@@ -518,7 +513,7 @@ Client can:
 
 - Browse active, visible Talent Profiles.
 - Search by relevant profile text.
-- Filter by role, skills, experience, and availability.
+- Filter by role, skills, and experience.
 - Sort and paginate results.
 - Open a Talent Profile.
 - Add a visible Talent Profile to one or more Pods.
@@ -531,7 +526,6 @@ Talent cards may display:
 - Role and experience
 - Tech stack
 - English level
-- Availability
 - BlihOps monthly selling rate in EUR
 
 ### 7.3 Talent Profile
@@ -542,7 +536,6 @@ Displays only client-visible fields:
 - Role, seniority, and experience
 - Tech stack and skills
 - Portfolio and resume
-- Availability
 - English level and verification
 - BlihOps monthly selling rate in EUR
 
@@ -552,8 +545,7 @@ profile or contact the Talent directly.
 Rate rules:
 
 - Clients see only the final BlihOps monthly selling rate in EUR.
-- Internal Talent compensation and BlihOps margin are never exposed to Clients.
-- Internal hourly rates are never exposed to Clients.
+- Internal notes and compensation information are never exposed to Clients.
 - V1 provides no rate breakdown, alternative currency, or currency conversion.
 - A Talent Profile must have a client monthly selling rate before it can become
   client-visible.
@@ -660,7 +652,7 @@ Talent can:
 - Upload or replace their profile photo.
 - Upload or replace their resume.
 - Update portfolio and social links.
-- Update availability and start information.
+- Update professional fields and links.
 - Save changes and receive immediate success or validation feedback.
 
 ### 8.3 Talent Portal Rules
@@ -670,7 +662,7 @@ Talent can:
 - A profile must exist before account activation.
 - Permitted changes are saved directly and reflected immediately.
 - Admin-only fields are visible only when explicitly useful and are always read-only to Talent.
-- Archived profiles cannot be edited through the Talent Portal.
+- Deactivated Talent Accounts cannot access the Talent Portal.
 
 ---
 
@@ -885,7 +877,7 @@ essential access or onboarding flow:
 
 V1 has no general notification system, notification center, unread state, or
 automated status/update email. Leads, applications, Interview Requests, Pilot
-changes, Talent availability, Profile activity, and Workspace activity
+changes, Profile activity, and Workspace activity
 do not trigger notifications. Their current state appears only in the relevant
 Admin or Client screens.
 
@@ -915,15 +907,14 @@ At minimum:
 
 - Lead creation, status changes, conversion, archival, and restoration
 - Company creation, invitation activity, access changes, and archival
-- Talent Application stage changes, approval, rejection, Profile/account creation, and invitation activity
-- Talent Profile creation, field updates, visibility changes, and archival
+- Talent Application approval, rejection, Profile/account creation, and invitation activity
+- Talent Profile creation, field updates, visibility changes, and Talent Account access changes
 - Profile completion request sent, resent, replaced, or expired
 - Profile completion form submitted
 - Client and Talent account activation
 - Talent Pod creation, detail changes, membership changes, Pod Lead changes, and archival
 - Interview Request creation and status changes
-- Pilot creation, status changes, milestone changes, participant changes, updates,
-  and final outcome
+- Pilot creation, status changes, participant changes, updates, and final outcome
 - Managed-content creation, publication, activation, ordering, and deletion
 
 Talent-originated profile changes must be distinguishable from Admin changes.

@@ -176,8 +176,8 @@ Client login and sessions without changing Company relationship status.
 Talent Applications
 → Open application
 → Review candidate data and resume
-→ Record notes and assessment outcomes
-→ Advance valid stages or reject with reason
+→ Review or update Admin-only internal notes
+→ Move the Application to any workflow stage or REJECTED
 → Approve when requirements are met
 → Request remaining completion information
 ```
@@ -193,9 +193,10 @@ Approved Application
 → Candidate submits Round 2 data
 → Review combined application data
 → Create Talent Profile and account
-→ Set visibility/lifecycle state
-→ Send Talent invitation
+→ Profile starts VERIFIED and HIDDEN
+→ Invitation sends automatically
 → Track activation
+→ Admin publishes Profile after visibility checklist
 ```
 
 ### ADMIN-05 — Review Interviews and Manage Pilot
@@ -203,7 +204,7 @@ Approved Application
 ```text
 Company Detail
 → Review individual Interview Requests
-→ Check availability and contact Talent manually
+→ Confirm Talent availability operationally and contact Talent manually
 → Schedule, reject, complete, or cancel requests
 → Review Client Pilot Request
 → Mark request IN_REVIEW
@@ -357,7 +358,7 @@ Talent accepts invitation
 → Show success or actionable error
 ```
 
-Archived Profiles cannot be edited. Talent cannot edit Admin-managed fields.
+Deactivated Talent Accounts cannot access the Portal. Talent cannot edit Admin-managed fields.
 
 ## 8. Shared Interaction Patterns
 

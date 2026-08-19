@@ -121,10 +121,10 @@ Can:
 - Access a private Profile Management page.
 - Maintain permitted professional information.
 - Upload or replace their profile photo and resume.
-- Update availability and professional links.
+- Update professional fields and links.
 
 Talent cannot view or change commercial rates and cannot change assessments,
-verification, client visibility, lifecycle status, or internal notes.
+verification, client visibility, account status, or internal notes.
 
 ---
 
@@ -170,7 +170,7 @@ Admin Approval
       ↓
 Admin Sends Profile Completion Request
       ↓
-Candidate Submits Remaining Profile Information
+Candidate Submits Profile Photo and Short Bio
       ↓
 Admin Reviews Combined Application Information
       ↓
@@ -183,11 +183,11 @@ Talent Activates Account
 Talent Maintains Permitted Profile Information
 ```
 
-The Talent Application collects assessment information in Round 1. After approval,
-the candidate must submit the remaining profile-building fields through a profile
-completion request before Admin can create the Talent Profile and account. Account
-activation remains invitation-only: the invitation lets Approved Talent create a
-password and enter Profile Management.
+The Talent Application collects the information needed for Admin review in Round 1.
+After approval, the candidate submits only a profile photo and short bio through a
+profile completion request. Admin then creates the Talent Profile and account.
+Account activation remains invitation-only: the invitation lets Approved Talent
+create a password and enter Profile Management.
 
 ---
 
@@ -211,8 +211,9 @@ assign, hire, contact that Talent, or add them to a Pilot. Clients use Pods to
 organize and compare Talent before deciding whom to interview.
 
 The Client may request interviews with one or more Talent Profiles. BlihOps
-confirms availability, contacts Talent, and coordinates interviews manually. The
-Client may request additional interviews before deciding whether to proceed.
+confirms Talent availability operationally, contacts Talent, and coordinates
+interviews manually. The Client may request additional interviews before deciding
+whether to proceed.
 
 The Client may submit one Company-scoped Pilot Request with goals, success
 measurements, an expected start date, additional context, and optional individual
@@ -223,8 +224,7 @@ and communication remain outside the platform. A longer-term contract is a
 separate post-Pilot decision and remains outside V1.
 
 There are no milestones in V1. Recent Workspace activity is limited to
-client-relevant Interview, Pilot, participant, Talent-availability, and
-client-visible update events. It does not expose the internal audit log or
+client-relevant Interview, Pilot, participant, and client-visible update events. It does not expose the internal audit log or
 include routine Pod changes, internal notes, Admin-only changes, or Talent
 Profile edit history.
 
@@ -247,11 +247,10 @@ Talent may update:
 - Years of experience
 - Portfolio, GitHub, and LinkedIn links
 - Resume
-- Availability
-- Earliest start date
-- Preferred engagement
 
-Permitted changes publish immediately. Admin-only fields remain protected.
+Verification is permanently set at Profile creation. Profile visibility and
+Talent Account access are controlled separately by Admin. Permitted Talent
+changes publish immediately; Admin-only fields remain protected.
 
 ---
 
@@ -266,19 +265,17 @@ Profiles may include:
 - Tech stack, skills, and experience
 - Portfolio, GitHub, LinkedIn, and resume
 - English level and verification
-- Availability and engagement preference
-- Internal hourly and monthly compensation rates
 - Client monthly selling rate in EUR
 - Assessment summary and internal notes
-- Visibility and lifecycle status
+- Profile visibility and Talent Account status
 
-The Talent Application collects assessment information in Round 1. After approval,
-the candidate must submit the remaining profile-building fields through a profile
-completion request. Admin can create the Profile and associated account only after
-the completion form is submitted and the combined application information is
-reviewed, before sending the account invitation.
+The Talent Application collects the information needed for Admin review in Round 1.
+After approval, the candidate submits only a profile photo and short bio through a
+profile completion request. Admin can create the Profile and associated account
+only after the completion form is submitted and the combined application
+information is reviewed, before sending the account invitation.
 
-Only visible, active Talent Profiles appear in the Client Workspace.
+Only visible Profiles with active Talent Accounts appear in the Client Workspace.
 
 Clients see only the final BlihOps monthly selling rate in EUR. Internal Talent
 compensation, hourly rates, and BlihOps margin remain private. V1 does not expose a

@@ -42,7 +42,7 @@ enum CompanyStatus {
   ARCHIVED
 }
 
-enum ClientInvitationStatus {
+enum InvitationStatus {
   PENDING
   ACCEPTED
   EXPIRED
@@ -180,7 +180,7 @@ this record provides feature-level status and audit context.
 model ClientInvitation {
   id              String                   @id @default(cuid())
   clientAccountId  String
-  status          ClientInvitationStatus   @default(PENDING)
+  status          InvitationStatus        @default(PENDING)
   sentAt          DateTime                 @default(now())
   expiresAt       DateTime
   acceptedAt      DateTime?
@@ -244,7 +244,7 @@ model PilotRequestParticipant {
 
   pilotRequest    PilotRequest    @relation(fields: [pilotRequestId], references: [id], onDelete: Cascade)
   sourcePod       ClientPod?      @relation(fields: [sourcePodId], references: [id], onDelete: SetNull)
-  // talentProfile relation is added when the Talent Profile model is finalized
+  talentProfile   TalentProfile   @relation(fields: [talentProfileId], references: [id], onDelete: Restrict)
 
   @@unique([pilotRequestId, talentProfileId])
   @@index([talentProfileId])
@@ -300,6 +300,7 @@ model PilotParticipant {
 
   pilot           Pilot             @relation(fields: [pilotId], references: [id], onDelete: Cascade)
   sourcePod       ClientPod?        @relation(fields: [sourcePodId], references: [id], onDelete: SetNull)
+  talentProfile   TalentProfile     @relation(fields: [talentProfileId], references: [id], onDelete: Restrict)
 
   @@unique([pilotId, talentProfileId])
   @@index([talentProfileId])
@@ -358,7 +359,8 @@ model ClientPodMember {
   talentProfileId String
   createdAt       DateTime @default(now())
 
-  pod             ClientPod @relation(fields: [podId], references: [id], onDelete: Cascade)
+  pod             ClientPod     @relation(fields: [podId], references: [id], onDelete: Cascade)
+  talentProfile   TalentProfile @relation(fields: [talentProfileId], references: [id], onDelete: Restrict)
 
   @@id([podId, talentProfileId])
   @@index([talentProfileId])
@@ -404,6 +406,7 @@ model InterviewRequest {
 
   company        Company                 @relation(fields: [companyId], references: [id], onDelete: Restrict)
   group          InterviewRequestGroup?  @relation(fields: [groupId], references: [id], onDelete: SetNull)
+  talentProfile  TalentProfile           @relation(fields: [talentProfileId], references: [id], onDelete: Restrict)
 
   @@index([companyId, status])
   @@index([talentProfileId, status])

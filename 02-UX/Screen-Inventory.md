@@ -94,9 +94,9 @@ There is no Talent Dashboard.
 | ADMIN-04 | Companies | Admin | Search, filter, and open Companies | Admin navigation or Lead conversion |
 | ADMIN-05 | Company Detail | Admin | Manage Company, Client Account, invitation, access, requests, Pilots, notes, and activity | Companies |
 | ADMIN-06 | Talent Applications | Admin | Search, filter, paginate, and manage applications | Admin navigation |
-| ADMIN-07 | Application Detail | Admin | Review candidate data, files, stages, assessments, notes, and invitations | Talent Applications |
+| ADMIN-07 | Application Detail | Admin | Review immutable candidate data, resume, pipeline stage, notes, completion data, and Profile creation | Talent Applications |
 | ADMIN-08 | Talent Profiles | Admin | Search, filter, sort, paginate, and manage profiles | Admin navigation |
-| ADMIN-09 | Talent Profile Detail | Admin | Create/edit/publish/hide/archive Profile and manage Talent invitation | Talent Profiles or Application |
+| ADMIN-09 | Talent Profile Detail | Admin | Create/edit hidden Profiles, publish/hide visibility, and manage Talent invitation/account access | Talent Profiles or Application |
 
 Company Detail contains:
 

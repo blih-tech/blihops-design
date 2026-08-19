@@ -74,7 +74,7 @@ Pilot coordination, selected website content, and operational settings.
 - Qualify, close, archive, or convert Leads into Companies.
 - Create Companies, Client Accounts, and invitations after manual agreement.
 - Invite and manage the single Client representative.
-- Review Talent Pool applications and record assessments.
+- Review Talent Pool applications and move candidates through the pipeline.
 - Approve or reject candidates.
 - Request mandatory Round 2 information from approved candidates.
 - Create Talent Profiles and accounts from approved applications only after Round 2
@@ -188,13 +188,13 @@ who originally contacted BlihOps.
 - Review Interview Request progress while BlihOps coordinates with Talent.
 - Monitor Pilot goals, dates, participants, and updates.
 - Review recent client-relevant Interview, Pilot, participant, and
-  Talent-availability activity.
+  Talent Profile changes.
 
 ### Needs and expectations
 
 - Clear Company identity and Workspace orientation.
 - A focused interface without internal BlihOps complexity.
-- Accurate professional, availability, and verification information.
+- Accurate professional and verification information.
 - A clear final BlihOps monthly selling rate in EUR without internal compensation
   or margin details.
 - Clear feedback after requests and Pod changes.
@@ -205,7 +205,7 @@ who originally contacted BlihOps.
 ### Frustrations and risks
 
 - Seeing private or internal Talent information.
-- Unclear Talent availability or monthly pricing.
+- Unclear Talent information or monthly pricing.
 - Confusing a planning Pod with staffing or assignment.
 - Uncertainty after submitting an Interview Request.
 - Losing Workspace access without an explanation.
@@ -289,7 +289,7 @@ the account and use a focused Profile Management experience.
 - Understand what profile information they may maintain.
 - Keep professional information accurate and current.
 - Replace their profile photo or resume safely.
-- Update availability, start information, and professional links.
+- Update permitted professional fields and links.
 - Understand whether saved changes are live.
 
 ### Core tasks
@@ -323,9 +323,9 @@ the account and use a focused Profile Management experience.
 - Talent lands on Profile Management; there is no Talent Dashboard.
 - Talent may edit only the professional fields permitted by the PRD.
 - Talent cannot view or edit rates and cannot edit assessments, verification,
-  client visibility, lifecycle status, or internal notes.
+  client visibility, account status, or internal notes.
 - Permitted saved changes take effect immediately where the profile is visible.
-- An archived profile blocks Talent Portal editing.
+- A deactivated Talent Account blocks Talent Portal access.
 
 ## 8. Cross-Persona UX Principles
 

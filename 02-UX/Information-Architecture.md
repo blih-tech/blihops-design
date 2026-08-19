@@ -162,7 +162,7 @@ no separate Admin Pod management screen because Pods are Client-private.
 - Clients cannot access another Company's data.
 - Clients cannot see internal Admin notes, audit history, or commercial Talent data.
 - Admin cannot see private Pod content.
-- Hidden or archived Talent Profiles are unavailable to Clients.
+- Hidden Profiles and deactivated Talent Accounts are unavailable to Clients.
 
 ## 6. Navigation Principles
 
