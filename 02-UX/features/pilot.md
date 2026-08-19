@@ -2,268 +2,258 @@
 
 ## 1. Purpose
 
-A Pilot is a two-week trial engagement that lets a Client evaluate working with
-BlihOps and selected Talent before deciding whether to enter a longer-term
-engagement.
+A Pilot is a single free 14-day trial opportunity that lets a Client evaluate
+working with Blihops and selected Talent before deciding whether to enter an
+ongoing relationship.
 
-The platform supports Talent discovery, Interview Request tracking, Pilot setup,
-and progress visibility. Daily work and communication are conducted manually
-outside the platform.
+A Pilot Request submitted from the public website creates a Lead. A Pilot
+Request submitted from the authenticated Client Workspace is a different,
+Company-scoped operational request. This document focuses on the authenticated
+Client flow and the Admin-managed Pilot.
+
+Daily work, contracts, billing, payments, and direct communication remain
+outside the platform in V1.
 
 ## 2. Related Concepts
 
 | Concept | Meaning |
 |---|---|
-| Pilot Request | A public expression of interest that creates a Lead for Admin review |
-| Talent Pod | A private Client shortlist used to organize and compare visible Talent |
-| Interview Request | A Client request for BlihOps to coordinate an interview with selected Talent |
-| Pilot | The agreed two-week trial created and managed by Admin after interviews |
-| Pilot Participant | Talent explicitly added by Admin to the agreed Pilot |
-| Longer-term engagement | A separate post-Pilot commercial decision outside V1 |
+| Public Pilot form | Public marketing form that creates a `PILOT` Lead |
+| Client Pilot Request | Authenticated Client request for the one free 14-day Pilot |
+| Talent Pod | Private Client shortlist used to organize visible Talent |
+| Interview Request | Optional Client request for Blihops to coordinate an interview |
+| Pilot | Admin-approved, planned, active, completed, or cancelled trial |
+| Pilot Participant | Talent explicitly confirmed by Admin for a Pilot |
+| Progress Update | Permanent Client-submitted note during an active Pilot |
 
-A Pilot Request does not create a Pilot. Pod membership does not create an
-Interview Request or Pilot participation. Completing an interview does not create
-a Pilot automatically.
+A Client Pilot Request does not start a Pilot automatically. Pod membership and
+Interview completion do not create Pilot participation automatically.
 
 ## 3. Actors
 
 ### Client
 
-- Discovers visible, available Talent.
-- Organizes possible candidates in planning-only Pods.
-- Requests interviews with one or more Talent Profiles.
-- Communicates with BlihOps outside the platform when deciding whether to proceed.
-- Monitors an agreed Pilot through the Client Workspace.
+- Browses visible Talent.
+- Organizes private Pods.
+- Optionally requests individual or Pod-based interviews.
+- Submits and, after rejection, revises a Pilot Request.
+- Views Pilot information.
+- Submits permanent progress updates during an active Pilot.
 
 ### Admin
 
-- Reviews Interview Requests.
-- Confirms Talent availability and contacts Talent manually.
-- Schedules interviews and updates their statuses.
-- Creates a Pilot after the Client and BlihOps agree to proceed.
-- Defines Pilot goals, dates, milestones, and participating Talent.
+- Reviews Pilot Requests.
+- Confirms the intended Pilot details and participants.
 - Starts and manages the Pilot.
-- Records client-visible progress and the final outcome.
+- Updates official goals, measurements, dates, participants, and status.
+- Removes Client progress updates when necessary.
+- Decides whether a completed Pilot becomes Active or Archived.
 
 ### Talent
 
-- Is contacted and coordinated by BlihOps outside the platform.
-- Does not receive Pilot-management access in V1.
-- Is not notified or assigned by Pod membership.
+- Is coordinated by Blihops outside the platform.
+- Has no Pilot-management access in V1.
 
-## 4. End-to-End Flow
+## 4. Pilot Eligibility
+
+A Company may submit a Client Pilot Request only when its relationship status is
+`PILOT_PREPARATION`.
+
+The Pilot feature is unavailable when the Company is:
 
 ```text
-Client enters Workspace
-→ Searches and reviews visible Talent
-→ Optionally organizes Talent into Pods
-→ Requests one or more interviews
-→ Admin checks availability and contacts Talent manually
-→ Admin schedules the interview
-→ Interview Request moves from Pending to Scheduled
-→ Interview takes place
-→ Interview Request moves to Completed
-→ [More interviews needed] → Client submits additional Interview Requests
-→ [Client and BlihOps agree to proceed] → Admin creates two-week Pilot
-→ Admin defines goals, dates, milestones, and participating Talent
-→ Admin starts Pilot
-→ Admin records progress and client-visible updates
-→ Client monitors Pilot in the Workspace
-→ Admin completes or cancels Pilot and records the outcome
-→ Client and BlihOps decide manually whether to enter a longer-term engagement
+ON_PILOT
+PILOT_COMPLETED
+ACTIVE
+ARCHIVED
 ```
 
-## 5. Talent Pods
+A Company has one successful free Pilot opportunity. Only a Pilot that reaches
+`COMPLETED` consumes it.
 
-Pods help Clients build and compare possible Talent combinations before deciding
-whom to interview.
+- Rejected requests do not consume the opportunity.
+- Cancelled Pilots do not consume the opportunity.
+- A rejected request may be edited and resubmitted.
+- A cancelled Pilot returns the Company to `PILOT_PREPARATION`.
+- Only one non-final Pilot Request or Pilot may be in progress at a time.
 
-Pods may be used for role-based shortlists, alternative candidate combinations,
-comparing possible Pilot participants, and selecting a planning-only Pod Lead.
+## 5. Client Pilot Request
 
-Pods do not:
+### 5.1 Required and Optional Fields
 
-- Confirm Talent availability.
-- Contact or notify Talent.
-- Create Interview Requests.
-- Add Talent to a Pilot.
-- Reserve, assign, hire, or contract Talent.
+| Field | Required | Notes |
+|---|---|---|
+| Pilot title | Yes | Client-provided title |
+| Business goals | Yes | What the Client wants to achieve |
+| Success measurements | Yes | How the Client expects success to be evaluated |
+| Expected start date | Yes | Requested date; Admin confirms the actual date |
+| Expected duration | Automatic | Fixed at 14 days; not client-editable |
+| Additional context | No | Free-text context for Admin |
+| Individual Talent participants | No | Any visible Talent may be selected |
+| Pod participant sources | No | Pod members expand into individual participants |
 
-Only an explicit Interview Request begins interview coordination. Only an Admin
-action adds agreed Talent to a Pilot.
+The Client may include any visible Talent. Interview completion is recommended
+but is not required.
 
-## 6. Interview Requests
+### 5.2 Participant Expansion
 
-The Client submits an Interview Request from an available Talent Profile and may
-include context for BlihOps.
+When a Client selects a Pod, the system copies the Pod's current members into
+the Pilot Request as individual participants. A Talent selected both directly and
+through a Pod appears only once.
+
+The Admin sees the individual participants, not the private Pod title,
+description, leader, or membership structure.
+
+The participant list is a snapshot. Later Pod changes do not alter a submitted
+request or an active Pilot.
+
+## 6. Pilot Request Lifecycle
+
+```text
+SUBMITTED
+    ↓
+IN_REVIEW
+    ├── REJECTED → Client edits and resubmits
+    └── APPROVED → Pilot becomes PLANNED
+```
 
 | Status | Meaning |
 |---|---|
-| Pending | Submitted and awaiting BlihOps review |
-| Scheduled | Availability is confirmed and interview scheduling is recorded |
-| Completed | The interview took place |
-| Cancelled | The interview will not take place |
+| `SUBMITTED` | Client has sent the request to Admin |
+| `IN_REVIEW` | Admin is evaluating the request |
+| `REJECTED` | Admin did not approve it; Client may revise and resubmit |
+| `APPROVED` | Admin accepted it and a planned Pilot exists |
 
-Rules:
+An approval does not start the Pilot automatically.
 
-- BlihOps owns scheduling and all direct Talent communication.
-- The Client can view but cannot directly schedule or change request status.
-- The Client may request interviews with multiple Talent Profiles.
-- The Client may request additional interviews after earlier interviews finish.
-- A Completed request does not indicate Pilot approval or create Pilot
-  participation.
+## 7. Pilot Lifecycle
 
-## 7. Pilot Creation
-
-Admin creates the Pilot only when:
-
-- The Company and Client Workspace exist.
-- Relevant interviews have been completed.
-- The Client and BlihOps have manually agreed to proceed.
-- The intended participating Talent and their availability are confirmed.
-
-Required Pilot information:
-
-- Company
-- Name or reference
-- Client-visible goals
-- Client-visible scope summary
-- Planned start date
-- Planned end date
-- Participating Talent
-
-The planned dates define a two-week Pilot. Admin may also prepare milestones before
-starting it.
-
-## 8. Pilot Lifecycle
+```text
+PLANNED → ACTIVE → COMPLETED
+    ↘              ↘
+      CANCELLED      CANCELLED
+```
 
 | Status | Meaning |
 |---|---|
-| Planned | The agreed Pilot is being prepared and has not started |
-| Active | The two-week Pilot is underway |
-| Completed | The Pilot ended and its outcome was recorded |
-| Cancelled | The Pilot will not continue |
+| `PLANNED` | Request approved; dates and participants are being prepared |
+| `ACTIVE` | Admin explicitly started the 14-day Pilot |
+| `COMPLETED` | The Pilot reached its end and counts as the successful free Pilot |
+| `CANCELLED` | The Pilot will not continue; free Pilot opportunity remains available |
+
+The expected duration is fixed at 14 days. The actual end date is calculated
+from the actual start date. A scheduled job completes an active Pilot when its
+end date is reached.
+
+## 8. Company Transitions
+
+| Event | Company status |
+|---|---|
+| Client activates account | `PILOT_PREPARATION` |
+| Client submits request | `PILOT_PREPARATION` |
+| Request is rejected | `PILOT_PREPARATION` |
+| Request is approved | `PILOT_PREPARATION` |
+| Admin starts Pilot | `ON_PILOT` |
+| Pilot is cancelled | `PILOT_PREPARATION` |
+| Pilot completes | `PILOT_COMPLETED` |
+| Relationship continues | `ACTIVE` |
+| Relationship ends | `ARCHIVED` |
+
+After `PILOT_COMPLETED`, the Client can view the completed Pilot but cannot
+submit another Pilot Request.
+
+## 9. Admin Management
+
+Within Company Detail, Admin can:
+
+- Review request fields and participants
+- Move a request to In Review
+- Reject with a reason
+- Approve a request
+- Confirm actual dates and participants before starting
+- Start the Pilot
+- Edit official goals, measurements, dates, and participants
+- Cancel the Pilot
+- View and remove Client progress updates
+- Complete or review the Pilot outcome
+- Set the Company to Active or Archived after completion
+
+Admin may adjust the operational Pilot details before or during execution. The
+Client's submitted request remains an auditable record.
+
+## 10. Active Pilot Work Page
+
+The Client sees:
+
+- Pilot title
+- Active status
+- Start date
+- End date
+- Days remaining
+- Business goals
+- Success measurements
+- Participants
+- Progress update timeline
+- Add Progress Update action
+
+The Client cannot change official Pilot information or participants.
+
+## 11. Progress Updates
+
+A Client update contains only:
+
+- Update text
+- Author, generated automatically
+- Created date/time, generated automatically
+
+Updates are immutable. The Client cannot edit or delete an update. Admin may
+remove an update after confirmation; the removal remains traceable in internal
+audit history.
+
+There are no milestones in V1.
+
+## 12. Completed Pilot Experience
+
+When the Pilot completes:
 
 ```text
-Planned → Active → Completed
-Planned → Cancelled
-Active → Cancelled
+Pilot: ACTIVE → COMPLETED
+Company: ON_PILOT → PILOT_COMPLETED
 ```
 
-Rules:
+The Client remains able to log in and view:
 
-- A Company may have multiple Pilots over time.
-- A Company may have at most one Planned or Active Pilot at once.
-- Starting a Pilot requires goals, dates, and at least one participant.
-- Completed and Cancelled Pilots remain available as history.
-- A Pilot is never created or started automatically from a Lead, Pod, or Interview
-  Request.
+- Completed Pilot card
+- Goals and measurements
+- Dates
+- Participants
+- Progress updates
+- Pilot history
 
-## 9. Milestones
+The completed Pilot is read-only. The Work page may show a message encouraging
+the Client to begin an ongoing relationship with Blihops.
 
-Milestones provide lightweight progress visibility and may include a title,
-client-visible description, target date, completion date, status, and display
-order.
+## 13. Active Partnership Experience
 
-Milestone statuses:
+When Admin changes the Company to `ACTIVE`, the Client sees:
 
-- Pending
-- In Progress
-- Completed
-- Cancelled
+- Active partnership status
+- Partnership start date
+- Simple relationship statistics
+- Completed Pilot history
 
-Milestones are not tasks. They do not support assignees, subtasks, comments,
-dependencies, time tracking, or attachments in V1.
+V1 does not include contracts, tasks, daily work management, time tracking,
+chat, billing, or payments.
 
-## 10. Participating Talent
+## 14. Out of Scope
 
-Admin explicitly adds the Talent agreed for the Pilot.
-
-Rules:
-
-- A participant must reference an existing Talent Profile.
-- The same Talent cannot appear twice in one Pilot.
-- Pod membership does not create or remove participation.
-- A hidden or archived Talent Profile remains linked to Pilot history but is shown
-  as unavailable and cannot be opened by the Client.
-- Participation does not create a contract, payment, or employment record.
-
-## 11. Progress and Updates
-
-Admin maintains Pilot progress by updating:
-
-- Pilot status and dates
-- Milestone statuses
-- Participating Talent
-- Client-visible updates
-- Final outcome
-
-A client-visible update may contain a title, message, effective date, and optional
-related milestone. Internal notes remain Admin-only and must not appear in the
-Client Workspace.
-
-## 12. Client Workspace Experience
-
-The Client can view:
-
-- Current Pilot status
-- Goals and scope
-- Planned dates and timeline
-- Milestones and progress
-- Participating Talent they are permitted to access
-- Client-visible updates
-- Completed or Cancelled Pilot history
-
-The Client cannot create or start a Pilot, change its status or dates, edit
-milestones, manage participants, post updates, or contact Talent directly through
-the platform.
-
-When no Pilot exists, the Pilot Status screen explains that BlihOps creates a Pilot
-after interviews and agreement rather than presenting an empty management tool.
-
-## 13. Admin Experience
-
-Pilot and Interview Request management remain within Company Detail. Admin can:
-
-- Review Interview Requests and scheduling information.
-- Create and edit the Company's Pilot.
-- Start, complete, or cancel the Pilot.
-- Manage goals, dates, milestones, participants, and updates.
-- Record internal notes and the final outcome.
-- Review Pilot activity and history.
-
-There is no separate V1 project-management application.
-
-## 14. Activity
-
-Activity records capture Interview Request status changes and all important Pilot
-lifecycle, milestone, participant, update, and outcome changes.
-
-The Client's recent-activity feed may show Interview Request status changes, Pilot
-creation and status changes, completed milestones, client-visible Pilot updates,
-participant changes, and related Talent becoming unavailable. It excludes internal
-notes, Admin-only changes, and technical events. Pilot events do not send automated
-emails or create notifications in V1.
-
-## 15. Edge States
-
-- If requested Talent is unavailable, Admin keeps or cancels the Interview Request
-  and the Client may request another Talent.
-- If the Client needs more evaluation, additional Interview Requests can be made
-  before Pilot creation.
-- If a participant becomes unavailable before the Pilot starts, Admin updates the
-  planned participants before activation.
-- If the Pilot is cancelled, its history and recorded progress remain available.
-- If the Company is archived, Client Workspace access is blocked while Pilot
-  history is preserved.
-
-## 16. Out of Scope
-
-- Automatic Talent matching or availability confirmation
+- Multiple successful free Pilots for one Company
+- Automatic Pilot approval or start
+- Talent matching or automatic availability confirmation
 - Direct Client-to-Talent messaging
 - Video interview hosting
-- Daily task or project management
-- Time tracking
+- Milestones and task management
 - Contracts and electronic signatures
 - Payments and invoicing
-- Automated transition from Pilot to a longer-term engagement
+- Automatic conversion from completed Pilot to Active partnership
+- General notifications or notification center

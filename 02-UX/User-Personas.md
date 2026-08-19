@@ -22,9 +22,9 @@ Visitors.
         -> submits a Contact or Pilot Request, or books a call
         -> becomes or updates a Lead
         -> discusses the engagement with BlihOps manually
-        -> Admin creates the Company and Client Workspace after agreement
+        -> Admin creates the Company and Client Account after agreement
         -> the Company selects one Approved Client Representative
-        -> the representative receives invitation-only Workspace access
+        -> the representative receives an invitation to the Company-scoped Client Workspace experience
 
 The Approved Client Representative may be the original contact or a different
 person selected by the Company. V1 permits only one Client account per Company.
@@ -60,7 +60,7 @@ Pilot coordination, selected website content, and operational settings.
 
 - Process and qualify new Leads efficiently.
 - Move agreed companies into a controlled onboarding journey.
-- Maintain one Client representative and Workspace per Company.
+- Maintain one Client representative and Company-scoped Client Workspace experience per Company.
 - Recruit and assess Talent consistently.
 - Create accurate, client-safe Talent Profiles from completed Round 1 and Round 2
   application information.
@@ -72,7 +72,7 @@ Pilot coordination, selected website content, and operational settings.
 
 - Review Contact, Pilot, Booking, and manually created Leads.
 - Qualify, close, archive, or convert Leads into Companies.
-- Create Companies and Client Workspaces after manual agreement.
+- Create Companies, Client Accounts, and invitations after manual agreement.
 - Invite and manage the single Client representative.
 - Review Talent Pool applications and record assessments.
 - Approve or reject candidates.
@@ -155,7 +155,7 @@ Client Representative.
 
 - Public actions create or update a Lead for Admin review.
 - A Lead never becomes a Company automatically.
-- Company and Workspace creation happen only after manual agreement.
+- Company and Client Account creation happen only after manual agreement.
 - The Company may nominate a different person as its Client representative.
 
 ## 5. Persona - Approved Client Representative
@@ -174,8 +174,8 @@ who originally contacted BlihOps.
 - Review clear, client-safe Talent information.
 - Organize potential Talent into private planning Pods.
 - Request one or more interviews through BlihOps.
-- Agree on Pilot participants with BlihOps after interviews.
-- Track the agreed two-week Pilot's progress.
+- Submit a Pilot Request with goals, measurements, expected start date, context, and optional participants.
+- View Pilot progress and submit permanent progress updates during the active Pilot.
 
 ### Core tasks
 
@@ -186,8 +186,8 @@ who originally contacted BlihOps.
 - Create and manage planning-only Talent Pods.
 - Submit Interview Requests with relevant context.
 - Review Interview Request progress while BlihOps coordinates with Talent.
-- Monitor Pilot goals, dates, milestones, participants, and updates.
-- Review recent client-relevant Interview, Pilot, milestone, participant, and
+- Monitor Pilot goals, dates, participants, and updates.
+- Review recent client-relevant Interview, Pilot, participant, and
   Talent-availability activity.
 
 ### Needs and expectations
@@ -217,7 +217,7 @@ who originally contacted BlihOps.
 - Talent Pods are private planning groups only.
 - Pod membership does not reserve, assign, hire, notify, or contact Talent.
 - Pod membership does not create an Interview Request or Pilot participation.
-- The Client can monitor but cannot create or manage a Pilot.
+- The Client can submit a Pilot Request and revise a rejected request, but cannot approve, start, or manage official Pilot information.
 - The Client can see only curated Workspace activity, never the internal audit log.
 - The Client cannot edit Talent Profiles or contact Talent directly.
 - The Client cannot invite additional users or manage company-user teams.

@@ -12,17 +12,16 @@ screen states, and edge cases belong in the User Flows and Screen Inventory.
 BlihOps
 ├── BlihOps Web
 │   ├── Public Website
-│   ├── Protected Client Workspace
+│   ├── Protected Client Workspace experience
 │   ├── Protected Talent Portal
 │   └── Shared Authentication and Invitation Routes
 ├── BlihOps Admin
 └── BlihOps API
 ```
 
-The Client Workspace and Talent Portal are protected areas within BlihOps Web;
-they are not separate platforms. BlihOps Admin is the internal operations
-application. The API supports all interfaces but does not have a user-facing
-navigation structure.
+The Client Workspace is a protected Web experience scoped by the authenticated
+Client Account's Company ID. It is not a separate Workspace product or
+Database model in V1. BlihOps Admin is the internal operations application.
 
 ## 3. BlihOps Web Architecture
 
@@ -41,7 +40,7 @@ Public Website
 ├── Careers
 │   └── Career Role Detail
 ├── Pilot
-│   ├── Pilot Request
+│   ├── Public Pilot Request
 │   └── Book a Discovery Call
 ├── Contact
 ├── Join Talent Pool
@@ -50,72 +49,64 @@ Public Website
 └── Terms
 ```
 
-The public website supports English and German content where available. Locale
-selection changes the content variant without creating a separate site
-hierarchy. Client and Talent users share one login screen. After successful
-authentication, the system checks the user's role and redirects them to the
-Client Workspace or Talent Profile Management respectively.
+The public Pilot form creates a Lead. It is separate from the authenticated
+Client Pilot Request inside the Client Workspace.
 
 ### 3.2 Protected Client Workspace
 
 ```text
 Client Workspace
-├── Dashboard
-├── Talent Directory
-│   └── Talent Profile
-├── Talent Pods
+├── Work
+│   ├── Pilot Preparation
+│   ├── Pilot Request Review
+│   ├── Planned Pilot
+│   ├── Active Pilot
+│   ├── Completed Pilot History
+│   └── Active Partnership
+├── Talents
+│   └── Talent Detail
+├── Pods
 │   └── Pod Detail
-├── Interview Requests
-├── Pilot Status
-└── Account Actions
-    ├── Password Reset
-    └── Logout
+└── Interview Requests
 ```
 
-The Workspace belongs to one Company and is accessible by its single active
-Client account. Talent Profiles are reached through the Directory, Pods, and
-related Interview Requests. Pods are private planning groups and do not create
-assignments, interviews, Pilot participation, or direct contact with Talent. A
-Pilot is created and managed by Admin only after interviews and manual agreement;
-the Client's Pilot Status area is read-only.
+The client enters `/client-workspace`. The API resolves the Company from the
+Client Account in the authenticated session. No Workspace ID is required in the
+client URL.
 
-The Workspace Dashboard includes a curated recent-activity feed for relevant
-Interview, Pilot, milestone, participant, and Talent-availability events. This is
-not the internal Admin audit history and excludes routine Pod actions and internal
-information.
+The Workspace belongs logically to one Company and is accessible only when the
+Client Account is active and the Company is not archived.
+
+Pods are private Client planning groups. Admin sees only the individual
+Interview Requests and Pilot participants resulting from explicit Client
+actions, not the private Pod structure.
 
 ### 3.3 Protected Talent Portal
 
 ```text
 Talent Portal
-├── Profile Management
-└── Account Actions
-    ├── Password Reset
-    └── Logout
+└── Profile Management
 ```
 
-The Talent Portal is a focused protected route with no dashboard. Approved
-Talent land directly on their own Profile Management page and can edit only the
-permitted fields of the Admin-created profile.
+Approved Talent land directly on their own Profile Management page. There is no
+Talent Dashboard in V1.
 
 ### 3.4 Shared and Temporary Routes
 
-The following routes support entry, recovery, and handoffs but do not appear in
-primary navigation:
-
 - Shared account invitation activation (`/accept-invitation`)
-- Profile completion form (`/complete-profile`) — token-protected, unauthenticated
-- Password-reset request and new-password form
-- Invalid, expired, or consumed link
-- Access denied
+- Profile completion form (`/complete-profile`), token-protected and unauthenticated
+- Password reset request and new-password form
+- Invalid, expired, or consumed link state
+- Access denied state
+- Archived Company or deactivated Client Account state
 - Submission confirmation
 
-Client and Talent account invitations use the same `/accept-invitation` screen.
-The invitation token identifies the account type, and successful activation
-redirects the user to the Client Workspace or Talent Profile Management based on
-that role. The profile completion form uses a separate, single-use 7-day token
-sent to the candidate after application approval; it precedes the account
-invitation and does not log the candidate into the platform.
+Successful activation redirects by role:
+
+```text
+CLIENT → /client-workspace
+TALENT → Talent Profile Management
+```
 
 ## 4. BlihOps Admin Architecture
 
@@ -126,9 +117,11 @@ BlihOps Admin
 │   └── Lead Detail
 ├── Companies
 │   └── Company Detail
-│       ├── Client and Workspace Access
-│       ├── Pilot Status and Milestones
+│       ├── Company Profile
+│       ├── Client Account and Invitation
+│       ├── Workspace Access State
 │       ├── Interview Requests
+│       ├── Pilot Requests and Pilot History
 │       ├── Notes
 │       └── Activity
 ├── Talent Applications
@@ -150,43 +143,39 @@ BlihOps Admin
     └── Logout
 ```
 
-The Admin Dashboard provides operational summaries and entry points. Notes and
-activity remain contextual to their related resources rather than becoming
-primary navigation sections. Company Pilot management remains within Company
-Detail. Interview Requests are also viewed and managed within the related
-Company Detail rather than through a separate page.
+Interview Requests and Pilot management remain within Company Detail. There is
+no separate Admin Pod management screen because Pods are Client-private.
 
 ## 5. Access and Visibility Rules
 
 | Area | Access | Information boundary |
 |---|---|---|
 | Public Website | Anyone | Published or active public content only |
-| Client Workspace | Invited Client | Their Company, Pods, requests, Pilot, curated activity, and visible Talent Profiles |
-| Talent Portal | Invited Talent | Their own profile and permitted editable fields |
-| BlihOps Admin | Provisioned Admin | All authorized V1 operational and managed-content resources |
+| Client Workspace | Active invited Client | Their Company, private Pods, requests, Pilot data, curated activity, and visible Talent |
+| Talent Portal | Active invited Talent | Their own profile and permitted editable fields |
+| BlihOps Admin | Provisioned Admin | Authorized operational and managed-content resources |
 
 - There is no public account registration.
-- BlihOps Web uses one login screen for Client and Talent accounts.
-- Successful authentication redirects each user to the destination permitted by
-  their role.
-- Clients cannot access another Company's Workspace or internal Talent data.
-- Talent cannot access another profile or edit Admin-managed fields.
+- Client access requires `ClientAccount.status = ACTIVE`.
+- Company `ARCHIVED` blocks Client Workspace access.
+- Deactivated Client Accounts cannot log in or use existing sessions.
+- Clients cannot access another Company's data.
+- Clients cannot see internal Admin notes, audit history, or commercial Talent data.
+- Admin cannot see private Pod content.
 - Hidden or archived Talent Profiles are unavailable to Clients.
-- Archiving a Company disables access to its Client Workspace without deleting
-  its history.
 
 ## 6. Navigation Principles
 
-- Public navigation prioritizes understanding the service, evaluating trust,
-  contacting BlihOps, requesting a Pilot, and joining the Talent Pool.
-- Client navigation prioritizes discovering Talent, organizing Pods, requesting
-  interviews, and tracking an agreed two-week Pilot.
-- Talent navigation remains limited to Profile Management and account actions.
-- Admin navigation follows the operational domains of sales, Companies, Talent,
-  delivery oversight, managed content, and settings.
-- Confirmations and permitted activity records appear in context. V1 has no
-  notification system, notification center, unread state, or activity center.
-- Automated email is limited to account invitations, profile completion requests,
-  and password resets that deliver essential secure links.
-- Protected or unavailable destinations provide an appropriate login,
-  access-denied, expired-link, or unavailable-resource state.
+- Public navigation prioritizes understanding the service, contacting Blihops,
+  requesting a public Pilot, and joining the Talent Pool.
+- Client navigation prioritizes discovering Talent, organizing private Pods,
+  requesting interviews, submitting the one free Pilot Request, and monitoring
+  Pilot history.
+- Admin navigation follows operational domains: Leads, Companies, Talent,
+  delivery oversight, content, and settings.
+- Work is the first Client page and supports Pilot preparation, Pilot monitoring,
+  completed history, and simple Active partnership statistics.
+- V1 has no contracts, billing, tasks, daily work management, milestones, or
+  notification center.
+- Transactional email is limited to invitations, profile completion requests,
+  and password resets.

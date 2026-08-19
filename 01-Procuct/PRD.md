@@ -94,7 +94,7 @@ System authorization roles:
 - There is no public registration.
 - Admin accounts are provisioned internally.
 - Client and Talent accounts are invitation-only.
-- Each company has one Client account and one Client Workspace in V1.
+- Each company has one primary Client account in V1; the Client Workspace is a Company-scoped Web experience, not a separate database model.
 - A Client can access only their company’s workspace.
 - A Talent can access only their own Talent Profile.
 - A Talent account can be invited only after the Talent Profile exists.
@@ -307,32 +307,46 @@ Business rules:
 - Booking Leads use type `BOOKING`; their source provider identifies Cal.com as
   `CALCOM`.
 - A Lead never becomes a Company automatically.
-- Conversion creates a Company and its Client Workspace, then marks the Lead as converted.
+- Conversion creates a Company, Client User, Client Account, and invitation context, then marks the Lead as converted. The Client Workspace is a Company-scoped Web experience, not a separate database model.
 - Duplicate-company detection blocks accidental duplicate conversion.
 
 ### 6.3 Companies
 
-Company statuses:
+Company relationship statuses:
 
-- Invitation Pending
+- Pilot Preparation
 - On Pilot
+- Pilot Completed
 - Active
 - Archived
+
+Client Account statuses:
+
+- Pending Invitation
+- Active
+- Deactivated
 
 Admin can:
 
 - Create a Company manually or from a qualified Lead.
+- Create the single Client User and Client Account.
 - View and edit company information.
-- View the Client Workspace status, Client invitation status, Pilot status, Interview Requests, notes, and activity.
-- Send or resend the single Client account invitation.
+- View separate Company relationship, Client Account, invitation, and derived access states.
+- Send, resend, or replace the single Client account invitation.
 - Deactivate or reactivate the Client account.
-- Create and manage two-week Pilots after interviews and manual agreement.
+- Review and decide on Client Pilot Requests.
+- Start and manage the one free two-week Pilot opportunity.
 - Archive and restore a Company.
 
 Business rules:
 
-- Creating a Company creates one Client Workspace.
-- A company has at most one Client account in V1.
+- Creating a Company creates one primary Client Account in V1; it does not create a Workspace database record.
+- The Client Workspace is a Web experience scoped by the Company ID resolved from the Client Account.
+- Only a Company in Pilot Preparation can submit a Client Pilot Request.
+- A rejected request can be edited and resubmitted.
+- A cancelled Pilot does not consume the free Pilot opportunity and returns the Company to Pilot Preparation.
+- Only a completed Pilot consumes the one free Pilot opportunity.
+- A completed Pilot moves the Company to Pilot Completed; Admin then chooses Active or Archived.
 - Archiving a Company disables Client Workspace access without deleting history.
 - Restoring a Company does not automatically reactivate a deactivated Client account.
 
@@ -442,9 +456,8 @@ Admin can:
 - Update Interview Request status.
 - Record scheduling information and internal notes.
 - View the related Company and Talent Profile.
-- Create a two-week Pilot after the Client and BlihOps agree to proceed.
-- Define the Pilot goals, dates, milestones, participating Talent, and
-  client-visible updates.
+- Review and approve Client Pilot Requests and create a planned two-week Pilot.
+- Define the Pilot goals, success measurements, dates, participating Talent, and client-visible updates. V1 has no milestones.
 - Start, complete, or cancel a Pilot and record its outcome.
 
 Interview Request statuses:
@@ -452,6 +465,7 @@ Interview Request statuses:
 - Pending
 - Scheduled
 - Completed
+- Rejected
 - Cancelled
 
 Interview rules:
@@ -473,15 +487,12 @@ Pilot rules:
 
 - A Pilot is a two-week trial engagement, distinct from a Pilot Request, Talent
   Pod, and longer-term contract.
-- Admin creates a Pilot only after the interview process and manual agreement with
-  the Client.
-- A Company may have multiple Pilots over time but at most one Planned or Active
-  Pilot at once.
-- Admin manages Pilot goals, dates, milestones, participating Talent, progress,
-  client-visible updates, and final outcome.
+- Admin approves a Client Pilot Request before creating a planned Pilot. Interview completion is recommended but not required.
+- A Company has one successful free Pilot opportunity, at most one non-final Pilot process at once, and at most one Completed Pilot.
+- Admin manages Pilot goals, success measurements, dates, participating Talent, progress updates, and final outcome. V1 has no milestones.
 - Pod membership never creates Pilot participation. Admin adds the agreed Talent
   to the Pilot explicitly.
-- The Client has read-only visibility into its Pilot status and progress.
+- The Client has read-only visibility into official Pilot information and may submit permanent text-only progress updates while the Pilot is Active.
 - Daily work, communication, task management, contracts, and payments remain
   outside the platform in V1.
 
@@ -494,11 +505,12 @@ Pilot rules:
 Displays:
 
 - Welcome and company context
-- Current Pilot status
+- Current Pilot or Pilot preparation state
 - Available Talent summary
-- Active Talent Pod summary
+- Private Pod summary
 - Recent workspace activity
 - Upcoming or recent Interview Requests
+- Completed Pilot history or Active partnership statistics when applicable
 
 ### 7.2 Talent Directory
 
@@ -566,7 +578,7 @@ Client can:
 
 Rules:
 
-- A Pod belongs to exactly one Client Workspace.
+- A Pod belongs to exactly one Company and is private to that Company's Client Account.
 - A Talent Profile may appear in more than one Pod.
 - Duplicate membership within the same Pod is prevented.
 - The Pod Lead is optional and must be a current member of that Pod.
@@ -598,14 +610,13 @@ Displays:
 
 - Current Pilot
 - Current status
-- Goals and dates
-- Timeline and milestones
+- Goals and success measurements
+- Start and end dates
 - Participating Talent when applicable
-- Recent updates
+- Recent progress updates
 - Completed or cancelled Pilot history
 
-The Client can monitor Pilot information but cannot create a Pilot, change its
-status, edit milestones, manage participants, or post updates.
+The Client can submit a Pilot Request while the Company is in Pilot Preparation and can submit permanent text-only progress updates while a Pilot is Active. The Client cannot approve, start, or edit official Pilot information, dates, participants, goals, or status.
 
 ### 7.7 Recent Workspace Activity
 
@@ -614,7 +625,6 @@ The Client Dashboard displays a curated feed of client-relevant events:
 - Interview Request submitted
 - Interview Request scheduled, completed, or cancelled
 - Pilot created, started, completed, or cancelled
-- Pilot milestone completed
 - Client-visible Pilot update posted
 - Pilot participant added or removed
 - Talent used in a Pod or Pilot becoming unavailable
@@ -627,7 +637,9 @@ It is a restricted Client view and not the internal audit log.
 
 - Only the company’s single active Client account can enter.
 - The Client sees only their own Company data.
-- Talent Pods are planning groups, not company-user teams or staffing assignments.
+- Talent Pods are private planning groups, not company-user teams or staffing assignments.
+- Only Pilot Preparation allows a new Client Pilot Request.
+- A completed Pilot consumes the Company's one free Pilot opportunity.
 - There is no invitation flow for additional Client users.
 - There is no direct messaging with Talent.
 
@@ -873,7 +885,7 @@ essential access or onboarding flow:
 
 V1 has no general notification system, notification center, unread state, or
 automated status/update email. Leads, applications, Interview Requests, Pilot
-changes, milestones, Talent availability, Profile activity, and Workspace activity
+changes, Talent availability, Profile activity, and Workspace activity
 do not trigger notifications. Their current state appears only in the relevant
 Admin or Client screens.
 
@@ -952,12 +964,11 @@ Workspace activity feed.
 ## 15. V1 Assumptions
 
 - One seeded or internally provisioned Admin account is sufficient initially.
-- Each company has one Client account and one Client Workspace.
+- Each company has one primary Client account and one Company-scoped Client Workspace experience; there is no Workspace database model.
 - Talent Pods are private planning aids and never imply reservation or assignment.
 - Each approved Talent Profile has at most one Talent account.
 - Recruitment communication and interview scheduling remain operationally managed by BlihOps.
-- Pilots are two-week trials created and managed by Admin after interviews and
-  manual agreement with the Client.
+- Each company has one free 14-day Pilot opportunity. Client Pilot Requests are optional, interview completion is recommended but not required, and Admin approves and starts the Pilot.
 - Pilot work and communication are conducted outside the platform; the Workspace
   provides progress visibility only.
 - Cal.com handles call scheduling.

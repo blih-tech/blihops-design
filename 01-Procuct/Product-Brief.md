@@ -143,16 +143,17 @@ Admin Qualification
       ↓
 Company Created
       ↓
-Client Workspace Created
+Client User + Client Account Created
       ↓
 Client Account Invitation
       ↓
 Client Activates Account
       ↓
-Client Workspace Access
+Company-scoped Client Workspace Access
 ```
 
-Each company has one Client Workspace and one Client account in Version 1.
+Each company has one primary Client Account in Version 1. The Client Workspace is
+a Web experience scoped by Company ID; it is not a separate database model.
 
 ### 5.2 Talent Lifecycle
 
@@ -213,16 +214,19 @@ The Client may request interviews with one or more Talent Profiles. BlihOps
 confirms availability, contacts Talent, and coordinates interviews manually. The
 Client may request additional interviews before deciding whether to proceed.
 
-After the Client and BlihOps agree on the participating Talent, Admin creates a
-two-week Pilot with goals, dates, milestones, participants, and progress updates.
-The Client can monitor the Pilot in the Workspace, while Admin manages it. Daily
-work and communication remain outside the platform. A longer-term contract is a
+The Client may submit one Company-scoped Pilot Request with goals, success
+measurements, an expected start date, additional context, and optional individual
+or Pod-based participants. Admin reviews the request and, if approved, creates a
+planned two-week Pilot. Admin starts and manages the Pilot; the Client can view
+official information and submit permanent text-only progress updates. Daily work
+and communication remain outside the platform. A longer-term contract is a
 separate post-Pilot decision and remains outside V1.
 
-Recent Workspace activity is limited to client-relevant Interview, Pilot,
-milestone, participant, and Talent-availability events. It does not expose the
-internal audit log or include routine Pod changes, internal notes, Admin-only
-changes, or Talent Profile edit history.
+There are no milestones in V1. Recent Workspace activity is limited to
+client-relevant Interview, Pilot, participant, Talent-availability, and
+client-visible update events. It does not expose the internal audit log or
+include routine Pod changes, internal notes, Admin-only changes, or Talent
+Profile edit history.
 
 Clients cannot edit Talent Profiles, contact talent directly, create teams of
 company users, or invite additional client users.
