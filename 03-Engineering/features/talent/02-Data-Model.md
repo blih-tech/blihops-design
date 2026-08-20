@@ -77,7 +77,6 @@ model TalentApplication {
   phone                 String
   country               String
   city                  String
-  professionalHeadline  String
   primaryRole           String
   techStack             String[]
   secondarySkills       String[]
@@ -85,10 +84,11 @@ model TalentApplication {
   portfolioUrl          String?
   githubUrl             String?
   linkedinUrl           String?
-  resumeFileKey         String
-  completionPhotoKey    String?
-  completionShortBio    String?
-  completionSubmittedAt DateTime?
+  resumeFileKey               String
+  completionPhotoKey          String?
+  completionShortBio          String?
+  completionProfessionalHeadline String?
+  completionSubmittedAt       DateTime?
   internalNotes         String                  @default("")
   createdAt             DateTime                @default(now())
   updatedAt             DateTime                @updatedAt

@@ -56,7 +56,7 @@ Hard gates:
 Round 1 contains the Admin review data:
 
 - Full name, work email, phone, country, city.
-- Professional headline, primary role, tech stack, secondary skills.
+- Primary role, tech stack, secondary skills.
 - Years of experience.
 - Portfolio, GitHub, LinkedIn.
 - Resume.
@@ -73,10 +73,11 @@ history records. Moving the current status is the Admin's assessment decision.
 
 After `APPROVED`, Admin sends a Profile Completion Request.
 
-Round 2 contains only:
+Round 2 contains:
 
 - Profile photo.
 - Short bio.
+- Professional headline.
 
 The completion token:
 

@@ -184,10 +184,10 @@ Talent Maintains Permitted Profile Information
 ```
 
 The Talent Application collects the information needed for Admin review in Round 1.
-After approval, the candidate submits only a profile photo and short bio through a
-profile completion request. Admin then creates the Talent Profile and account.
-Account activation remains invitation-only: the invitation lets Approved Talent
-create a password and enter Profile Management.
+After approval, the candidate submits a profile photo, short bio, and professional
+headline through a profile completion request. Admin then creates the Talent
+Profile and account. Account activation remains invitation-only: the invitation
+lets Approved Talent create a password and enter Profile Management.
 
 ---
 
@@ -270,10 +270,10 @@ Profiles may include:
 - Profile visibility and Talent Account status
 
 The Talent Application collects the information needed for Admin review in Round 1.
-After approval, the candidate submits only a profile photo and short bio through a
-profile completion request. Admin can create the Profile and associated account
-only after the completion form is submitted and the combined application
-information is reviewed, before sending the account invitation.
+After approval, the candidate submits a profile photo, short bio, and professional
+headline through a profile completion request. Admin can create the Profile and
+associated account only after the completion form is submitted and the combined
+application information is reviewed, before sending the account invitation.
 
 Only visible Profiles with active Talent Accounts appear in the Client Workspace.
 
