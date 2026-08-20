@@ -43,7 +43,6 @@ The public form is `/talent/apply`.
 | Phone | String | Contact number |
 | Country | String | Candidate location |
 | City | String | Candidate location |
-| Professional headline | String | Client-safe headline |
 | Primary role | String/enum | Main professional role |
 | Tech stack | String array | At least one item |
 | Secondary skills | String array | May be empty if none |
@@ -159,7 +158,7 @@ APPROVED
 → Admin sends completion request
 → COMPLETION_REQUESTED
 → Candidate opens single-use link
-→ Candidate submits photo and short bio
+→ Candidate submits profile photo, short bio, and professional headline
 → COMPLETION_SUBMITTED
 ```
 
@@ -167,6 +166,7 @@ APPROVED
 
 - Profile photo
 - Short bio
+- Professional headline
 
 The completion request does not collect:
 

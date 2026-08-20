@@ -18,7 +18,7 @@ Interview Requests, and Pilot participants depend on the Profile contract.
 - [ ] Confirm the Talent field contract in the UX and data-model documents.
 - [ ] Remove obsolete `screening`, `availability`, `startDate`, and `engagement`
       fields from Web schemas and API payloads.
-- [ ] Move `professionalHeadline` into Round 1.
+- [ ] Confirm `professionalHeadline` stays in Round 2 (completion form).
 - [ ] Confirm the existing auth invitation and reset-token integration points.
 - [ ] Confirm protected storage helpers for resume and profile photo.
 - [ ] Do not create a Profile status or `/talent-portal/:id` route.
@@ -370,8 +370,8 @@ blihops-web/src/lib/forms/talent-application.ts
 Implement:
 
 - Add country.
-- Add professional headline.
 - Remove screening responses.
+- Remove professional headline (it is collected in Round 2).
 - Preserve required resume upload.
 - Match API field names and types.
 - Keep optional URLs consistent with the visibility contract.
@@ -386,10 +386,11 @@ blihops-web/src/components/sections/talent-complete-profile/CompleteProfileForm.
 blihops-web/src/lib/forms/talent-complete-profile.ts
 ```
 
-Keep only:
+Keep:
 
 - Profile photo.
 - Short bio.
+- Professional headline.
 
 Remove:
 

@@ -57,7 +57,8 @@ needed to display the completion form. Submission accepts:
 ```json
 {
   "photoFileKey": "private/uploads/photo.webp",
-  "shortBio": "A concise professional biography."
+  "shortBio": "A concise professional biography.",
+  "professionalHeadline": "Senior backend engineer"
 }
 ```
 
@@ -224,7 +225,6 @@ It never returns:
   "phone": "+251900000000",
   "country": "Ethiopia",
   "city": "Addis Ababa",
-  "professionalHeadline": "Senior backend engineer",
   "primaryRole": "Backend Engineer",
   "techStack": ["TypeScript", "Node.js", "PostgreSQL"],
   "secondarySkills": ["Docker", "AWS"],
