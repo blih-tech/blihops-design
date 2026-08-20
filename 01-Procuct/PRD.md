@@ -160,7 +160,8 @@ Requirements:
   generating a single-use token with a 7-day expiry.
 - The system sends the candidate an email with the completion request link.
 - A valid token opens an unauthenticated profile completion form that collects
-  the remaining profile-building fields: profile photo and short bio.
+  the remaining profile-building fields: profile photo, short bio, and
+  professional headline.
 - The candidate fills the form and submits; the submission updates the Talent
   Application with the completion data.
 - An invalid, expired, consumed, or replaced token cannot open the completion
@@ -233,15 +234,16 @@ Requirements:
 
 Requirements:
 
-- Collect the candidate's full name, email, phone, country, city, professional
-  headline, primary role, tech stack, secondary skills, years of experience,
-  portfolio, GitHub, and LinkedIn.
+- Collect the candidate's full name, email, phone, country, city, primary role,
+  tech stack, secondary skills, years of experience, portfolio, GitHub, and
+  LinkedIn.
 - Require a resume.
 - Accept supported file formats and size limits.
 - Create one Talent Application.
 - Show a confirmation state after successful submission.
 - After approval, Admin must request the remaining profile-building information
-  (profile photo and short bio) through a profile completion request.
+  (profile photo, short bio, and professional headline) through a profile
+  completion request.
 
 ### 5.6 Published Content
 
